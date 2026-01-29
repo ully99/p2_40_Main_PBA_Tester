@@ -139,36 +139,25 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             SettingValueSave();
 
-            await CommManager.ConnectAllChannel(Settings.Instance.Board_Connect_Timeout);
-            
+            await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
+
             LoadSetting();
             ShowConnectStatus();
         }
 
-        private async void btnConnectAndClose_Click(object sender, EventArgs e)
-        {
-            SettingValueSave();
-
-            await CommManager.ConnectAllChannel(Settings.Instance.Board_Connect_Timeout);
-
-            //나중에 jig, QrRead 코드도 작성
-
-            //여기에 mainform 레이아웃 변환 코드 작성
-            //=======================================
-
-            this.Close();
-        }
+    
 
         private async void btnClose_Click(object sender, EventArgs e)
         {
             SettingValueSave();
 
-            await CommManager.ConnectAllChannel(Settings.Instance.Board_Connect_Timeout);
+            await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
 
             //나중에 jig, QrRead 코드도 작성
 
             //여기에 mainform 레이아웃 변환 코드 작성
             //=======================================
+            mainform.UpdateLayoutByChannelConfig();
 
             this.Close();
 

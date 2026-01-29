@@ -88,6 +88,7 @@
     <Compile Include="Communication\CommManager.cs" />
     <Compile Include="Communication\FtpProfiles.cs" />
     <Compile Include="Communication\OleDbHelper.cs" />
+    <Compile Include="Communication\QrChannelPort.cs" />
     <Compile Include="Communication\SerialChannelPort.cs" />
     <Compile Include="Communication\TcpChannelClient.cs" />
     <Compile Include="Communication\TcpProtocol.cs" />

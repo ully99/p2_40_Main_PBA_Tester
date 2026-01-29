@@ -17,6 +17,8 @@ namespace p2_40_Main_PBA_Tester.Communication
         private static readonly object _sync = new object();
         public static SerialChannelPort[] Pbas { get; }
         public static TcpChannelClient[] Boards { get; }
+
+        public static QrChannelPort[] QrPorts { get; } //(0~3) : 채널, 4 : 레시피
         //public static QrPort QrReader { get; }
         //public static JigPort Jig { get; }
 
@@ -24,7 +26,19 @@ namespace p2_40_Main_PBA_Tester.Communication
         {
             Pbas = new SerialChannelPort[4];
             Boards = new TcpChannelClient[4];
+            QrPorts = new QrChannelPort[5]; // 총 5개 생성
+            for (int i = 0; i < 5; i++)
+            {
+                QrPorts[i] = new QrChannelPort(i);
+            }
         }
+
+        public static async Task ConnectAllComponent(int TcpConnectTimeoutMs)
+        {
+            await ConnectAllChannel(TcpConnectTimeoutMs); //보드 Tcp 연결
+            ConnectAllQrPorts(); //Qr 연결
+        }
+
 
         public static async Task ConnectAllChannel(int timeoutMs) //모든 보드 TCP 연결
         {
@@ -47,6 +61,8 @@ namespace p2_40_Main_PBA_Tester.Communication
 
             await Task.WhenAll(tasks);
         }
+
+
 
         private static async Task TryConnectAsync(int index, bool use, string ip, int port, int timeoutMs) //보드 TCP연결
         {
@@ -134,7 +150,21 @@ namespace p2_40_Main_PBA_Tester.Communication
 
         } //디바이스 연결
 
-       
+        // QR 연결 메서드 추가
+        public static void ConnectAllQrPorts()
+        {
+            var set = Settings.Instance;
+
+            // Ch 1~4
+            QrPorts[0].Open(set.Qr_Port_CH1, set.Qr_BaudRate_CH1);
+            QrPorts[1].Open(set.Qr_Port_CH2, set.Qr_BaudRate_CH2);
+            QrPorts[2].Open(set.Qr_Port_CH3, set.Qr_BaudRate_CH3);
+            QrPorts[3].Open(set.Qr_Port_CH4, set.Qr_BaudRate_CH4);
+
+            // Recipe QR (인덱스 4번 사용)
+            QrPorts[4].Open(set.Recipe_Qr_Port, set.Recipe_Qr_BaudRate);
+        }
+
         public static bool TryConnectChannel_bool(int index, bool use, string DevicePort)
         {
 

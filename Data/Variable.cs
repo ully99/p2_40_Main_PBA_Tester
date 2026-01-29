@@ -15,6 +15,9 @@ namespace p2_40_Main_PBA_Tester.Data
         public const byte WRITE = 0x06;
         public const byte MULTI_WRITE = 0x10;
 
+        public static readonly byte[] QR_START = { 0x16, 0x54, 0x0D }; //Qr 찍기 명령
+        public static readonly byte[] QR_END = { 0x16, 0x55, 0x0D }; //Qr 찍기 종료 명령
+
         public static readonly byte[] CHARGE_OFF = { 0x00, 0x0B, 0x00, 0x00 };
 
         public static readonly byte[] READ_DEVICE_ID = { 0x00, 0x41, 0x00, 0x04 };

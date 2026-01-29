@@ -64,13 +64,13 @@ namespace p2_40_Main_PBA_Tester
             this.lblMesStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel_Channels = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.chControl_ch3 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
             this.chControl_ch4 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
             this.chControl_ch1 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
             this.chControl_ch2 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.productionControl1 = new p2_40_Main_PBA_Tester.UserControls.ProductionControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PboxITM)).BeginInit();
@@ -86,7 +86,7 @@ namespace p2_40_Main_PBA_Tester
             this.statusStripMes.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel_Channels.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,10 +133,10 @@ namespace p2_40_Main_PBA_Tester
             this.btnManualOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnManualOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnManualOpen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.btnManualOpen.Location = new System.Drawing.Point(1756, 6);
+            this.btnManualOpen.Location = new System.Drawing.Point(1754, 6);
             this.btnManualOpen.Margin = new System.Windows.Forms.Padding(11, 6, 11, 6);
             this.btnManualOpen.Name = "btnManualOpen";
-            this.btnManualOpen.Size = new System.Drawing.Size(128, 73);
+            this.btnManualOpen.Size = new System.Drawing.Size(136, 73);
             this.btnManualOpen.TabIndex = 11;
             this.btnManualOpen.Text = "Manual";
             this.btnManualOpen.UseVisualStyleBackColor = false;
@@ -149,10 +149,10 @@ namespace p2_40_Main_PBA_Tester
             this.btnCalibrationOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnCalibrationOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnCalibrationOpen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCalibrationOpen.Location = new System.Drawing.Point(1609, 6);
+            this.btnCalibrationOpen.Location = new System.Drawing.Point(1601, 6);
             this.btnCalibrationOpen.Margin = new System.Windows.Forms.Padding(11, 6, 11, 6);
             this.btnCalibrationOpen.Name = "btnCalibrationOpen";
-            this.btnCalibrationOpen.Size = new System.Drawing.Size(125, 73);
+            this.btnCalibrationOpen.Size = new System.Drawing.Size(131, 73);
             this.btnCalibrationOpen.TabIndex = 10;
             this.btnCalibrationOpen.Text = "Calibration";
             this.btnCalibrationOpen.UseVisualStyleBackColor = false;
@@ -165,10 +165,10 @@ namespace p2_40_Main_PBA_Tester
             this.btnRecipeSettingsOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnRecipeSettingsOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnRecipeSettingsOpen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.btnRecipeSettingsOpen.Location = new System.Drawing.Point(1462, 6);
+            this.btnRecipeSettingsOpen.Location = new System.Drawing.Point(1448, 6);
             this.btnRecipeSettingsOpen.Margin = new System.Windows.Forms.Padding(11, 6, 11, 6);
             this.btnRecipeSettingsOpen.Name = "btnRecipeSettingsOpen";
-            this.btnRecipeSettingsOpen.Size = new System.Drawing.Size(125, 73);
+            this.btnRecipeSettingsOpen.Size = new System.Drawing.Size(131, 73);
             this.btnRecipeSettingsOpen.TabIndex = 9;
             this.btnRecipeSettingsOpen.Text = "Recipe Settings";
             this.btnRecipeSettingsOpen.UseVisualStyleBackColor = false;
@@ -181,10 +181,10 @@ namespace p2_40_Main_PBA_Tester
             this.btnComSettingsOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnComSettingsOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnComSettingsOpen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.btnComSettingsOpen.Location = new System.Drawing.Point(1315, 6);
+            this.btnComSettingsOpen.Location = new System.Drawing.Point(1295, 6);
             this.btnComSettingsOpen.Margin = new System.Windows.Forms.Padding(11, 6, 11, 6);
             this.btnComSettingsOpen.Name = "btnComSettingsOpen";
-            this.btnComSettingsOpen.Size = new System.Drawing.Size(125, 73);
+            this.btnComSettingsOpen.Size = new System.Drawing.Size(131, 73);
             this.btnComSettingsOpen.TabIndex = 8;
             this.btnComSettingsOpen.Text = "COM Settings";
             this.btnComSettingsOpen.UseVisualStyleBackColor = false;
@@ -196,10 +196,10 @@ namespace p2_40_Main_PBA_Tester
             this.lblValueModel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblValueModel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblValueModel.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValueModel.Location = new System.Drawing.Point(1102, 12);
+            this.lblValueModel.Location = new System.Drawing.Point(1134, 12);
             this.lblValueModel.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.lblValueModel.Name = "lblValueModel";
-            this.lblValueModel.Size = new System.Drawing.Size(191, 61);
+            this.lblValueModel.Size = new System.Drawing.Size(139, 61);
             this.lblValueModel.TabIndex = 7;
             this.lblValueModel.Text = "-";
             this.lblValueModel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -211,10 +211,10 @@ namespace p2_40_Main_PBA_Tester
             this.lblTextModel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTextModel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTextModel.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextModel.Location = new System.Drawing.Point(955, 12);
+            this.lblTextModel.Location = new System.Drawing.Point(981, 12);
             this.lblTextModel.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.lblTextModel.Name = "lblTextModel";
-            this.lblTextModel.Size = new System.Drawing.Size(125, 61);
+            this.lblTextModel.Size = new System.Drawing.Size(131, 61);
             this.lblTextModel.TabIndex = 6;
             this.lblTextModel.Text = "Model";
             this.lblTextModel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -226,10 +226,10 @@ namespace p2_40_Main_PBA_Tester
             this.lblValueLotNo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblValueLotNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblValueLotNo.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValueLotNo.Location = new System.Drawing.Point(742, 12);
+            this.lblValueLotNo.Location = new System.Drawing.Point(820, 12);
             this.lblValueLotNo.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.lblValueLotNo.Name = "lblValueLotNo";
-            this.lblValueLotNo.Size = new System.Drawing.Size(191, 61);
+            this.lblValueLotNo.Size = new System.Drawing.Size(139, 61);
             this.lblValueLotNo.TabIndex = 5;
             this.lblValueLotNo.Text = "-";
             this.lblValueLotNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -241,10 +241,10 @@ namespace p2_40_Main_PBA_Tester
             this.lblTextLotNo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTextLotNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTextLotNo.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextLotNo.Location = new System.Drawing.Point(595, 12);
+            this.lblTextLotNo.Location = new System.Drawing.Point(667, 12);
             this.lblTextLotNo.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.lblTextLotNo.Name = "lblTextLotNo";
-            this.lblTextLotNo.Size = new System.Drawing.Size(125, 61);
+            this.lblTextLotNo.Size = new System.Drawing.Size(131, 61);
             this.lblTextLotNo.TabIndex = 4;
             this.lblTextLotNo.Text = "Lot No.";
             this.lblTextLotNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -256,10 +256,10 @@ namespace p2_40_Main_PBA_Tester
             this.lblValueMcuNo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblValueMcuNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblValueMcuNo.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValueMcuNo.Location = new System.Drawing.Point(500, 12);
+            this.lblValueMcuNo.Location = new System.Drawing.Point(506, 12);
             this.lblValueMcuNo.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.lblValueMcuNo.Name = "lblValueMcuNo";
-            this.lblValueMcuNo.Size = new System.Drawing.Size(73, 61);
+            this.lblValueMcuNo.Size = new System.Drawing.Size(139, 61);
             this.lblValueMcuNo.TabIndex = 3;
             this.lblValueMcuNo.Text = "-";
             this.lblValueMcuNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -274,7 +274,7 @@ namespace p2_40_Main_PBA_Tester
             this.lblTextMcuNo.Location = new System.Drawing.Point(353, 12);
             this.lblTextMcuNo.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.lblTextMcuNo.Name = "lblTextMcuNo";
-            this.lblTextMcuNo.Size = new System.Drawing.Size(125, 61);
+            this.lblTextMcuNo.Size = new System.Drawing.Size(131, 61);
             this.lblTextMcuNo.TabIndex = 2;
             this.lblTextMcuNo.Text = "Mcu No.";
             this.lblTextMcuNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -508,7 +508,7 @@ namespace p2_40_Main_PBA_Tester
             this.tabPage14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage14.Size = new System.Drawing.Size(1875, 95);
+            this.tabPage14.Size = new System.Drawing.Size(1881, 95);
             this.tabPage14.TabIndex = 1;
             this.tabPage14.Text = "Comm";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -527,7 +527,7 @@ namespace p2_40_Main_PBA_Tester
             this.tableLayoutPanel31.RowCount = 2;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(1869, 91);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(1875, 91);
             this.tableLayoutPanel31.TabIndex = 1;
             // 
             // tboxJigComm
@@ -538,7 +538,7 @@ namespace p2_40_Main_PBA_Tester
             this.tboxJigComm.Location = new System.Drawing.Point(3, 22);
             this.tboxJigComm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxJigComm.Name = "tboxJigComm";
-            this.tboxJigComm.Size = new System.Drawing.Size(1863, 67);
+            this.tboxJigComm.Size = new System.Drawing.Size(1869, 67);
             this.tboxJigComm.TabIndex = 2;
             this.tboxJigComm.Text = "";
             // 
@@ -546,7 +546,7 @@ namespace p2_40_Main_PBA_Tester
             // 
             this.lblClearJigComm.AutoSize = true;
             this.lblClearJigComm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblClearJigComm.Location = new System.Drawing.Point(1792, 0);
+            this.lblClearJigComm.Location = new System.Drawing.Point(1798, 0);
             this.lblClearJigComm.Name = "lblClearJigComm";
             this.lblClearJigComm.Size = new System.Drawing.Size(74, 20);
             this.lblClearJigComm.TabIndex = 0;
@@ -591,7 +591,7 @@ namespace p2_40_Main_PBA_Tester
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.tableLayoutPanel5);
+            this.panel1.Controls.Add(this.tableLayoutPanel_Channels);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -599,62 +599,26 @@ namespace p2_40_Main_PBA_Tester
             this.panel1.Size = new System.Drawing.Size(1582, 780);
             this.panel1.TabIndex = 0;
             // 
-            // tableLayoutPanel5
+            // tableLayoutPanel_Channels
             // 
-            this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel5.ColumnCount = 4;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Controls.Add(this.chControl_ch3, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.chControl_ch4, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.chControl_ch1, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.chControl_ch2, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1580, 778);
-            this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // chControl_ch3
-            // 
-            this.chControl_ch3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch3.Location = new System.Drawing.Point(793, 5);
-            this.chControl_ch3.Name = "chControl_ch3";
-            this.chControl_ch3.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch3.Size = new System.Drawing.Size(386, 768);
-            this.chControl_ch3.TabIndex = 3;
-            // 
-            // chControl_ch4
-            // 
-            this.chControl_ch4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch4.Location = new System.Drawing.Point(1187, 5);
-            this.chControl_ch4.Name = "chControl_ch4";
-            this.chControl_ch4.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch4.Size = new System.Drawing.Size(388, 768);
-            this.chControl_ch4.TabIndex = 2;
-            // 
-            // chControl_ch1
-            // 
-            this.chControl_ch1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch1.Location = new System.Drawing.Point(5, 5);
-            this.chControl_ch1.Name = "chControl_ch1";
-            this.chControl_ch1.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch1.Size = new System.Drawing.Size(386, 768);
-            this.chControl_ch1.TabIndex = 1;
-            // 
-            // chControl_ch2
-            // 
-            this.chControl_ch2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch2.Location = new System.Drawing.Point(399, 5);
-            this.chControl_ch2.Name = "chControl_ch2";
-            this.chControl_ch2.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch2.Size = new System.Drawing.Size(386, 768);
-            this.chControl_ch2.TabIndex = 0;
+            this.tableLayoutPanel_Channels.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+            this.tableLayoutPanel_Channels.ColumnCount = 4;
+            this.tableLayoutPanel_Channels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_Channels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_Channels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_Channels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_Channels.Controls.Add(this.chControl_ch3, 0, 0);
+            this.tableLayoutPanel_Channels.Controls.Add(this.chControl_ch4, 0, 0);
+            this.tableLayoutPanel_Channels.Controls.Add(this.chControl_ch1, 0, 0);
+            this.tableLayoutPanel_Channels.Controls.Add(this.chControl_ch2, 0, 0);
+            this.tableLayoutPanel_Channels.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel_Channels.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel_Channels.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel_Channels.Name = "tableLayoutPanel_Channels";
+            this.tableLayoutPanel_Channels.RowCount = 1;
+            this.tableLayoutPanel_Channels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_Channels.Size = new System.Drawing.Size(1580, 778);
+            this.tableLayoutPanel_Channels.TabIndex = 0;
             // 
             // panel2
             // 
@@ -674,6 +638,42 @@ namespace p2_40_Main_PBA_Tester
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(301, 530);
             this.panel3.TabIndex = 2;
+            // 
+            // chControl_ch3
+            // 
+            this.chControl_ch3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch3.Location = new System.Drawing.Point(991, 6);
+            this.chControl_ch3.Name = "chControl_ch3";
+            this.chControl_ch3.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch3.Size = new System.Drawing.Size(483, 960);
+            this.chControl_ch3.TabIndex = 3;
+            // 
+            // chControl_ch4
+            // 
+            this.chControl_ch4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch4.Location = new System.Drawing.Point(1484, 6);
+            this.chControl_ch4.Name = "chControl_ch4";
+            this.chControl_ch4.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch4.Size = new System.Drawing.Size(485, 960);
+            this.chControl_ch4.TabIndex = 2;
+            // 
+            // chControl_ch1
+            // 
+            this.chControl_ch1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch1.Location = new System.Drawing.Point(6, 6);
+            this.chControl_ch1.Name = "chControl_ch1";
+            this.chControl_ch1.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch1.Size = new System.Drawing.Size(483, 960);
+            this.chControl_ch1.TabIndex = 1;
+            // 
+            // chControl_ch2
+            // 
+            this.chControl_ch2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch2.Location = new System.Drawing.Point(499, 6);
+            this.chControl_ch2.Name = "chControl_ch2";
+            this.chControl_ch2.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch2.Size = new System.Drawing.Size(483, 960);
+            this.chControl_ch2.TabIndex = 0;
             // 
             // productionControl1
             // 
@@ -713,7 +713,7 @@ namespace p2_40_Main_PBA_Tester
             this.statusStripMes.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel_Channels.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -757,7 +757,7 @@ namespace p2_40_Main_PBA_Tester
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_Channels;
         private UserControls.ProductionControl productionControl1;
         private UserControls.ChControl chControl_ch2;
         private UserControls.ChControl chControl_ch3;
