@@ -371,7 +371,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 }
 
                 byte[] tx = new TcpProtocol(0x06, item).GetPacket();
-                byte[] rx = await board.SendAndReceivePacketAsync(tx, Settings.Instance.Board_Connect_Timeout);
+                byte[] rx = await board.SendAndReceivePacketAsync(tx, Settings.Instance.Board_Read_Timeout);
 
                 if (!UtilityFunctions.CheckTcpRxData(tx, rx))
                 {

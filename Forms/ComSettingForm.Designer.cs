@@ -137,11 +137,16 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.gboxTimeOutValue = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkboxBoardRetry = new MaterialSkin.Controls.MaterialCheckbox();
+            this.checkboxPbaRetry = new MaterialSkin.Controls.MaterialCheckbox();
+            this.tboxPbaRetryCount = new System.Windows.Forms.TextBox();
+            this.tboxBoardRetryCount = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.tboxBoardReadTimeOut = new System.Windows.Forms.TextBox();
-            this.tboxPbaReadTimeOut = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.tboxPbaReadTimeOut = new System.Windows.Forms.TextBox();
             this.tboxBoardConnectTimeOut = new System.Windows.Forms.TextBox();
             this.btnRescan = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -149,9 +154,11 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnOpenMesSetting = new System.Windows.Forms.Button();
             this.btnOpenFtpSetting = new System.Windows.Forms.Button();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkboxDebugMode = new MaterialSkin.Controls.MaterialCheckbox();
+            this.checkbox1ChOnly = new MaterialSkin.Controls.MaterialCheckbox();
             this.checkboxTxRxConsole_pba = new MaterialSkin.Controls.MaterialCheckbox();
             this.checkboxTxRxConsole_board = new MaterialSkin.Controls.MaterialCheckbox();
-            this.checkbox1ChOnly = new MaterialSkin.Controls.MaterialCheckbox();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -195,7 +202,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox18.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.gboxTimeOutValue.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
             this.groupBox19.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox5
@@ -1727,12 +1736,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             // gboxTimeOutValue
             // 
-            this.gboxTimeOutValue.Controls.Add(this.label27);
-            this.gboxTimeOutValue.Controls.Add(this.tboxBoardReadTimeOut);
-            this.gboxTimeOutValue.Controls.Add(this.tboxPbaReadTimeOut);
-            this.gboxTimeOutValue.Controls.Add(this.label28);
-            this.gboxTimeOutValue.Controls.Add(this.label29);
-            this.gboxTimeOutValue.Controls.Add(this.tboxBoardConnectTimeOut);
+            this.gboxTimeOutValue.Controls.Add(this.tableLayoutPanel21);
             this.gboxTimeOutValue.Location = new System.Drawing.Point(938, 228);
             this.gboxTimeOutValue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gboxTimeOutValue.Name = "gboxTimeOutValue";
@@ -1742,61 +1746,149 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.gboxTimeOutValue.TabStop = false;
             this.gboxTimeOutValue.Text = "Value Setting";
             // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.ColumnCount = 3;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel21.Controls.Add(this.checkboxBoardRetry, 0, 4);
+            this.tableLayoutPanel21.Controls.Add(this.checkboxPbaRetry, 0, 3);
+            this.tableLayoutPanel21.Controls.Add(this.tboxPbaRetryCount, 1, 4);
+            this.tableLayoutPanel21.Controls.Add(this.tboxBoardRetryCount, 1, 3);
+            this.tableLayoutPanel21.Controls.Add(this.label27, 0, 2);
+            this.tableLayoutPanel21.Controls.Add(this.tboxBoardReadTimeOut, 1, 2);
+            this.tableLayoutPanel21.Controls.Add(this.label29, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.label28, 0, 1);
+            this.tableLayoutPanel21.Controls.Add(this.tboxPbaReadTimeOut, 1, 1);
+            this.tableLayoutPanel21.Controls.Add(this.tboxBoardConnectTimeOut, 1, 0);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 26);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 5;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(509, 261);
+            this.tableLayoutPanel21.TabIndex = 0;
+            // 
+            // checkboxBoardRetry
+            // 
+            this.checkboxBoardRetry.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkboxBoardRetry.AutoSize = true;
+            this.checkboxBoardRetry.Depth = 0;
+            this.checkboxBoardRetry.Location = new System.Drawing.Point(0, 216);
+            this.checkboxBoardRetry.Margin = new System.Windows.Forms.Padding(0);
+            this.checkboxBoardRetry.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkboxBoardRetry.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkboxBoardRetry.Name = "checkboxBoardRetry";
+            this.checkboxBoardRetry.ReadOnly = false;
+            this.checkboxBoardRetry.Ripple = true;
+            this.checkboxBoardRetry.Size = new System.Drawing.Size(163, 37);
+            this.checkboxBoardRetry.TabIndex = 24;
+            this.checkboxBoardRetry.Text = "Board Retry Count";
+            this.checkboxBoardRetry.UseVisualStyleBackColor = true;
+            // 
+            // checkboxPbaRetry
+            // 
+            this.checkboxPbaRetry.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkboxPbaRetry.AutoSize = true;
+            this.checkboxPbaRetry.Depth = 0;
+            this.checkboxPbaRetry.Location = new System.Drawing.Point(0, 163);
+            this.checkboxPbaRetry.Margin = new System.Windows.Forms.Padding(0);
+            this.checkboxPbaRetry.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkboxPbaRetry.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkboxPbaRetry.Name = "checkboxPbaRetry";
+            this.checkboxPbaRetry.ReadOnly = false;
+            this.checkboxPbaRetry.Ripple = true;
+            this.checkboxPbaRetry.Size = new System.Drawing.Size(151, 37);
+            this.checkboxPbaRetry.TabIndex = 24;
+            this.checkboxPbaRetry.Text = "PBA Retry Count";
+            this.checkboxPbaRetry.UseVisualStyleBackColor = true;
+            // 
+            // tboxPbaRetryCount
+            // 
+            this.tboxPbaRetryCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxPbaRetryCount.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxPbaRetryCount.Location = new System.Drawing.Point(172, 219);
+            this.tboxPbaRetryCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxPbaRetryCount.Name = "tboxPbaRetryCount";
+            this.tboxPbaRetryCount.Size = new System.Drawing.Size(163, 30);
+            this.tboxPbaRetryCount.TabIndex = 25;
+            // 
+            // tboxBoardRetryCount
+            // 
+            this.tboxBoardRetryCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxBoardRetryCount.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxBoardRetryCount.Location = new System.Drawing.Point(172, 167);
+            this.tboxBoardRetryCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxBoardRetryCount.Name = "tboxBoardRetryCount";
+            this.tboxBoardRetryCount.Size = new System.Drawing.Size(163, 30);
+            this.tboxBoardRetryCount.TabIndex = 24;
+            // 
             // label27
             // 
+            this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label27.Location = new System.Drawing.Point(33, 203);
+            this.label27.Location = new System.Drawing.Point(10, 107);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(184, 23);
+            this.label27.Size = new System.Drawing.Size(149, 46);
             this.label27.TabIndex = 5;
             this.label27.Text = "Board Read Delay (ms)";
             // 
             // tboxBoardReadTimeOut
             // 
+            this.tboxBoardReadTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardReadTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardReadTimeOut.Location = new System.Drawing.Point(284, 207);
+            this.tboxBoardReadTimeOut.Location = new System.Drawing.Point(172, 115);
             this.tboxBoardReadTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardReadTimeOut.Name = "tboxBoardReadTimeOut";
-            this.tboxBoardReadTimeOut.Size = new System.Drawing.Size(206, 30);
+            this.tboxBoardReadTimeOut.Size = new System.Drawing.Size(163, 30);
             this.tboxBoardReadTimeOut.TabIndex = 4;
-            // 
-            // tboxPbaReadTimeOut
-            // 
-            this.tboxPbaReadTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaReadTimeOut.Location = new System.Drawing.Point(284, 152);
-            this.tboxPbaReadTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tboxPbaReadTimeOut.Name = "tboxPbaReadTimeOut";
-            this.tboxPbaReadTimeOut.Size = new System.Drawing.Size(206, 30);
-            this.tboxPbaReadTimeOut.TabIndex = 3;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label28.Location = new System.Drawing.Point(33, 152);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(169, 23);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "PBA Read Delay (ms)";
             // 
             // label29
             // 
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label29.Location = new System.Drawing.Point(33, 100);
+            this.label29.Location = new System.Drawing.Point(21, 3);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(209, 23);
+            this.label29.Size = new System.Drawing.Size(127, 46);
             this.label29.TabIndex = 1;
             this.label29.Text = "Board Connect Delay (ms)";
             // 
+            // label28
+            // 
+            this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Calibri", 11F);
+            this.label28.Location = new System.Drawing.Point(17, 55);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(134, 46);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "PBA Read Delay (ms)";
+            // 
+            // tboxPbaReadTimeOut
+            // 
+            this.tboxPbaReadTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxPbaReadTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxPbaReadTimeOut.Location = new System.Drawing.Point(172, 63);
+            this.tboxPbaReadTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxPbaReadTimeOut.Name = "tboxPbaReadTimeOut";
+            this.tboxPbaReadTimeOut.Size = new System.Drawing.Size(163, 30);
+            this.tboxPbaReadTimeOut.TabIndex = 3;
+            // 
             // tboxBoardConnectTimeOut
             // 
+            this.tboxBoardConnectTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardConnectTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardConnectTimeOut.Location = new System.Drawing.Point(284, 100);
+            this.tboxBoardConnectTimeOut.Location = new System.Drawing.Point(172, 11);
             this.tboxBoardConnectTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardConnectTimeOut.Name = "tboxBoardConnectTimeOut";
-            this.tboxBoardConnectTimeOut.Size = new System.Drawing.Size(206, 30);
+            this.tboxBoardConnectTimeOut.Size = new System.Drawing.Size(163, 30);
             this.tboxBoardConnectTimeOut.TabIndex = 0;
             // 
             // btnRescan
@@ -1831,13 +1923,13 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             // btnOpenMesSetting
             // 
-            this.btnOpenMesSetting.Enabled = false;
             this.btnOpenMesSetting.Location = new System.Drawing.Point(938, 135);
             this.btnOpenMesSetting.Name = "btnOpenMesSetting";
             this.btnOpenMesSetting.Size = new System.Drawing.Size(105, 70);
             this.btnOpenMesSetting.TabIndex = 21;
             this.btnOpenMesSetting.Text = "MES";
             this.btnOpenMesSetting.UseVisualStyleBackColor = true;
+            this.btnOpenMesSetting.Click += new System.EventHandler(this.btnOpenMesSetting_Click);
             // 
             // btnOpenFtpSetting
             // 
@@ -1851,9 +1943,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             // groupBox19
             // 
-            this.groupBox19.Controls.Add(this.checkboxTxRxConsole_pba);
-            this.groupBox19.Controls.Add(this.checkboxTxRxConsole_board);
-            this.groupBox19.Controls.Add(this.checkbox1ChOnly);
+            this.groupBox19.Controls.Add(this.tableLayoutPanel19);
             this.groupBox19.Location = new System.Drawing.Point(938, 535);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Size = new System.Drawing.Size(521, 209);
@@ -1861,43 +1951,50 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Function Setting";
             // 
-            // checkboxTxRxConsole_pba
+            // tableLayoutPanel19
             // 
-            this.checkboxTxRxConsole_pba.AutoSize = true;
-            this.checkboxTxRxConsole_pba.Depth = 0;
-            this.checkboxTxRxConsole_pba.Location = new System.Drawing.Point(32, 137);
-            this.checkboxTxRxConsole_pba.Margin = new System.Windows.Forms.Padding(0);
-            this.checkboxTxRxConsole_pba.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.checkboxTxRxConsole_pba.MouseState = MaterialSkin.MouseState.HOVER;
-            this.checkboxTxRxConsole_pba.Name = "checkboxTxRxConsole_pba";
-            this.checkboxTxRxConsole_pba.ReadOnly = false;
-            this.checkboxTxRxConsole_pba.Ripple = true;
-            this.checkboxTxRxConsole_pba.Size = new System.Drawing.Size(219, 37);
-            this.checkboxTxRxConsole_pba.TabIndex = 2;
-            this.checkboxTxRxConsole_pba.Text = "Pba TxRx Data In Console";
-            this.checkboxTxRxConsole_pba.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel19.ColumnCount = 3;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel19.Controls.Add(this.checkboxDebugMode, 0, 3);
+            this.tableLayoutPanel19.Controls.Add(this.checkbox1ChOnly, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.checkboxTxRxConsole_pba, 0, 2);
+            this.tableLayoutPanel19.Controls.Add(this.checkboxTxRxConsole_board, 0, 1);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 25);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 4;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(515, 181);
+            this.tableLayoutPanel19.TabIndex = 0;
             // 
-            // checkboxTxRxConsole_board
+            // checkboxDebugMode
             // 
-            this.checkboxTxRxConsole_board.AutoSize = true;
-            this.checkboxTxRxConsole_board.Depth = 0;
-            this.checkboxTxRxConsole_board.Location = new System.Drawing.Point(32, 89);
-            this.checkboxTxRxConsole_board.Margin = new System.Windows.Forms.Padding(0);
-            this.checkboxTxRxConsole_board.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.checkboxTxRxConsole_board.MouseState = MaterialSkin.MouseState.HOVER;
-            this.checkboxTxRxConsole_board.Name = "checkboxTxRxConsole_board";
-            this.checkboxTxRxConsole_board.ReadOnly = false;
-            this.checkboxTxRxConsole_board.Ripple = true;
-            this.checkboxTxRxConsole_board.Size = new System.Drawing.Size(233, 37);
-            this.checkboxTxRxConsole_board.TabIndex = 1;
-            this.checkboxTxRxConsole_board.Text = "Board TxRx Data In Console";
-            this.checkboxTxRxConsole_board.UseVisualStyleBackColor = true;
+            this.checkboxDebugMode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkboxDebugMode.AutoSize = true;
+            this.checkboxDebugMode.Depth = 0;
+            this.checkboxDebugMode.Location = new System.Drawing.Point(0, 139);
+            this.checkboxDebugMode.Margin = new System.Windows.Forms.Padding(0);
+            this.checkboxDebugMode.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkboxDebugMode.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkboxDebugMode.Name = "checkboxDebugMode";
+            this.checkboxDebugMode.ReadOnly = false;
+            this.checkboxDebugMode.Ripple = true;
+            this.checkboxDebugMode.Size = new System.Drawing.Size(125, 37);
+            this.checkboxDebugMode.TabIndex = 3;
+            this.checkboxDebugMode.Text = "Debug Mode";
+            this.checkboxDebugMode.UseVisualStyleBackColor = true;
             // 
             // checkbox1ChOnly
             // 
+            this.checkbox1ChOnly.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkbox1ChOnly.AutoSize = true;
             this.checkbox1ChOnly.Depth = 0;
-            this.checkbox1ChOnly.Location = new System.Drawing.Point(32, 43);
+            this.checkbox1ChOnly.Location = new System.Drawing.Point(0, 4);
             this.checkbox1ChOnly.Margin = new System.Windows.Forms.Padding(0);
             this.checkbox1ChOnly.MouseLocation = new System.Drawing.Point(-1, -1);
             this.checkbox1ChOnly.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1909,11 +2006,45 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.checkbox1ChOnly.Text = "1CH Only";
             this.checkbox1ChOnly.UseVisualStyleBackColor = true;
             // 
+            // checkboxTxRxConsole_pba
+            // 
+            this.checkboxTxRxConsole_pba.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkboxTxRxConsole_pba.AutoSize = true;
+            this.checkboxTxRxConsole_pba.Depth = 0;
+            this.checkboxTxRxConsole_pba.Location = new System.Drawing.Point(0, 94);
+            this.checkboxTxRxConsole_pba.Margin = new System.Windows.Forms.Padding(0);
+            this.checkboxTxRxConsole_pba.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkboxTxRxConsole_pba.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkboxTxRxConsole_pba.Name = "checkboxTxRxConsole_pba";
+            this.checkboxTxRxConsole_pba.ReadOnly = false;
+            this.checkboxTxRxConsole_pba.Ripple = true;
+            this.checkboxTxRxConsole_pba.Size = new System.Drawing.Size(126, 37);
+            this.checkboxTxRxConsole_pba.TabIndex = 2;
+            this.checkboxTxRxConsole_pba.Text = "PBA Console";
+            this.checkboxTxRxConsole_pba.UseVisualStyleBackColor = true;
+            // 
+            // checkboxTxRxConsole_board
+            // 
+            this.checkboxTxRxConsole_board.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkboxTxRxConsole_board.AutoSize = true;
+            this.checkboxTxRxConsole_board.Depth = 0;
+            this.checkboxTxRxConsole_board.Location = new System.Drawing.Point(0, 49);
+            this.checkboxTxRxConsole_board.Margin = new System.Windows.Forms.Padding(0);
+            this.checkboxTxRxConsole_board.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkboxTxRxConsole_board.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkboxTxRxConsole_board.Name = "checkboxTxRxConsole_board";
+            this.checkboxTxRxConsole_board.ReadOnly = false;
+            this.checkboxTxRxConsole_board.Ripple = true;
+            this.checkboxTxRxConsole_board.Size = new System.Drawing.Size(138, 37);
+            this.checkboxTxRxConsole_board.TabIndex = 1;
+            this.checkboxTxRxConsole_board.Text = "Board Console";
+            this.checkboxTxRxConsole_board.UseVisualStyleBackColor = true;
+            // 
             // ComSettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1485, 776);
+            this.ClientSize = new System.Drawing.Size(1479, 775);
             this.Controls.Add(this.groupBox19);
             this.Controls.Add(this.btnOpenFtpSetting);
             this.Controls.Add(this.btnOpenMesSetting);
@@ -1931,6 +2062,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ComSettingForm";
             this.Text = "ComSettingForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ComSettingForm_FormClosed);
             this.groupBox5.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -1992,9 +2124,11 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
             this.gboxTimeOutValue.ResumeLayout(false);
-            this.gboxTimeOutValue.PerformLayout();
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel21.PerformLayout();
             this.groupBox19.ResumeLayout(false);
-            this.groupBox19.PerformLayout();
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2123,5 +2257,12 @@ namespace p2_40_Main_PBA_Tester.Forms
         private MaterialSkin.Controls.MaterialCheckbox checkboxTxRxConsole_board;
         private MaterialSkin.Controls.MaterialCheckbox checkbox1ChOnly;
         private MaterialSkin.Controls.MaterialCheckbox checkboxTxRxConsole_pba;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+        private MaterialSkin.Controls.MaterialCheckbox checkboxDebugMode;
+        private MaterialSkin.Controls.MaterialCheckbox checkboxBoardRetry;
+        private MaterialSkin.Controls.MaterialCheckbox checkboxPbaRetry;
+        private System.Windows.Forms.TextBox tboxPbaRetryCount;
+        private System.Windows.Forms.TextBox tboxBoardRetryCount;
     }
 }

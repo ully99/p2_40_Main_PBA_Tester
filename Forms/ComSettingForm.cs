@@ -117,12 +117,16 @@ namespace p2_40_Main_PBA_Tester.Forms
             checkbox1ChOnly.Checked = Settings.Instance.Use_1CH_Only;
             checkboxTxRxConsole_board.Checked = Settings.Instance.Use_TxRx_Console_Board;
             checkboxTxRxConsole_pba.Checked = Settings.Instance.Use_TxRx_Console_Pba;
+            checkboxDebugMode.Checked = Settings.Instance.Use_Debug_Mode;
 
             //value setting
             tboxBoardConnectTimeOut.Text = Settings.Instance.Board_Connect_Timeout.ToString();
             tboxPbaReadTimeOut.Text = Settings.Instance.Pba_Read_Timeout.ToString();
             tboxBoardReadTimeOut.Text = Settings.Instance.Board_Read_Timeout.ToString();
-
+            checkboxBoardRetry.Checked = Settings.Instance.Use_Board_Retry;
+            checkboxPbaRetry.Checked = Settings.Instance.Use_Pba_Retry;
+            tboxBoardRetryCount.Text = Settings.Instance.Board_Retry_Count.ToString();
+            tboxPbaRetryCount.Text = Settings.Instance.Pba_Retry_Count.ToString();
         }
 
 
@@ -144,8 +148,15 @@ namespace p2_40_Main_PBA_Tester.Forms
             LoadSetting();
             ShowConnectStatus();
         }
+        private void btnOpenMesSetting_Click(object sender, EventArgs e)
+        {
+            var form = new DBSettingForm(this)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            form.ShowDialog(this);
+        }
 
-    
 
         private async void btnClose_Click(object sender, EventArgs e)
         {
@@ -161,6 +172,11 @@ namespace p2_40_Main_PBA_Tester.Forms
 
             this.Close();
 
+        }
+
+        private void ComSettingForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainform.CheckMesOnceAsync();
         }
 
         #endregion
@@ -189,96 +205,110 @@ namespace p2_40_Main_PBA_Tester.Forms
         #region Save
         private void SettingValueSave()
         {
-            //ch1
-            Settings.Instance.Use_CH1 = SwitchUseCh1.Checked;
-            Settings.Instance.Board_IP_CH1 = tboxTcpCh1Ip.Text?.Trim();
-            int.TryParse(tboxTcpCh1Port.Text, out int tcpPort_ch1);
-            Settings.Instance.Board_Port_CH1 = tcpPort_ch1;
-
-            Settings.Instance.Device_Port_CH1 = tboxPbaPortCh1.Text?.Trim();
-            int.TryParse(cboxPbaBaudRateCh1.Text, out int pbaBaudRate_ch1);
-            Settings.Instance.Device_BaudRate_CH1 = pbaBaudRate_ch1;
-
-
-            Settings.Instance.Qr_Port_CH1 = cboxQrPortCh1.SelectedItem?.ToString().Trim();
-            int.TryParse(cboxQrBaudRateCh1.Text, out int qrBaudRate_ch1);
-            Settings.Instance.Qr_BaudRate_CH1 = qrBaudRate_ch1;
-
-            //ch2
-            Settings.Instance.Use_CH2 = SwitchUseCh2.Checked;
-            Settings.Instance.Board_IP_CH2 = tboxTcpCh2Ip.Text?.Trim();
-            int.TryParse(tboxTcpCh2Port.Text, out int tcpPort_ch2);
-            Settings.Instance.Board_Port_CH2 = tcpPort_ch2;
-
-            Settings.Instance.Device_Port_CH2 = tboxPbaPortCh2.Text?.Trim();
-            int.TryParse(cboxPbaBaudRateCh2.Text, out int pbaBaudRate_ch2);
-            Settings.Instance.Device_BaudRate_CH2 = pbaBaudRate_ch2;
-
-
-            Settings.Instance.Qr_Port_CH2 = cboxQrPortCh2.SelectedItem?.ToString().Trim();
-            int.TryParse(cboxQrBaudRateCh2.Text, out int qrBaudRate_ch2);
-            Settings.Instance.Qr_BaudRate_CH2 = qrBaudRate_ch2;
-
-            //ch3
-            Settings.Instance.Use_CH3 = SwitchUseCh3.Checked;
-            Settings.Instance.Board_IP_CH3 = tboxTcpCh3Ip.Text?.Trim();
-            int.TryParse(tboxTcpCh3Port.Text, out int tcpPort_ch3);
-            Settings.Instance.Board_Port_CH3 = tcpPort_ch3;
-
-            Settings.Instance.Device_Port_CH3 = tboxPbaPortCh3.Text?.Trim();
-            int.TryParse(cboxPbaBaudRateCh3.Text, out int pbaBaudRate_ch3);
-            Settings.Instance.Device_BaudRate_CH3 = pbaBaudRate_ch3;
-
-
-            Settings.Instance.Qr_Port_CH3 = cboxQrPortCh3.SelectedItem?.ToString().Trim();
-            int.TryParse(cboxQrBaudRateCh3.Text, out int qrBaudRate_ch3);
-            Settings.Instance.Qr_BaudRate_CH3 = qrBaudRate_ch3;
-
-            //ch4
-            Settings.Instance.Use_CH4 = SwitchUseCh4.Checked;
-            Settings.Instance.Board_IP_CH4 = tboxTcpCh4Ip.Text?.Trim();
-            int.TryParse(tboxTcpCh4Port.Text, out int tcpPort_ch4);
-            Settings.Instance.Board_Port_CH4 = tcpPort_ch4;
-
-            Settings.Instance.Device_Port_CH4 = tboxPbaPortCh4.Text?.Trim();
-            int.TryParse(cboxPbaBaudRateCh4.Text, out int pbaBaudRate_ch4);
-            Settings.Instance.Device_BaudRate_CH4 = pbaBaudRate_ch4;
-
-
-            Settings.Instance.Qr_Port_CH4 = cboxQrPortCh4.SelectedItem?.ToString().Trim();
-            int.TryParse(cboxQrBaudRateCh4.Text, out int qrBaudRate_ch4);
-            Settings.Instance.Qr_BaudRate_CH4 = qrBaudRate_ch4;
-
-            //Jig
-            Settings.Instance.Jig_Port = cboxJigPort.SelectedItem?.ToString().Trim();
-            int.TryParse(cboxJigBaudRate.Text, out int jigBaudRate);
-            Settings.Instance.Jig_BaudRate = jigBaudRate;
-
-            //Recipe Qr
-            Settings.Instance.Recipe_Qr_Port = cboxRecipeQrPort.SelectedItem?.ToString().Trim();
-            int.TryParse(cboxRecipeQrBaudRate.Text, out int RecipeQrBaudRate);
-            Settings.Instance.Recipe_Qr_BaudRate = RecipeQrBaudRate;
-
-            //function setting
-            Settings.Instance.Use_1CH_Only = checkbox1ChOnly.Checked;
-            Settings.Instance.Use_TxRx_Console_Board = checkboxTxRxConsole_board.Checked;
-            Settings.Instance.Use_TxRx_Console_Pba = checkboxTxRxConsole_pba.Checked;
-
-            //value setting
-            Settings.Instance.Board_Connect_Timeout = int.Parse(tboxBoardConnectTimeOut.Text);
-            Settings.Instance.Pba_Read_Timeout = int.Parse(tboxPbaReadTimeOut.Text);
-            Settings.Instance.Board_Read_Timeout = int.Parse(tboxBoardReadTimeOut.Text);
-
-            if (checkbox1ChOnly.Checked)
+            try
             {
-                if (Settings.Instance.Use_CH2) Settings.Instance.Use_CH2 = false;
-                if (Settings.Instance.Use_CH3) Settings.Instance.Use_CH3 = false;
-                if (Settings.Instance.Use_CH4) Settings.Instance.Use_CH4 = false;
-            }
+                //ch1
+                Settings.Instance.Use_CH1 = SwitchUseCh1.Checked;
+                Settings.Instance.Board_IP_CH1 = tboxTcpCh1Ip.Text?.Trim();
+                int.TryParse(tboxTcpCh1Port.Text, out int tcpPort_ch1);
+                Settings.Instance.Board_Port_CH1 = tcpPort_ch1;
 
-            Settings.Instance.Save();
-            Console.WriteLine("설정 저장 완료");
+                Settings.Instance.Device_Port_CH1 = tboxPbaPortCh1.Text?.Trim();
+                int.TryParse(cboxPbaBaudRateCh1.Text, out int pbaBaudRate_ch1);
+                Settings.Instance.Device_BaudRate_CH1 = pbaBaudRate_ch1;
+
+
+                Settings.Instance.Qr_Port_CH1 = cboxQrPortCh1.SelectedItem?.ToString().Trim();
+                int.TryParse(cboxQrBaudRateCh1.Text, out int qrBaudRate_ch1);
+                Settings.Instance.Qr_BaudRate_CH1 = qrBaudRate_ch1;
+
+                //ch2
+                Settings.Instance.Use_CH2 = SwitchUseCh2.Checked;
+                Settings.Instance.Board_IP_CH2 = tboxTcpCh2Ip.Text?.Trim();
+                int.TryParse(tboxTcpCh2Port.Text, out int tcpPort_ch2);
+                Settings.Instance.Board_Port_CH2 = tcpPort_ch2;
+
+                Settings.Instance.Device_Port_CH2 = tboxPbaPortCh2.Text?.Trim();
+                int.TryParse(cboxPbaBaudRateCh2.Text, out int pbaBaudRate_ch2);
+                Settings.Instance.Device_BaudRate_CH2 = pbaBaudRate_ch2;
+
+
+                Settings.Instance.Qr_Port_CH2 = cboxQrPortCh2.SelectedItem?.ToString().Trim();
+                int.TryParse(cboxQrBaudRateCh2.Text, out int qrBaudRate_ch2);
+                Settings.Instance.Qr_BaudRate_CH2 = qrBaudRate_ch2;
+
+                //ch3
+                Settings.Instance.Use_CH3 = SwitchUseCh3.Checked;
+                Settings.Instance.Board_IP_CH3 = tboxTcpCh3Ip.Text?.Trim();
+                int.TryParse(tboxTcpCh3Port.Text, out int tcpPort_ch3);
+                Settings.Instance.Board_Port_CH3 = tcpPort_ch3;
+
+                Settings.Instance.Device_Port_CH3 = tboxPbaPortCh3.Text?.Trim();
+                int.TryParse(cboxPbaBaudRateCh3.Text, out int pbaBaudRate_ch3);
+                Settings.Instance.Device_BaudRate_CH3 = pbaBaudRate_ch3;
+
+
+                Settings.Instance.Qr_Port_CH3 = cboxQrPortCh3.SelectedItem?.ToString().Trim();
+                int.TryParse(cboxQrBaudRateCh3.Text, out int qrBaudRate_ch3);
+                Settings.Instance.Qr_BaudRate_CH3 = qrBaudRate_ch3;
+
+                //ch4
+                Settings.Instance.Use_CH4 = SwitchUseCh4.Checked;
+                Settings.Instance.Board_IP_CH4 = tboxTcpCh4Ip.Text?.Trim();
+                int.TryParse(tboxTcpCh4Port.Text, out int tcpPort_ch4);
+                Settings.Instance.Board_Port_CH4 = tcpPort_ch4;
+
+                Settings.Instance.Device_Port_CH4 = tboxPbaPortCh4.Text?.Trim();
+                int.TryParse(cboxPbaBaudRateCh4.Text, out int pbaBaudRate_ch4);
+                Settings.Instance.Device_BaudRate_CH4 = pbaBaudRate_ch4;
+
+
+                Settings.Instance.Qr_Port_CH4 = cboxQrPortCh4.SelectedItem?.ToString().Trim();
+                int.TryParse(cboxQrBaudRateCh4.Text, out int qrBaudRate_ch4);
+                Settings.Instance.Qr_BaudRate_CH4 = qrBaudRate_ch4;
+
+                //Jig
+                Settings.Instance.Jig_Port = cboxJigPort.SelectedItem?.ToString().Trim();
+                int.TryParse(cboxJigBaudRate.Text, out int jigBaudRate);
+                Settings.Instance.Jig_BaudRate = jigBaudRate;
+
+                //Recipe Qr
+                Settings.Instance.Recipe_Qr_Port = cboxRecipeQrPort.SelectedItem?.ToString().Trim();
+                int.TryParse(cboxRecipeQrBaudRate.Text, out int RecipeQrBaudRate);
+                Settings.Instance.Recipe_Qr_BaudRate = RecipeQrBaudRate;
+
+                //function setting
+                Settings.Instance.Use_1CH_Only = checkbox1ChOnly.Checked;
+                Settings.Instance.Use_TxRx_Console_Board = checkboxTxRxConsole_board.Checked;
+                Settings.Instance.Use_TxRx_Console_Pba = checkboxTxRxConsole_pba.Checked;
+                Settings.Instance.Use_Debug_Mode = checkboxDebugMode.Checked;
+
+                //value setting
+                Settings.Instance.Board_Connect_Timeout = int.Parse(tboxBoardConnectTimeOut.Text);
+                Settings.Instance.Pba_Read_Timeout = int.Parse(tboxPbaReadTimeOut.Text);
+                Settings.Instance.Board_Read_Timeout = int.Parse(tboxBoardReadTimeOut.Text);
+                Settings.Instance.Use_Board_Retry = checkboxBoardRetry.Checked;
+                Settings.Instance.Use_Pba_Retry = checkboxPbaRetry.Checked;
+                Settings.Instance.Board_Retry_Count = int.Parse(tboxBoardRetryCount.Text);
+                Settings.Instance.Pba_Retry_Count = int.Parse(tboxPbaRetryCount.Text);
+
+                if (checkbox1ChOnly.Checked)
+                {
+                    if (Settings.Instance.Use_CH2) Settings.Instance.Use_CH2 = false;
+                    if (Settings.Instance.Use_CH3) Settings.Instance.Use_CH3 = false;
+                    if (Settings.Instance.Use_CH4) Settings.Instance.Use_CH4 = false;
+                }
+
+                Settings.Instance.Save();
+                Console.WriteLine("설정 저장 완료");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"설정 저장 실패! {ex.Message}");
+            }
         }
+
+
 
 
         #endregion

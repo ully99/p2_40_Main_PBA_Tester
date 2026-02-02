@@ -190,6 +190,79 @@ namespace p2_40_Main_PBA_Tester
 
         #endregion
 
+        #region MES
+
+        private enum MesConnState { Off, Ok, Fail }
+        private void SettingMesImage()
+        {
+            // 상태바 기본 설정
+            statusStripMes.ImageScalingSize = new Size(16, 16); // ← System.Drawing 필요
+            statusStripMes.ShowItemToolTips = true;
+
+            CheckMesOnceAsync();
+        }
+
+        public async void CheckMesOnceAsync()
+        {
+            if (!Settings.Instance.USE_MES)
+            {
+                SetMesStatus(MesConnState.Off, "MES 비활성화");
+                return;
+            }
+
+            SetMesStatus(MesConnState.Fail);
+
+            bool ok = await Task.Run(() =>
+            {
+                try
+                {
+                    // 네 세팅값을 리소스 이용해 연결문자열 구성
+                    string cs =
+                        $@"Provider=SQLOLEDB;Data Source={Settings.Instance.DB_IP},{Settings.Instance.DB_PORT};" +
+                        $@"Initial Catalog={Settings.Instance.DB_NAME};User ID={Settings.Instance.DB_USER};" +
+                        $@"Password={Settings.Instance.DB_PW};Connect Timeout=5;";
+
+                    using (var conn = new OleDbConnection(cs))
+                    {
+                        conn.Open(); // 붙기만 확인
+                    }
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            });
+
+            SetMesStatus(ok ? MesConnState.Ok : MesConnState.Fail);
+
+
+        }
+
+        private void SetMesStatus(MesConnState state, string tip = null)
+        {
+            switch (state)
+            {
+                case MesConnState.Off:
+                    lblMesStatus.Image = Properties.Resources.LED_OFF_SM;
+                    lblMesStatus.Text = "MES OFF";
+                    break;
+
+                case MesConnState.Ok:
+                    lblMesStatus.Image = Properties.Resources.LED_GREEN_SM;
+                    lblMesStatus.Text = "MES ON";
+                    break;
+
+                case MesConnState.Fail:
+                    lblMesStatus.Image = Properties.Resources.LED_RED_SM;
+                    lblMesStatus.Text = "MES Connect Fail";
+                    break;
+            }
+            if (!string.IsNullOrEmpty(tip))
+                lblMesStatus.ToolTipText = tip;
+        }
+        #endregion
+
 
     }
 }

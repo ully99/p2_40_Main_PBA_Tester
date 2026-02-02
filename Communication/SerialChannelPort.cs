@@ -220,30 +220,52 @@ namespace p2_40_Main_PBA_Tester.Communication
 
         public async Task<byte[]> SendAndReceivePacketAsync(byte[] data, int timeoutMs)
         {
-            DiscardBuffers();
+            int maxAttempts = (Settings.Instance.Use_Pba_Retry && Settings.Instance.Pba_Retry_Count > 0)
+                      ? Settings.Instance.Pba_Retry_Count
+                      : 1;
 
-            // VS2019 호환: 옵션 생략(기본 생성자)
-            _packetTcs = new TaskCompletionSource<byte[]>();
-
-            bool ok = await SendAsync(data).ConfigureAwait(false);
-            if (!ok)
+            for (int attempt = 1; attempt <= maxAttempts; attempt++)
             {
-                _packetTcs.TrySetResult(null);
-                return null;
+                // === 기존 로직 시작 ===
+                DiscardBuffers();
+                _packetTcs = new TaskCompletionSource<byte[]>();
+
+                bool sendOk = await SendAsync(data).ConfigureAwait(false);
+                if (!sendOk)
+                {
+                    // 송신 자체를 실패했으면 재시도 없이 바로 실패 처리할지, 이것도 재시도할지 결정해야 함.
+                    // 보통 송신 실패는 포트가 닫힌 거라 재시도 의미가 없음.
+                    _packetTcs.TrySetResult(null);
+                    return null;
+                }
+
+                Task timeoutTask = Task.Delay(timeoutMs);
+                Task completed = await Task.WhenAny(_packetTcs.Task, timeoutTask).ConfigureAwait(false);
+
+                if (completed != timeoutTask)
+                {
+                    // 성공! (타임아웃 전에 응답 옴)
+                    if (_packetTcs.Task.IsCompleted && !_packetTcs.Task.IsFaulted)
+                        return await _packetTcs.Task.ConfigureAwait(false);
+                }
+                else
+                {
+                    // 타임아웃 발생 (실패)
+                    _packetTcs.TrySetCanceled();
+                }
+                // === 기존 로직 끝 ===
+
+                // 실패해서 여기까지 왔는데, 아직 기회가 남았다면?
+                if (attempt < maxAttempts)
+                {
+                    Console.WriteLine($"[Serial Retry] CH{ChannelNo} Timeout! Retrying... ({attempt}/{maxAttempts})");
+                    // 너무 빠르게 재시도하면 장비가 체할 수 있으니 살짝 쉰다 (선택 사항)
+                    await Task.Delay(100);
+                }
             }
 
-            Task timeoutTask = Task.Delay(timeoutMs);
-            Task completed = await Task.WhenAny(_packetTcs.Task, timeoutTask).ConfigureAwait(false);
-            if (completed == timeoutTask)
-            {
-                _packetTcs.TrySetCanceled();
-                Console.WriteLine("[Serial] CH{0} SendAndReceivePacketAsync 타임아웃 ({1}ms)", ChannelNo, timeoutMs);
-                return null;
-            }
-
-            if (_packetTcs.Task.IsCompleted && !_packetTcs.Task.IsFaulted)
-                return await _packetTcs.Task.ConfigureAwait(false);
-
+            // 모든 시도 다 실패함
+            Console.WriteLine($"[Serial Fail] CH{ChannelNo} Failed after {maxAttempts} attempts.");
             return null;
         }
 

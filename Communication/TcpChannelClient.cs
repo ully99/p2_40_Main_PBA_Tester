@@ -158,37 +158,72 @@ namespace p2_40_Main_PBA_Tester.Communication
 
         public async Task<byte[]> SendAndReceivePacketAsync(byte[] txPacket, int timeoutMs)
         {
-            DiscardBuffers();
-            _packetTcs = new TaskCompletionSource<byte[]>();
+            // 1. 재시도 횟수 설정 가져오기 (설정 꺼져있으면 1회)
+            int maxAttempts = (Settings.Instance.Use_Board_Retry && Settings.Instance.Board_Retry_Count > 0)
+                              ? Settings.Instance.Board_Retry_Count
+                              : 1;
 
-            bool ok = await SendAsync(txPacket, timeoutMs).ConfigureAwait(false);
-            if (!ok)
+            for (int attempt = 1; attempt <= maxAttempts; attempt++)
             {
-                _packetTcs.TrySetResult(null);
-                return null;
+                // --- 시도 시작 ---
+
+                // 1. 이전 버퍼 비우기 (중요: 이전 시도의 찌꺼기 데이터 제거)
+                DiscardBuffers();
+
+                // 2. 응답 대기용 신호기(TCS) 생성
+                _packetTcs = new TaskCompletionSource<byte[]>();
+
+                // 3. 데이터 전송
+                bool sendOk = await SendAsync(txPacket, timeoutMs).ConfigureAwait(false);
+                if (!sendOk)
+                {
+                    // 전송 자체가 실패(소켓 끊김 등)했으면 TCS 정리하고 다음 시도 혹은 종료
+                    _packetTcs.TrySetResult(null);
+
+                    // 소켓이 아예 끊겼으면 재시도 의미가 없으니 바로 종료
+                    if (!IsSocketConnected()) return null;
+                }
+                else
+                {
+                    // 4. 응답 대기
+                    Console.WriteLine($"TimeOut Value : {timeoutMs}");
+                    Task timeoutTask = Task.Delay(timeoutMs);
+                    Task completed = await Task.WhenAny(_packetTcs.Task, timeoutTask).ConfigureAwait(false);
+
+                    if (completed != timeoutTask) // 타임아웃 전에 완료됨
+                    {
+                        // 성공적으로 응답 받음!
+                        if (_packetTcs.Task.IsCompleted && !_packetTcs.Task.IsFaulted)
+                        {
+                            // (옵션) 로그에 재시도 성공했다는 걸 남기면 좋음
+                            if (attempt > 1)
+                                Console.WriteLine($"[TCP Success] CH{ChannelNo} Succeeded at attempt {attempt}");
+
+                            return await _packetTcs.Task.ConfigureAwait(false);
+                        }
+                    }
+                    else // 타임아웃 발생
+                    {
+                        _packetTcs.TrySetCanceled();
+                        Console.WriteLine($"[TCP Timeout] CH{ChannelNo} Request Timeout ({attempt}/{maxAttempts})");
+                    }
+                }
+
+                // --- 재시도 준비 ---
+                if (attempt < maxAttempts)
+                {
+                    Console.WriteLine($"[TCP Retry] CH{ChannelNo} Retrying TX... ({attempt}/{maxAttempts})");
+                    // 너무 급하게 보내지 않도록 잠깐 숨 고르기 (장비 부하 방지)
+                    await Task.Delay(200);
+                }
             }
 
-            Task timeoutTask = Task.Delay(timeoutMs);
-            Task completed = await Task.WhenAny(_packetTcs.Task, timeoutTask).ConfigureAwait(false);
-
-            if (completed == timeoutTask)
-            {
-                _packetTcs.TrySetCanceled();
-                Console.WriteLine($"[TCP] CH{ChannelNo} SendAndReceivePacketAsync 타임아웃({timeoutMs}ms)");
-                return null;
-            }
-
-            if (_packetTcs.Task.IsCompleted && !_packetTcs.Task.IsFaulted)
-                return await _packetTcs.Task.ConfigureAwait(false);
-
+            // 모든 시도 실패
+            Console.WriteLine($"[TCP Fail] CH{ChannelNo} Failed after {maxAttempts} attempts.");
             return null;
         }
 
-        /// <summary>
-        /// 기존 네 ReceiveFixedProtocolAsync랑 같은 역할인데,
-        /// 이제는 수신루프가 버퍼를 채우고 TryExtractFixedPacket가 완성패킷을 TCS로 반환함.
-        /// 즉 "외부에서 기다리는" 형태로만 남겨두면 됨.
-        /// </summary>
+
         public async Task<byte[]> ReceiveFixedProtocolAsync(int timeoutMs)
         {
             _packetTcs = new TaskCompletionSource<byte[]>();

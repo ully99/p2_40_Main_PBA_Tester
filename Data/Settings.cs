@@ -139,11 +139,16 @@ namespace p2_40_Main_PBA_Tester.Data
         public int Recipe_Qr_BaudRate { get; set; } = 9600;
         public bool Use_1CH_Only { get; set; } = false;
 
-        public bool Use_TxRx_Console_Board { get; set; } = false;
-        public bool Use_TxRx_Console_Pba { get; set; } = false;
+        public bool Use_TxRx_Console_Board { get; set; } = true;
+        public bool Use_TxRx_Console_Pba { get; set; } = true;
 
+        public bool Use_Debug_Mode { get; set; } = false;
 
+        public bool Use_Board_Retry { get; set; } = true;
+        public bool Use_Pba_Retry { get; set; } = true;
 
+        public int Board_Retry_Count { get; set; } = 3;
+        public int Pba_Retry_Count { get; set; } = 3;
 
 
         //production count 
@@ -397,11 +402,14 @@ namespace p2_40_Main_PBA_Tester.Data
         //DB
         public bool USE_MES { get; set; }
         public string DB_IP { get; set; }
-        public string DB_PORT { get; set; }
+        public string DB_PORT { get; set; } = "1433";
         public string DB_NAME { get; set; }
         public string DB_TABLE { get; set; }
         public string DB_USER { get; set; }
         public string DB_PW { get; set; }
+        public bool USE_INTERLOCK { get; set; }
+        public string INTERLOCK_PROCEDURE_1 { get; set; }
+
 
         //FTP
         public bool USE_FTP { get; set; }

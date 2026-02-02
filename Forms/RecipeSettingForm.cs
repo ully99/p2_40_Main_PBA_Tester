@@ -160,7 +160,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 case "GPAK":
                     table.Rows.Add("[Delay] Processor Step", _local.GPAK_Processor_Step_Delay);
                     table.Rows.Add("[Delay] TCP1", _local.GPAK_TCP1_Delay);
-                    table.Rows.Add("[설정] Switching", _local.GPAK_Switching);
+                    table.Rows.Add("[판정] Switching", _local.GPAK_Switching);
                     break;
 
                 case "USB CHECK":
