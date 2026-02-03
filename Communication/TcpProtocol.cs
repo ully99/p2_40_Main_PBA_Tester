@@ -30,9 +30,9 @@ namespace p2_40_Main_PBA_Tester
             byte[] lenBytes = { (byte)(len >> 8), (byte)(len & 0xFF) };
 
             List<byte> packet = new List<byte>
-        {
+            {
             HEADER1, HEADER2, HEADER3
-        };
+            };
 
             packet.AddRange(lenBytes); // LEN (2 bytes)
             packet.Add(CMD);

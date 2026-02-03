@@ -188,7 +188,7 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 if (rx == null) { DeviceRx.Fail("ID Check: Rx is NULL"); return; }
 
-                string DeviceId = $"{rx[7]:X2}{rx[6]:X2}{rx[5]:X2}{rx[4]:X2}{rx[3]:X2}{rx[2]:X2}{rx[1]:X2}{rx[0]:X2}";
+                string DeviceId = $"{rx[6]:X2}{rx[7]:X2}{rx[4]:X2}{rx[5]:X2}{rx[2]:X2}{rx[3]:X2}{rx[0]:X2}{rx[1]:X2}";
                 lblMcuId.Text = DeviceId;
             }
             catch (Exception ex)

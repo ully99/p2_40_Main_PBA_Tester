@@ -19,6 +19,7 @@ namespace p2_40_Main_PBA_Tester.Communication
         public static TcpChannelClient[] Boards { get; }
 
         public static QrChannelPort[] QrPorts { get; } //(0~3) : 채널, 4 : 레시피
+        public static RecipeQrPort RecipeQr { get; }
         //public static QrPort QrReader { get; }
         //public static JigPort Jig { get; }
 
@@ -26,11 +27,12 @@ namespace p2_40_Main_PBA_Tester.Communication
         {
             Pbas = new SerialChannelPort[4];
             Boards = new TcpChannelClient[4];
-            QrPorts = new QrChannelPort[5]; // 총 5개 생성
-            for (int i = 0; i < 5; i++)
+            QrPorts = new QrChannelPort[4]; // 총 5개 생성
+            for (int i = 0; i < 4; i++)
             {
                 QrPorts[i] = new QrChannelPort(i);
             }
+            RecipeQr = new RecipeQrPort();
         }
 
         public static async Task ConnectAllComponent(int TcpConnectTimeoutMs)
@@ -155,6 +157,11 @@ namespace p2_40_Main_PBA_Tester.Communication
         {
             var set = Settings.Instance;
 
+            for (int i = 0; i <= 3; i++)
+            {
+                QrPorts[i].Close();
+            }
+            RecipeQr.Close();
             // Ch 1~4
             QrPorts[0].Open(set.Qr_Port_CH1, set.Qr_BaudRate_CH1);
             QrPorts[1].Open(set.Qr_Port_CH2, set.Qr_BaudRate_CH2);
@@ -162,7 +169,7 @@ namespace p2_40_Main_PBA_Tester.Communication
             QrPorts[3].Open(set.Qr_Port_CH4, set.Qr_BaudRate_CH4);
 
             // Recipe QR (인덱스 4번 사용)
-            QrPorts[4].Open(set.Recipe_Qr_Port, set.Recipe_Qr_BaudRate);
+            RecipeQr.Open(set.Recipe_Qr_Port, set.Recipe_Qr_BaudRate);
         }
 
         public static bool TryConnectChannel_bool(int index, bool use, string DevicePort)

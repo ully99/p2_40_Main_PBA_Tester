@@ -428,6 +428,8 @@ namespace p2_40_Main_PBA_Tester.Communication
         /// 응답 ASCII 프레임(':'~CRLF 포함)을 반환.
         /// </summary>
         
+   
+
 
         // === 기존 보조 메서드 유지 ===
         public bool IsConnected() { return IsOpen; }

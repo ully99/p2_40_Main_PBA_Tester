@@ -51,25 +51,27 @@ namespace p2_40_Main_PBA_Tester.Forms
             colNum.ReadOnly = true;
             colItem.ReadOnly = true;
 
-            table.Rows.Add(1, "QR READ", _local.QR_READ_Enable);
-            table.Rows.Add(2, "MCU INFO", _local.MCU_INFO_Enable);
-            table.Rows.Add(3, "OVP", _local.OVP_Enable);
-            table.Rows.Add(4, "LDO", _local.LDO_Enable);
-            table.Rows.Add(5, "CURRENT_SLEEP_SHIP", _local.CURRENT_SLEEP_SHIP_Enable);
-            table.Rows.Add(6, "CHARGE", _local.CHARGE_Enable);
-            table.Rows.Add(7, "GPAK", _local.GPAK_Enable);
-            table.Rows.Add(8, "USB CHECK", _local.USB_CHECK_Enable);
-            table.Rows.Add(9, "FLASH MEMORY", _local.FLASH_MEMORY_Enable);
-            table.Rows.Add(10, "MOTOR", _local.MOTOR_Enable);
-            table.Rows.Add(11, "FLOODS", _local.FLOODS_Enable);
-            table.Rows.Add(12, "HEATER", _local.HEATER_Enable);
-            table.Rows.Add(13, "CARTRIDGE", _local.CARTRIDGE_Enable);
-            table.Rows.Add(14, "SUB HEATER", _local.SUB_HEATER_Enable);
-            table.Rows.Add(15, "ACCELEROMETER", _local.ACCELEROMETER_Enable);
-            table.Rows.Add(16, "PRESSURE SENSOR", _local.PRESSURE_SENSOR_Enable);
-            table.Rows.Add(17, "PBA FLAG", _local.PBA_FLAG_Enable);
-            table.Rows.Add(18, "PBA CMD CHECK START", _local.PBA_CMD_CHECK_START_Enable);
-            table.Rows.Add(19, "TEST END", _local.TEST_END_Enable);
+            table.Rows.Add(1, "INTERLOCK", _local.INTERLOCK_Enable);
+            table.Rows.Add(2, "QR READ", _local.QR_READ_Enable);
+            table.Rows.Add(3, "MCU INFO", _local.MCU_INFO_Enable);
+            table.Rows.Add(4, "OVP", _local.OVP_Enable);
+            table.Rows.Add(5, "LDO", _local.LDO_Enable);
+            table.Rows.Add(6, "CURRENT_SLEEP_SHIP", _local.CURRENT_SLEEP_SHIP_Enable);
+            table.Rows.Add(7, "CHARGE", _local.CHARGE_Enable);
+            table.Rows.Add(8, "GPAK", _local.GPAK_Enable);
+            table.Rows.Add(9, "USB CHECK", _local.USB_CHECK_Enable);
+            table.Rows.Add(10, "FLASH MEMORY", _local.FLASH_MEMORY_Enable);
+            table.Rows.Add(11, "MOTOR", _local.MOTOR_Enable);
+            table.Rows.Add(12, "FLOODS", _local.FLOODS_Enable);
+            table.Rows.Add(13, "HEATER", _local.HEATER_Enable);
+            table.Rows.Add(14, "CARTRIDGE", _local.CARTRIDGE_Enable);
+            table.Rows.Add(15, "SUB HEATER", _local.SUB_HEATER_Enable);
+            table.Rows.Add(16, "ACCELEROMETER", _local.ACCELEROMETER_Enable);
+            table.Rows.Add(17, "PRESSURE SENSOR", _local.PRESSURE_SENSOR_Enable);
+            table.Rows.Add(18, "PBA FLAG", _local.PBA_FLAG_Enable);
+            table.Rows.Add(19, "PBA CMD CHECK START", _local.PBA_CMD_CHECK_START_Enable);
+            table.Rows.Add(20, "TEST END", _local.TEST_END_Enable);
+            table.Rows.Add(21, "MES", _local.MES_Enable);
 
             return table;
         }
@@ -98,6 +100,9 @@ namespace p2_40_Main_PBA_Tester.Forms
 
             switch (task)
             {
+                case "INTERLOCK":
+                    break;
+
                 case "QR READ":
                     table.Rows.Add("[판정] 조건 자릿수", _local.QR_READ_Len);
                     break;
@@ -241,6 +246,9 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 case "TEST END":
                     break;
+
+                case "MES":
+                    break;
             }
 
             return table;
@@ -287,6 +295,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             {
                 switch (currentTask)
                 {
+                    case "INTERLOCK":
+                        break;
+
                     case "QR READ":
                         if (param.Contains("자릿수")) _local.QR_READ_Len = int.Parse(value);
                         break;
@@ -430,6 +441,9 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                     case "TEST END":
                         break;
+
+                    case "MES":
+                        break;
                 }
             }
             catch (Exception ex)
@@ -451,6 +465,7 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 switch (task)
                 {
+                    case "INTERLOCK": _local.INTERLOCK_Enable = enabled; break;
                     case "QR READ": _local.QR_READ_Enable = enabled; break;
                     case "MCU INFO": _local.MCU_INFO_Enable = enabled; break;
                     case "OVP": _local.OVP_Enable = enabled; break;
@@ -470,6 +485,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                     case "PBA FLAG": _local.PBA_FLAG_Enable = enabled; break;
                     case "PBA CMD CHECK START": _local.PBA_CMD_CHECK_START_Enable = enabled; break;
                     case "TEST END": _local.TEST_END_Enable = enabled; break;
+                    case "MES": _local.MES_Enable = enabled; break; 
                 }
             }
         }
@@ -497,6 +513,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             JObject settings = new JObject
             {
                 // Enable
+                ["INTERLOCK_Enable"] = _local.INTERLOCK_Enable,
                 ["QR_READ_Enable"] = _local.QR_READ_Enable,
                 ["MCU_INFO_Enable"] = _local.MCU_INFO_Enable,
                 ["OVP_Enable"] = _local.OVP_Enable,
@@ -516,6 +533,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 ["PBA_FLAG_Enable"] = _local.PBA_FLAG_Enable,
                 ["PBA_CMD_CHECK_START_Enable"] = _local.PBA_CMD_CHECK_START_Enable,
                 ["TEST_END_Enable"] = _local.TEST_END_Enable,
+                ["MES_Enable"] = _local.MES_Enable,
 
                 // QR READ
                 ["QR_READ_Len"] = _local.QR_READ_Len,
@@ -681,6 +699,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 dynamic settings = recipe.Settings;
 
                 // Enable
+                _local.INTERLOCK_Enable = settings.INTERLOCK_Enable;
                 _local.QR_READ_Enable = settings.QR_READ_Enable;
                 _local.MCU_INFO_Enable = settings.MCU_INFO_Enable;
                 _local.OVP_Enable = settings.OVP_Enable;
@@ -700,6 +719,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.PBA_FLAG_Enable = settings.PBA_FLAG_Enable;
                 _local.PBA_CMD_CHECK_START_Enable = settings.PBA_CMD_CHECK_START_Enable;
                 _local.TEST_END_Enable = settings.TEST_END_Enable;
+                _local.MES_Enable = settings.MES_Enable;
 
                 // Values
                 _local.QR_READ_Len = settings.QR_READ_Len;

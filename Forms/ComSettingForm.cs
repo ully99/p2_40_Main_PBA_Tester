@@ -157,7 +157,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             form.ShowDialog(this);
         }
 
-
+        private void btnOpenFtpSetting_Click(object sender, EventArgs e)
+        {
+            var form = new FtpSettingForm(this)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            form.ShowDialog(this);
+        }
         private async void btnClose_Click(object sender, EventArgs e)
         {
             SettingValueSave();
@@ -169,6 +176,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             //여기에 mainform 레이아웃 변환 코드 작성
             //=======================================
             mainform.UpdateLayoutByChannelConfig();
+            mainform.ResetRecipeInfo();
 
             this.Close();
 
@@ -176,7 +184,8 @@ namespace p2_40_Main_PBA_Tester.Forms
 
         private void ComSettingForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mainform.CheckMesOnceAsync();
+            mainform.CheckMesStatus();
+            mainform.CheckFtpStatus();
         }
 
         #endregion
@@ -191,6 +200,19 @@ namespace p2_40_Main_PBA_Tester.Forms
             SetStatusLabel(lblCh2Status, ConnectedStatus[1]);
             SetStatusLabel(lblCh3Status, ConnectedStatus[2]);
             SetStatusLabel(lblCh4Status, ConnectedStatus[3]);
+
+            // QR Ch1 ~ Ch3 
+            SetStatusLabel(lblQrStatusCh1, CommManager.QrPorts[0].IsOpen);
+            SetStatusLabel(lblQrStatusCh2, CommManager.QrPorts[1].IsOpen);
+            SetStatusLabel(lblQrStatusCh3, CommManager.QrPorts[2].IsOpen);
+            SetStatusLabel(lblQrStatusCh4, CommManager.QrPorts[3].IsOpen);
+
+            // JIG
+            //UpdateStatusLabel(lblJigStatus, CommManager.Jig.IsOpened);
+
+            //Recipe Qr
+            SetStatusLabel(lblRecipeQrStatus, CommManager.RecipeQr.IsOpen);
+
         }
 
         private void SetStatusLabel(Label lbl, bool isConnected)
@@ -307,6 +329,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 MessageBox.Show($"설정 저장 실패! {ex.Message}");
             }
         }
+
+
 
 
 

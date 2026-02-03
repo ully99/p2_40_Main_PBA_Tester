@@ -12,6 +12,9 @@ namespace p2_40_Main_PBA_Tester.Data
     public sealed class RecipeLocalBuffer
     {
         //여기에 적힌 값들이 레시피 디폴트 값
+        #region INTERLOCK 
+        public bool INTERLOCK_Enable { get; set; } = true;
+        #endregion
 
         #region QR READ (0)
         public bool QR_READ_Enable { get; set; } = true;
@@ -175,6 +178,10 @@ namespace p2_40_Main_PBA_Tester.Data
 
         #region TEST END (18)
         public bool TEST_END_Enable { get; set; } = true;
+        #endregion
+
+        #region MES
+        public bool MES_Enable { get; set; } = true;
         #endregion
     }
 }

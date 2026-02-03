@@ -151,11 +151,7 @@ namespace p2_40_Main_PBA_Tester.Data
         public int Pba_Retry_Count { get; set; } = 3;
 
 
-        //production count 
-
-
-
-
+        #region Production
         // --- 핵심 데이터 (이 값들이 바뀌면 나머지는 자동 계산됨) ---
         private int _okCount_Ch1; public int OkCount_Ch1 { get => _okCount_Ch1; set { lock (_lock) { _okCount_Ch1 = value; } NotifyUpdates(); } }
         private int _ngCount_Ch1; public int NgCount_Ch1 { get => _ngCount_Ch1; set { lock (_lock) { _ngCount_Ch1 = value; } NotifyUpdates(); } }
@@ -186,16 +182,6 @@ namespace p2_40_Main_PBA_Tester.Data
         // --- [자동 계산 영역] 불량률 및 양품률 ---
         public double OkRate => TotalCount == 0 ? 0 : (double)OkCount / TotalCount;
         public double NgRate => TotalCount == 0 ? 0 : (double)NgCount / TotalCount;
-
-
-        // --- 핵심 로직: 값 변경 알림 ---
-        private void NotifyUpdates()
-        {
-            // 인자값으로 string.Empty를 보내면 이 클래스에 바인딩된 모든 UI가 갱신됩니다.
-            // 개별적으로 OnPropertyChanged를 수십번 호출할 필요가 없어 매우 효율적입니다.
-            OnPropertyChanged(string.Empty);
-        }
-
         public void ResetAllCounts()
         {
             _okCount_Ch1 = 0; _ngCount_Ch1 = 0;
@@ -206,16 +192,36 @@ namespace p2_40_Main_PBA_Tester.Data
             NotifyUpdates(); // 모든 UI를 0으로 갱신
         }
 
+        #endregion
+
+
+        // --- 핵심 로직: 값 변경 알림 ---
+        private void NotifyUpdates()
+        {
+            // 인자값으로 string.Empty를 보내면 이 클래스에 바인딩된 모든 UI가 갱신됩니다.
+            // 개별적으로 OnPropertyChanged를 수십번 호출할 필요가 없어 매우 효율적입니다.
+            OnPropertyChanged(string.Empty);
+        }
 
 
 
-        //판정 값
+
+
+        #region 판정 값
+
+        public List<string> RunTaskList { get; set; } = new List<string>(); // 실행할 테스트 목록
+        public string CurrentRecipeFile { get; set; } = ""; // 현재 불러온 레시피 파일명
+
+        #region INTERLOCK 
+        public bool INTERLOCK_Enable { get; set; } = true;
+
+        #endregion
 
         #region QR READ (0)
         public bool QR_READ_Enable { get; set; } = true;
         public int QR_READ_Len { get; set; } = 16;
-        #endregion 
-
+        #endregion
+        
         #region MCU INFO (1)
         public bool MCU_INFO_Enable { get; set; } = true;
         public int MCU_INFO_Processor_Step_Delay { get; set; } = 200;
@@ -395,9 +401,13 @@ namespace p2_40_Main_PBA_Tester.Data
         public bool TEST_END_Enable { get; set; } = true;
         #endregion
 
+        #region MES
+        public bool MES_Enable { get; set; } = true;
+        #endregion
+
         //-------------------------------------
 
-
+        #endregion
 
         //DB
         public bool USE_MES { get; set; }
@@ -418,7 +428,7 @@ namespace p2_40_Main_PBA_Tester.Data
         public string FTP_USER { get; set; }
         public string FTP_PW { get; set; }
         public string FTP_BASE_DIR { get; set; }
-        public bool FTP_USE_SSL { get; set; }
+        public bool FTP_USE_SSL { get; set; } = false;
 
 
 

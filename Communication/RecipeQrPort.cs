@@ -7,9 +7,9 @@ using System.IO.Ports;
 
 namespace p2_40_Main_PBA_Tester.Communication
 {
-    public class QrChannelPort : IDisposable
+    public class RecipeQrPort : IDisposable
     {
-        public int ChannelIndex { get; private set; } // 0~3: Ch1~4
+        //public int ChannelIndex { get; private set; } // 0~3: Ch1~4, 4: Recipe
         public SerialPort Port { get; private set; }
         public bool IsOpen => Port != null && Port.IsOpen;
 
@@ -19,9 +19,9 @@ namespace p2_40_Main_PBA_Tester.Communication
         // ReadLineAsync가 기다릴 때 사용하는 신호기
         private TaskCompletionSource<string> _readLineTcs;
 
-        public QrChannelPort(int channelIndex = -1)
+        public RecipeQrPort(int channelIndex = -1)
         {
-            ChannelIndex = channelIndex;
+            //ChannelIndex = channelIndex;
         }
 
         #region Connect / Disconnect
@@ -44,12 +44,12 @@ namespace p2_40_Main_PBA_Tester.Communication
                 Port.Open();
                 DiscardInBuffer();
 
-                Console.WriteLine($"[QR] {$"CH{ChannelIndex + 1}"} Port Opened: {portName}");
+                Console.WriteLine($"[Recipe QR] Port Opened: {portName}");
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[QR] Port Open Fail: {ex.Message}");
+                Console.WriteLine($"[Recipe QR] Port Open Fail: {ex.Message}");
                 return false;
             }
         }
@@ -82,11 +82,11 @@ namespace p2_40_Main_PBA_Tester.Communication
             {
                 await Port.BaseStream.WriteAsync(data, 0, data.Length);
                 // 필요하다면 여기서 TX 로그 출력
-                Console.WriteLine($"[QR TX] {BitConverter.ToString(data)} [CH {ChannelIndex}]");
+                Console.WriteLine($"[Recipe QR] TX : {BitConverter.ToString(data)} [Recipe Qr]");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[QR] Send Error: {ex.Message}");
+                Console.WriteLine($"[Recipe QR] Send Error: {ex.Message}");
             }
         }
 
@@ -165,7 +165,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                         if (string.IsNullOrEmpty(line)) continue; // 빈 줄 무시
 
                         //  1. 모니터링 기능 (무조건 콘솔에 찍음)
-                        Console.WriteLine($"[QR RX] {(ChannelIndex == 4 ? "Recipe" : $"CH{ChannelIndex + 1}")} => {line}");
+                        Console.WriteLine($"[Recipe QR] RX => {line}");
 
                         //  2. ReadLineAsync가 기다리고 있었다면 값 전달!
                         if (_readLineTcs != null && !_readLineTcs.Task.IsCompleted)
@@ -177,7 +177,7 @@ namespace p2_40_Main_PBA_Tester.Communication
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[QR] DataReceived Error: {ex.Message}");
+                Console.WriteLine($"[Recipe QR] DataReceived Error: {ex.Message}");
             }
         }
         #endregion

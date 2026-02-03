@@ -32,8 +32,7 @@ namespace p2_40_Main_PBA_Tester.UserControls
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblUseStatus = new System.Windows.Forms.Label();
-            this.lblTaskStatus = new System.Windows.Forms.Label();
+            this.lblTaskTime = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvTaskList = new System.Windows.Forms.DataGridView();
@@ -45,7 +44,8 @@ namespace p2_40_Main_PBA_Tester.UserControls
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.tboxComm = new System.Windows.Forms.RichTextBox();
             this.lblClearComm = new System.Windows.Forms.LinkLabel();
-            this.lblTaskTime = new System.Windows.Forms.Label();
+            this.lblTaskStatus = new System.Windows.Forms.Label();
+            this.lblUseStatus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblNgCount = new System.Windows.Forms.Label();
@@ -87,34 +87,19 @@ namespace p2_40_Main_PBA_Tester.UserControls
             this.tableLayoutPanel1.Size = new System.Drawing.Size(293, 713);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblUseStatus
+            // lblTaskTime
             // 
-            this.lblUseStatus.AutoSize = true;
-            this.lblUseStatus.BackColor = System.Drawing.Color.White;
-            this.lblUseStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblUseStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblUseStatus.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUseStatus.Location = new System.Drawing.Point(3, 0);
-            this.lblUseStatus.Name = "lblUseStatus";
-            this.lblUseStatus.Size = new System.Drawing.Size(287, 40);
-            this.lblUseStatus.TabIndex = 2;
-            this.lblUseStatus.Text = "-";
-            this.lblUseStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTaskStatus
-            // 
-            this.lblTaskStatus.AutoSize = true;
-            this.lblTaskStatus.BackColor = System.Drawing.Color.White;
-            this.lblTaskStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTaskStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTaskStatus.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTaskStatus.Location = new System.Drawing.Point(3, 40);
-            this.lblTaskStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.lblTaskStatus.Name = "lblTaskStatus";
-            this.lblTaskStatus.Size = new System.Drawing.Size(287, 100);
-            this.lblTaskStatus.TabIndex = 3;
-            this.lblTaskStatus.Text = "-";
-            this.lblTaskStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaskTime.AutoSize = true;
+            this.lblTaskTime.BackColor = System.Drawing.Color.White;
+            this.lblTaskTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTaskTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTaskTime.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaskTime.Location = new System.Drawing.Point(3, 150);
+            this.lblTaskTime.Name = "lblTaskTime";
+            this.lblTaskTime.Size = new System.Drawing.Size(287, 25);
+            this.lblTaskTime.TabIndex = 7;
+            this.lblTaskTime.Text = "-";
+            this.lblTaskTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabControl1
             // 
@@ -228,6 +213,7 @@ namespace p2_40_Main_PBA_Tester.UserControls
             this.lblClearLog.TabStop = true;
             this.lblClearLog.Text = "Clear";
             this.lblClearLog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClearLog.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearLog_LinkClicked);
             // 
             // tabPage3
             // 
@@ -281,20 +267,36 @@ namespace p2_40_Main_PBA_Tester.UserControls
             this.lblClearComm.TabStop = true;
             this.lblClearComm.Text = "Clear";
             this.lblClearComm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClearComm.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClearComm_LinkClicked);
             // 
-            // lblTaskTime
+            // lblTaskStatus
             // 
-            this.lblTaskTime.AutoSize = true;
-            this.lblTaskTime.BackColor = System.Drawing.Color.White;
-            this.lblTaskTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTaskTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTaskTime.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTaskTime.Location = new System.Drawing.Point(3, 150);
-            this.lblTaskTime.Name = "lblTaskTime";
-            this.lblTaskTime.Size = new System.Drawing.Size(287, 25);
-            this.lblTaskTime.TabIndex = 7;
-            this.lblTaskTime.Text = "-";
-            this.lblTaskTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaskStatus.AutoSize = true;
+            this.lblTaskStatus.BackColor = System.Drawing.Color.White;
+            this.lblTaskStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTaskStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTaskStatus.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaskStatus.Location = new System.Drawing.Point(3, 40);
+            this.lblTaskStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.lblTaskStatus.Name = "lblTaskStatus";
+            this.lblTaskStatus.Size = new System.Drawing.Size(287, 100);
+            this.lblTaskStatus.TabIndex = 3;
+            this.lblTaskStatus.Text = "-";
+            this.lblTaskStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUseStatus
+            // 
+            this.lblUseStatus.AutoSize = true;
+            this.lblUseStatus.BackColor = System.Drawing.Color.White;
+            this.lblUseStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblUseStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblUseStatus.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUseStatus.Location = new System.Drawing.Point(3, 0);
+            this.lblUseStatus.Name = "lblUseStatus";
+            this.lblUseStatus.Size = new System.Drawing.Size(287, 40);
+            this.lblUseStatus.TabIndex = 2;
+            this.lblUseStatus.Text = "-";
+            this.lblUseStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 

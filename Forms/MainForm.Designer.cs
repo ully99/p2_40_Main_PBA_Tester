@@ -62,15 +62,19 @@ namespace p2_40_Main_PBA_Tester
             this.lblClearJigComm = new System.Windows.Forms.LinkLabel();
             this.statusStripMes = new System.Windows.Forms.StatusStrip();
             this.lblMesStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblFtpStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_Channels = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.chControl_ch3 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
             this.chControl_ch4 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
             this.chControl_ch1 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
             this.chControl_ch2 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnStartStop = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.productionControl1 = new p2_40_Main_PBA_Tester.UserControls.ProductionControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PboxITM)).BeginInit();
@@ -87,6 +91,8 @@ namespace p2_40_Main_PBA_Tester
             this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel_Channels.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -341,7 +347,7 @@ namespace p2_40_Main_PBA_Tester
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 35);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Recipe File";
+            this.label2.Text = "Path";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -558,7 +564,8 @@ namespace p2_40_Main_PBA_Tester
             // 
             this.statusStripMes.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripMes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblMesStatus});
+            this.lblMesStatus,
+            this.lblFtpStatus});
             this.statusStripMes.Location = new System.Drawing.Point(0, 1104);
             this.statusStripMes.Name = "statusStripMes";
             this.statusStripMes.Size = new System.Drawing.Size(1901, 26);
@@ -571,10 +578,16 @@ namespace p2_40_Main_PBA_Tester
             this.lblMesStatus.Size = new System.Drawing.Size(85, 20);
             this.lblMesStatus.Text = "MES Status";
             // 
+            // lblFtpStatus
+            // 
+            this.lblFtpStatus.Name = "lblFtpStatus";
+            this.lblFtpStatus.Size = new System.Drawing.Size(79, 20);
+            this.lblFtpStatus.Text = "FTP Status";
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.85058F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.85057F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.14943F));
             this.tableLayoutPanel4.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 0);
@@ -583,8 +596,8 @@ namespace p2_40_Main_PBA_Tester
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 163);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.80662F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.19338F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1895, 786);
             this.tableLayoutPanel4.TabIndex = 7;
             // 
@@ -620,67 +633,105 @@ namespace p2_40_Main_PBA_Tester
             this.tableLayoutPanel_Channels.Size = new System.Drawing.Size(1580, 778);
             this.tableLayoutPanel_Channels.TabIndex = 0;
             // 
+            // chControl_ch3
+            // 
+            this.chControl_ch3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch3.Location = new System.Drawing.Point(793, 5);
+            this.chControl_ch3.Name = "chControl_ch3";
+            this.chControl_ch3.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch3.Size = new System.Drawing.Size(386, 768);
+            this.chControl_ch3.TabIndex = 3;
+            // 
+            // chControl_ch4
+            // 
+            this.chControl_ch4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch4.Location = new System.Drawing.Point(1187, 5);
+            this.chControl_ch4.Name = "chControl_ch4";
+            this.chControl_ch4.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch4.Size = new System.Drawing.Size(388, 768);
+            this.chControl_ch4.TabIndex = 2;
+            // 
+            // chControl_ch1
+            // 
+            this.chControl_ch1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch1.Location = new System.Drawing.Point(5, 5);
+            this.chControl_ch1.Name = "chControl_ch1";
+            this.chControl_ch1.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch1.Size = new System.Drawing.Size(386, 768);
+            this.chControl_ch1.TabIndex = 1;
+            // 
+            // chControl_ch2
+            // 
+            this.chControl_ch2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch2.Location = new System.Drawing.Point(399, 5);
+            this.chControl_ch2.Name = "chControl_ch2";
+            this.chControl_ch2.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch2.Size = new System.Drawing.Size(386, 768);
+            this.chControl_ch2.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.tableLayoutPanel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(1591, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(301, 244);
+            this.panel2.Size = new System.Drawing.Size(301, 190);
             this.panel2.TabIndex = 1;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.btnStartStop, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.progressBar1, 0, 1);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(299, 188);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // btnStartStop
+            // 
+            this.btnStartStop.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnStartStop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStartStop.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartStop.Location = new System.Drawing.Point(20, 20);
+            this.btnStartStop.Margin = new System.Windows.Forms.Padding(20);
+            this.btnStartStop.Name = "btnStartStop";
+            this.btnStartStop.Size = new System.Drawing.Size(259, 98);
+            this.btnStartStop.TabIndex = 0;
+            this.btnStartStop.Text = "START";
+            this.btnStartStop.UseVisualStyleBackColor = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar1.Location = new System.Drawing.Point(20, 153);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(20, 15, 20, 15);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(259, 20);
+            this.progressBar1.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.productionControl1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(1591, 253);
+            this.panel3.Location = new System.Drawing.Point(1591, 199);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(301, 530);
+            this.panel3.Size = new System.Drawing.Size(301, 584);
             this.panel3.TabIndex = 2;
-            // 
-            // chControl_ch3
-            // 
-            this.chControl_ch3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch3.Location = new System.Drawing.Point(991, 6);
-            this.chControl_ch3.Name = "chControl_ch3";
-            this.chControl_ch3.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch3.Size = new System.Drawing.Size(483, 960);
-            this.chControl_ch3.TabIndex = 3;
-            // 
-            // chControl_ch4
-            // 
-            this.chControl_ch4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch4.Location = new System.Drawing.Point(1484, 6);
-            this.chControl_ch4.Name = "chControl_ch4";
-            this.chControl_ch4.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch4.Size = new System.Drawing.Size(485, 960);
-            this.chControl_ch4.TabIndex = 2;
-            // 
-            // chControl_ch1
-            // 
-            this.chControl_ch1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch1.Location = new System.Drawing.Point(6, 6);
-            this.chControl_ch1.Name = "chControl_ch1";
-            this.chControl_ch1.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch1.Size = new System.Drawing.Size(483, 960);
-            this.chControl_ch1.TabIndex = 1;
-            // 
-            // chControl_ch2
-            // 
-            this.chControl_ch2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch2.Location = new System.Drawing.Point(499, 6);
-            this.chControl_ch2.Name = "chControl_ch2";
-            this.chControl_ch2.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch2.Size = new System.Drawing.Size(483, 960);
-            this.chControl_ch2.TabIndex = 0;
             // 
             // productionControl1
             // 
             this.productionControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productionControl1.Location = new System.Drawing.Point(0, 0);
             this.productionControl1.Name = "productionControl1";
-            this.productionControl1.Size = new System.Drawing.Size(299, 528);
+            this.productionControl1.Size = new System.Drawing.Size(299, 582);
             this.productionControl1.TabIndex = 0;
             // 
             // MainForm
@@ -714,6 +765,8 @@ namespace p2_40_Main_PBA_Tester
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel_Channels.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -763,6 +816,10 @@ namespace p2_40_Main_PBA_Tester
         private UserControls.ChControl chControl_ch3;
         private UserControls.ChControl chControl_ch4;
         private UserControls.ChControl chControl_ch1;
+        private System.Windows.Forms.ToolStripStatusLabel lblFtpStatus;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button btnStartStop;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
