@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +20,43 @@ namespace p2_40_Main_PBA_Tester.Data
 
         public static readonly byte[] CHARGE_OFF = { 0x00, 0x0B, 0x00, 0x00 };
 
-        public static readonly byte[] READ_DEVICE_ID = { 0x00, 0x41, 0x00, 0x04 };
+        public static readonly byte[] READ_MCU_ID = { 0x00, 0x41, 0x00, 0x04 };
         public static readonly string READ_MCU_ID_ADDR = "0041";
         public static readonly string READ_MCU_ID_BYTECOUNT = "0004";
+
+        public static readonly byte[] READ_IMAGE_FW_VER = { 0x00, 0x2A, 0x00, 0x02 };
+
+        public static readonly byte[] WRITE_VSYS_EN_PIN_ON = { 0x00, 0x05, 0x00, 0x08 };
+        public static readonly byte[] WRITE_VDD_3V3_ON = { 0x00, 0x05, 0x00, 0x02 };
+        public static readonly byte[] WRITE_LCD_3V0_ON = { 0x00, 0x05, 0x00, 0x04 };
+        public static readonly byte[] WRITE_DC_BOOST_ON = { 0x00, 0x05, 0x00, 0x01 };
+
+        public static readonly byte[] WRITE_LDO_OFF = { 0x00, 0x05, 0x00, 0x00 };
+
+        public static readonly byte[] WRITE_SLEEP_CMD = { 0x00, 0x06 }; //데이터가 없는건가
+        public static readonly byte[] WRITE_SHIP_CMD = { 0x00, 0x01, 0x00, 0x01 };
+
+        public static readonly byte[] WRITE_VIB_TEST_START = { 0x00, 0x09, 0x00, 0x01 };
+
+        public static readonly byte[] READ_FLOOD_STATE = { 0x00, 0x9C, 0x00, 0x01 };
+
+        public static readonly byte[] WRITE_CARTRIDGE_BOOST_ON = { 0x00, 0x07, 0x00, 0x01 };
+        public static readonly byte[] WRITE_CARTRIDGE_BOOST_OFF = { 0x00, 0x07, 0x00, 0x00 };
+
+        public static readonly byte[] WRITE_SUB_HEATER_BOOST_ON = { 0x00, 0x07, 0x00, 0x02 };
+        public static readonly byte[] WRITE_SUB_HEATER_BOOST_OFF = { 0x00, 0x07, 0x00, 0x00 };
+
+        public static readonly byte[] WRITE_ACCEL_IC_TEST_START = { 0x00, 0x52, 0x00, 0x01 };
+        public static readonly byte[] READ_ACCEL_IC_TEST_RESULT = { 0x00, 0x25, 0x00, 0x01 };
+
+        public static readonly byte[] WRITE_MCU_FLASH_INTEGRITY_CHECK_START = { 0x00, 0x0C, 0x00, 0x00 };
+        public static readonly byte[] READ_FLASH_INTEGRITY_CHECK_RESULT = { 0x00, 0x87, 0x00, 0x01 };
+        public static readonly byte[] WRITE_EXT_FLASH_INTEGRITY_CHECK_START = { 0x00, 0x0C, 0x00, 0x00 };
+        public static readonly byte[] READ_EXT_FLASH_INTEGRITY_CHECK_RESULT = { 0x00, 0x89, 0x00, 0x01 };
+
+        public static readonly byte[] WRITE_GPAK_TEST_START = { 0x00, 0x50, 0x00, 0x01 };
+        public static readonly byte[] READ_GPAK_TEST_RESULT = { 0x00, 0x26, 0x00, 0x01 };
+        public static readonly byte[] WRITE_GPAK_TEST_END = { 0x00, 0x50, 0x00, 0x00 };
 
         public static readonly byte[] READ_SERIAL_NO = { 0x08, 0x08, 0x00, 0x10 };
         public static readonly byte[] READ_FW_VER = { 0x00, 0x30, 0x00, 0x05 };

@@ -137,6 +137,29 @@ namespace p2_40_Main_PBA_Tester.UI
             });
         }
 
+        public void Section(string taskName)
+        {
+            UI(() => {
+                Append("\n", Color.Black); // 이전 로그와 간격 벌리기
+                Append($"▶ {taskName} ".PadRight(40, '-'), Color.DarkBlue, true);
+                //Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append(Environment.NewLine, Color.Black);
+            });
+        }
+
+        public void ResultSection(string taskName, bool isPass)
+        {
+            UI(() => {
+                Color resColor = isPass ? Color.Green : Color.Red;
+                string status = isPass ? "PASS" : "FAIL";
+
+                // 제목과 같은 스타일로 출력 (Result : PASS -------------------)
+                Append($"Result : {status} ", resColor, true);
+                //Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append(Environment.NewLine, Color.Black); // 공정 끝났으니 한 줄 더 띄우기
+            });
+        }
+
         // 1. 단순 줄바꿈만 추가 (기본)
         public void NewLine()
         {

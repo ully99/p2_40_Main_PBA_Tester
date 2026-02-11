@@ -26,7 +26,7 @@ namespace p2_40_Main_PBA_Tester.Communication
 
         // 요청 간 인터벌(Serial과 동일 개념)
         private DateTime _lastTxUtc = DateTime.MinValue;
-        public int MinIntervalMs { get; set; } = 0; // TCP는 필요 없을 수도 있지만 동일 인터페이스 유지
+        public int MinIntervalMs => Settings.Instance.Board_Min_Interval; // TCP는 필요 없을 수도 있지만 동일 인터페이스 유지
 
         // 수신 버퍼/동기화
         private readonly List<byte> _receiveBuffer = new List<byte>();
@@ -156,7 +156,7 @@ namespace p2_40_Main_PBA_Tester.Communication
             }
         }
 
-        public async Task<byte[]> SendAndReceivePacketAsync(byte[] txPacket, int timeoutMs)
+        public async Task<byte[]> SendAndReceivePacketAsync(byte[] txPacket, int timeoutMs, CancellationToken token = default)
         {
             // 1. 재시도 횟수 설정 가져오기 (설정 꺼져있으면 1회)
             int maxAttempts = (Settings.Instance.Use_Board_Retry && Settings.Instance.Board_Retry_Count > 0)
@@ -165,7 +165,8 @@ namespace p2_40_Main_PBA_Tester.Communication
 
             for (int attempt = 1; attempt <= maxAttempts; attempt++)
             {
-                // --- 시도 시작 ---
+                // 1. 토큰이 유효한(기본값이 아닌) 경우에만 취소 체크
+                if (token != default) token.ThrowIfCancellationRequested();
 
                 // 1. 이전 버퍼 비우기 (중요: 이전 시도의 찌꺼기 데이터 제거)
                 DiscardBuffers();
@@ -214,7 +215,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                 {
                     Console.WriteLine($"[TCP Retry] CH{ChannelNo} Retrying TX... ({attempt}/{maxAttempts})");
                     // 너무 급하게 보내지 않도록 잠깐 숨 고르기 (장비 부하 방지)
-                    await Task.Delay(200);
+                    await Task.Delay(200, token).ConfigureAwait(false);
                 }
             }
 

@@ -81,6 +81,52 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.numDa1SetTestoutput = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel32 = new System.Windows.Forms.TableLayoutPanel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.lblMux8Gain = new System.Windows.Forms.Label();
+            this.lblMux8Offset = new System.Windows.Forms.Label();
+            this.btnCalMux8 = new System.Windows.Forms.Button();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel33 = new System.Windows.Forms.TableLayoutPanel();
+            this.numMux8MeassuredValueTest = new System.Windows.Forms.NumericUpDown();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.btnMux8Min = new System.Windows.Forms.Button();
+            this.btnMux8Max = new System.Windows.Forms.Button();
+            this.btnMux8Test = new System.Windows.Forms.Button();
+            this.numMux8SetOutputMin = new System.Windows.Forms.NumericUpDown();
+            this.numMux8MeassuredValueMin = new System.Windows.Forms.NumericUpDown();
+            this.numMux8SetOutputMax = new System.Windows.Forms.NumericUpDown();
+            this.numMux8MeassuredValueMax = new System.Windows.Forms.NumericUpDown();
+            this.numMux8SetTestoutput = new System.Windows.Forms.NumericUpDown();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lblMux7Gain = new System.Windows.Forms.Label();
+            this.lblMux7Offset = new System.Windows.Forms.Label();
+            this.btnCalMux7 = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.numMux7MeassuredValueTest = new System.Windows.Forms.NumericUpDown();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.btnMux7Min = new System.Windows.Forms.Button();
+            this.btnMux7Max = new System.Windows.Forms.Button();
+            this.btnMux7Test = new System.Windows.Forms.Button();
+            this.numMux7SetOutputMin = new System.Windows.Forms.NumericUpDown();
+            this.numMux7MeassuredValueMin = new System.Windows.Forms.NumericUpDown();
+            this.numMux7SetOutputMax = new System.Windows.Forms.NumericUpDown();
+            this.numMux7MeassuredValueMax = new System.Windows.Forms.NumericUpDown();
+            this.numMux7SetTestoutput = new System.Windows.Forms.NumericUpDown();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
@@ -198,6 +244,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.numMux1MeassuredValueTest = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tboxOffsetMux8 = new System.Windows.Forms.TextBox();
+            this.tboxGainMux8 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.btnOffsetSave = new System.Windows.Forms.Button();
             this.tboxOffsetMux7 = new System.Windows.Forms.TextBox();
             this.tboxOffsetMux6 = new System.Windows.Forms.TextBox();
@@ -265,6 +314,30 @@ namespace p2_40_Main_PBA_Tester.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numDa1SetTestoutput)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            this.tableLayoutPanel31.SuspendLayout();
+            this.groupBox26.SuspendLayout();
+            this.tableLayoutPanel32.SuspendLayout();
+            this.groupBox27.SuspendLayout();
+            this.tableLayoutPanel33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8MeassuredValueTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8SetOutputMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8MeassuredValueMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8SetOutputMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8MeassuredValueMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8SetTestoutput)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7MeassuredValueTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7SetOutputMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7MeassuredValueMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7SetOutputMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7MeassuredValueMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7SetTestoutput)).BeginInit();
             this.groupBox22.SuspendLayout();
             this.tableLayoutPanel28.SuspendLayout();
             this.groupBox23.SuspendLayout();
@@ -975,6 +1048,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel15.ColumnCount = 2;
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Controls.Add(this.groupBox25, 0, 3);
+            this.tableLayoutPanel15.Controls.Add(this.groupBox7, 1, 2);
             this.tableLayoutPanel15.Controls.Add(this.groupBox22, 0, 2);
             this.tableLayoutPanel15.Controls.Add(this.groupBox19, 1, 1);
             this.tableLayoutPanel15.Controls.Add(this.groupBox16, 0, 1);
@@ -992,6 +1067,578 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(1569, 804);
             this.tableLayoutPanel15.TabIndex = 0;
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.tableLayoutPanel31);
+            this.groupBox25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox25.Location = new System.Drawing.Point(3, 605);
+            this.groupBox25.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox25.Size = new System.Drawing.Size(778, 197);
+            this.groupBox25.TabIndex = 7;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Cal PS1 LDC 3V Curr - (ADC MUX8)";
+            // 
+            // tableLayoutPanel31
+            // 
+            this.tableLayoutPanel31.ColumnCount = 2;
+            this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.57895F));
+            this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.42105F));
+            this.tableLayoutPanel31.Controls.Add(this.groupBox26, 1, 0);
+            this.tableLayoutPanel31.Controls.Add(this.groupBox27, 0, 0);
+            this.tableLayoutPanel31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel31.Location = new System.Drawing.Point(3, 20);
+            this.tableLayoutPanel31.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel31.Name = "tableLayoutPanel31";
+            this.tableLayoutPanel31.RowCount = 1;
+            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(772, 175);
+            this.tableLayoutPanel31.TabIndex = 0;
+            // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.tableLayoutPanel32);
+            this.groupBox26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox26.Location = new System.Drawing.Point(555, 2);
+            this.groupBox26.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox26.Size = new System.Drawing.Size(214, 171);
+            this.groupBox26.TabIndex = 1;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Gain & Offset";
+            // 
+            // tableLayoutPanel32
+            // 
+            this.tableLayoutPanel32.ColumnCount = 2;
+            this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
+            this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
+            this.tableLayoutPanel32.Controls.Add(this.label39, 0, 0);
+            this.tableLayoutPanel32.Controls.Add(this.label45, 0, 1);
+            this.tableLayoutPanel32.Controls.Add(this.lblMux8Gain, 1, 0);
+            this.tableLayoutPanel32.Controls.Add(this.lblMux8Offset, 1, 1);
+            this.tableLayoutPanel32.Controls.Add(this.btnCalMux8, 0, 2);
+            this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel32.Location = new System.Drawing.Point(3, 20);
+            this.tableLayoutPanel32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel32.Name = "tableLayoutPanel32";
+            this.tableLayoutPanel32.RowCount = 3;
+            this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(208, 149);
+            this.tableLayoutPanel32.TabIndex = 0;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label39.Location = new System.Drawing.Point(3, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(72, 49);
+            this.label39.TabIndex = 0;
+            this.label39.Text = "Gain";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label45.Location = new System.Drawing.Point(3, 49);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(72, 49);
+            this.label45.TabIndex = 1;
+            this.label45.Text = "Offset";
+            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMux8Gain
+            // 
+            this.lblMux8Gain.AutoSize = true;
+            this.lblMux8Gain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMux8Gain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMux8Gain.Location = new System.Drawing.Point(81, 0);
+            this.lblMux8Gain.Name = "lblMux8Gain";
+            this.lblMux8Gain.Size = new System.Drawing.Size(124, 49);
+            this.lblMux8Gain.TabIndex = 2;
+            this.lblMux8Gain.Text = "1";
+            this.lblMux8Gain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMux8Offset
+            // 
+            this.lblMux8Offset.AutoSize = true;
+            this.lblMux8Offset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMux8Offset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMux8Offset.Location = new System.Drawing.Point(81, 49);
+            this.lblMux8Offset.Name = "lblMux8Offset";
+            this.lblMux8Offset.Size = new System.Drawing.Size(124, 49);
+            this.lblMux8Offset.TabIndex = 3;
+            this.lblMux8Offset.Text = "0";
+            this.lblMux8Offset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCalMux8
+            // 
+            this.tableLayoutPanel32.SetColumnSpan(this.btnCalMux8, 2);
+            this.btnCalMux8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCalMux8.Location = new System.Drawing.Point(3, 100);
+            this.btnCalMux8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCalMux8.Name = "btnCalMux8";
+            this.btnCalMux8.Size = new System.Drawing.Size(202, 47);
+            this.btnCalMux8.TabIndex = 4;
+            this.btnCalMux8.Text = "Calculation";
+            this.btnCalMux8.UseVisualStyleBackColor = true;
+            // 
+            // groupBox27
+            // 
+            this.groupBox27.Controls.Add(this.tableLayoutPanel33);
+            this.groupBox27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox27.Location = new System.Drawing.Point(3, 2);
+            this.groupBox27.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox27.Size = new System.Drawing.Size(546, 171);
+            this.groupBox27.TabIndex = 0;
+            this.groupBox27.TabStop = false;
+            // 
+            // tableLayoutPanel33
+            // 
+            this.tableLayoutPanel33.ColumnCount = 4;
+            this.tableLayoutPanel33.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel33.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel33.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel33.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel33.Controls.Add(this.numMux8MeassuredValueTest, 1, 4);
+            this.tableLayoutPanel33.Controls.Add(this.label53, 1, 3);
+            this.tableLayoutPanel33.Controls.Add(this.label59, 1, 0);
+            this.tableLayoutPanel33.Controls.Add(this.label60, 2, 0);
+            this.tableLayoutPanel33.Controls.Add(this.btnMux8Min, 0, 1);
+            this.tableLayoutPanel33.Controls.Add(this.btnMux8Max, 0, 2);
+            this.tableLayoutPanel33.Controls.Add(this.btnMux8Test, 0, 3);
+            this.tableLayoutPanel33.Controls.Add(this.numMux8SetOutputMin, 1, 1);
+            this.tableLayoutPanel33.Controls.Add(this.numMux8MeassuredValueMin, 2, 1);
+            this.tableLayoutPanel33.Controls.Add(this.numMux8SetOutputMax, 1, 2);
+            this.tableLayoutPanel33.Controls.Add(this.numMux8MeassuredValueMax, 2, 2);
+            this.tableLayoutPanel33.Controls.Add(this.numMux8SetTestoutput, 1, 4);
+            this.tableLayoutPanel33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel33.Location = new System.Drawing.Point(3, 20);
+            this.tableLayoutPanel33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel33.Name = "tableLayoutPanel33";
+            this.tableLayoutPanel33.RowCount = 5;
+            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel33.Size = new System.Drawing.Size(540, 149);
+            this.tableLayoutPanel33.TabIndex = 0;
+            // 
+            // numMux8MeassuredValueTest
+            // 
+            this.numMux8MeassuredValueTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux8MeassuredValueTest.Location = new System.Drawing.Point(273, 118);
+            this.numMux8MeassuredValueTest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux8MeassuredValueTest.Name = "numMux8MeassuredValueTest";
+            this.numMux8MeassuredValueTest.Size = new System.Drawing.Size(129, 25);
+            this.numMux8MeassuredValueTest.TabIndex = 17;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label53.Location = new System.Drawing.Point(138, 87);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(129, 29);
+            this.label53.TabIndex = 13;
+            this.label53.Text = "Set Test Output";
+            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label59.Location = new System.Drawing.Point(138, 0);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(129, 29);
+            this.label59.TabIndex = 0;
+            this.label59.Text = "Set Output";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label60.Location = new System.Drawing.Point(273, 0);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(129, 29);
+            this.label60.TabIndex = 1;
+            this.label60.Text = "Meassured Value";
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnMux8Min
+            // 
+            this.btnMux8Min.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMux8Min.Location = new System.Drawing.Point(3, 31);
+            this.btnMux8Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMux8Min.Name = "btnMux8Min";
+            this.btnMux8Min.Size = new System.Drawing.Size(129, 25);
+            this.btnMux8Min.TabIndex = 2;
+            this.btnMux8Min.Text = "Min";
+            this.btnMux8Min.UseVisualStyleBackColor = true;
+            // 
+            // btnMux8Max
+            // 
+            this.btnMux8Max.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMux8Max.Location = new System.Drawing.Point(3, 60);
+            this.btnMux8Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMux8Max.Name = "btnMux8Max";
+            this.btnMux8Max.Size = new System.Drawing.Size(129, 25);
+            this.btnMux8Max.TabIndex = 3;
+            this.btnMux8Max.Text = "Max";
+            this.btnMux8Max.UseVisualStyleBackColor = true;
+            // 
+            // btnMux8Test
+            // 
+            this.btnMux8Test.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMux8Test.Location = new System.Drawing.Point(3, 89);
+            this.btnMux8Test.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMux8Test.Name = "btnMux8Test";
+            this.tableLayoutPanel33.SetRowSpan(this.btnMux8Test, 2);
+            this.btnMux8Test.Size = new System.Drawing.Size(129, 58);
+            this.btnMux8Test.TabIndex = 4;
+            this.btnMux8Test.Text = "Test";
+            this.btnMux8Test.UseVisualStyleBackColor = true;
+            // 
+            // numMux8SetOutputMin
+            // 
+            this.numMux8SetOutputMin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux8SetOutputMin.Location = new System.Drawing.Point(138, 31);
+            this.numMux8SetOutputMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux8SetOutputMin.Name = "numMux8SetOutputMin";
+            this.numMux8SetOutputMin.Size = new System.Drawing.Size(129, 25);
+            this.numMux8SetOutputMin.TabIndex = 5;
+            // 
+            // numMux8MeassuredValueMin
+            // 
+            this.numMux8MeassuredValueMin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux8MeassuredValueMin.Location = new System.Drawing.Point(273, 31);
+            this.numMux8MeassuredValueMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux8MeassuredValueMin.Name = "numMux8MeassuredValueMin";
+            this.numMux8MeassuredValueMin.Size = new System.Drawing.Size(129, 25);
+            this.numMux8MeassuredValueMin.TabIndex = 6;
+            // 
+            // numMux8SetOutputMax
+            // 
+            this.numMux8SetOutputMax.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux8SetOutputMax.Location = new System.Drawing.Point(138, 60);
+            this.numMux8SetOutputMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux8SetOutputMax.Name = "numMux8SetOutputMax";
+            this.numMux8SetOutputMax.Size = new System.Drawing.Size(129, 25);
+            this.numMux8SetOutputMax.TabIndex = 7;
+            // 
+            // numMux8MeassuredValueMax
+            // 
+            this.numMux8MeassuredValueMax.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux8MeassuredValueMax.Location = new System.Drawing.Point(273, 60);
+            this.numMux8MeassuredValueMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux8MeassuredValueMax.Name = "numMux8MeassuredValueMax";
+            this.numMux8MeassuredValueMax.Size = new System.Drawing.Size(129, 25);
+            this.numMux8MeassuredValueMax.TabIndex = 8;
+            // 
+            // numMux8SetTestoutput
+            // 
+            this.numMux8SetTestoutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux8SetTestoutput.Location = new System.Drawing.Point(138, 118);
+            this.numMux8SetTestoutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux8SetTestoutput.Name = "numMux8SetTestoutput";
+            this.numMux8SetTestoutput.Size = new System.Drawing.Size(129, 25);
+            this.numMux8SetTestoutput.TabIndex = 14;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.tableLayoutPanel12);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(787, 404);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox7.Size = new System.Drawing.Size(779, 197);
+            this.groupBox7.TabIndex = 6;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Cal PS1 VDD 3V Curr - (ADC MUX7)";
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.57895F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.42105F));
+            this.tableLayoutPanel12.Controls.Add(this.groupBox8, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.groupBox9, 0, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 20);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(773, 175);
+            this.tableLayoutPanel12.TabIndex = 0;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.tableLayoutPanel13);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox8.Location = new System.Drawing.Point(556, 2);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox8.Size = new System.Drawing.Size(214, 171);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Gain & Offset";
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 2;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
+            this.tableLayoutPanel13.Controls.Add(this.label27, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.label28, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.lblMux7Gain, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.lblMux7Offset, 1, 1);
+            this.tableLayoutPanel13.Controls.Add(this.btnCalMux7, 0, 2);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 20);
+            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 3;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(208, 149);
+            this.tableLayoutPanel13.TabIndex = 0;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label27.Location = new System.Drawing.Point(3, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(72, 49);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Gain";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label28.Location = new System.Drawing.Point(3, 49);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(72, 49);
+            this.label28.TabIndex = 1;
+            this.label28.Text = "Offset";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMux7Gain
+            // 
+            this.lblMux7Gain.AutoSize = true;
+            this.lblMux7Gain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMux7Gain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMux7Gain.Location = new System.Drawing.Point(81, 0);
+            this.lblMux7Gain.Name = "lblMux7Gain";
+            this.lblMux7Gain.Size = new System.Drawing.Size(124, 49);
+            this.lblMux7Gain.TabIndex = 2;
+            this.lblMux7Gain.Text = "1";
+            this.lblMux7Gain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMux7Offset
+            // 
+            this.lblMux7Offset.AutoSize = true;
+            this.lblMux7Offset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMux7Offset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMux7Offset.Location = new System.Drawing.Point(81, 49);
+            this.lblMux7Offset.Name = "lblMux7Offset";
+            this.lblMux7Offset.Size = new System.Drawing.Size(124, 49);
+            this.lblMux7Offset.TabIndex = 3;
+            this.lblMux7Offset.Text = "0";
+            this.lblMux7Offset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCalMux7
+            // 
+            this.tableLayoutPanel13.SetColumnSpan(this.btnCalMux7, 2);
+            this.btnCalMux7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCalMux7.Location = new System.Drawing.Point(3, 100);
+            this.btnCalMux7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCalMux7.Name = "btnCalMux7";
+            this.btnCalMux7.Size = new System.Drawing.Size(202, 47);
+            this.btnCalMux7.TabIndex = 4;
+            this.btnCalMux7.Text = "Calculation";
+            this.btnCalMux7.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.tableLayoutPanel14);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox9.Location = new System.Drawing.Point(3, 2);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox9.Size = new System.Drawing.Size(547, 171);
+            this.groupBox9.TabIndex = 0;
+            this.groupBox9.TabStop = false;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 4;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.Controls.Add(this.numMux7MeassuredValueTest, 1, 4);
+            this.tableLayoutPanel14.Controls.Add(this.label31, 1, 3);
+            this.tableLayoutPanel14.Controls.Add(this.label32, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.label38, 2, 0);
+            this.tableLayoutPanel14.Controls.Add(this.btnMux7Min, 0, 1);
+            this.tableLayoutPanel14.Controls.Add(this.btnMux7Max, 0, 2);
+            this.tableLayoutPanel14.Controls.Add(this.btnMux7Test, 0, 3);
+            this.tableLayoutPanel14.Controls.Add(this.numMux7SetOutputMin, 1, 1);
+            this.tableLayoutPanel14.Controls.Add(this.numMux7MeassuredValueMin, 2, 1);
+            this.tableLayoutPanel14.Controls.Add(this.numMux7SetOutputMax, 1, 2);
+            this.tableLayoutPanel14.Controls.Add(this.numMux7MeassuredValueMax, 2, 2);
+            this.tableLayoutPanel14.Controls.Add(this.numMux7SetTestoutput, 1, 4);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 20);
+            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 5;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(541, 149);
+            this.tableLayoutPanel14.TabIndex = 0;
+            // 
+            // numMux7MeassuredValueTest
+            // 
+            this.numMux7MeassuredValueTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux7MeassuredValueTest.Location = new System.Drawing.Point(273, 118);
+            this.numMux7MeassuredValueTest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux7MeassuredValueTest.Name = "numMux7MeassuredValueTest";
+            this.numMux7MeassuredValueTest.Size = new System.Drawing.Size(129, 25);
+            this.numMux7MeassuredValueTest.TabIndex = 17;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label31.Location = new System.Drawing.Point(138, 87);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(129, 29);
+            this.label31.TabIndex = 13;
+            this.label31.Text = "Set Test Output";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label32.Location = new System.Drawing.Point(138, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(129, 29);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "Set Output";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label38.Location = new System.Drawing.Point(273, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(129, 29);
+            this.label38.TabIndex = 1;
+            this.label38.Text = "Meassured Value";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnMux7Min
+            // 
+            this.btnMux7Min.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMux7Min.Location = new System.Drawing.Point(3, 31);
+            this.btnMux7Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMux7Min.Name = "btnMux7Min";
+            this.btnMux7Min.Size = new System.Drawing.Size(129, 25);
+            this.btnMux7Min.TabIndex = 2;
+            this.btnMux7Min.Text = "Min";
+            this.btnMux7Min.UseVisualStyleBackColor = true;
+            // 
+            // btnMux7Max
+            // 
+            this.btnMux7Max.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMux7Max.Location = new System.Drawing.Point(3, 60);
+            this.btnMux7Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMux7Max.Name = "btnMux7Max";
+            this.btnMux7Max.Size = new System.Drawing.Size(129, 25);
+            this.btnMux7Max.TabIndex = 3;
+            this.btnMux7Max.Text = "Max";
+            this.btnMux7Max.UseVisualStyleBackColor = true;
+            // 
+            // btnMux7Test
+            // 
+            this.btnMux7Test.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMux7Test.Location = new System.Drawing.Point(3, 89);
+            this.btnMux7Test.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMux7Test.Name = "btnMux7Test";
+            this.tableLayoutPanel14.SetRowSpan(this.btnMux7Test, 2);
+            this.btnMux7Test.Size = new System.Drawing.Size(129, 58);
+            this.btnMux7Test.TabIndex = 4;
+            this.btnMux7Test.Text = "Test";
+            this.btnMux7Test.UseVisualStyleBackColor = true;
+            // 
+            // numMux7SetOutputMin
+            // 
+            this.numMux7SetOutputMin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux7SetOutputMin.Location = new System.Drawing.Point(138, 31);
+            this.numMux7SetOutputMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux7SetOutputMin.Name = "numMux7SetOutputMin";
+            this.numMux7SetOutputMin.Size = new System.Drawing.Size(129, 25);
+            this.numMux7SetOutputMin.TabIndex = 5;
+            // 
+            // numMux7MeassuredValueMin
+            // 
+            this.numMux7MeassuredValueMin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux7MeassuredValueMin.Location = new System.Drawing.Point(273, 31);
+            this.numMux7MeassuredValueMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux7MeassuredValueMin.Name = "numMux7MeassuredValueMin";
+            this.numMux7MeassuredValueMin.Size = new System.Drawing.Size(129, 25);
+            this.numMux7MeassuredValueMin.TabIndex = 6;
+            // 
+            // numMux7SetOutputMax
+            // 
+            this.numMux7SetOutputMax.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux7SetOutputMax.Location = new System.Drawing.Point(138, 60);
+            this.numMux7SetOutputMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux7SetOutputMax.Name = "numMux7SetOutputMax";
+            this.numMux7SetOutputMax.Size = new System.Drawing.Size(129, 25);
+            this.numMux7SetOutputMax.TabIndex = 7;
+            // 
+            // numMux7MeassuredValueMax
+            // 
+            this.numMux7MeassuredValueMax.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux7MeassuredValueMax.Location = new System.Drawing.Point(273, 60);
+            this.numMux7MeassuredValueMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux7MeassuredValueMax.Name = "numMux7MeassuredValueMax";
+            this.numMux7MeassuredValueMax.Size = new System.Drawing.Size(129, 25);
+            this.numMux7MeassuredValueMax.TabIndex = 8;
+            // 
+            // numMux7SetTestoutput
+            // 
+            this.numMux7SetTestoutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numMux7SetTestoutput.Location = new System.Drawing.Point(138, 118);
+            this.numMux7SetTestoutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMux7SetTestoutput.Name = "numMux7SetTestoutput";
+            this.numMux7SetTestoutput.Size = new System.Drawing.Size(129, 25);
+            this.numMux7SetTestoutput.TabIndex = 14;
             // 
             // groupBox22
             // 
@@ -2443,20 +3090,24 @@ namespace p2_40_Main_PBA_Tester.Forms
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 12;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.tableLayoutPanel1.Controls.Add(this.btnOffsetSave, 11, 2);
+            this.tableLayoutPanel1.ColumnCount = 13;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.689469F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692545F));
+            this.tableLayoutPanel1.Controls.Add(this.tboxOffsetMux8, 11, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tboxGainMux8, 11, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label26, 11, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnOffsetSave, 12, 2);
             this.tableLayoutPanel1.Controls.Add(this.tboxOffsetMux7, 10, 2);
             this.tableLayoutPanel1.Controls.Add(this.tboxOffsetMux6, 9, 2);
             this.tableLayoutPanel1.Controls.Add(this.tboxOffsetMux5, 8, 2);
@@ -2489,7 +3140,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label13, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tboxGainDa1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnGainRead, 11, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnGainRead, 12, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(224, 2);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2501,13 +3152,44 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1362, 111);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
+            // tboxOffsetMux8
+            // 
+            this.tboxOffsetMux8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxOffsetMux8.Location = new System.Drawing.Point(1148, 75);
+            this.tboxOffsetMux8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tboxOffsetMux8.Name = "tboxOffsetMux8";
+            this.tboxOffsetMux8.ReadOnly = true;
+            this.tboxOffsetMux8.Size = new System.Drawing.Size(97, 25);
+            this.tboxOffsetMux8.TabIndex = 41;
+            // 
+            // tboxGainMux8
+            // 
+            this.tboxGainMux8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxGainMux8.Location = new System.Drawing.Point(1148, 39);
+            this.tboxGainMux8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tboxGainMux8.Name = "tboxGainMux8";
+            this.tboxGainMux8.ReadOnly = true;
+            this.tboxGainMux8.Size = new System.Drawing.Size(97, 25);
+            this.tboxGainMux8.TabIndex = 40;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label26.Location = new System.Drawing.Point(1148, 1);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(97, 35);
+            this.label26.TabIndex = 39;
+            this.label26.Text = "ADC MUX8";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnOffsetSave
             // 
             this.btnOffsetSave.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOffsetSave.Location = new System.Drawing.Point(1247, 75);
+            this.btnOffsetSave.Location = new System.Drawing.Point(1252, 75);
             this.btnOffsetSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOffsetSave.Name = "btnOffsetSave";
-            this.btnOffsetSave.Size = new System.Drawing.Size(111, 33);
+            this.btnOffsetSave.Size = new System.Drawing.Size(106, 33);
             this.btnOffsetSave.TabIndex = 38;
             this.btnOffsetSave.Text = "저장";
             this.btnOffsetSave.UseVisualStyleBackColor = true;
@@ -2515,200 +3197,200 @@ namespace p2_40_Main_PBA_Tester.Forms
             // tboxOffsetMux7
             // 
             this.tboxOffsetMux7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetMux7.Location = new System.Drawing.Point(1134, 75);
+            this.tboxOffsetMux7.Location = new System.Drawing.Point(1044, 75);
             this.tboxOffsetMux7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetMux7.Name = "tboxOffsetMux7";
             this.tboxOffsetMux7.ReadOnly = true;
-            this.tboxOffsetMux7.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetMux7.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetMux7.TabIndex = 34;
             // 
             // tboxOffsetMux6
             // 
             this.tboxOffsetMux6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetMux6.Location = new System.Drawing.Point(1021, 75);
+            this.tboxOffsetMux6.Location = new System.Drawing.Point(940, 75);
             this.tboxOffsetMux6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetMux6.Name = "tboxOffsetMux6";
             this.tboxOffsetMux6.ReadOnly = true;
-            this.tboxOffsetMux6.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetMux6.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetMux6.TabIndex = 33;
             // 
             // tboxOffsetMux5
             // 
             this.tboxOffsetMux5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetMux5.Location = new System.Drawing.Point(908, 75);
+            this.tboxOffsetMux5.Location = new System.Drawing.Point(836, 75);
             this.tboxOffsetMux5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetMux5.Name = "tboxOffsetMux5";
             this.tboxOffsetMux5.ReadOnly = true;
-            this.tboxOffsetMux5.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetMux5.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetMux5.TabIndex = 32;
             // 
             // tboxOffsetMux4
             // 
             this.tboxOffsetMux4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetMux4.Location = new System.Drawing.Point(795, 75);
+            this.tboxOffsetMux4.Location = new System.Drawing.Point(732, 75);
             this.tboxOffsetMux4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetMux4.Name = "tboxOffsetMux4";
             this.tboxOffsetMux4.ReadOnly = true;
-            this.tboxOffsetMux4.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetMux4.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetMux4.TabIndex = 31;
             // 
             // tboxOffsetMux3
             // 
             this.tboxOffsetMux3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetMux3.Location = new System.Drawing.Point(682, 75);
+            this.tboxOffsetMux3.Location = new System.Drawing.Point(628, 75);
             this.tboxOffsetMux3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetMux3.Name = "tboxOffsetMux3";
             this.tboxOffsetMux3.ReadOnly = true;
-            this.tboxOffsetMux3.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetMux3.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetMux3.TabIndex = 30;
             // 
             // tboxOffsetMux2
             // 
             this.tboxOffsetMux2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetMux2.Location = new System.Drawing.Point(569, 75);
+            this.tboxOffsetMux2.Location = new System.Drawing.Point(524, 75);
             this.tboxOffsetMux2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetMux2.Name = "tboxOffsetMux2";
             this.tboxOffsetMux2.ReadOnly = true;
-            this.tboxOffsetMux2.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetMux2.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetMux2.TabIndex = 29;
             // 
             // tboxOffsetMux1
             // 
             this.tboxOffsetMux1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetMux1.Location = new System.Drawing.Point(456, 75);
+            this.tboxOffsetMux1.Location = new System.Drawing.Point(420, 75);
             this.tboxOffsetMux1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetMux1.Name = "tboxOffsetMux1";
             this.tboxOffsetMux1.ReadOnly = true;
-            this.tboxOffsetMux1.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetMux1.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetMux1.TabIndex = 28;
             // 
             // tboxOffsetDa4
             // 
             this.tboxOffsetDa4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetDa4.Location = new System.Drawing.Point(343, 75);
+            this.tboxOffsetDa4.Location = new System.Drawing.Point(316, 75);
             this.tboxOffsetDa4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetDa4.Name = "tboxOffsetDa4";
             this.tboxOffsetDa4.ReadOnly = true;
-            this.tboxOffsetDa4.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetDa4.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetDa4.TabIndex = 27;
             // 
             // tboxOffsetDa2
             // 
             this.tboxOffsetDa2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetDa2.Location = new System.Drawing.Point(230, 75);
+            this.tboxOffsetDa2.Location = new System.Drawing.Point(212, 75);
             this.tboxOffsetDa2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetDa2.Name = "tboxOffsetDa2";
             this.tboxOffsetDa2.ReadOnly = true;
-            this.tboxOffsetDa2.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetDa2.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetDa2.TabIndex = 26;
             // 
             // tboxOffsetDa1
             // 
             this.tboxOffsetDa1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxOffsetDa1.Location = new System.Drawing.Point(117, 75);
+            this.tboxOffsetDa1.Location = new System.Drawing.Point(108, 75);
             this.tboxOffsetDa1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxOffsetDa1.Name = "tboxOffsetDa1";
             this.tboxOffsetDa1.ReadOnly = true;
-            this.tboxOffsetDa1.Size = new System.Drawing.Size(106, 25);
+            this.tboxOffsetDa1.Size = new System.Drawing.Size(97, 25);
             this.tboxOffsetDa1.TabIndex = 25;
             // 
             // tboxGainMux7
             // 
             this.tboxGainMux7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainMux7.Location = new System.Drawing.Point(1134, 39);
+            this.tboxGainMux7.Location = new System.Drawing.Point(1044, 39);
             this.tboxGainMux7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainMux7.Name = "tboxGainMux7";
             this.tboxGainMux7.ReadOnly = true;
-            this.tboxGainMux7.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainMux7.Size = new System.Drawing.Size(97, 25);
             this.tboxGainMux7.TabIndex = 23;
             // 
             // tboxGainMux6
             // 
             this.tboxGainMux6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainMux6.Location = new System.Drawing.Point(1021, 39);
+            this.tboxGainMux6.Location = new System.Drawing.Point(940, 39);
             this.tboxGainMux6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainMux6.Name = "tboxGainMux6";
             this.tboxGainMux6.ReadOnly = true;
-            this.tboxGainMux6.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainMux6.Size = new System.Drawing.Size(97, 25);
             this.tboxGainMux6.TabIndex = 22;
             // 
             // tboxGainMux5
             // 
             this.tboxGainMux5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainMux5.Location = new System.Drawing.Point(908, 39);
+            this.tboxGainMux5.Location = new System.Drawing.Point(836, 39);
             this.tboxGainMux5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainMux5.Name = "tboxGainMux5";
             this.tboxGainMux5.ReadOnly = true;
-            this.tboxGainMux5.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainMux5.Size = new System.Drawing.Size(97, 25);
             this.tboxGainMux5.TabIndex = 21;
             // 
             // tboxGainMux4
             // 
             this.tboxGainMux4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainMux4.Location = new System.Drawing.Point(795, 39);
+            this.tboxGainMux4.Location = new System.Drawing.Point(732, 39);
             this.tboxGainMux4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainMux4.Name = "tboxGainMux4";
             this.tboxGainMux4.ReadOnly = true;
-            this.tboxGainMux4.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainMux4.Size = new System.Drawing.Size(97, 25);
             this.tboxGainMux4.TabIndex = 20;
             // 
             // tboxGainMux3
             // 
             this.tboxGainMux3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainMux3.Location = new System.Drawing.Point(682, 39);
+            this.tboxGainMux3.Location = new System.Drawing.Point(628, 39);
             this.tboxGainMux3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainMux3.Name = "tboxGainMux3";
             this.tboxGainMux3.ReadOnly = true;
-            this.tboxGainMux3.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainMux3.Size = new System.Drawing.Size(97, 25);
             this.tboxGainMux3.TabIndex = 19;
             // 
             // tboxGainMux2
             // 
             this.tboxGainMux2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainMux2.Location = new System.Drawing.Point(569, 39);
+            this.tboxGainMux2.Location = new System.Drawing.Point(524, 39);
             this.tboxGainMux2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainMux2.Name = "tboxGainMux2";
             this.tboxGainMux2.ReadOnly = true;
-            this.tboxGainMux2.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainMux2.Size = new System.Drawing.Size(97, 25);
             this.tboxGainMux2.TabIndex = 18;
             // 
             // tboxGainMux1
             // 
             this.tboxGainMux1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainMux1.Location = new System.Drawing.Point(456, 39);
+            this.tboxGainMux1.Location = new System.Drawing.Point(420, 39);
             this.tboxGainMux1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainMux1.Name = "tboxGainMux1";
             this.tboxGainMux1.ReadOnly = true;
-            this.tboxGainMux1.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainMux1.Size = new System.Drawing.Size(97, 25);
             this.tboxGainMux1.TabIndex = 17;
             // 
             // tboxGainDa4
             // 
             this.tboxGainDa4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainDa4.Location = new System.Drawing.Point(343, 39);
+            this.tboxGainDa4.Location = new System.Drawing.Point(316, 39);
             this.tboxGainDa4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainDa4.Name = "tboxGainDa4";
             this.tboxGainDa4.ReadOnly = true;
-            this.tboxGainDa4.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainDa4.Size = new System.Drawing.Size(97, 25);
             this.tboxGainDa4.TabIndex = 16;
             // 
             // tboxGainDa2
             // 
             this.tboxGainDa2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainDa2.Location = new System.Drawing.Point(230, 39);
+            this.tboxGainDa2.Location = new System.Drawing.Point(212, 39);
             this.tboxGainDa2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainDa2.Name = "tboxGainDa2";
             this.tboxGainDa2.ReadOnly = true;
-            this.tboxGainDa2.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainDa2.Size = new System.Drawing.Size(97, 25);
             this.tboxGainDa2.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(117, 1);
+            this.label2.Location = new System.Drawing.Point(108, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 35);
+            this.label2.Size = new System.Drawing.Size(97, 35);
             this.label2.TabIndex = 0;
             this.label2.Text = "DAC DA1";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2717,9 +3399,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(230, 1);
+            this.label3.Location = new System.Drawing.Point(212, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 35);
+            this.label3.Size = new System.Drawing.Size(97, 35);
             this.label3.TabIndex = 1;
             this.label3.Text = "DAC DA2";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2728,9 +3410,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(343, 1);
+            this.label4.Location = new System.Drawing.Point(316, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 35);
+            this.label4.Size = new System.Drawing.Size(97, 35);
             this.label4.TabIndex = 2;
             this.label4.Text = "DAC DA4";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2739,9 +3421,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(456, 1);
+            this.label5.Location = new System.Drawing.Point(420, 1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 35);
+            this.label5.Size = new System.Drawing.Size(97, 35);
             this.label5.TabIndex = 3;
             this.label5.Text = "ADC MUX1";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2750,9 +3432,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(569, 1);
+            this.label6.Location = new System.Drawing.Point(524, 1);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 35);
+            this.label6.Size = new System.Drawing.Size(97, 35);
             this.label6.TabIndex = 4;
             this.label6.Text = "ADC MUX2";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2761,9 +3443,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(682, 1);
+            this.label7.Location = new System.Drawing.Point(628, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 35);
+            this.label7.Size = new System.Drawing.Size(97, 35);
             this.label7.TabIndex = 5;
             this.label7.Text = "ADC MUX3";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2772,9 +3454,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(795, 1);
+            this.label8.Location = new System.Drawing.Point(732, 1);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 35);
+            this.label8.Size = new System.Drawing.Size(97, 35);
             this.label8.TabIndex = 6;
             this.label8.Text = "ADC MUX4";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2783,9 +3465,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(908, 1);
+            this.label9.Location = new System.Drawing.Point(836, 1);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 35);
+            this.label9.Size = new System.Drawing.Size(97, 35);
             this.label9.TabIndex = 7;
             this.label9.Text = "ADC MUX5";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2794,9 +3476,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(1021, 1);
+            this.label10.Location = new System.Drawing.Point(940, 1);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 35);
+            this.label10.Size = new System.Drawing.Size(97, 35);
             this.label10.TabIndex = 8;
             this.label10.Text = "ADC MUX6";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2805,9 +3487,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(1134, 1);
+            this.label11.Location = new System.Drawing.Point(1044, 1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(106, 35);
+            this.label11.Size = new System.Drawing.Size(97, 35);
             this.label11.TabIndex = 9;
             this.label11.Text = "ADC MUX7";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2818,7 +3500,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Location = new System.Drawing.Point(4, 37);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(106, 35);
+            this.label12.Size = new System.Drawing.Size(97, 35);
             this.label12.TabIndex = 10;
             this.label12.Text = "Gain";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2829,7 +3511,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Location = new System.Drawing.Point(4, 73);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(106, 37);
+            this.label13.Size = new System.Drawing.Size(97, 37);
             this.label13.TabIndex = 11;
             this.label13.Text = "Offset";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2837,20 +3519,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             // tboxGainDa1
             // 
             this.tboxGainDa1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxGainDa1.Location = new System.Drawing.Point(117, 39);
+            this.tboxGainDa1.Location = new System.Drawing.Point(108, 39);
             this.tboxGainDa1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tboxGainDa1.Name = "tboxGainDa1";
             this.tboxGainDa1.ReadOnly = true;
-            this.tboxGainDa1.Size = new System.Drawing.Size(106, 25);
+            this.tboxGainDa1.Size = new System.Drawing.Size(97, 25);
             this.tboxGainDa1.TabIndex = 12;
             // 
             // btnGainRead
             // 
             this.btnGainRead.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGainRead.Location = new System.Drawing.Point(1247, 39);
+            this.btnGainRead.Location = new System.Drawing.Point(1252, 39);
             this.btnGainRead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGainRead.Name = "btnGainRead";
-            this.btnGainRead.Size = new System.Drawing.Size(111, 31);
+            this.btnGainRead.Size = new System.Drawing.Size(106, 31);
             this.btnGainRead.TabIndex = 35;
             this.btnGainRead.Text = "읽기";
             this.btnGainRead.UseVisualStyleBackColor = true;
@@ -2956,6 +3638,34 @@ namespace p2_40_Main_PBA_Tester.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numDa1SetTestoutput)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
+            this.groupBox25.ResumeLayout(false);
+            this.tableLayoutPanel31.ResumeLayout(false);
+            this.groupBox26.ResumeLayout(false);
+            this.tableLayoutPanel32.ResumeLayout(false);
+            this.tableLayoutPanel32.PerformLayout();
+            this.groupBox27.ResumeLayout(false);
+            this.tableLayoutPanel33.ResumeLayout(false);
+            this.tableLayoutPanel33.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8MeassuredValueTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8SetOutputMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8MeassuredValueMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8SetOutputMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8MeassuredValueMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux8SetTestoutput)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7MeassuredValueTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7SetOutputMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7MeassuredValueMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7SetOutputMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7MeassuredValueMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMux7SetTestoutput)).EndInit();
             this.groupBox22.ResumeLayout(false);
             this.tableLayoutPanel28.ResumeLayout(false);
             this.groupBox23.ResumeLayout(false);
@@ -3243,5 +3953,54 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCalSave;
         private System.Windows.Forms.ComboBox cboxCalChannel;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
+        private System.Windows.Forms.GroupBox groupBox26;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel32;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label lblMux8Gain;
+        private System.Windows.Forms.Label lblMux8Offset;
+        private System.Windows.Forms.Button btnCalMux8;
+        private System.Windows.Forms.GroupBox groupBox27;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel33;
+        private System.Windows.Forms.NumericUpDown numMux8MeassuredValueTest;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Button btnMux8Min;
+        private System.Windows.Forms.Button btnMux8Max;
+        private System.Windows.Forms.Button btnMux8Test;
+        private System.Windows.Forms.NumericUpDown numMux8SetOutputMin;
+        private System.Windows.Forms.NumericUpDown numMux8MeassuredValueMin;
+        private System.Windows.Forms.NumericUpDown numMux8SetOutputMax;
+        private System.Windows.Forms.NumericUpDown numMux8MeassuredValueMax;
+        private System.Windows.Forms.NumericUpDown numMux8SetTestoutput;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lblMux7Gain;
+        private System.Windows.Forms.Label lblMux7Offset;
+        private System.Windows.Forms.Button btnCalMux7;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.NumericUpDown numMux7MeassuredValueTest;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button btnMux7Min;
+        private System.Windows.Forms.Button btnMux7Max;
+        private System.Windows.Forms.Button btnMux7Test;
+        private System.Windows.Forms.NumericUpDown numMux7SetOutputMin;
+        private System.Windows.Forms.NumericUpDown numMux7MeassuredValueMin;
+        private System.Windows.Forms.NumericUpDown numMux7SetOutputMax;
+        private System.Windows.Forms.NumericUpDown numMux7MeassuredValueMax;
+        private System.Windows.Forms.NumericUpDown numMux7SetTestoutput;
+        private System.Windows.Forms.TextBox tboxOffsetMux8;
+        private System.Windows.Forms.TextBox tboxGainMux8;
+        private System.Windows.Forms.Label label26;
     }
 }

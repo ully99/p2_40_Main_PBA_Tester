@@ -95,6 +95,7 @@
     <Compile Include="Communication\TcpProtocol.cs" />
     <Compile Include="Data\RecipeLocalBuffer.cs" />
     <Compile Include="Data\Settings.cs" />
+    <Compile Include="Data\TaskFunctions.cs" />
     <Compile Include="Data\Variable.cs" />
     <Compile Include="Forms\CalibrationForm.cs">
       <SubType>Form</SubType>
@@ -125,6 +126,12 @@
     </Compile>
     <Compile Include="Forms\FtpSettingForm.Designer.cs">
       <DependentUpon>FtpSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -193,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FtpSettingForm.resx">
       <DependentUpon>FtpSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

@@ -1,16 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using p2_40_Main_PBA_Tester.Forms;
 using p2_40_Main_PBA_Tester.Communication;
 using p2_40_Main_PBA_Tester.Data;
 using p2_40_Main_PBA_Tester.UserControls;
+using p2_40_Main_PBA_Tester.UI;
+using p2_40_Main_PBA_Tester.LIB;
 using System.Data.OleDb;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -18,10 +21,18 @@ using System.Reflection;
 using System.IO;
 using System.IO.Ports;
 
+
 namespace p2_40_Main_PBA_Tester
 {
     public partial class MainForm : Form
     {
+        #region Field
+        private bool _isTestRunning = false;
+        private CancellationTokenSource _cts; // 중간에 STOP 누르면 취소하기 위해 사용
+
+        #endregion
+
+
         #region Init
         public MainForm()
         {
@@ -29,16 +40,40 @@ namespace p2_40_Main_PBA_Tester
             ConnectEvent();
         }
 
-        
+
+
+        private void StartLoadingAnimation()
+        {
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.MarqueeAnimationSpeed = 30;
+        }
+
+        private void StopLoadingAnimation()
+        {
+            progressBar1.Style = ProgressBarStyle.Blocks;
+            progressBar1.Value = 100;
+        }
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
             Init_ChControls();
             Init_McuLotModel_Value();
             UpdateLayoutByChannelConfig();
-            await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
-            SettingMesImage(); //MES 이미지 파일 초기세팅
-            SettingFtpImage(); //FTP 이미지 파일 초기세팅
+
+            var loadingForm = new LoadingForm("Connecting...") { Owner = this, StartPosition = FormStartPosition.CenterScreen };
+            loadingForm.Show();
+            Application.DoEvents();
+            try
+            {
+                await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
+                SettingMesImage();
+                SettingFtpImage();
+            }
+            finally
+            {
+                loadingForm.Close();
+                loadingForm.Dispose();
+            }
         }
 
         private void Init_ChControls()
@@ -47,9 +82,6 @@ namespace p2_40_Main_PBA_Tester
             chControl_ch2.Init(2);
             chControl_ch3.Init(3);
             chControl_ch4.Init(4);
-
-            Settings.Instance.OkCount_Ch1++;
-            Settings.Instance.NgCount_Ch2++;
         }
 
         private void Init_McuLotModel_Value()
@@ -98,6 +130,64 @@ namespace p2_40_Main_PBA_Tester
             tableLayoutPanel_Channels.ResumeLayout();
         }
 
+        private void ToggleLogComm(TcpChannelClient board, bool enable, RichTextLogger logger)
+        {
+            if (board == null) return;
+
+            if (enable)
+            {
+                
+                board.LogCommToUI = (tbox, msg, isTx) =>
+                {
+                    if (isTx) logger.Tx(msg);
+                    else logger.Rx(msg);
+                };
+            }
+            else
+            {
+                board.LogCommToUI = null;
+                board.LogTarget = null;
+            }
+        }
+
+        private void ToggleLogComm(SerialChannelPort device, bool enable, RichTextLogger logger)
+        {
+            if (device == null) return;
+
+            if (enable)
+            {
+                // device.LogTarget = ... (SerialPort도 필요하다면 설정)
+                device.LogCommToUI = (tbox, msg, isTx) =>
+                {
+                    if (isTx) logger.Tx(msg);
+                    else logger.Rx(msg);
+                };
+            }
+            else
+            {
+                device.LogCommToUI = null;
+            }
+        }
+
+        private void ToggleLogComm(QrChannelPort Qr, bool enable, RichTextLogger logger)
+        {
+            if (Qr == null) return;
+
+            if (enable)
+            {
+                Qr.LogCommToUI = (tbox, msg, isTx) =>
+                {
+                    if (isTx) logger.Tx(msg);
+                    else logger.Rx(msg);
+                };
+            }
+            else
+            {
+                Qr.LogCommToUI = null;
+            }
+        }
+
+
         #endregion
 
         #region Event
@@ -112,9 +202,9 @@ namespace p2_40_Main_PBA_Tester
             this.lblValueLotNo.DoubleClick += lblValueLotNo_DoubleClick;
             this.lblValueModel.DoubleClick += lblValueModel_DoubleClick;
             this.btnRecipeOpen.Click += btnRecipeOpen_Click;
+            this.btnStartStop.Click += btnStartStop_Click;
         }
-
-        
+ 
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
@@ -510,6 +600,193 @@ namespace p2_40_Main_PBA_Tester
 
         #endregion
 
+        #region Main Task
+        private void btnStartStop_Click(object sender, EventArgs e)
+        {
+            if (_isTestRunning)
+            {
+                // 실행 중이면 -> 정지 요청
+                StopTestRoutine();
+            }
+            else
+            {
+                // 정지 상태면 -> 시작 요청
+                StartTestRoutine();
+            }
+        }
 
+        private async void StartTestRoutine()
+        {
+            if (string.IsNullOrEmpty(tboxRecipeFile.Text))
+            {
+                MessageBox.Show("Recipe를 선택해주세요");
+                return;
+            }
+            // 이미 돌고 있으면 무시
+            if (_isTestRunning) return;
+
+            // 1) 상태 플래그 설정
+            _isTestRunning = true;
+            _cts = new CancellationTokenSource(); // 취소 토큰 생성
+
+            // 2) UI 변경 (버튼을 STOP으로, 로딩바 마퀴 시작)
+            btnStartStop.Text = "STOP";
+            btnStartStop.BackColor = Color.IndianRed;
+            btnStartStop.ForeColor = Color.Black;
+            StartLoadingAnimation();
+
+            // 3) 설정된 채널들만 테스트 시작
+            var chControls = new ChControl[] { chControl_ch1, chControl_ch2, chControl_ch3, chControl_ch4 };
+            bool[] chEnables = new bool[] { Settings.Instance.Use_CH1, Settings.Instance.Use_CH2, Settings.Instance.Use_CH3, Settings.Instance.Use_CH4 };
+
+            List<Task> runningTasks = new List<Task>();
+
+            for (int i = 0; i < chControls.Length; i++)
+            {
+                if (chEnables[i])
+                {
+                    // 각 채널별로 비동기 검사 시작
+                    runningTasks.Add(RunSequenceAsync(chControls[i], i, _cts.Token));
+                }
+            }
+
+            // 4) 모든 채널이 끝날 때까지 대기
+            try
+            {
+                await Task.WhenAll(runningTasks);
+            }
+            catch (OperationCanceledException)
+            {
+                // Stop 버튼 눌러서 취소된 경우
+                Console.WriteLine("Test Stopped by User/JIG");
+            }
+            finally
+            {
+                // 5) 모든 작업이 끝나면(혹은 취소되면) 마무리
+                StopTestRoutine(isFinished: true);
+            }
+        }
+
+        private void StopTestRoutine(bool isFinished = false)
+        {
+            // 사용자 강제 중단인 경우 토큰 취소 요청
+            if (!isFinished && _cts != null)
+            {
+                _cts.Cancel();
+            }
+
+            _isTestRunning = false;
+
+            // 로딩바 정지
+            StopLoadingAnimation();
+
+            // UI 원상복구 (버튼을 START로)
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action(() => StopTestRoutine(true)));
+                return;
+            }
+
+            btnStartStop.Text = "START";
+            btnStartStop.BackColor = Color.DarkSeaGreen; // 원래 색상 (디자이너 설정값 확인 필요)
+            btnStartStop.ForeColor = Color.Black;
+        }
+
+        // ★★★ 4. 핵심 시퀀스 로직 (각 채널별로 돌아가는 함수) ★★★
+        private async Task RunSequenceAsync(ChControl ch, int chIdx, CancellationToken token)
+        {
+            var board = CommManager.Boards[chIdx];   // TCP
+            var pba = CommManager.Pbas[chIdx];       // Serial
+            var qr = CommManager.QrPorts[chIdx];     // QR
+
+
+            try
+            {
+                //로그 연결
+                ToggleLogComm(board, true, ch.CommLogger);
+                ToggleLogComm(pba, true, ch.CommLogger);
+                ToggleLogComm(qr, true, ch.CommLogger);
+
+                // 1) 시작 전 초기화
+                ch.StartInspection();
+
+                List<string> taskList = Settings.Instance.RunTaskList;
+                
+
+                if (taskList == null || taskList.Count == 0)
+                {
+                    ch.StopInspection();
+                    return;
+                }
+
+                bool totalResult = true; // 전체 결과 (하나라도 실패하면 false)
+
+                // 2) 공정 리스트 순회
+                for (int step = 0; step < taskList.Count; step++)
+                {
+                    await Task.Delay(100); //공정 사이 딜레이
+
+                    // 스탑 버튼 눌렸는지 체크
+                    if (token.IsCancellationRequested)
+                    {
+                        ch.StopInspection();
+                        return;
+                    }
+
+                    string taskName = taskList[step];
+
+                    // 2-1) 현재 단계 노란색(RUNNING) 표시
+                    ch.UpdateItemStatus(step, ChControl.TaskStatus.RUNNING);
+
+                    // 2-2) 실제 검사 함수 호출 (Data/TaskFunctions.cs)
+                    bool isPass = await TaskFunctions.RunTestItem(taskName, chIdx, ch, token, totalResult);
+
+                    // 2-3) 결과 처리
+                    if (isPass)
+                    {
+                        ch.UpdateItemStatus(step, ChControl.TaskStatus.PASS); // 초록색
+                    }
+                    else
+                    {
+                        ch.UpdateItemStatus(step, ChControl.TaskStatus.FAIL); // 빨간색
+                        totalResult = false; // 전체 실패
+
+                        // ★ 디버그 모드가 아니면 여기서 즉시 중단
+                        if (!Settings.Instance.Use_Debug_Mode)
+                        {
+                            // 남은 공정들 일괄 FAIL 처리 (빨간색 칠하기)
+                            for (int remainStep = step + 1; remainStep < taskList.Count; remainStep++)
+                            {
+                                // FAIL로 찍거나, 구분하고 싶으면 SKIP 등의 상태를 만들어서 찍어도 됨
+                                ch.UpdateItemStatus(remainStep, ChControl.TaskStatus.FAIL);
+                            }
+
+                            break;
+                        }
+                        // 디버그 모드(true)면 다음 루프로 계속 진행
+                    }
+
+                }
+
+                ch.EndInspection(totalResult);
+            }
+            finally
+            {
+                ToggleLogComm(board, false, null);
+                ToggleLogComm(pba, false, null);
+                ToggleLogComm(qr, false, null);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        #endregion
     }
 }

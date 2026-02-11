@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
+using System.Threading;
 
 namespace p2_40_Main_PBA_Tester.Communication
 {
@@ -15,6 +16,10 @@ namespace p2_40_Main_PBA_Tester.Communication
 
         private readonly List<byte> _buffer = new List<byte>();
         private readonly object _bufferLock = new object();
+
+
+        public System.Windows.Forms.RichTextBox LogTarget { get; set; }
+        public Action<System.Windows.Forms.RichTextBox, string, bool> LogCommToUI { get; set; }
 
         // ReadLineAsync가 기다릴 때 사용하는 신호기
         private TaskCompletionSource<string> _readLineTcs;
@@ -82,7 +87,8 @@ namespace p2_40_Main_PBA_Tester.Communication
             {
                 await Port.BaseStream.WriteAsync(data, 0, data.Length);
                 // 필요하다면 여기서 TX 로그 출력
-                Console.WriteLine($"[QR TX] {BitConverter.ToString(data)} [CH {ChannelIndex}]");
+                string msg = Encoding.ASCII.GetString(data);
+                Console.WriteLine($"[QR TX] {msg} [CH {ChannelIndex}]");
             }
             catch (Exception ex)
             {
@@ -117,6 +123,47 @@ namespace p2_40_Main_PBA_Tester.Communication
             // 5. 결과 반환
             string result = await _readLineTcs.Task;
             _readLineTcs = null; // 사용 후 초기화
+            return result;
+        }
+
+        
+        //바이트 배열 명령어를 보내고 응답(String)을 기다리는 통합 메서드
+        public async Task<string> SendAndReceiveAsync(byte[] data, int timeoutMs = 2000, CancellationToken token = default)
+        {
+            if (!IsOpen) return null;
+
+            
+            // 1. 버퍼 비우기 (이전 데이터 제거)
+            DiscardInBuffer();
+
+            // 2. 응답 대기 신호기(TCS) 생성
+            _readLineTcs = new TaskCompletionSource<string>();
+
+            // 3. 명령어 전송 (이미 byte[]이므로 변환 없이 바로 전송)
+            await SendAsync(data);
+            if (token != default) token.ThrowIfCancellationRequested();
+
+            // 4. 타임아웃 대기 설정
+            Task timeoutTask = Task.Delay(timeoutMs);
+
+            // 5. 응답이 오거나 타임아웃이 될 때까지 대기
+            Task completedTask = await Task.WhenAny(_readLineTcs.Task, timeoutTask);
+
+            // 6. 타임아웃 발생 시
+            if (completedTask == timeoutTask)
+            {
+                _readLineTcs.TrySetCanceled();
+                _readLineTcs = null;
+
+                // 디버깅용 로그 (Hex 문자열로 변환해서 표시)
+                string hexCmd = BitConverter.ToString(data);
+                Console.WriteLine($"[QR Timeout] Cmd: {hexCmd} (No Response)");
+                return null;
+            }
+
+            // 7. 응답 수신 성공
+            string result = await _readLineTcs.Task;
+            _readLineTcs = null; // 초기화
             return result;
         }
 
@@ -166,6 +213,9 @@ namespace p2_40_Main_PBA_Tester.Communication
 
                         //  1. 모니터링 기능 (무조건 콘솔에 찍음)
                         Console.WriteLine($"[QR RX] {(ChannelIndex == 4 ? "Recipe" : $"CH{ChannelIndex + 1}")} => {line}");
+
+                        // RX 로그 전송
+                        if (LogCommToUI != null) LogCommToUI(LogTarget, line, false);
 
                         //  2. ReadLineAsync가 기다리고 있었다면 값 전달!
                         if (_readLineTcs != null && !_readLineTcs.Task.IsCompleted)

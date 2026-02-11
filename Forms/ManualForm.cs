@@ -43,7 +43,11 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             dgvInputBase.Rows.Clear();
 
-            string[] items = {"PS1 Volt", "PS1 Curr", "PS1 Item Volt", "PS1 Sleep Curr","PS1 Ship Curr" };
+            string[] items = {"PS1 Volt", "PS1 Curr", "PS1 VBUS", "PS1 SYS",
+                "PS1 SYS 3V","PS1 MCU 33V","PS1 VBOOST", "PS1 HT BOOST",
+                "PS1 SUB HT BOOST OUT", "PS1 KATO BOOST OUT",
+                "PS1 Sleep Curr","PS1 Ship Curr",
+                "PS1 VDD 3V", "PS1 LDC 3V"};
 
             foreach (var name in items)
             {
@@ -71,7 +75,7 @@ namespace p2_40_Main_PBA_Tester.Forms
 
         private void AllClearSwitch()
         {
-            for (int i = 0; i < 26; i++)
+            for (int i = 0; i < 40; i++)
             {
                 var cbox = this.Controls.Find($"cboxSw{i + 1}", true).FirstOrDefault() as CheckBox;
                 if (cbox != null)
@@ -278,17 +282,22 @@ namespace p2_40_Main_PBA_Tester.Forms
                     return;
                 }
 
-                byte[] switchBytes = rx.Skip(7).Take(4).Reverse().ToArray();
+                byte[] switchBytes = rx.Skip(7).Take(5).Reverse().ToArray();
 
-                for (int i = 0; i < 26; i++)
+                for (int i = 0; i < 40; i++)
                 {
                     int byteIndex = i / 8;
                     int bitIndex = i % 8;
-                    bool isOn = (switchBytes[byteIndex] & (1 << bitIndex)) != 0; 
 
+                    // cboxSw1 ~ cboxSw40 매핑
                     var cbox = this.Controls.Find($"cboxSw{i + 1}", true).FirstOrDefault() as CheckBox;
 
-                    if (cbox != null)  cbox.Checked = isOn;
+                    if (cbox != null && byteIndex < switchBytes.Length)
+                    {
+                        // 이미지상 LSB가 낮은 번호 스위치이므로 (1 << bitIndex) 로직 유지
+                        bool isOn = (switchBytes[byteIndex] & (1 << bitIndex)) != 0;
+                        cbox.Checked = isOn;
+                    }
                 }
 
             }
@@ -305,24 +314,18 @@ namespace p2_40_Main_PBA_Tester.Forms
             {
                 if (!CheckChannel()) return;
 
-                byte[] switchBytes = new byte[4];
+                byte[] switchBytes = new byte[5];
 
-                for (int i = 0; i < 26; i++)
+                for (int i = 0; i < 40; i++)
                 {
                     var cbox = this.Controls.Find($"cboxSw{i + 1}", true).FirstOrDefault() as CheckBox;
-                    if (cbox != null)
+                    if (cbox != null && cbox.Checked)
                     {
-                        if (cbox.Checked)
-                        {
-                            int byteIndex = i / 8;
-                            int bitIndex = i % 8;
-                            switchBytes[byteIndex] |= (byte)(1 << bitIndex);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"cboxSw{i + 1} 컨트롤을 찾지 못함");
-                        return;
+                        int byteIndex = i / 8;
+                        int bitIndex = i % 8;
+
+                        // 로컬 배열은 [Num 1, Num 2, Num 3, Num 4, Num 5] 순서로 채워짐
+                        switchBytes[byteIndex] |= (byte)(1 << bitIndex);
                     }
                 }
 
@@ -359,11 +362,27 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 byte item;
 
+                //"PS1 Volt", "PS1 Curr", "PS1 VBUS", "PS1 SYS",
+                //"PS1 SYS 3V","PS1 MCJ 33V","PS1 VBOOST", "PS1 HT BOOST",
+                //"PS1 SUB HT BOOST OUT", "PS1 KATO BOOST OUT",
+                //"PS1 Sleep Curr","PS1 Ship Curr",
+                //"PS1 VDD 3V", "PS1 LDC 3V"
+
                 if (string.Equals(name,"PS1 Volt")) item = 0x01;
                 else if (string.Equals(name, "PS1 Curr")) item = 0x02;
-                else if (string.Equals(name, "PS1 Item Volt")) item = 0x03;
-                else if (string.Equals(name, "PS1 Sleep Curr")) item = 0x04;
-                else if (string.Equals(name, "PS1 Ship Curr")) item = 0x05;
+                else if (string.Equals(name, "PS1 VBUS")) item = 0x03;
+                else if (string.Equals(name, "PS1 SYS")) item = 0x04;
+                else if (string.Equals(name, "PS1 SYS 3V")) item = 0x05;
+                else if (string.Equals(name, "PS1 MCU 33V")) item = 0x06;
+                else if (string.Equals(name, "PS1 VBOOST")) item = 0x07;
+                else if (string.Equals(name, "PS1 HT BOOST")) item = 0x08;
+                else if (string.Equals(name, "PS1 SUB HT BOOST OUT")) item = 0x09;
+                else if (string.Equals(name, "PS1 KATO BOOST OUT")) item = 0x0A;
+                else if (string.Equals(name, "PS1 Sleep Curr")) item = 0x0B;
+                else if (string.Equals(name, "PS1 Ship Curr")) item = 0x0C;
+                else if (string.Equals(name, "PS1 VDD 3V")) item = 0x0D;
+                else if (string.Equals(name, "PS1 LDC 3V")) item = 0x0E;
+
                 else
                 {
                     Console.WriteLine("이 기능은 구현되지 않았습니다.");
@@ -446,9 +465,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             }
         }
 
-        
+
+
         #endregion
 
-
+        
     }
 }

@@ -38,7 +38,7 @@ namespace p2_40_Main_PBA_Tester.Communication
 
         // 요청 간 인터벌
         private DateTime _lastTxUtc = DateTime.MinValue;
-        public int MinIntervalMs { get; set; } = 70; //================이 수치 밑으로는 데이터 송수신 안된다 (최소 인터벌 보장)
+        public int MinIntervalMs => Settings.Instance.Pba_Min_Interval; //================이 수치 밑으로는 데이터 송수신 안된다 (최소 인터벌 보장)
         
 
         public SerialChannelPort(int ch)
@@ -81,6 +81,64 @@ namespace p2_40_Main_PBA_Tester.Communication
                 Console.WriteLine("[Serial] CH{0} 연결 실패: {1} - {2}", ChannelNo, ex.GetType().Name, ex.Message);
                 return false;
             }
+        }
+
+        public async Task<bool> ConnectAsync(string portName, int baudRate = 115200, int timeoutMs = 3000, CancellationToken token = default)//Timeout 있는 시리얼 연결 메서드
+        {
+            // ★ 1. 현재 연결 상태 확인
+            // 포트가 이미 열려 있고, 이름과 속도가 같다면 시도하지 않고 바로 true 리턴
+            if (Port != null && Port.IsOpen && Port.PortName == portName && Port.BaudRate == baudRate)
+            {
+                Console.WriteLine($"[Serial] CH{ChannelNo} 이미 동일한 포트로 연결되어 있습니다. ({portName})");
+                return true;
+            }
+
+            DateTime startTime = DateTime.Now;
+
+            while ((DateTime.Now - startTime).TotalMilliseconds < timeoutMs)
+            {
+                // STOP 버튼 체크
+                if (token != default) token.ThrowIfCancellationRequested();
+
+                try
+                {
+                    // 2. 새로운 연결을 위해 기존 포트 정리
+                    if (Port != null)
+                    {
+                        try { if (Port.IsOpen) Port.Close(); } catch { }
+                        Port.DataReceived -= OnDataReceived;
+                        Port.Dispose();
+                        Port = null;
+                    }
+
+                    // 3. 포트 설정 및 생성
+                    Port = new SerialPort(portName, baudRate, Parity.None, 8, StopBits.One);
+                    Port.Encoding = Encoding.ASCII;
+                    Port.NewLine = "\r\n";
+                    Port.ReadTimeout = 1000;
+                    Port.WriteTimeout = 1000;
+                    Port.DataReceived += OnDataReceived;
+
+                    // 4. 물리적 연결 시도
+                    Port.Open();
+
+                    Port.DiscardInBuffer();
+                    Port.DiscardOutBuffer();
+
+                    Console.WriteLine($"[Serial] CH{ChannelNo} 새 연결 성공 ({portName})");
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Serial] CH{ChannelNo} 연결 시도 중... ({ex.Message})");
+
+                    // 재시도 대기 시간 중에도 STOP 체크 가능하도록 token 전달
+                    await Task.Delay(500, token);
+                }
+            }
+
+            Console.WriteLine($"[Serial] CH{ChannelNo} 연결 최종 실패 (타임아웃 {timeoutMs}ms)");
+            return false;
         }
 
         public void Disconnect()
@@ -218,7 +276,7 @@ namespace p2_40_Main_PBA_Tester.Communication
             }
         }
 
-        public async Task<byte[]> SendAndReceivePacketAsync(byte[] data, int timeoutMs)
+        public async Task<byte[]> SendAndReceivePacketAsync(byte[] data, int timeoutMs, CancellationToken token = default)
         {
             int maxAttempts = (Settings.Instance.Use_Pba_Retry && Settings.Instance.Pba_Retry_Count > 0)
                       ? Settings.Instance.Pba_Retry_Count
@@ -226,6 +284,7 @@ namespace p2_40_Main_PBA_Tester.Communication
 
             for (int attempt = 1; attempt <= maxAttempts; attempt++)
             {
+                if (token != default) token.ThrowIfCancellationRequested();
                 // === 기존 로직 시작 ===
                 DiscardBuffers();
                 _packetTcs = new TaskCompletionSource<byte[]>();
@@ -260,7 +319,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                 {
                     Console.WriteLine($"[Serial Retry] CH{ChannelNo} Timeout! Retrying... ({attempt}/{maxAttempts})");
                     // 너무 빠르게 재시도하면 장비가 체할 수 있으니 살짝 쉰다 (선택 사항)
-                    await Task.Delay(100);
+                    await Task.Delay(200, token).ConfigureAwait(false);
                 }
             }
 
@@ -269,10 +328,10 @@ namespace p2_40_Main_PBA_Tester.Communication
             return null;
         }
 
-        public async Task<byte[]> SendAndReceivePacketAsync_OnlyData(byte[] txPacket, int timeoutMs = 2000)
+        public async Task<byte[]> SendAndReceivePacketAsync_OnlyData(byte[] txPacket, int timeoutMs = 2000, CancellationToken token = default)
         {
             // 1) 기존 함수 호출해서 전체 패킷(: ~ \r\n)을 그대로 받는다
-            byte[] frame = await SendAndReceivePacketAsync(txPacket, timeoutMs);
+            byte[] frame = await SendAndReceivePacketAsync(txPacket, timeoutMs, token);
             if (frame == null || frame.Length == 0)
                 return null;
 

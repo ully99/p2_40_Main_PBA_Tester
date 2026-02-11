@@ -82,7 +82,8 @@ namespace p2_40_Main_PBA_Tester.Communication
             {
                 await Port.BaseStream.WriteAsync(data, 0, data.Length);
                 // 필요하다면 여기서 TX 로그 출력
-                Console.WriteLine($"[Recipe QR] TX : {BitConverter.ToString(data)} [Recipe Qr]");
+                string msg = Encoding.ASCII.GetString(data);
+                Console.WriteLine($"[Recipe QR] TX : {msg} [Recipe Qr]");
             }
             catch (Exception ex)
             {

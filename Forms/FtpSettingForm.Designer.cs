@@ -212,6 +212,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxFtpPw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tboxFtpPw.Location = new System.Drawing.Point(159, 168);
             this.tboxFtpPw.Name = "tboxFtpPw";
+            this.tboxFtpPw.PasswordChar = '*';
             this.tboxFtpPw.Size = new System.Drawing.Size(227, 32);
             this.tboxFtpPw.TabIndex = 8;
             // 

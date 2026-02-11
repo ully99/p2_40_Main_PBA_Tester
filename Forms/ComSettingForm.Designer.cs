@@ -106,6 +106,12 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label26 = new System.Windows.Forms.Label();
             this.gboxTimeOutValue = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.tboxPbaOnDelay = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.tboxBoardMinInterval = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.tboxPbaMinInterval = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.checkboxBoardRetry = new MaterialSkin.Controls.MaterialCheckbox();
             this.checkboxPbaRetry = new MaterialSkin.Controls.MaterialCheckbox();
             this.tboxPbaRetryCount = new System.Windows.Forms.TextBox();
@@ -1334,14 +1340,21 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             // tableLayoutPanel21
             // 
-            this.tableLayoutPanel21.ColumnCount = 3;
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel21.ColumnCount = 4;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
+            this.tableLayoutPanel21.Controls.Add(this.tboxPbaOnDelay, 3, 2);
+            this.tableLayoutPanel21.Controls.Add(this.label34, 2, 2);
+            this.tableLayoutPanel21.Controls.Add(this.tboxBoardMinInterval, 3, 1);
+            this.tableLayoutPanel21.Controls.Add(this.label33, 2, 1);
+            this.tableLayoutPanel21.Controls.Add(this.tboxPbaMinInterval, 3, 0);
+            this.tableLayoutPanel21.Controls.Add(this.label30, 2, 0);
             this.tableLayoutPanel21.Controls.Add(this.checkboxBoardRetry, 0, 4);
             this.tableLayoutPanel21.Controls.Add(this.checkboxPbaRetry, 0, 3);
-            this.tableLayoutPanel21.Controls.Add(this.tboxPbaRetryCount, 1, 4);
-            this.tableLayoutPanel21.Controls.Add(this.tboxBoardRetryCount, 1, 3);
+            this.tableLayoutPanel21.Controls.Add(this.tboxPbaRetryCount, 2, 4);
+            this.tableLayoutPanel21.Controls.Add(this.tboxBoardRetryCount, 2, 3);
             this.tableLayoutPanel21.Controls.Add(this.label27, 0, 2);
             this.tableLayoutPanel21.Controls.Add(this.tboxBoardReadTimeOut, 1, 2);
             this.tableLayoutPanel21.Controls.Add(this.label29, 0, 0);
@@ -1360,10 +1373,74 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel21.Size = new System.Drawing.Size(642, 227);
             this.tableLayoutPanel21.TabIndex = 0;
             // 
+            // tboxPbaOnDelay
+            // 
+            this.tboxPbaOnDelay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxPbaOnDelay.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxPbaOnDelay.Location = new System.Drawing.Point(484, 97);
+            this.tboxPbaOnDelay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxPbaOnDelay.Name = "tboxPbaOnDelay";
+            this.tboxPbaOnDelay.Size = new System.Drawing.Size(154, 30);
+            this.tboxPbaOnDelay.TabIndex = 31;
+            // 
+            // label34
+            // 
+            this.label34.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Calibri", 11F);
+            this.label34.Location = new System.Drawing.Point(341, 101);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(117, 23);
+            this.label34.TabIndex = 30;
+            this.label34.Text = "PBA ON Delay";
+            // 
+            // tboxBoardMinInterval
+            // 
+            this.tboxBoardMinInterval.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxBoardMinInterval.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxBoardMinInterval.Location = new System.Drawing.Point(484, 52);
+            this.tboxBoardMinInterval.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxBoardMinInterval.Name = "tboxBoardMinInterval";
+            this.tboxBoardMinInterval.Size = new System.Drawing.Size(154, 30);
+            this.tboxBoardMinInterval.TabIndex = 29;
+            // 
+            // label33
+            // 
+            this.label33.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Calibri", 11F);
+            this.label33.Location = new System.Drawing.Point(323, 56);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(154, 23);
+            this.label33.TabIndex = 28;
+            this.label33.Text = "Board Min Interval";
+            // 
+            // tboxPbaMinInterval
+            // 
+            this.tboxPbaMinInterval.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxPbaMinInterval.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxPbaMinInterval.Location = new System.Drawing.Point(484, 7);
+            this.tboxPbaMinInterval.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxPbaMinInterval.Name = "tboxPbaMinInterval";
+            this.tboxPbaMinInterval.Size = new System.Drawing.Size(154, 30);
+            this.tboxPbaMinInterval.TabIndex = 27;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Calibri", 11F);
+            this.label30.Location = new System.Drawing.Point(330, 11);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(139, 23);
+            this.label30.TabIndex = 26;
+            this.label30.Text = "PBA Min Interval";
+            // 
             // checkboxBoardRetry
             // 
             this.checkboxBoardRetry.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkboxBoardRetry.AutoSize = true;
+            this.tableLayoutPanel21.SetColumnSpan(this.checkboxBoardRetry, 2);
             this.checkboxBoardRetry.Depth = 0;
             this.checkboxBoardRetry.Location = new System.Drawing.Point(0, 185);
             this.checkboxBoardRetry.Margin = new System.Windows.Forms.Padding(0);
@@ -1381,6 +1458,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.checkboxPbaRetry.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkboxPbaRetry.AutoSize = true;
+            this.tableLayoutPanel21.SetColumnSpan(this.checkboxPbaRetry, 2);
             this.checkboxPbaRetry.Depth = 0;
             this.checkboxPbaRetry.Location = new System.Drawing.Point(0, 139);
             this.checkboxPbaRetry.Margin = new System.Windows.Forms.Padding(0);
@@ -1398,20 +1476,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tboxPbaRetryCount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaRetryCount.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaRetryCount.Location = new System.Drawing.Point(221, 188);
+            this.tboxPbaRetryCount.Location = new System.Drawing.Point(323, 188);
             this.tboxPbaRetryCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxPbaRetryCount.Name = "tboxPbaRetryCount";
-            this.tboxPbaRetryCount.Size = new System.Drawing.Size(200, 30);
+            this.tboxPbaRetryCount.Size = new System.Drawing.Size(154, 30);
             this.tboxPbaRetryCount.TabIndex = 25;
             // 
             // tboxBoardRetryCount
             // 
             this.tboxBoardRetryCount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardRetryCount.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardRetryCount.Location = new System.Drawing.Point(221, 142);
+            this.tboxBoardRetryCount.Location = new System.Drawing.Point(323, 142);
             this.tboxBoardRetryCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardRetryCount.Name = "tboxBoardRetryCount";
-            this.tboxBoardRetryCount.Size = new System.Drawing.Size(200, 30);
+            this.tboxBoardRetryCount.Size = new System.Drawing.Size(154, 30);
             this.tboxBoardRetryCount.TabIndex = 24;
             // 
             // label27
@@ -1419,9 +1497,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label27.Location = new System.Drawing.Point(15, 101);
+            this.label27.Location = new System.Drawing.Point(5, 90);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(184, 23);
+            this.label27.Size = new System.Drawing.Size(149, 45);
             this.label27.TabIndex = 5;
             this.label27.Text = "Board Read Delay (ms)";
             // 
@@ -1429,10 +1507,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tboxBoardReadTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardReadTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardReadTimeOut.Location = new System.Drawing.Point(221, 97);
+            this.tboxBoardReadTimeOut.Location = new System.Drawing.Point(163, 97);
             this.tboxBoardReadTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardReadTimeOut.Name = "tboxBoardReadTimeOut";
-            this.tboxBoardReadTimeOut.Size = new System.Drawing.Size(200, 30);
+            this.tboxBoardReadTimeOut.Size = new System.Drawing.Size(154, 30);
             this.tboxBoardReadTimeOut.TabIndex = 4;
             // 
             // label29
@@ -1440,9 +1518,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label29.Location = new System.Drawing.Point(20, 0);
+            this.label29.Location = new System.Drawing.Point(16, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(174, 45);
+            this.label29.Size = new System.Drawing.Size(127, 45);
             this.label29.TabIndex = 1;
             this.label29.Text = "Board Connect Delay (ms)";
             // 
@@ -1451,9 +1529,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label28.Location = new System.Drawing.Point(22, 56);
+            this.label28.Location = new System.Drawing.Point(13, 45);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(169, 23);
+            this.label28.Size = new System.Drawing.Size(134, 45);
             this.label28.TabIndex = 2;
             this.label28.Text = "PBA Read Delay (ms)";
             // 
@@ -1461,20 +1539,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tboxPbaReadTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaReadTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaReadTimeOut.Location = new System.Drawing.Point(221, 52);
+            this.tboxPbaReadTimeOut.Location = new System.Drawing.Point(163, 52);
             this.tboxPbaReadTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxPbaReadTimeOut.Name = "tboxPbaReadTimeOut";
-            this.tboxPbaReadTimeOut.Size = new System.Drawing.Size(200, 30);
+            this.tboxPbaReadTimeOut.Size = new System.Drawing.Size(154, 30);
             this.tboxPbaReadTimeOut.TabIndex = 3;
             // 
             // tboxBoardConnectTimeOut
             // 
             this.tboxBoardConnectTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardConnectTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardConnectTimeOut.Location = new System.Drawing.Point(221, 7);
+            this.tboxBoardConnectTimeOut.Location = new System.Drawing.Point(163, 7);
             this.tboxBoardConnectTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardConnectTimeOut.Name = "tboxBoardConnectTimeOut";
-            this.tboxBoardConnectTimeOut.Size = new System.Drawing.Size(200, 30);
+            this.tboxBoardConnectTimeOut.Size = new System.Drawing.Size(154, 30);
             this.tboxBoardConnectTimeOut.TabIndex = 0;
             // 
             // btnRescan
@@ -2498,5 +2576,11 @@ namespace p2_40_Main_PBA_Tester.Forms
         private MaterialSkin.Controls.MaterialSwitch SwitchUseCh1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCh1Status;
+        private System.Windows.Forms.TextBox tboxPbaMinInterval;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox tboxBoardMinInterval;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox tboxPbaOnDelay;
+        private System.Windows.Forms.Label label34;
     }
 }

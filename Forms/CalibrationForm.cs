@@ -105,7 +105,19 @@ namespace p2_40_Main_PBA_Tester.Forms
             btnMux5Max.Click += btnMux5Max_Click;
             btnMux5Test.Click += btnMux5Test_Click;
             btnCalMux5.Click += btnCalMux5_Click;
+
+            btnMux7Min.Click += btnMux7Min_Click;
+            btnMux7Max.Click += btnMux7Max_Click;
+            btnMux7Test.Click += btnMux7Test_Click;
+            btnCalMux7.Click += btnCalMux7_Click;
+
+            btnMux8Min.Click += btnMux8Min_Click;
+            btnMux8Max.Click += btnMux8Max_Click;
+            btnMux8Test.Click += btnMux8Test_Click;
+            btnCalMux8.Click += btnCalMux8_Click;
         }
+
+        
 
         private void cboxCalChannel_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -166,8 +178,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                     tboxGainMux3,
                     tboxGainMux4,
                     tboxGainMux5,
-                    //tboxGainMux6,
-                    //tboxGainMux7
+
+                    tboxGainMux7,
+                    tboxGainMux8,
                 };
 
                 TextBox[] offsetBoxes = new TextBox[]
@@ -180,8 +193,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                     tboxOffsetMux3,
                     tboxOffsetMux4,
                     tboxOffsetMux5,
-                    //tboxOffsetMux6,
-                    //tboxOffsetMux7
+                    
+                    tboxOffsetMux7,
+                    tboxOffsetMux8,
                 };
 
                 for (int i = 0; i < gainBoxes.Length; i++)
@@ -480,6 +494,87 @@ namespace p2_40_Main_PBA_Tester.Forms
 
         #endregion
 
+
+        #region Mux7
+        private async void btnMux7Min_Click(object sender, EventArgs e)
+        {
+            float setValue = (float)numMux5SetOutputMin.Value;
+            float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, false);
+            if (!float.IsNaN(measured))
+                numMux5MeassuredValueMin.Value = (decimal)measured;
+        }
+        private async void btnMux7Max_Click(object sender, EventArgs e)
+        {
+            float setValue = (float)numMux5SetOutputMax.Value;
+            float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, false);
+            if (!float.IsNaN(measured))
+                numMux5MeassuredValueMax.Value = (decimal)measured;
+        }
+        private async void btnMux7Test_Click(object sender, EventArgs e)
+        {
+            float setValue = (float)numMux5SetTestoutput.Value;
+            float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, true);
+            if (!float.IsNaN(measured))
+                numMux5MeassuredValueTest.Value = (decimal)measured;
+        }
+
+        private void btnCalMux7_Click(object sender, EventArgs e)
+        {
+            CalculateGainOffset(
+                numMux7MeassuredValueMin,
+                numMux7MeassuredValueMax,
+                numMux7SetOutputMin,
+                numMux7SetOutputMax,
+                lblMux7Gain,
+                lblMux7Offset,
+                tboxGainMux7,
+                tboxOffsetMux7);
+        }
+
+
+        #endregion
+
+        #region Mux8
+        private async void btnMux8Min_Click(object sender, EventArgs e)
+        {
+            float setValue = (float)numMux5SetOutputMin.Value;
+            float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, false);
+            if (!float.IsNaN(measured))
+                numMux5MeassuredValueMin.Value = (decimal)measured;
+        }
+        private async void btnMux8Max_Click(object sender, EventArgs e)
+        {
+            float setValue = (float)numMux5SetOutputMax.Value;
+            float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, false);
+            if (!float.IsNaN(measured))
+                numMux5MeassuredValueMax.Value = (decimal)measured;
+        }
+        private async void btnMux8Test_Click(object sender, EventArgs e)
+        {
+            float setValue = (float)numMux5SetTestoutput.Value;
+            float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, true);
+            if (!float.IsNaN(measured))
+                numMux5MeassuredValueTest.Value = (decimal)measured;
+        }
+        private void btnCalMux8_Click(object sender, EventArgs e)
+        {
+            CalculateGainOffset(
+                numMux8MeassuredValueMin,
+                numMux8MeassuredValueMax,
+                numMux8SetOutputMin,
+                numMux8SetOutputMax,
+                lblMux8Gain,
+                lblMux8Offset,
+                tboxGainMux8,
+                tboxOffsetMux8);
+        }
+
+
+
+
+
+        #endregion
+
         #endregion
 
 
@@ -623,13 +718,13 @@ namespace p2_40_Main_PBA_Tester.Forms
                 {
                     tboxGainDa1, tboxGainDa2, tboxGainDa4,
                     tboxGainMux1, tboxGainMux2, tboxGainMux3, tboxGainMux4,
-                    tboxGainMux5
+                    tboxGainMux5, tboxGainMux7, tboxGainMux8
                 };
                 TextBox[] offsetBoxes =
                 {
                     tboxOffsetDa1, tboxOffsetDa2, tboxOffsetDa4,
                     tboxOffsetMux1, tboxOffsetMux2, tboxOffsetMux3, tboxOffsetMux4,
-                    tboxOffsetMux5
+                    tboxOffsetMux5, tboxOffsetMux7, tboxOffsetMux8
                 };
 
                 foreach (var tb in gainBoxes)
@@ -677,10 +772,11 @@ namespace p2_40_Main_PBA_Tester.Forms
         }
 
 
+
+
         #endregion
 
-
-
+        
     }
 
 

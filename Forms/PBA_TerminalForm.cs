@@ -183,7 +183,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             try
             {
-                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_DEVICE_ID).GetPacket();
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_MCU_ID).GetPacket();
                 byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
 
                 if (rx == null) { DeviceRx.Fail("ID Check: Rx is NULL"); return; }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -127,6 +127,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             checkboxPbaRetry.Checked = Settings.Instance.Use_Pba_Retry;
             tboxBoardRetryCount.Text = Settings.Instance.Board_Retry_Count.ToString();
             tboxPbaRetryCount.Text = Settings.Instance.Pba_Retry_Count.ToString();
+            tboxBoardMinInterval.Text = Settings.Instance.Board_Min_Interval.ToString();
+            tboxPbaMinInterval.Text = Settings.Instance.Pba_Min_Interval.ToString();
+            tboxPbaOnDelay.Text = Settings.Instance.Pba_On_Delay.ToString();
         }
 
 
@@ -143,10 +146,20 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             SettingValueSave();
 
-            await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
-
-            LoadSetting();
-            ShowConnectStatus();
+            var loadingForm = new LoadingForm("Connecting...") { Owner = this, StartPosition = FormStartPosition.CenterScreen };
+            loadingForm.Show();
+            Application.DoEvents();
+            try
+            {
+                await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
+                LoadSetting();
+                ShowConnectStatus();
+            }
+            finally
+            {
+                loadingForm.Close();
+                loadingForm.Dispose();
+            }
         }
         private void btnOpenMesSetting_Click(object sender, EventArgs e)
         {
@@ -169,17 +182,21 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             SettingValueSave();
 
-            await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
-
-            //나중에 jig, QrRead 코드도 작성
-
-            //여기에 mainform 레이아웃 변환 코드 작성
-            //=======================================
-            mainform.UpdateLayoutByChannelConfig();
-            mainform.ResetRecipeInfo();
-
+            var loadingForm = new LoadingForm("Connecting...") { Owner = this, StartPosition = FormStartPosition.CenterScreen };
+            loadingForm.Show();
+            Application.DoEvents();
+            try
+            {
+                await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
+                mainform.UpdateLayoutByChannelConfig();
+                mainform.ResetRecipeInfo();
+            }
+            finally
+            {
+                loadingForm.Close();
+                loadingForm.Dispose();
+            }
             this.Close();
-
         }
 
         private void ComSettingForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -313,6 +330,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                 Settings.Instance.Use_Pba_Retry = checkboxPbaRetry.Checked;
                 Settings.Instance.Board_Retry_Count = int.Parse(tboxBoardRetryCount.Text);
                 Settings.Instance.Pba_Retry_Count = int.Parse(tboxPbaRetryCount.Text);
+                Settings.Instance.Board_Min_Interval = int.Parse(tboxBoardMinInterval.Text);
+                Settings.Instance.Pba_Min_Interval = int.Parse(tboxPbaMinInterval.Text);
+                Settings.Instance.Pba_On_Delay = int.Parse(tboxPbaOnDelay.Text);
 
                 if (checkbox1ChOnly.Checked)
                 {

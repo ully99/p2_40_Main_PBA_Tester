@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -104,12 +104,16 @@ namespace p2_40_Main_PBA_Tester.Forms
                     break;
 
                 case "QR READ":
+                    table.Rows.Add("[Delay] Step", _local.QR_READ_Step_Delay);
                     table.Rows.Add("[판정] 조건 자릿수", _local.QR_READ_Len);
                     break;
 
                 case "MCU INFO":
-                    table.Rows.Add("[Delay] Processor Step", _local.MCU_INFO_Processor_Step_Delay);
-                    table.Rows.Add("[Delay] TCP1", _local.MCU_INFO_TCP1_Delay);
+                    table.Rows.Add("[Delay] Step", _local.MCU_INFO_Step_Delay);
+                    table.Rows.Add("[Delay] PBA Delay", _local.MCU_INFO_Pba_Delay);
+                    table.Rows.Add("[Delay] TCP 01", _local.MCU_INFO_Tcp_01_Delay);
+                    table.Rows.Add("[Delay] TCP 02", _local.MCU_INFO_Tcp_02_Delay);
+
                     table.Rows.Add("[판정] MCU ID 조건 자릿수", _local.MCU_INFO_Mcu_Id_Len);
                     table.Rows.Add("[판정] Main FW Ver", _local.MCU_INFO_Main_Fw_Ver);
                     table.Rows.Add("[판정] LDC FW Ver", _local.MCU_INFO_LDC_Fw_Ver);
@@ -117,42 +121,46 @@ namespace p2_40_Main_PBA_Tester.Forms
                     break;
 
                 case "OVP":
-                    table.Rows.Add("[Delay] Processor Step", _local.OVP_Processor_Step_Delay);
-                    table.Rows.Add("[Delay] TCP1", _local.OVP_TCP1_Delay);
+                    table.Rows.Add("[Delay] Step", _local.OVP_Step_Delay);
+                    table.Rows.Add("[Delay] TCP 01", _local.OVP_TCP_01_Delay);
                     table.Rows.Add("[판정] VBUS Min", _local.OVP_VBUS_Min);
                     table.Rows.Add("[판정] VBUS Max", _local.OVP_VBUS_Max);
                     break;
 
                 case "LDO":
-                    table.Rows.Add("[Delay] Processor Step", _local.LDO_Processor_Step_Delay);
-                    table.Rows.Add("[Delay] TCP1", _local.LDO_TCP1_Delay);
-                    table.Rows.Add("[판정] MCU_3V Min", _local.LDO_MCU_3V_Min);
-                    table.Rows.Add("[판정] MCU_3V Max", _local.LDO_MCU_3V_Max);
-                    table.Rows.Add("[판정] VDD_3V Min", _local.LDO_VDD_3V_Min);
-                    table.Rows.Add("[판정] VDD_3V Max", _local.LDO_VDD_3V_Max);
-                    table.Rows.Add("[판정] LCD_3V Min", _local.LDO_LCD_3V_Min);
-                    table.Rows.Add("[판정] LCD_3V Max", _local.LDO_LCD_3V_Max);
-                    table.Rows.Add("[판정] Vboost Min", _local.LDO_Vboost_Min);
-                    table.Rows.Add("[판정] Vboost Max", _local.LDO_Vboost_Max);
+                    table.Rows.Add("[Delay] Step", _local.LDO_Step_Delay);
+                    table.Rows.Add("[Delay] PBA Delay", _local.LDO_Pba_Delay);
+                    table.Rows.Add("[Delay] TCP 01", _local.LDO_TCP_01_Delay);
+                    table.Rows.Add("[Delay] TCP 02", _local.LDO_TCP_02_Delay);
+
                     table.Rows.Add("[판정] VSYS Min", _local.LDO_VSYS_Min);
                     table.Rows.Add("[판정] VSYS Max", _local.LDO_VSYS_Max);
-                    table.Rows.Add("[판정] SYS_3V3 Min", _local.LDO_SYS_3V3_Min);
-                    table.Rows.Add("[판정] SYS_3V3 Max", _local.LDO_SYS_3V3_Max);
+                    table.Rows.Add("[판정] VSYS_3V3 OFF Min", _local.LDO_VSYS_3V3_OFF_Min);
+                    table.Rows.Add("[판정] VSYS_3V3 OFF Max", _local.LDO_VSYS_3V3_OFF_Max);
+                    table.Rows.Add("[판정] VSYS_3V3 Min", _local.LDO_VSYS_3V3_Min);
+                    table.Rows.Add("[판정] VSYS_3V3 Max", _local.LDO_VSYS_3V3_Max);
+                    table.Rows.Add("[판정] MCU_3V0 Min", _local.LDO_MCU_3V0_Min);
+                    table.Rows.Add("[판정] MCU_3V0 Max", _local.LDO_MCU_3V0_Max);
+                    table.Rows.Add("[판정] VDD_3V0 Min", _local.LDO_VDD_3V0_Min);
+                    table.Rows.Add("[판정] VDD_3V0 Max", _local.LDO_VDD_3V0_Max);
+                    table.Rows.Add("[판정] LCD_3V0 Min", _local.LDO_LCD_3V0_Min);
+                    table.Rows.Add("[판정] LCD_3V0 Max", _local.LDO_LCD_3V0_Max);
                     table.Rows.Add("[판정] DC_BOOST Min", _local.LDO_DC_BOOST_Min);
                     table.Rows.Add("[판정] DC_BOOST Max", _local.LDO_DC_BOOST_Max);
                     break;
 
                 case "CURRENT_SLEEP_SHIP":
                     table.Rows.Add("[Delay] Step", _local.CURRENT_SLEEP_SHIP_Step_Delay);
-                    table.Rows.Add("[Delay] TCP1", _local.CURRENT_SLEEP_SHIP_TCP1_Delay);
-                    table.Rows.Add("[판정] Sleep Mode Min", _local.CURRENT_SLEEP_SHIP_Sleep_Mode_Min);
-                    table.Rows.Add("[판정] Sleep Mode Max", _local.CURRENT_SLEEP_SHIP_Sleep_Mode_Max);
-                    table.Rows.Add("[판정] Ship Mode Min", _local.CURRENT_SLEEP_SHIP_Ship_Mode_Min);
-                    table.Rows.Add("[판정] Ship Mode Max", _local.CURRENT_SLEEP_SHIP_Ship_Mode_Max);
-                    table.Rows.Add("[판정] HVDCP Min", _local.CURRENT_SLEEP_SHIP_HVDCP_Min);
-                    table.Rows.Add("[판정] HVDCP Max", _local.CURRENT_SLEEP_SHIP_HVDCP_Max);
-                    table.Rows.Add("[판정] PPS Min", _local.CURRENT_SLEEP_SHIP_PPS_Min);
-                    table.Rows.Add("[판정] PPS Max", _local.CURRENT_SLEEP_SHIP_PPS_Max);
+                    table.Rows.Add("[Delay] PBA Delay", _local.CURRENT_SLEEP_SHIP_Pba_Delay);
+                    table.Rows.Add("[Delay] TCP 01", _local.CURRENT_SLEEP_SHIP_TCP_01_Delay);
+                    table.Rows.Add("[Delay] TCP 02", _local.CURRENT_SLEEP_SHIP_TCP_02_Delay);
+                    table.Rows.Add("[Delay] TCP 03", _local.CURRENT_SLEEP_SHIP_TCP_03_Delay);
+
+                    table.Rows.Add("[판정] Sleep Mode Min", _local.CURRENT_SLEEP_SHIP_Sleep_Curr_Min);
+                    table.Rows.Add("[판정] Sleep Mode Max", _local.CURRENT_SLEEP_SHIP_Sleep_Curr_Max);
+                    table.Rows.Add("[판정] Ship Mode Min", _local.CURRENT_SLEEP_SHIP_Ship_Curr_Min);
+                    table.Rows.Add("[판정] Ship Mode Max", _local.CURRENT_SLEEP_SHIP_Ship_Curr_Max);
+                    
                     break;
 
                 case "CHARGE":
@@ -163,9 +171,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                     break;
 
                 case "GPAK":
-                    table.Rows.Add("[Delay] Processor Step", _local.GPAK_Processor_Step_Delay);
-                    table.Rows.Add("[Delay] TCP1", _local.GPAK_TCP1_Delay);
-                    table.Rows.Add("[판정] Switching", _local.GPAK_Switching);
+                    table.Rows.Add("[Delay] Step", _local.GPAK_Step_Delay);
+                    table.Rows.Add("[Delay] PBA Delay", _local.GPAK_Pba_Delay);
+                    table.Rows.Add("[판정] GPAK", _local.GPAK_Result);
                     break;
 
                 case "USB CHECK":
@@ -178,23 +186,29 @@ namespace p2_40_Main_PBA_Tester.Forms
                     break;
 
                 case "FLASH MEMORY":
-                    table.Rows.Add("[Delay] Processor Step", _local.FLASH_MEMORY_Processor_Step_Delay);
-                    table.Rows.Add("[Delay] TCP1", _local.FLASH_MEMORY_TCP1_Delay);
-                    table.Rows.Add("[판정] FLASH_INTEGRITY", _local.FLASH_INTEGRITY);
+                    table.Rows.Add("[Delay] Step", _local.FLASH_MEMORY_Step_Delay);
+                    table.Rows.Add("[Delay] PBA Delay", _local.FLASH_MEMORY_Pba_Delay);
+                    table.Rows.Add("[Delay] MCU FLASH WAIT", _local.FLASH_MEMORY_MCU_FLASH_WAIT);
+                    table.Rows.Add("[Delay] EXT FLASH WAIT ", _local.FLASH_MEMORY_MCU_EXT_WAIT);
+                    table.Rows.Add("[판정] MCU Memory", _local.FLASH_MEMORY_MCU_MEMORY);
+                    table.Rows.Add("[판정] EXT Memory", _local.FLASH_MEMORY_EXT_MEMORY);
                     break;
 
                 case "MOTOR":
+                    table.Rows.Add("[Delay] Step", _local.MOTOR_Step_Delay);
                     table.Rows.Add("[Delay] PBA Delay", _local.MOTOR_PBA_Delay);
-                    table.Rows.Add("[Delay] Processor Step", _local.MOTOR_Processor_Step);
-                    table.Rows.Add("[Delay] TCP1", _local.MOTOR_TCP1_Delay);
-                    table.Rows.Add("[Delay] TCP2", _local.MOTOR_TCP2_Delay);
+                    table.Rows.Add("[Delay] TCP 01", _local.MOTOR_TCP_01_Delay);
+                    table.Rows.Add("[Delay] TCP 02", _local.MOTOR_TCP_02_Delay);
                     table.Rows.Add("[판정] PWM Min", _local.MOTOR_PWM_Min);
                     table.Rows.Add("[판정] PWM Max", _local.MOTOR_PWM_Max);
                     break;
 
                 case "FLOODS":
+                    table.Rows.Add("[Delay] Step", _local.FLOODS_Step_Delay);
                     table.Rows.Add("[Delay] PBA Delay", _local.FLOODS_PBA_Delay);
-                    table.Rows.Add("[Delay] Processor Step", _local.FLOODS_Processor_Step_Delay);
+                    table.Rows.Add("[Delay] TCP 01", _local.FLOODS_TCP_01_Delay);
+                    table.Rows.Add("[Delay] TCP 02", _local.FLOODS_TCP_02_Delay);
+                    table.Rows.Add("[판정] FLOOD STATE", _local.FLOODS_STATE);
                     break;
 
                 case "HEATER":
@@ -207,23 +221,25 @@ namespace p2_40_Main_PBA_Tester.Forms
                     break;
 
                 case "CARTRIDGE":
+                    table.Rows.Add("[Delay] Step", _local.CARTRIDGE_Step_Delay);
                     table.Rows.Add("[Delay] PBA Delay", _local.CARTRIDGE_PBA_Delay);
-                    table.Rows.Add("[Delay] Processor Step", _local.CARTRIDGE_Processor_Step_Delay);
-                    table.Rows.Add("[판정] Load Switch Min", _local.CARTRIDGE_Load_Switch_Min);
-                    table.Rows.Add("[판정] Load Switch Max", _local.CARTRIDGE_Load_Switch_Max);
+                    table.Rows.Add("[Delay] TCP 01", _local.CARTRIDGE_TCP_01_Delay);
+                    table.Rows.Add("[판정] CARTRIDGE Min", _local.CARTRIDGE_Min);
+                    table.Rows.Add("[판정] CARTRIDGE Max", _local.CARTRIDGE_Max);
                     break;
 
                 case "SUB HEATER":
+                    table.Rows.Add("[Delay] Step", _local.SUB_HEATER_Step_Delay);
                     table.Rows.Add("[Delay] PBA Delay", _local.SUB_HEATER_PBA_Delay);
-                    table.Rows.Add("[Delay] Processor Step", _local.SUB_HEATER_Processor_Step_Delay);
+                    table.Rows.Add("[Delay] TCP 01", _local.SUB_HEATER_TCP_01_Delay);
                     table.Rows.Add("[판정] Load Switch Min", _local.SUB_HEATER_Load_Switch_Min);
                     table.Rows.Add("[판정] Load Switch Max", _local.SUB_HEATER_Load_Switch_Max);
                     break;
 
                 case "ACCELEROMETER":
+                    table.Rows.Add("[Delay] Step", _local.ACCELEROMETER_Step_Delay);
                     table.Rows.Add("[Delay] PBA Delay", _local.ACCELEROMETER_PBA_Delay);
-                    table.Rows.Add("[Delay] Processor Delay", _local.ACCELEROMETER_Processor_Delay);
-                    table.Rows.Add("[판정] COM_CHECK", _local.ACCELEROMETER_COM_CHECK);
+                    table.Rows.Add("[판정] ACCELEROMETER", _local.ACCELEROMETER_Result);
                     break;
 
                 case "PRESSURE SENSOR":
@@ -239,9 +255,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                     break;
 
                 case "PBA CMD CHECK START":
-                    table.Rows.Add("[Delay] Delay", _local.PBA_CMD_CHECK_START_Delay);
-                    table.Rows.Add("[Delay] Processor Step", _local.PBA_CMD_CHECK_START_Processor_Step);
-                    table.Rows.Add("[판정] Test", _local.PBA_CMD_CHECK_START_Test);
+                    table.Rows.Add("[Delay] Step", _local.PBA_CMD_CHECK_START_Step_Delay);
+                    table.Rows.Add("[Delay] TCP 01", _local.PBA_CMD_CHECK_START_TCP_01_Delay);
                     break;
 
                 case "TEST END":
@@ -299,12 +314,15 @@ namespace p2_40_Main_PBA_Tester.Forms
                         break;
 
                     case "QR READ":
-                        if (param.Contains("자릿수")) _local.QR_READ_Len = int.Parse(value);
+                        if (param.Contains("Step")) _local.QR_READ_Step_Delay = int.Parse(value);
+                        else if (param.Contains("자릿수")) _local.QR_READ_Len = int.Parse(value);
                         break;
 
                     case "MCU INFO":
-                        if (param.Contains("Processor Step")) _local.MCU_INFO_Processor_Step_Delay = int.Parse(value);
-                        else if (param.Contains("TCP1")) _local.MCU_INFO_TCP1_Delay = int.Parse(value);
+                        if (param.Contains("Step")) _local.MCU_INFO_Step_Delay = int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.MCU_INFO_Pba_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.MCU_INFO_Tcp_01_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 02")) _local.MCU_INFO_Tcp_02_Delay = int.Parse(value);
                         else if (param.Contains("MCU ID")) _local.MCU_INFO_Mcu_Id_Len = int.Parse(value);
                         else if (param.Contains("Main FW")) _local.MCU_INFO_Main_Fw_Ver = value;
                         else if (param.Contains("LDC FW")) _local.MCU_INFO_LDC_Fw_Ver = value;
@@ -312,42 +330,44 @@ namespace p2_40_Main_PBA_Tester.Forms
                         break;
 
                     case "OVP":
-                        if (param.Contains("Processor Step")) _local.OVP_Processor_Step_Delay = int.Parse(value);
-                        else if (param.Contains("TCP1")) _local.OVP_TCP1_Delay = int.Parse(value);
+                        if (param.Contains("Step")) _local.OVP_Step_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.OVP_TCP_01_Delay = int.Parse(value);
                         else if (param.Contains("VBUS Min")) _local.OVP_VBUS_Min = float.Parse(value);
                         else if (param.Contains("VBUS Max")) _local.OVP_VBUS_Max = float.Parse(value);
                         break;
 
                     case "LDO":
-                        if (param.Contains("Processor Step")) _local.LDO_Processor_Step_Delay = int.Parse(value);
-                        else if (param.Contains("TCP1")) _local.LDO_TCP1_Delay = int.Parse(value);
-                        else if (param.Contains("MCU_3V Min")) _local.LDO_MCU_3V_Min = float.Parse(value);
-                        else if (param.Contains("MCU_3V Max")) _local.LDO_MCU_3V_Max = float.Parse(value);
-                        else if (param.Contains("VDD_3V Min")) _local.LDO_VDD_3V_Min = float.Parse(value);
-                        else if (param.Contains("VDD_3V Max")) _local.LDO_VDD_3V_Max = float.Parse(value);
-                        else if (param.Contains("LCD_3V Min")) _local.LDO_LCD_3V_Min = float.Parse(value);
-                        else if (param.Contains("LCD_3V Max")) _local.LDO_LCD_3V_Max = float.Parse(value);
-                        else if (param.Contains("Vboost Min")) _local.LDO_Vboost_Min = float.Parse(value);
-                        else if (param.Contains("Vboost Max")) _local.LDO_Vboost_Max = float.Parse(value);
+                        if (param.Contains("Step")) _local.LDO_Step_Delay= int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.LDO_Pba_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.LDO_TCP_01_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 02")) _local.LDO_TCP_02_Delay = int.Parse(value);
+
                         else if (param.Contains("VSYS Min")) _local.LDO_VSYS_Min = float.Parse(value);
                         else if (param.Contains("VSYS Max")) _local.LDO_VSYS_Max = float.Parse(value);
-                        else if (param.Contains("SYS_3V3 Min")) _local.LDO_SYS_3V3_Min = float.Parse(value);
-                        else if (param.Contains("SYS_3V3 Max")) _local.LDO_SYS_3V3_Max = float.Parse(value);
+                        else if (param.Contains("VSYS_3V3 OFF Min")) _local.LDO_VSYS_3V3_OFF_Min = float.Parse(value);
+                        else if (param.Contains("VSYS_3V3 OFF Max")) _local.LDO_VSYS_3V3_OFF_Max = float.Parse(value);
+                        else if (param.Contains("VSYS_3V3 Min")) _local.LDO_VSYS_3V3_Min = float.Parse(value);
+                        else if (param.Contains("VSYS_3V3 Max")) _local.LDO_VSYS_3V3_Max = float.Parse(value);
+                        else if (param.Contains("MCU_3V0 Min")) _local.LDO_MCU_3V0_Min = float.Parse(value);
+                        else if (param.Contains("MCU_3V0 Max")) _local.LDO_MCU_3V0_Max = float.Parse(value);
+                        else if (param.Contains("VDD_3V0 Min")) _local.LDO_VDD_3V0_Min = float.Parse(value);
+                        else if (param.Contains("VDD_3V0 Max")) _local.LDO_VDD_3V0_Max = float.Parse(value);
+                        else if (param.Contains("LCD_3V0 Min")) _local.LDO_LCD_3V0_Min = float.Parse(value);
+                        else if (param.Contains("LCD_3V0 Max")) _local.LDO_LCD_3V0_Max = float.Parse(value);
                         else if (param.Contains("DC_BOOST Min")) _local.LDO_DC_BOOST_Min = float.Parse(value);
                         else if (param.Contains("DC_BOOST Max")) _local.LDO_DC_BOOST_Max = float.Parse(value);
                         break;
 
                     case "CURRENT_SLEEP_SHIP":
                         if (param.Contains("Step")) _local.CURRENT_SLEEP_SHIP_Step_Delay = int.Parse(value);
-                        else if (param.Contains("TCP1")) _local.CURRENT_SLEEP_SHIP_TCP1_Delay = int.Parse(value);
-                        else if (param.Contains("Sleep Mode Min")) _local.CURRENT_SLEEP_SHIP_Sleep_Mode_Min = float.Parse(value);
-                        else if (param.Contains("Sleep Mode Max")) _local.CURRENT_SLEEP_SHIP_Sleep_Mode_Max = float.Parse(value);
-                        else if (param.Contains("Ship Mode Min")) _local.CURRENT_SLEEP_SHIP_Ship_Mode_Min = float.Parse(value);
-                        else if (param.Contains("Ship Mode Max")) _local.CURRENT_SLEEP_SHIP_Ship_Mode_Max = float.Parse(value);
-                        else if (param.Contains("HVDCP Min")) _local.CURRENT_SLEEP_SHIP_HVDCP_Min = float.Parse(value);
-                        else if (param.Contains("HVDCP Max")) _local.CURRENT_SLEEP_SHIP_HVDCP_Max = float.Parse(value);
-                        else if (param.Contains("PPS Min")) _local.CURRENT_SLEEP_SHIP_PPS_Min = float.Parse(value);
-                        else if (param.Contains("PPS Max")) _local.CURRENT_SLEEP_SHIP_PPS_Max = float.Parse(value);
+                        if (param.Contains("PBA Delay")) _local.CURRENT_SLEEP_SHIP_Pba_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.CURRENT_SLEEP_SHIP_TCP_01_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 02")) _local.CURRENT_SLEEP_SHIP_TCP_02_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 03")) _local.CURRENT_SLEEP_SHIP_TCP_03_Delay = int.Parse(value);
+                        else if (param.Contains("Sleep Mode Min")) _local.CURRENT_SLEEP_SHIP_Sleep_Curr_Min = float.Parse(value);
+                        else if (param.Contains("Sleep Mode Max")) _local.CURRENT_SLEEP_SHIP_Sleep_Curr_Max = float.Parse(value);
+                        else if (param.Contains("Ship Mode Min")) _local.CURRENT_SLEEP_SHIP_Ship_Curr_Min = float.Parse(value);
+                        else if (param.Contains("Ship Mode Max")) _local.CURRENT_SLEEP_SHIP_Ship_Curr_Max = float.Parse(value);
                         break;
 
                     case "CHARGE":
@@ -358,9 +378,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                         break;
 
                     case "GPAK":
-                        if (param.Contains("Processor Step")) _local.GPAK_Processor_Step_Delay = int.Parse(value);
-                        else if (param.Contains("TCP1")) _local.GPAK_TCP1_Delay = int.Parse(value);
-                        else if (param.Contains("Switching")) _local.GPAK_Switching = int.Parse(value);
+                        if (param.Contains("Step") && !param.Contains("PBA")) _local.GPAK_Step_Delay = int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.GPAK_Pba_Delay = int.Parse(value);
+                        else if (param.Contains("GPAK")) _local.GPAK_Result = short.Parse(value);
                         break;
 
                     case "USB CHECK":
@@ -373,23 +393,29 @@ namespace p2_40_Main_PBA_Tester.Forms
                         break;
 
                     case "FLASH MEMORY":
-                        if (param.Contains("Processor Step")) _local.FLASH_MEMORY_Processor_Step_Delay = int.Parse(value);
-                        else if (param.Contains("TCP1")) _local.FLASH_MEMORY_TCP1_Delay = int.Parse(value);
-                        else if (param.Contains("FLASH_INTEGRITY")) _local.FLASH_INTEGRITY = int.Parse(value);
+                        if (param.Contains("Step")) _local.FLASH_MEMORY_Step_Delay = int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.FLASH_MEMORY_Pba_Delay = int.Parse(value);
+                        else if (param.Contains("MCU FLASH WAIT")) _local.FLASH_MEMORY_MCU_FLASH_WAIT = int.Parse(value);
+                        else if (param.Contains("EXT FLASH WAIT")) _local.FLASH_MEMORY_MCU_EXT_WAIT = int.Parse(value);
+                        else if (param.Contains("MCU Memory")) _local.FLASH_MEMORY_MCU_MEMORY = short.Parse(value);
+                        else if (param.Contains("EXT Memory")) _local.FLASH_MEMORY_EXT_MEMORY = short.Parse(value);
                         break;
 
                     case "MOTOR":
-                        if (param.Contains("PBA Delay")) _local.MOTOR_PBA_Delay = int.Parse(value);
-                        else if (param.Contains("Processor Step")) _local.MOTOR_Processor_Step = int.Parse(value);
-                        else if (param.Contains("TCP1")) _local.MOTOR_TCP1_Delay = int.Parse(value);
-                        else if (param.Contains("TCP2")) _local.MOTOR_TCP2_Delay = int.Parse(value);
-                        else if (param.Contains("PWM Min")) _local.MOTOR_PWM_Min = int.Parse(value);
-                        else if (param.Contains("PWM Max")) _local.MOTOR_PWM_Max = int.Parse(value);
+                        if (param.Contains("Step")) _local.MOTOR_Step_Delay = int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.MOTOR_PBA_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.MOTOR_TCP_01_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 02")) _local.MOTOR_TCP_02_Delay = int.Parse(value);
+                        else if (param.Contains("PWM Min")) _local.MOTOR_PWM_Min = short.Parse(value);
+                        else if (param.Contains("PWM Max")) _local.MOTOR_PWM_Max = short.Parse(value);
                         break;
 
                     case "FLOODS":
-                        if (param.Contains("PBA Delay")) _local.FLOODS_PBA_Delay = int.Parse(value);
-                        else if (param.Contains("Processor Step")) _local.FLOODS_Processor_Step_Delay = int.Parse(value);
+                        if (param.Contains("Step")) _local.FLOODS_Step_Delay = int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.FLOODS_PBA_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.FLOODS_TCP_01_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 02")) _local.FLOODS_TCP_02_Delay = int.Parse(value);
+                        else if (param.Contains("FLOOD STATE")) _local.FLOODS_STATE = short.Parse(value);
                         break;
 
                     case "HEATER":
@@ -402,23 +428,25 @@ namespace p2_40_Main_PBA_Tester.Forms
                         break;
 
                     case "CARTRIDGE":
-                        if (param.Contains("PBA Delay")) _local.CARTRIDGE_PBA_Delay = int.Parse(value);
-                        else if (param.Contains("Processor Step")) _local.CARTRIDGE_Processor_Step_Delay = int.Parse(value);
-                        else if (param.Contains("Load Switch Min")) _local.CARTRIDGE_Load_Switch_Min = float.Parse(value);
-                        else if (param.Contains("Load Switch Max")) _local.CARTRIDGE_Load_Switch_Max = float.Parse(value);
+                        if (param.Contains("Step")) _local.CARTRIDGE_Step_Delay = int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.CARTRIDGE_PBA_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.CARTRIDGE_TCP_01_Delay = int.Parse(value);
+                        else if (param.Contains("CARTRIDGE Min")) _local.CARTRIDGE_Min = float.Parse(value);
+                        else if (param.Contains("CARTRIDGE Max")) _local.CARTRIDGE_Max = float.Parse(value);
                         break;
 
                     case "SUB HEATER":
-                        if (param.Contains("PBA Delay")) _local.SUB_HEATER_PBA_Delay = int.Parse(value);
-                        else if (param.Contains("Processor Step")) _local.SUB_HEATER_Processor_Step_Delay = int.Parse(value);
+                        if (param.Contains("Step")) _local.SUB_HEATER_Step_Delay = int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.SUB_HEATER_PBA_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.SUB_HEATER_TCP_01_Delay= int.Parse(value);
                         else if (param.Contains("Load Switch Min")) _local.SUB_HEATER_Load_Switch_Min = float.Parse(value);
                         else if (param.Contains("Load Switch Max")) _local.SUB_HEATER_Load_Switch_Max = float.Parse(value);
                         break;
 
                     case "ACCELEROMETER":
-                        if (param.Contains("PBA Delay")) _local.ACCELEROMETER_PBA_Delay = int.Parse(value);
-                        else if (param.Contains("Processor Delay")) _local.ACCELEROMETER_Processor_Delay = int.Parse(value);
-                        else if (param.Contains("COM_CHECK")) _local.ACCELEROMETER_COM_CHECK = int.Parse(value);
+                        if (param.Contains("Step")) _local.ACCELEROMETER_Step_Delay = int.Parse(value);
+                        else if (param.Contains("PBA Delay")) _local.ACCELEROMETER_PBA_Delay = int.Parse(value);
+                        else if (param.Contains("ACCELEROMETER")) _local.ACCELEROMETER_Result = short.Parse(value);
                         break;
 
                     case "PRESSURE SENSOR":
@@ -434,9 +462,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                         break;
 
                     case "PBA CMD CHECK START":
-                        if (param.Contains("[Delay] Delay") || param.Equals("[Delay] Delay")) _local.PBA_CMD_CHECK_START_Delay = int.Parse(value);
-                        else if (param.Contains("Processor Step")) _local.PBA_CMD_CHECK_START_Processor_Step = int.Parse(value);
-                        else if (param.Contains("Test")) _local.PBA_CMD_CHECK_START_Test = int.Parse(value);
+                        if (param.Contains("Step") || param.Equals("[Delay] Step")) _local.PBA_CMD_CHECK_START_Step_Delay = int.Parse(value);
+                        else if (param.Contains("TCP 01")) _local.PBA_CMD_CHECK_START_TCP_01_Delay = int.Parse(value);
                         break;
 
                     case "TEST END":
@@ -496,6 +523,73 @@ namespace p2_40_Main_PBA_Tester.Forms
                 dgViewTaskList.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
 
+        private void btnAllCheck_Click(object sender, EventArgs e)
+        {
+            SetAllEnableStatus(true);
+        }
+
+        private void btnClearCheck_Click(object sender, EventArgs e)
+        {
+            SetAllEnableStatus(false);
+        }
+
+        private void SetAllEnableStatus(bool isChecked)
+        {
+            DataTable dt = dgViewTaskList.DataSource as DataTable;
+            if (dt == null) return;
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                dt.Rows[i]["Enable"] = isChecked;
+
+                // 중요: 이벤트를 안 타니까, 강제로 로직을 실행시킴
+                // e 인자에 null을 넣어도 현재 핸들러 로직상 문제는 없지만, 
+                // 안전하게 인덱스를 지정해서 호출할 수 있습니다.
+                UpdateLocalVariableFromRow(i, isChecked);
+            }
+            dgViewTaskList.Refresh();
+        }
+
+        private void UpdateLocalVariableFromRow(int rowIndex, bool enabled)
+        {
+            // 1. 행 인덱스 유효성 검사
+            if (rowIndex < 0 || rowIndex >= dgViewTaskList.Rows.Count) return;
+
+            // 2. Task 이름 가져오기
+            string task = dgViewTaskList.Rows[rowIndex].Cells["Item"].Value?.ToString();
+            if (string.IsNullOrWhiteSpace(task)) return;
+
+            // 3. Task 이름에 따른 _local 버퍼 업데이트
+            switch (task)
+            {
+                case "INTERLOCK": _local.INTERLOCK_Enable = enabled; break;
+                case "QR READ": _local.QR_READ_Enable = enabled; break;
+                case "MCU INFO": _local.MCU_INFO_Enable = enabled; break;
+                case "OVP": _local.OVP_Enable = enabled; break;
+                case "LDO": _local.LDO_Enable = enabled; break;
+                case "CURRENT_SLEEP_SHIP": _local.CURRENT_SLEEP_SHIP_Enable = enabled; break;
+                case "CHARGE": _local.CHARGE_Enable = enabled; break;
+                case "GPAK": _local.GPAK_Enable = enabled; break;
+                case "USB CHECK": _local.USB_CHECK_Enable = enabled; break;
+                case "FLASH MEMORY": _local.FLASH_MEMORY_Enable = enabled; break;
+                case "MOTOR": _local.MOTOR_Enable = enabled; break;
+                case "FLOODS": _local.FLOODS_Enable = enabled; break;
+                case "HEATER": _local.HEATER_Enable = enabled; break;
+                case "CARTRIDGE": _local.CARTRIDGE_Enable = enabled; break;
+                case "SUB HEATER": _local.SUB_HEATER_Enable = enabled; break;
+                case "ACCELEROMETER": _local.ACCELEROMETER_Enable = enabled; break;
+                case "PRESSURE SENSOR": _local.PRESSURE_SENSOR_Enable = enabled; break;
+                case "PBA FLAG": _local.PBA_FLAG_Enable = enabled; break;
+                case "PBA CMD CHECK START": _local.PBA_CMD_CHECK_START_Enable = enabled; break;
+                case "TEST END": _local.TEST_END_Enable = enabled; break;
+                case "MES": _local.MES_Enable = enabled; break;
+                default:
+                    // 정의되지 않은 Task인 경우 로그를 남기거나 처리
+                    Console.WriteLine($"알 수 없는 Task: {task}");
+                    break;
+            }
+        }
+
         #endregion
 
         #region JSON
@@ -536,52 +630,58 @@ namespace p2_40_Main_PBA_Tester.Forms
                 ["MES_Enable"] = _local.MES_Enable,
 
                 // QR READ
+                ["QR_READ_Step_Delay"] = _local.QR_READ_Step_Delay,
                 ["QR_READ_Len"] = _local.QR_READ_Len,
 
                 // MCU INFO
-                ["MCU_INFO_Processor_Step_Delay"] = _local.MCU_INFO_Processor_Step_Delay,
-                ["MCU_INFO_TCP1_Delay"] = _local.MCU_INFO_TCP1_Delay,
+                ["MCU_INFO_Step_Delay"] = _local.MCU_INFO_Step_Delay,
+                ["MCU_INFO_Pba_Delay"] = _local.MCU_INFO_Pba_Delay,
+                ["MCU_INFO_Tcp_01_Delay"] = _local.MCU_INFO_Tcp_01_Delay,
+                ["MCU_INFO_Tcp_02_Delay"] = _local.MCU_INFO_Tcp_02_Delay,
+
                 ["MCU_INFO_Mcu_Id_Len"] = _local.MCU_INFO_Mcu_Id_Len,
                 ["MCU_INFO_Main_Fw_Ver"] = _local.MCU_INFO_Main_Fw_Ver,
                 ["MCU_INFO_LDC_Fw_Ver"] = _local.MCU_INFO_LDC_Fw_Ver,
                 ["MCU_INFO_Image_Fw_Ver"] = _local.MCU_INFO_Image_Fw_Ver,
 
                 // OVP
-                ["OVP_Processor_Step_Delay"] = _local.OVP_Processor_Step_Delay,
-                ["OVP_TCP1_Delay"] = _local.OVP_TCP1_Delay,
+                ["OVP_Step_Delay"] = _local.OVP_Step_Delay,
+                ["OVP_TCP_01_Delay"] = _local.OVP_TCP_01_Delay,
                 ["OVP_VBUS_Min"] = _local.OVP_VBUS_Min,
                 ["OVP_VBUS_Max"] = _local.OVP_VBUS_Max,
 
                 // LDO
-                ["LDO_Processor_Step_Delay"] = _local.LDO_Processor_Step_Delay,
-                ["LDO_TCP1_Delay"] = _local.LDO_TCP1_Delay,
-                ["LDO_MCU_3V_Min"] = _local.LDO_MCU_3V_Min,
-                ["LDO_MCU_3V_Max"] = _local.LDO_MCU_3V_Max,
-                ["LDO_VDD_3V_Min"] = _local.LDO_VDD_3V_Min,
-                ["LDO_VDD_3V_Max"] = _local.LDO_VDD_3V_Max,
-                ["LDO_LCD_3V_Min"] = _local.LDO_LCD_3V_Min,
-                ["LDO_LCD_3V_Max"] = _local.LDO_LCD_3V_Max,
-                ["LDO_Vboost_Min"] = _local.LDO_Vboost_Min,
-                ["LDO_Vboost_Max"] = _local.LDO_Vboost_Max,
+                ["LDO_Step_Delay"] = _local.LDO_Step_Delay,
+                ["LDO_Pba_Delay"] = _local.LDO_Pba_Delay,
+                ["LDO_TCP_01_Delay"] = _local.LDO_TCP_01_Delay,
+                ["LDO_TCP_02_Delay"] = _local.LDO_TCP_02_Delay,
                 ["LDO_VSYS_Min"] = _local.LDO_VSYS_Min,
                 ["LDO_VSYS_Max"] = _local.LDO_VSYS_Max,
-                ["LDO_SYS_3V3_Min"] = _local.LDO_SYS_3V3_Min,
-                ["LDO_SYS_3V3_Max"] = _local.LDO_SYS_3V3_Max,
+                ["LDO_VSYS_3V3_OFF_Min"] = _local.LDO_VSYS_3V3_OFF_Min,
+                ["LDO_VSYS_3V3_OFF_Max"] = _local.LDO_VSYS_3V3_OFF_Max,
+                ["LDO_VSYS_3V3_Min"] = _local.LDO_VSYS_3V3_Min,
+                ["LDO_VSYS_3V3_Max"] = _local.LDO_VSYS_3V3_Max,
+                ["LDO_MCU_3V0_Min"] = _local.LDO_MCU_3V0_Min,
+                ["LDO_MCU_3V0_Max"] = _local.LDO_MCU_3V0_Max,
+                ["LDO_VDD_3V0_Min"] = _local.LDO_VDD_3V0_Min,
+                ["LDO_VDD_3V0_Max"] = _local.LDO_VDD_3V0_Max,
+                ["LDO_LCD_3V0_Min"] = _local.LDO_LCD_3V0_Min,
+                ["LDO_LCD_3V0_Max"] = _local.LDO_LCD_3V0_Max,
                 ["LDO_DC_BOOST_Min"] = _local.LDO_DC_BOOST_Min,
                 ["LDO_DC_BOOST_Max"] = _local.LDO_DC_BOOST_Max,
 
                 // CURRENT_SLEEP_SHIP
                 ["CURRENT_SLEEP_SHIP_Step_Delay"] = _local.CURRENT_SLEEP_SHIP_Step_Delay,
-                ["CURRENT_SLEEP_SHIP_TCP1_Delay"] = _local.CURRENT_SLEEP_SHIP_TCP1_Delay,
-                ["CURRENT_SLEEP_SHIP_Sleep_Mode_Min"] = _local.CURRENT_SLEEP_SHIP_Sleep_Mode_Min,
-                ["CURRENT_SLEEP_SHIP_Sleep_Mode_Max"] = _local.CURRENT_SLEEP_SHIP_Sleep_Mode_Max,
-                ["CURRENT_SLEEP_SHIP_Ship_Mode_Min"] = _local.CURRENT_SLEEP_SHIP_Ship_Mode_Min,
-                ["CURRENT_SLEEP_SHIP_Ship_Mode_Max"] = _local.CURRENT_SLEEP_SHIP_Ship_Mode_Max,
-                ["CURRENT_SLEEP_SHIP_HVDCP_Min"] = _local.CURRENT_SLEEP_SHIP_HVDCP_Min,
-                ["CURRENT_SLEEP_SHIP_HVDCP_Max"] = _local.CURRENT_SLEEP_SHIP_HVDCP_Max,
-                ["CURRENT_SLEEP_SHIP_PPS_Min"] = _local.CURRENT_SLEEP_SHIP_PPS_Min,
-                ["CURRENT_SLEEP_SHIP_PPS_Max"] = _local.CURRENT_SLEEP_SHIP_PPS_Max,
+                ["CURRENT_SLEEP_SHIP_Pba_Delay"] = _local.CURRENT_SLEEP_SHIP_Pba_Delay,
+                ["CURRENT_SLEEP_SHIP_TCP_01_Delay"] = _local.CURRENT_SLEEP_SHIP_TCP_01_Delay,
+                ["CURRENT_SLEEP_SHIP_TCP_02_Delay"] = _local.CURRENT_SLEEP_SHIP_TCP_02_Delay,
+                ["CURRENT_SLEEP_SHIP_TCP_03_Delay"] = _local.CURRENT_SLEEP_SHIP_TCP_03_Delay,
 
+                ["CURRENT_SLEEP_SHIP_Sleep_Curr_Min"] = _local.CURRENT_SLEEP_SHIP_Sleep_Curr_Min, 
+                ["CURRENT_SLEEP_SHIP_Sleep_Curr_Max"] = _local.CURRENT_SLEEP_SHIP_Sleep_Curr_Max,
+                ["CURRENT_SLEEP_SHIP_Ship_Curr_Min"] = _local.CURRENT_SLEEP_SHIP_Ship_Curr_Min,
+                ["CURRENT_SLEEP_SHIP_Ship_Curr_Max"] = _local.CURRENT_SLEEP_SHIP_Ship_Curr_Max,
+                
                 // CHARGE
                 ["CHARGE_Processor_Step_Delay"] = _local.CHARGE_Processor_Step_Delay,
                 ["CHARGE_TCP1_Delay"] = _local.CHARGE_TCP1_Delay,
@@ -589,9 +689,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                 ["CHARGE_Current_Max"] = _local.CHARGE_Current_Max,
 
                 // GPAK
-                ["GPAK_Processor_Step_Delay"] = _local.GPAK_Processor_Step_Delay,
-                ["GPAK_TCP1_Delay"] = _local.GPAK_TCP1_Delay,
-                ["GPAK_Switching"] = _local.GPAK_Switching,
+                ["GPAK_Step_Delay"] = _local.GPAK_Step_Delay,
+                ["GPAK_Pba_Delay"] = _local.GPAK_Pba_Delay,
+                ["GPAK_Result"] = _local.GPAK_Result,
 
                 // USB CHECK
                 ["USB_CHECK_Delay"] = _local.USB_CHECK_Delay,
@@ -602,21 +702,30 @@ namespace p2_40_Main_PBA_Tester.Forms
                 ["USB_CHECK_BOTTOM"] = _local.USB_CHECK_BOTTOM,
 
                 // FLASH MEMORY
-                ["FLASH_MEMORY_Processor_Step_Delay"] = _local.FLASH_MEMORY_Processor_Step_Delay,
-                ["FLASH_MEMORY_TCP1_Delay"] = _local.FLASH_MEMORY_TCP1_Delay,
-                ["FLASH_INTEGRITY"] = _local.FLASH_INTEGRITY,
+                ["FLASH_MEMORY_Step_Delay"] = _local.FLASH_MEMORY_Step_Delay,
+                ["FLASH_MEMORY_Pba_Delay"] = _local.FLASH_MEMORY_Pba_Delay,
+                ["FLASH_MEMORY_MCU_FLASH_WAIT"] = _local.FLASH_MEMORY_MCU_FLASH_WAIT,
+                ["FLASH_MEMORY_MCU_EXT_WAIT"] = _local.FLASH_MEMORY_MCU_EXT_WAIT,
+                ["FLASH_MEMORY_MCU_MEMORY"] = _local.FLASH_MEMORY_MCU_MEMORY,
+                ["FLASH_MEMORY_EXT_MEMORY"] = _local.FLASH_MEMORY_EXT_MEMORY,
+
+         
 
                 // MOTOR
+                ["MOTOR_Step_Delay"] = _local.MOTOR_Step_Delay,
                 ["MOTOR_PBA_Delay"] = _local.MOTOR_PBA_Delay,
-                ["MOTOR_Processor_Step"] = _local.MOTOR_Processor_Step,
-                ["MOTOR_TCP1_Delay"] = _local.MOTOR_TCP1_Delay,
-                ["MOTOR_TCP2_Delay"] = _local.MOTOR_TCP2_Delay,
+                ["MOTOR_TCP_01_Delay"] = _local.MOTOR_TCP_01_Delay,
+                ["MOTOR_TCP_02_Delay"] = _local.MOTOR_TCP_02_Delay,
                 ["MOTOR_PWM_Min"] = _local.MOTOR_PWM_Min,
                 ["MOTOR_PWM_Max"] = _local.MOTOR_PWM_Max,
 
                 // FLOODS
+                ["FLOODS_Step_Delay"] = _local.FLOODS_Step_Delay,
                 ["FLOODS_PBA_Delay"] = _local.FLOODS_PBA_Delay,
-                ["FLOODS_Processor_Step_Delay"] = _local.FLOODS_Processor_Step_Delay,
+                ["FLOODS_TCP_01_Delay"] = _local.FLOODS_TCP_01_Delay,
+                ["FLOODS_TCP_02_Delay"] = _local.FLOODS_TCP_02_Delay,
+                ["FLOODS_STATE"] = _local.FLOODS_STATE,
+
 
                 // HEATER
                 ["HEATER_PBA_Delay"] = _local.HEATER_PBA_Delay,
@@ -627,21 +736,23 @@ namespace p2_40_Main_PBA_Tester.Forms
                 ["HEATER_Load_Switch_Max"] = _local.HEATER_Load_Switch_Max,
 
                 // CARTRIDGE
+                ["CARTRIDGE_Step_Delay"] = _local.CARTRIDGE_Step_Delay,
                 ["CARTRIDGE_PBA_Delay"] = _local.CARTRIDGE_PBA_Delay,
-                ["CARTRIDGE_Processor_Step_Delay"] = _local.CARTRIDGE_Processor_Step_Delay,
-                ["CARTRIDGE_Load_Switch_Min"] = _local.CARTRIDGE_Load_Switch_Min,
-                ["CARTRIDGE_Load_Switch_Max"] = _local.CARTRIDGE_Load_Switch_Max,
+                ["CARTRIDGE_TCP_01_Delay"] = _local.CARTRIDGE_TCP_01_Delay,
+                ["CARTRIDGE_Min"] = _local.CARTRIDGE_Min,
+                ["CARTRIDGE_Max"] = _local.CARTRIDGE_Max,
 
                 // SUB HEATER
+                ["SUB_HEATER_Step_Delay"] = _local.SUB_HEATER_Step_Delay,
                 ["SUB_HEATER_PBA_Delay"] = _local.SUB_HEATER_PBA_Delay,
-                ["SUB_HEATER_Processor_Step_Delay"] = _local.SUB_HEATER_Processor_Step_Delay,
+                ["SUB_HEATER_TCP_01_Delay"] = _local.SUB_HEATER_TCP_01_Delay,
                 ["SUB_HEATER_Load_Switch_Min"] = _local.SUB_HEATER_Load_Switch_Min,
                 ["SUB_HEATER_Load_Switch_Max"] = _local.SUB_HEATER_Load_Switch_Max,
 
                 // ACCELEROMETER
+                ["ACCELEROMETER_Step_Delay"] = _local.ACCELEROMETER_Step_Delay,
                 ["ACCELEROMETER_PBA_Delay"] = _local.ACCELEROMETER_PBA_Delay,
-                ["ACCELEROMETER_Processor_Delay"] = _local.ACCELEROMETER_Processor_Delay,
-                ["ACCELEROMETER_COM_CHECK"] = _local.ACCELEROMETER_COM_CHECK,
+                ["ACCELEROMETER_Result"] = _local.ACCELEROMETER_Result,
 
                 // PRESSURE SENSOR
                 ["PRESSURE_SENSOR_PBA_Delay"] = _local.PRESSURE_SENSOR_PBA_Delay,
@@ -654,9 +765,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 ["PBA_FLAG_Test"] = _local.PBA_FLAG_Test,
 
                 // PBA CMD CHECK START
-                ["PBA_CMD_CHECK_START_Delay"] = _local.PBA_CMD_CHECK_START_Delay,
-                ["PBA_CMD_CHECK_START_Processor_Step"] = _local.PBA_CMD_CHECK_START_Processor_Step,
-                ["PBA_CMD_CHECK_START_Test"] = _local.PBA_CMD_CHECK_START_Test,
+                ["PBA_CMD_CHECK_START_Step_Delay"] = _local.PBA_CMD_CHECK_START_Step_Delay,
+                ["PBA_CMD_CHECK_START_TCP_01_Delay"] = _local.PBA_CMD_CHECK_START_TCP_01_Delay,
             };
 
             JObject recipe = new JObject
@@ -722,56 +832,62 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.MES_Enable = settings.MES_Enable;
 
                 // Values
+                _local.QR_READ_Step_Delay = settings.QR_READ_Step_Delay;
                 _local.QR_READ_Len = settings.QR_READ_Len;
+                _local.MCU_INFO_Step_Delay = settings.MCU_INFO_Step_Delay;
+                _local.MCU_INFO_Pba_Delay = settings.MCU_INFO_Pba_Delay;
+                _local.MCU_INFO_Tcp_01_Delay = settings.MCU_INFO_Tcp_01_Delay;
+                _local.MCU_INFO_Tcp_02_Delay = settings.MCU_INFO_Tcp_02_Delay;
 
-                _local.MCU_INFO_Processor_Step_Delay = settings.MCU_INFO_Processor_Step_Delay;
-                _local.MCU_INFO_TCP1_Delay = settings.MCU_INFO_TCP1_Delay;
                 _local.MCU_INFO_Mcu_Id_Len = settings.MCU_INFO_Mcu_Id_Len;
                 _local.MCU_INFO_Main_Fw_Ver = settings.MCU_INFO_Main_Fw_Ver;
                 _local.MCU_INFO_LDC_Fw_Ver = settings.MCU_INFO_LDC_Fw_Ver;
                 _local.MCU_INFO_Image_Fw_Ver = settings.MCU_INFO_Image_Fw_Ver;
 
-                _local.OVP_Processor_Step_Delay = settings.OVP_Processor_Step_Delay;
-                _local.OVP_TCP1_Delay = settings.OVP_TCP1_Delay;
+                _local.OVP_Step_Delay = settings.OVP_Step_Delay;
+                _local.OVP_TCP_01_Delay = settings.OVP_TCP_01_Delay;
                 _local.OVP_VBUS_Min = settings.OVP_VBUS_Min;
                 _local.OVP_VBUS_Max = settings.OVP_VBUS_Max;
 
-                _local.LDO_Processor_Step_Delay = settings.LDO_Processor_Step_Delay;
-                _local.LDO_TCP1_Delay = settings.LDO_TCP1_Delay;
-                _local.LDO_MCU_3V_Min = settings.LDO_MCU_3V_Min;
-                _local.LDO_MCU_3V_Max = settings.LDO_MCU_3V_Max;
-                _local.LDO_VDD_3V_Min = settings.LDO_VDD_3V_Min;
-                _local.LDO_VDD_3V_Max = settings.LDO_VDD_3V_Max;
-                _local.LDO_LCD_3V_Min = settings.LDO_LCD_3V_Min;
-                _local.LDO_LCD_3V_Max = settings.LDO_LCD_3V_Max;
-                _local.LDO_Vboost_Min = settings.LDO_Vboost_Min;
-                _local.LDO_Vboost_Max = settings.LDO_Vboost_Max;
+                _local.LDO_Step_Delay = settings.LDO_Step_Delay;
+                _local.LDO_Pba_Delay = settings.LDO_Pba_Delay;
+                _local.LDO_TCP_01_Delay = settings.LDO_TCP_01_Delay;
+                _local.LDO_TCP_02_Delay = settings.LDO_TCP_02_Delay;
+
                 _local.LDO_VSYS_Min = settings.LDO_VSYS_Min;
                 _local.LDO_VSYS_Max = settings.LDO_VSYS_Max;
-                _local.LDO_SYS_3V3_Min = settings.LDO_SYS_3V3_Min;
-                _local.LDO_SYS_3V3_Max = settings.LDO_SYS_3V3_Max;
+                _local.LDO_VSYS_3V3_OFF_Min = settings.LDO_VSYS_3V3_OFF_Min;
+                _local.LDO_VSYS_3V3_OFF_Max = settings.LDO_VSYS_3V3_OFF_Max;
+                _local.LDO_VSYS_3V3_Min = settings.LDO_VSYS_3V3_Min;
+                _local.LDO_VSYS_3V3_Max = settings.LDO_VSYS_3V3_Max;
+                _local.LDO_MCU_3V0_Min = settings.LDO_MCU_3V0_Min;
+                _local.LDO_MCU_3V0_Max = settings.LDO_MCU_3V0_Max;
+                _local.LDO_VDD_3V0_Min = settings.LDO_VDD_3V0_Min;
+                _local.LDO_VDD_3V0_Max = settings.LDO_VDD_3V0_Max;
+                _local.LDO_LCD_3V0_Min = settings.LDO_LCD_3V0_Min;
+                _local.LDO_LCD_3V0_Max = settings.LDO_LCD_3V0_Max;
                 _local.LDO_DC_BOOST_Min = settings.LDO_DC_BOOST_Min;
                 _local.LDO_DC_BOOST_Max = settings.LDO_DC_BOOST_Max;
 
                 _local.CURRENT_SLEEP_SHIP_Step_Delay = settings.CURRENT_SLEEP_SHIP_Step_Delay;
-                _local.CURRENT_SLEEP_SHIP_TCP1_Delay = settings.CURRENT_SLEEP_SHIP_TCP1_Delay;
-                _local.CURRENT_SLEEP_SHIP_Sleep_Mode_Min = settings.CURRENT_SLEEP_SHIP_Sleep_Mode_Min;
-                _local.CURRENT_SLEEP_SHIP_Sleep_Mode_Max = settings.CURRENT_SLEEP_SHIP_Sleep_Mode_Max;
-                _local.CURRENT_SLEEP_SHIP_Ship_Mode_Min = settings.CURRENT_SLEEP_SHIP_Ship_Mode_Min;
-                _local.CURRENT_SLEEP_SHIP_Ship_Mode_Max = settings.CURRENT_SLEEP_SHIP_Ship_Mode_Max;
-                _local.CURRENT_SLEEP_SHIP_HVDCP_Min = settings.CURRENT_SLEEP_SHIP_HVDCP_Min;
-                _local.CURRENT_SLEEP_SHIP_HVDCP_Max = settings.CURRENT_SLEEP_SHIP_HVDCP_Max;
-                _local.CURRENT_SLEEP_SHIP_PPS_Min = settings.CURRENT_SLEEP_SHIP_PPS_Min;
-                _local.CURRENT_SLEEP_SHIP_PPS_Max = settings.CURRENT_SLEEP_SHIP_PPS_Max;
+                _local.CURRENT_SLEEP_SHIP_Pba_Delay = settings.CURRENT_SLEEP_SHIP_Pba_Delay;
+                _local.CURRENT_SLEEP_SHIP_TCP_01_Delay = settings.CURRENT_SLEEP_SHIP_TCP_01_Delay;
+                _local.CURRENT_SLEEP_SHIP_TCP_02_Delay = settings.CURRENT_SLEEP_SHIP_TCP_02_Delay;
+                _local.CURRENT_SLEEP_SHIP_TCP_03_Delay = settings.CURRENT_SLEEP_SHIP_TCP_03_Delay;
 
+                _local.CURRENT_SLEEP_SHIP_Sleep_Curr_Min = settings.CURRENT_SLEEP_SHIP_Sleep_Curr_Min;
+                _local.CURRENT_SLEEP_SHIP_Sleep_Curr_Max = settings.CURRENT_SLEEP_SHIP_Sleep_Curr_Max;
+                _local.CURRENT_SLEEP_SHIP_Ship_Curr_Min = settings.CURRENT_SLEEP_SHIP_Ship_Curr_Min;
+                _local.CURRENT_SLEEP_SHIP_Ship_Curr_Max = settings.CURRENT_SLEEP_SHIP_Ship_Curr_Max;
+                
                 _local.CHARGE_Processor_Step_Delay = settings.CHARGE_Processor_Step_Delay;
                 _local.CHARGE_TCP1_Delay = settings.CHARGE_TCP1_Delay;
                 _local.CHARGE_Current_Min = settings.CHARGE_Current_Min;
                 _local.CHARGE_Current_Max = settings.CHARGE_Current_Max;
 
-                _local.GPAK_Processor_Step_Delay = settings.GPAK_Processor_Step_Delay;
-                _local.GPAK_TCP1_Delay = settings.GPAK_TCP1_Delay;
-                _local.GPAK_Switching = settings.GPAK_Switching;
+                _local.GPAK_Step_Delay = settings.GPAK_Step_Delay;
+                _local.GPAK_Pba_Delay = settings.GPAK_Pba_Delay;
+                _local.GPAK_Result = settings.GPAK_Result;
 
                 _local.USB_CHECK_Delay = settings.USB_CHECK_Delay;
                 _local.USB_CHECK_Processor_Step_Delay = settings.USB_CHECK_Processor_Step_Delay;
@@ -780,19 +896,29 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.USB_CHECK_TOP = settings.USB_CHECK_TOP;
                 _local.USB_CHECK_BOTTOM = settings.USB_CHECK_BOTTOM;
 
-                _local.FLASH_MEMORY_Processor_Step_Delay = settings.FLASH_MEMORY_Processor_Step_Delay;
-                _local.FLASH_MEMORY_TCP1_Delay = settings.FLASH_MEMORY_TCP1_Delay;
-                _local.FLASH_INTEGRITY = settings.FLASH_INTEGRITY;
 
+
+                _local.FLASH_MEMORY_Step_Delay = settings.FLASH_MEMORY_Step_Delay;
+                _local.FLASH_MEMORY_Pba_Delay = settings.FLASH_MEMORY_Pba_Delay;
+                _local.FLASH_MEMORY_MCU_FLASH_WAIT = settings.FLASH_MEMORY_MCU_FLASH_WAIT;
+                _local.FLASH_MEMORY_MCU_EXT_WAIT = settings.FLASH_MEMORY_MCU_EXT_WAIT;
+                _local.FLASH_MEMORY_MCU_MEMORY = settings.FLASH_MEMORY_MCU_MEMORY;
+                _local.FLASH_MEMORY_EXT_MEMORY = settings.FLASH_MEMORY_EXT_MEMORY;
+
+
+                _local.MOTOR_Step_Delay = settings.MOTOR_Step_Delay;
                 _local.MOTOR_PBA_Delay = settings.MOTOR_PBA_Delay;
-                _local.MOTOR_Processor_Step = settings.MOTOR_Processor_Step;
-                _local.MOTOR_TCP1_Delay = settings.MOTOR_TCP1_Delay;
-                _local.MOTOR_TCP2_Delay = settings.MOTOR_TCP2_Delay;
+                _local.MOTOR_TCP_01_Delay = settings.MOTOR_TCP_01_Delay;
+                _local.MOTOR_TCP_02_Delay = settings.MOTOR_TCP_02_Delay;
                 _local.MOTOR_PWM_Min = settings.MOTOR_PWM_Min;
                 _local.MOTOR_PWM_Max = settings.MOTOR_PWM_Max;
 
+                _local.FLOODS_Step_Delay = settings.FLOODS_Step_Delay;
                 _local.FLOODS_PBA_Delay = settings.FLOODS_PBA_Delay;
-                _local.FLOODS_Processor_Step_Delay = settings.FLOODS_Processor_Step_Delay;
+                _local.FLOODS_TCP_01_Delay = settings.FLOODS_TCP_01_Delay;
+                _local.FLOODS_TCP_02_Delay = settings.FLOODS_TCP_02_Delay;
+                _local.FLOODS_STATE = settings.FLOODS_STATE;
+
 
                 _local.HEATER_PBA_Delay = settings.HEATER_PBA_Delay;
                 _local.HEATER_Processor_Step_Delay = settings.HEATER_Processor_Step_Delay;
@@ -801,19 +927,21 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.HEATER_Load_Switch_Min = settings.HEATER_Load_Switch_Min;
                 _local.HEATER_Load_Switch_Max = settings.HEATER_Load_Switch_Max;
 
+                _local.CARTRIDGE_Step_Delay = settings.CARTRIDGE_Step_Delay;
                 _local.CARTRIDGE_PBA_Delay = settings.CARTRIDGE_PBA_Delay;
-                _local.CARTRIDGE_Processor_Step_Delay = settings.CARTRIDGE_Processor_Step_Delay;
-                _local.CARTRIDGE_Load_Switch_Min = settings.CARTRIDGE_Load_Switch_Min;
-                _local.CARTRIDGE_Load_Switch_Max = settings.CARTRIDGE_Load_Switch_Max;
+                _local.CARTRIDGE_TCP_01_Delay = settings.CARTRIDGE_TCP_01_Delay;
+                _local.CARTRIDGE_Min = settings.CARTRIDGE_Min;
+                _local.CARTRIDGE_Max = settings.CARTRIDGE_Max;
 
+                _local.SUB_HEATER_Step_Delay = settings.SUB_HEATER_Step_Delay;
                 _local.SUB_HEATER_PBA_Delay = settings.SUB_HEATER_PBA_Delay;
-                _local.SUB_HEATER_Processor_Step_Delay = settings.SUB_HEATER_Processor_Step_Delay;
+                _local.SUB_HEATER_TCP_01_Delay = settings.SUB_HEATER_TCP_01_Delay;
                 _local.SUB_HEATER_Load_Switch_Min = settings.SUB_HEATER_Load_Switch_Min;
                 _local.SUB_HEATER_Load_Switch_Max = settings.SUB_HEATER_Load_Switch_Max;
 
+                _local.ACCELEROMETER_Step_Delay = settings.ACCELEROMETER_Step_Delay;
                 _local.ACCELEROMETER_PBA_Delay = settings.ACCELEROMETER_PBA_Delay;
-                _local.ACCELEROMETER_Processor_Delay = settings.ACCELEROMETER_Processor_Delay;
-                _local.ACCELEROMETER_COM_CHECK = settings.ACCELEROMETER_COM_CHECK;
+                _local.ACCELEROMETER_Result = settings.ACCELEROMETER_Result;
 
                 _local.PRESSURE_SENSOR_PBA_Delay = settings.PRESSURE_SENSOR_PBA_Delay;
                 _local.PRESSURE_SENSOR_Processor_Delay = settings.PRESSURE_SENSOR_Processor_Delay;
@@ -823,9 +951,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.PBA_FLAG_Processor_Step = settings.PBA_FLAG_Processor_Step;
                 _local.PBA_FLAG_Test = settings.PBA_FLAG_Test;
 
-                _local.PBA_CMD_CHECK_START_Delay = settings.PBA_CMD_CHECK_START_Delay;
-                _local.PBA_CMD_CHECK_START_Processor_Step = settings.PBA_CMD_CHECK_START_Processor_Step;
-                _local.PBA_CMD_CHECK_START_Test = settings.PBA_CMD_CHECK_START_Test;
+                _local.PBA_CMD_CHECK_START_Step_Delay = settings.PBA_CMD_CHECK_START_Step_Delay;
+                _local.PBA_CMD_CHECK_START_TCP_01_Delay = settings.PBA_CMD_CHECK_START_TCP_01_Delay;
+                
 
                 dgViewTaskList.DataSource = null;
                 dgViewSetValue.DataSource = null;
@@ -927,6 +1055,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             this.Close();
         }
+
 
         #endregion
 

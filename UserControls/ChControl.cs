@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +19,7 @@ namespace p2_40_Main_PBA_Tester.UserControls
 
         private System.Diagnostics.Stopwatch _stepWatch = new System.Diagnostics.Stopwatch();
         private System.Windows.Forms.Timer _displayTimer = new System.Windows.Forms.Timer();
+        private System.Windows.Forms.Timer _blinkTimer;
 
         public enum NowStatus { READY, RUNNING, PASS, FAIL, STOP }
         public enum TaskStatus { READY, RUNNING, PASS, FAIL, STOP }
@@ -46,18 +47,12 @@ namespace p2_40_Main_PBA_Tester.UserControls
 
         public void ClearAllData()
         {
-            // 1. 그리드(레시피) 비우기
+            _blinkTimer?.Stop();
             SetRecipeList(null);
-
-            // 2. 로그 비우기 (필요하면)
             if (tboxLog != null) tboxLog.Clear();
             if (tboxComm != null) tboxComm.Clear();
-
-            // 3. 상태 라벨 초기화
-
-            lblTaskStatus.Text = "-"; // 혹은 READY
+            lblTaskStatus.Text = "-";
             lblTaskStatus.BackColor = Color.White;
-
         }
 
         public void InitGrid()
@@ -83,12 +78,22 @@ namespace p2_40_Main_PBA_Tester.UserControls
 
         public void InitTimer()
         {
-            _displayTimer.Interval = 1000; // 1초
+            _displayTimer.Interval = 500; 
             _displayTimer.Tick += (s, e) =>
             {
-                lblTaskTime.Text = _stepWatch.Elapsed.ToString(@"mm/:ss");
+                lblTaskTime.Text = _stepWatch.Elapsed.ToString(@"mm\:ss");
+            };
+            _blinkTimer = new System.Windows.Forms.Timer { Interval = 400 };
+            _blinkTimer.Tick += (s, e) =>
+            {
+                if (lblTaskStatus.BackColor == Color.LightYellow)
+                    lblTaskStatus.BackColor = Color.LemonChiffon;
+                else
+                    lblTaskStatus.BackColor = Color.LightYellow;
             };
         }
+
+        
 
         public void SetRecipeList(List<string> taskList) //작업 리스트 세팅
         {
@@ -128,7 +133,7 @@ namespace p2_40_Main_PBA_Tester.UserControls
             switch (status)
             {
                 case TaskStatus.RUNNING:
-                    row.DefaultCellStyle.BackColor = Color.Yellow;
+                    row.DefaultCellStyle.BackColor = Color.LightYellow;
                     row.DefaultCellStyle.ForeColor = Color.Black;
                     // 현재 진행 중인 항목이 보이도록 스크롤 이동
                     dgvTaskList.FirstDisplayedScrollingRowIndex = stepIndex;
@@ -153,6 +158,12 @@ namespace p2_40_Main_PBA_Tester.UserControls
 
         public void StartInspection()
         {
+            // 1. 모든 항목 UI 초기화 (기존 빨간색/노란색 지우기)
+            for (int i = 0; i < dgvTaskList.Rows.Count; i++)
+            {
+                UpdateItemStatus(i, TaskStatus.READY);
+            }
+
             _stepWatch.Restart();
             _displayTimer.Start();
             UpdateNowStatus(NowStatus.RUNNING);
@@ -170,47 +181,57 @@ namespace p2_40_Main_PBA_Tester.UserControls
             _stepWatch.Stop();
             _displayTimer.Stop();
             UpdateNowStatus(Result ? NowStatus.PASS : NowStatus.FAIL);
+            if (Result) IncreaseFailCount();
+            else IncreaseFailCount();
         }
-        
-        
+
+        public void IncreasePassCount()
+        {
+            // 데이터 바인딩이 되어 있으므로 Settings 값만 바꾸면 UI는 자동 갱신됨
+            switch (ChannelIndex)
+            {
+                case 1: Settings.Instance.OkCount_Ch1++; break;
+                case 2: Settings.Instance.OkCount_Ch2++; break;
+                case 3: Settings.Instance.OkCount_Ch3++; break;
+                case 4: Settings.Instance.OkCount_Ch4++; break;
+            }
+        }
+
+        public void IncreaseFailCount()
+        {
+            switch (ChannelIndex)
+            {
+                case 1: Settings.Instance.NgCount_Ch1++; break;
+                case 2: Settings.Instance.NgCount_Ch2++; break;
+                case 3: Settings.Instance.NgCount_Ch3++; break;
+                case 4: Settings.Instance.NgCount_Ch4++; break;
+            }
+        }
+
+
 
         private void BindUseStatus()
         {
             var set = Settings.Instance;
-
-            // 기존 바인딩 초기화
             lblUseStatus.DataBindings.Clear();
 
-            // 1. Text 속성 바인딩 ("USE" / "NOT USE")
-            var textBinding = lblUseStatus.DataBindings.Add(
-                "Text",
-                set,
-                $"Use_CH{ChannelIndex}",
-                true,
-                DataSourceUpdateMode.OnPropertyChanged
-            );
-
-            textBinding.Format += (s, e) =>
-            {
+            // 1. Text 바인딩
+            var textBinding = lblUseStatus.DataBindings.Add("Text", set, $"Use_CH{ChannelIndex}", true, DataSourceUpdateMode.OnPropertyChanged);
+            textBinding.Format += (s, e) => {
                 bool use = (e.Value is bool b) && b;
                 e.Value = use ? "USE" : "NOT USE";
             };
 
-            // 2. BackColor 속성 바인딩 (Honeydew / LightGray)
-            var colorBinding = lblUseStatus.DataBindings.Add(
-                "BackColor",
-                set,
-                $"Use_CH{ChannelIndex}",
-                true,
-                DataSourceUpdateMode.OnPropertyChanged
-            );
-
-            colorBinding.Format += (s, e) =>
-            {
+            // 2. BackColor 바인딩
+            var colorBinding = lblUseStatus.DataBindings.Add("BackColor", set, $"Use_CH{ChannelIndex}", true, DataSourceUpdateMode.OnPropertyChanged);
+            colorBinding.Format += (s, e) => {
                 bool use = (e.Value is bool b) && b;
-                // USE(true)면 Honeydew, 아니면 LightGray
                 e.Value = use ? Color.Honeydew : Color.LightGray;
             };
+
+            // ★ [추가] 바인딩 직후에 현재 값을 즉시 반영하도록 강제 명령
+            textBinding.ReadValue();
+            colorBinding.ReadValue();
         }
 
         private void BindCounts()
@@ -239,12 +260,17 @@ namespace p2_40_Main_PBA_Tester.UserControls
                 return;
             }
 
+            _blinkTimer?.Stop();
+
             lblTaskStatus.Text = status.ToString();
             switch (status)
             {
-                case NowStatus.RUNNING: lblTaskStatus.BackColor = Color.Yellow; break;
-                case NowStatus.PASS: lblTaskStatus.BackColor = Color.Lime; break;
-                case NowStatus.FAIL: lblTaskStatus.BackColor = Color.Red; break;
+                case NowStatus.RUNNING:
+                    lblTaskStatus.BackColor = Color.LightYellow;
+                    _blinkTimer?.Start();
+                    break;
+                case NowStatus.PASS: lblTaskStatus.BackColor = Color.LightGreen; break;
+                case NowStatus.FAIL: lblTaskStatus.BackColor = Color.LightCoral; break;
                 case NowStatus.READY: lblTaskStatus.BackColor = Color.AliceBlue; break;
                 case NowStatus.STOP: lblTaskStatus.BackColor = Color.LightCoral; break;
                 default: lblTaskStatus.BackColor = Color.LightGray; break;

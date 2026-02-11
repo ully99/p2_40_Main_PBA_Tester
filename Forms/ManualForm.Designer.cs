@@ -45,6 +45,35 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.cboxSw40 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw39 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw38 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw37 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw36 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw35 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw34 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw33 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw32 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw31 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw30 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw29 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw28 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cboxSw27 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
             this.btnSwClear = new System.Windows.Forms.Button();
             this.btnSwitchWriteAll = new System.Windows.Forms.Button();
             this.btnSwitchReadAll = new System.Windows.Forms.Button();
@@ -140,6 +169,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -165,7 +195,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1501, 799);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1588, 799);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -188,14 +218,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1501, 75);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1588, 75);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnClose.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(1287, 10);
+            this.btnClose.Location = new System.Drawing.Point(1368, 10);
             this.btnClose.Margin = new System.Windows.Forms.Padding(10);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(204, 55);
@@ -211,13 +241,13 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel4.Controls.Add(this.lblTcpConnectionStatus, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.btnTcpConnectionCheck, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(224, 5);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(237, 5);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(389, 65);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(412, 65);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // lblTcpConnectionStatus
@@ -226,7 +256,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblTcpConnectionStatus.AutoSize = true;
             this.lblTcpConnectionStatus.BackColor = System.Drawing.Color.Transparent;
             this.lblTcpConnectionStatus.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTcpConnectionStatus.Location = new System.Drawing.Point(87, 34);
+            this.lblTcpConnectionStatus.Location = new System.Drawing.Point(93, 34);
             this.lblTcpConnectionStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTcpConnectionStatus.Name = "lblTcpConnectionStatus";
             this.lblTcpConnectionStatus.Size = new System.Drawing.Size(20, 29);
@@ -237,7 +267,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnTcpConnectionCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTcpConnectionCheck.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTcpConnectionCheck.Location = new System.Drawing.Point(4, 3);
+            this.btnTcpConnectionCheck.Location = new System.Drawing.Point(10, 3);
             this.btnTcpConnectionCheck.Margin = new System.Windows.Forms.Padding(1);
             this.btnTcpConnectionCheck.Name = "btnTcpConnectionCheck";
             this.btnTcpConnectionCheck.Size = new System.Drawing.Size(185, 25);
@@ -252,7 +282,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(214, 69);
+            this.groupBox3.Size = new System.Drawing.Size(227, 69);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Channel";
@@ -270,17 +300,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSelectChannel.Location = new System.Drawing.Point(3, 24);
             this.cboxSelectChannel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.cboxSelectChannel.Name = "cboxSelectChannel";
-            this.cboxSelectChannel.Size = new System.Drawing.Size(208, 29);
+            this.cboxSelectChannel.Size = new System.Drawing.Size(221, 29);
             this.cboxSelectChannel.TabIndex = 2;
             // 
             // btnOpenPbaTerminal
             // 
             this.btnOpenPbaTerminal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOpenPbaTerminal.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenPbaTerminal.Location = new System.Drawing.Point(1067, 10);
+            this.btnOpenPbaTerminal.Location = new System.Drawing.Point(1129, 10);
             this.btnOpenPbaTerminal.Margin = new System.Windows.Forms.Padding(10);
             this.btnOpenPbaTerminal.Name = "btnOpenPbaTerminal";
-            this.btnOpenPbaTerminal.Size = new System.Drawing.Size(200, 55);
+            this.btnOpenPbaTerminal.Size = new System.Drawing.Size(213, 55);
             this.btnOpenPbaTerminal.TabIndex = 5;
             this.btnOpenPbaTerminal.Text = "PBA Terminal";
             this.btnOpenPbaTerminal.UseVisualStyleBackColor = true;
@@ -289,9 +319,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36596F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36232F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27174F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.28547F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.89713F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.8174F));
             this.tableLayoutPanel5.Controls.Add(this.groupBox4, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel11, 0, 0);
@@ -301,7 +331,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1493, 714);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1580, 714);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // groupBox4
@@ -309,21 +339,24 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox4.Controls.Add(this.tableLayoutPanel3);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(547, 5);
+            this.groupBox4.Location = new System.Drawing.Point(498, 5);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(533, 704);
+            this.groupBox4.Size = new System.Drawing.Size(778, 704);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Switch";
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.btnSwClear, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnSwitchWriteAll, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.btnSwitchReadAll, 0, 2);
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel12, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btnSwClear, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnSwitchWriteAll, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.btnSwitchReadAll, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel8, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel9, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -333,14 +366,460 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(527, 677);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(772, 677);
             this.tableLayoutPanel3.TabIndex = 3;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 4;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel12.Controls.Add(this.label54, 2, 6);
+            this.tableLayoutPanel12.Controls.Add(this.label55, 1, 6);
+            this.tableLayoutPanel12.Controls.Add(this.label56, 2, 5);
+            this.tableLayoutPanel12.Controls.Add(this.label57, 1, 5);
+            this.tableLayoutPanel12.Controls.Add(this.label58, 2, 4);
+            this.tableLayoutPanel12.Controls.Add(this.label59, 1, 4);
+            this.tableLayoutPanel12.Controls.Add(this.label60, 2, 3);
+            this.tableLayoutPanel12.Controls.Add(this.label61, 1, 3);
+            this.tableLayoutPanel12.Controls.Add(this.label62, 2, 2);
+            this.tableLayoutPanel12.Controls.Add(this.label63, 1, 2);
+            this.tableLayoutPanel12.Controls.Add(this.label64, 2, 1);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw40, 3, 6);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw39, 0, 6);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw38, 3, 5);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw37, 0, 5);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw36, 3, 4);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw35, 0, 4);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw34, 3, 3);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw33, 0, 3);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw32, 3, 2);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw31, 0, 2);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw30, 3, 1);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw29, 0, 1);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw28, 3, 0);
+            this.tableLayoutPanel12.Controls.Add(this.cboxSw27, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.label65, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.label66, 2, 0);
+            this.tableLayoutPanel12.Controls.Add(this.label67, 1, 1);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(517, 33);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 13;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(252, 595);
+            this.tableLayoutPanel12.TabIndex = 59;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label54.Location = new System.Drawing.Point(126, 270);
+            this.label54.Margin = new System.Windows.Forms.Padding(0);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(86, 45);
+            this.label54.TabIndex = 65;
+            this.label54.Text = "SW40";
+            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label55.Location = new System.Drawing.Point(40, 270);
+            this.label55.Margin = new System.Windows.Forms.Padding(0);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(86, 45);
+            this.label55.TabIndex = 64;
+            this.label55.Text = "SW39";
+            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label56.Location = new System.Drawing.Point(126, 225);
+            this.label56.Margin = new System.Windows.Forms.Padding(0);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(86, 45);
+            this.label56.TabIndex = 63;
+            this.label56.Text = "SW38";
+            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label57.Location = new System.Drawing.Point(40, 225);
+            this.label57.Margin = new System.Windows.Forms.Padding(0);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(86, 45);
+            this.label57.TabIndex = 62;
+            this.label57.Text = "SW37";
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label58.Location = new System.Drawing.Point(126, 180);
+            this.label58.Margin = new System.Windows.Forms.Padding(0);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(86, 45);
+            this.label58.TabIndex = 61;
+            this.label58.Text = "SW36";
+            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label59.Location = new System.Drawing.Point(40, 180);
+            this.label59.Margin = new System.Windows.Forms.Padding(0);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(86, 45);
+            this.label59.TabIndex = 60;
+            this.label59.Text = "SW35";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label60.Location = new System.Drawing.Point(126, 135);
+            this.label60.Margin = new System.Windows.Forms.Padding(0);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(86, 45);
+            this.label60.TabIndex = 59;
+            this.label60.Text = "SW34";
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label61.Location = new System.Drawing.Point(40, 135);
+            this.label61.Margin = new System.Windows.Forms.Padding(0);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(86, 45);
+            this.label61.TabIndex = 58;
+            this.label61.Text = "SW33";
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label62.Location = new System.Drawing.Point(126, 90);
+            this.label62.Margin = new System.Windows.Forms.Padding(0);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(86, 45);
+            this.label62.TabIndex = 57;
+            this.label62.Text = "SW32";
+            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label63.Location = new System.Drawing.Point(40, 90);
+            this.label63.Margin = new System.Windows.Forms.Padding(0);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(86, 45);
+            this.label63.TabIndex = 56;
+            this.label63.Text = "SW31";
+            this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label64.Location = new System.Drawing.Point(126, 45);
+            this.label64.Margin = new System.Windows.Forms.Padding(0);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(86, 45);
+            this.label64.TabIndex = 55;
+            this.label64.Text = "SW30";
+            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cboxSw40
+            // 
+            this.cboxSw40.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw40.AutoSize = true;
+            this.cboxSw40.Depth = 0;
+            this.cboxSw40.Location = new System.Drawing.Point(214, 274);
+            this.cboxSw40.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw40.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw40.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw40.Name = "cboxSw40";
+            this.cboxSw40.ReadOnly = false;
+            this.cboxSw40.Ripple = true;
+            this.cboxSw40.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw40.TabIndex = 27;
+            this.cboxSw40.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw39
+            // 
+            this.cboxSw39.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw39.AutoSize = true;
+            this.cboxSw39.Depth = 0;
+            this.cboxSw39.Location = new System.Drawing.Point(2, 274);
+            this.cboxSw39.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw39.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw39.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw39.Name = "cboxSw39";
+            this.cboxSw39.ReadOnly = false;
+            this.cboxSw39.Ripple = true;
+            this.cboxSw39.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw39.TabIndex = 24;
+            this.cboxSw39.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw38
+            // 
+            this.cboxSw38.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw38.AutoSize = true;
+            this.cboxSw38.Depth = 0;
+            this.cboxSw38.Location = new System.Drawing.Point(214, 229);
+            this.cboxSw38.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw38.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw38.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw38.Name = "cboxSw38";
+            this.cboxSw38.ReadOnly = false;
+            this.cboxSw38.Ripple = true;
+            this.cboxSw38.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw38.TabIndex = 23;
+            this.cboxSw38.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw37
+            // 
+            this.cboxSw37.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw37.AutoSize = true;
+            this.cboxSw37.Depth = 0;
+            this.cboxSw37.Location = new System.Drawing.Point(2, 229);
+            this.cboxSw37.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw37.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw37.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw37.Name = "cboxSw37";
+            this.cboxSw37.ReadOnly = false;
+            this.cboxSw37.Ripple = true;
+            this.cboxSw37.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw37.TabIndex = 20;
+            this.cboxSw37.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw36
+            // 
+            this.cboxSw36.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw36.AutoSize = true;
+            this.cboxSw36.Depth = 0;
+            this.cboxSw36.Location = new System.Drawing.Point(214, 184);
+            this.cboxSw36.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw36.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw36.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw36.Name = "cboxSw36";
+            this.cboxSw36.ReadOnly = false;
+            this.cboxSw36.Ripple = true;
+            this.cboxSw36.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw36.TabIndex = 19;
+            this.cboxSw36.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw35
+            // 
+            this.cboxSw35.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw35.AutoSize = true;
+            this.cboxSw35.Depth = 0;
+            this.cboxSw35.Location = new System.Drawing.Point(2, 184);
+            this.cboxSw35.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw35.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw35.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw35.Name = "cboxSw35";
+            this.cboxSw35.ReadOnly = false;
+            this.cboxSw35.Ripple = true;
+            this.cboxSw35.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw35.TabIndex = 16;
+            this.cboxSw35.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw34
+            // 
+            this.cboxSw34.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw34.AutoSize = true;
+            this.cboxSw34.Depth = 0;
+            this.cboxSw34.Location = new System.Drawing.Point(214, 139);
+            this.cboxSw34.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw34.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw34.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw34.Name = "cboxSw34";
+            this.cboxSw34.ReadOnly = false;
+            this.cboxSw34.Ripple = true;
+            this.cboxSw34.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw34.TabIndex = 15;
+            this.cboxSw34.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw33
+            // 
+            this.cboxSw33.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw33.AutoSize = true;
+            this.cboxSw33.Depth = 0;
+            this.cboxSw33.Location = new System.Drawing.Point(2, 139);
+            this.cboxSw33.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw33.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw33.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw33.Name = "cboxSw33";
+            this.cboxSw33.ReadOnly = false;
+            this.cboxSw33.Ripple = true;
+            this.cboxSw33.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw33.TabIndex = 12;
+            this.cboxSw33.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw32
+            // 
+            this.cboxSw32.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw32.AutoSize = true;
+            this.cboxSw32.Depth = 0;
+            this.cboxSw32.Location = new System.Drawing.Point(214, 94);
+            this.cboxSw32.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw32.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw32.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw32.Name = "cboxSw32";
+            this.cboxSw32.ReadOnly = false;
+            this.cboxSw32.Ripple = true;
+            this.cboxSw32.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw32.TabIndex = 11;
+            this.cboxSw32.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw31
+            // 
+            this.cboxSw31.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw31.AutoSize = true;
+            this.cboxSw31.Depth = 0;
+            this.cboxSw31.Location = new System.Drawing.Point(2, 94);
+            this.cboxSw31.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw31.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw31.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw31.Name = "cboxSw31";
+            this.cboxSw31.ReadOnly = false;
+            this.cboxSw31.Ripple = true;
+            this.cboxSw31.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw31.TabIndex = 8;
+            this.cboxSw31.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw30
+            // 
+            this.cboxSw30.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw30.AutoSize = true;
+            this.cboxSw30.Depth = 0;
+            this.cboxSw30.Location = new System.Drawing.Point(214, 49);
+            this.cboxSw30.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw30.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw30.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw30.Name = "cboxSw30";
+            this.cboxSw30.ReadOnly = false;
+            this.cboxSw30.Ripple = true;
+            this.cboxSw30.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw30.TabIndex = 7;
+            this.cboxSw30.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw29
+            // 
+            this.cboxSw29.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw29.AutoSize = true;
+            this.cboxSw29.Depth = 0;
+            this.cboxSw29.Location = new System.Drawing.Point(2, 49);
+            this.cboxSw29.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw29.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw29.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw29.Name = "cboxSw29";
+            this.cboxSw29.ReadOnly = false;
+            this.cboxSw29.Ripple = true;
+            this.cboxSw29.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw29.TabIndex = 4;
+            this.cboxSw29.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw28
+            // 
+            this.cboxSw28.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw28.AutoSize = true;
+            this.cboxSw28.Depth = 0;
+            this.cboxSw28.Location = new System.Drawing.Point(214, 4);
+            this.cboxSw28.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw28.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw28.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw28.Name = "cboxSw28";
+            this.cboxSw28.ReadOnly = false;
+            this.cboxSw28.Ripple = true;
+            this.cboxSw28.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw28.TabIndex = 3;
+            this.cboxSw28.UseVisualStyleBackColor = true;
+            // 
+            // cboxSw27
+            // 
+            this.cboxSw27.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSw27.AutoSize = true;
+            this.cboxSw27.Depth = 0;
+            this.cboxSw27.Location = new System.Drawing.Point(2, 4);
+            this.cboxSw27.Margin = new System.Windows.Forms.Padding(0);
+            this.cboxSw27.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cboxSw27.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cboxSw27.Name = "cboxSw27";
+            this.cboxSw27.ReadOnly = false;
+            this.cboxSw27.Ripple = true;
+            this.cboxSw27.Size = new System.Drawing.Size(35, 37);
+            this.cboxSw27.TabIndex = 0;
+            this.cboxSw27.UseVisualStyleBackColor = true;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label65.Location = new System.Drawing.Point(40, 0);
+            this.label65.Margin = new System.Windows.Forms.Padding(0);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(86, 45);
+            this.label65.TabIndex = 52;
+            this.label65.Text = "SW27";
+            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label66.Location = new System.Drawing.Point(126, 0);
+            this.label66.Margin = new System.Windows.Forms.Padding(0);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(86, 45);
+            this.label66.TabIndex = 53;
+            this.label66.Text = "SW28";
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label67.Location = new System.Drawing.Point(40, 45);
+            this.label67.Margin = new System.Windows.Forms.Padding(0);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(86, 45);
+            this.label67.TabIndex = 54;
+            this.label67.Text = "SW29";
+            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSwClear
             // 
             this.btnSwClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSwClear.Location = new System.Drawing.Point(426, 3);
+            this.btnSwClear.Location = new System.Drawing.Point(671, 3);
             this.btnSwClear.Name = "btnSwClear";
             this.btnSwClear.Size = new System.Drawing.Size(98, 24);
             this.btnSwClear.TabIndex = 58;
@@ -350,10 +829,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // btnSwitchWriteAll
             // 
             this.btnSwitchWriteAll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSwitchWriteAll.Location = new System.Drawing.Point(266, 635);
+            this.btnSwitchWriteAll.Location = new System.Drawing.Point(517, 635);
             this.btnSwitchWriteAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSwitchWriteAll.Name = "btnSwitchWriteAll";
-            this.btnSwitchWriteAll.Size = new System.Drawing.Size(258, 38);
+            this.btnSwitchWriteAll.Size = new System.Drawing.Size(252, 38);
             this.btnSwitchWriteAll.TabIndex = 54;
             this.btnSwitchWriteAll.Text = "Write All";
             this.btnSwitchWriteAll.UseVisualStyleBackColor = true;
@@ -361,10 +840,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // btnSwitchReadAll
             // 
             this.btnSwitchReadAll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSwitchReadAll.Location = new System.Drawing.Point(3, 635);
+            this.btnSwitchReadAll.Location = new System.Drawing.Point(260, 635);
             this.btnSwitchReadAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSwitchReadAll.Name = "btnSwitchReadAll";
-            this.btnSwitchReadAll.Size = new System.Drawing.Size(257, 38);
+            this.btnSwitchReadAll.Size = new System.Drawing.Size(251, 38);
             this.btnSwitchReadAll.TabIndex = 53;
             this.btnSwitchReadAll.Text = "Read All";
             this.btnSwitchReadAll.UseVisualStyleBackColor = true;
@@ -400,7 +879,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692544F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692544F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.689466F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(257, 595);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(251, 595);
             this.tableLayoutPanel8.TabIndex = 55;
             // 
             // label13
@@ -412,7 +891,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
             this.tableLayoutPanel8.SetRowSpan(this.label13, 5);
-            this.label13.Size = new System.Drawing.Size(255, 233);
+            this.label13.Size = new System.Drawing.Size(249, 233);
             this.label13.TabIndex = 8;
             this.label13.Tag = "";
             this.label13.Text = "*";
@@ -426,7 +905,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label12.Location = new System.Drawing.Point(1, 316);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(255, 44);
+            this.label12.Size = new System.Drawing.Size(249, 44);
             this.label12.TabIndex = 7;
             this.label12.Text = "SLEEP/SHIP";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -439,7 +918,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label11.Location = new System.Drawing.Point(1, 271);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(255, 44);
+            this.label11.Size = new System.Drawing.Size(249, 44);
             this.label11.TabIndex = 6;
             this.label11.Text = "HVDC_T/HVDCP_B";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -452,7 +931,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label10.Location = new System.Drawing.Point(1, 226);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(255, 44);
+            this.label10.Size = new System.Drawing.Size(249, 44);
             this.label10.TabIndex = 5;
             this.label10.Text = "UART_COM";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -465,7 +944,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label9.Location = new System.Drawing.Point(1, 181);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(255, 44);
+            this.label9.Size = new System.Drawing.Size(249, 44);
             this.label9.TabIndex = 4;
             this.label9.Text = "LOADER/MOTOR";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -478,7 +957,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label8.Location = new System.Drawing.Point(1, 136);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(255, 44);
+            this.label8.Size = new System.Drawing.Size(249, 44);
             this.label8.TabIndex = 3;
             this.label8.Text = "BAT_PWR_3.7V";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -491,7 +970,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label7.Location = new System.Drawing.Point(1, 91);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(255, 44);
+            this.label7.Size = new System.Drawing.Size(249, 44);
             this.label7.TabIndex = 2;
             this.label7.Text = "PS1_BAT_PWR";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -504,7 +983,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label6.Location = new System.Drawing.Point(1, 46);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(255, 44);
+            this.label6.Size = new System.Drawing.Size(249, 44);
             this.label6.TabIndex = 1;
             this.label6.Text = "PS1_USB_PWR_B";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -517,7 +996,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label5.Location = new System.Drawing.Point(1, 1);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(255, 44);
+            this.label5.Size = new System.Drawing.Size(249, 44);
             this.label5.TabIndex = 0;
             this.label5.Text = "PS1_USB_PWR_T";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -528,7 +1007,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel9.Controls.Add(this.label39, 2, 12);
             this.tableLayoutPanel9.Controls.Add(this.label38, 1, 12);
             this.tableLayoutPanel9.Controls.Add(this.label37, 2, 11);
@@ -582,7 +1061,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9.Controls.Add(this.label15, 2, 0);
             this.tableLayoutPanel9.Controls.Add(this.label16, 1, 1);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(266, 33);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(260, 33);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 13;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
@@ -598,17 +1077,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(258, 595);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(251, 595);
             this.tableLayoutPanel9.TabIndex = 56;
             // 
             // label39
             // 
             this.label39.AutoSize = true;
             this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label39.Location = new System.Drawing.Point(129, 540);
+            this.label39.Location = new System.Drawing.Point(125, 540);
             this.label39.Margin = new System.Windows.Forms.Padding(0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(89, 55);
+            this.label39.Size = new System.Drawing.Size(85, 55);
             this.label39.TabIndex = 77;
             this.label39.Text = "SW26";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -620,7 +1099,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label38.Location = new System.Drawing.Point(40, 540);
             this.label38.Margin = new System.Windows.Forms.Padding(0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(89, 55);
+            this.label38.Size = new System.Drawing.Size(85, 55);
             this.label38.TabIndex = 76;
             this.label38.Text = "SW25";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -629,10 +1108,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label37.AutoSize = true;
             this.label37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label37.Location = new System.Drawing.Point(129, 495);
+            this.label37.Location = new System.Drawing.Point(125, 495);
             this.label37.Margin = new System.Windows.Forms.Padding(0);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(89, 45);
+            this.label37.Size = new System.Drawing.Size(85, 45);
             this.label37.TabIndex = 75;
             this.label37.Text = "SW24";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -644,7 +1123,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label36.Location = new System.Drawing.Point(40, 495);
             this.label36.Margin = new System.Windows.Forms.Padding(0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(89, 45);
+            this.label36.Size = new System.Drawing.Size(85, 45);
             this.label36.TabIndex = 74;
             this.label36.Text = "SW23";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -653,10 +1132,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label35.AutoSize = true;
             this.label35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label35.Location = new System.Drawing.Point(129, 450);
+            this.label35.Location = new System.Drawing.Point(125, 450);
             this.label35.Margin = new System.Windows.Forms.Padding(0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(89, 45);
+            this.label35.Size = new System.Drawing.Size(85, 45);
             this.label35.TabIndex = 73;
             this.label35.Text = "SW20";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -668,7 +1147,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label34.Location = new System.Drawing.Point(40, 450);
             this.label34.Margin = new System.Windows.Forms.Padding(0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(89, 45);
+            this.label34.Size = new System.Drawing.Size(85, 45);
             this.label34.TabIndex = 72;
             this.label34.Text = "SW19";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -677,10 +1156,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label33.AutoSize = true;
             this.label33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label33.Location = new System.Drawing.Point(129, 405);
+            this.label33.Location = new System.Drawing.Point(125, 405);
             this.label33.Margin = new System.Windows.Forms.Padding(0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(89, 45);
+            this.label33.Size = new System.Drawing.Size(85, 45);
             this.label33.TabIndex = 71;
             this.label33.Text = "SW16";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -692,7 +1171,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label32.Location = new System.Drawing.Point(40, 405);
             this.label32.Margin = new System.Windows.Forms.Padding(0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(89, 45);
+            this.label32.Size = new System.Drawing.Size(85, 45);
             this.label32.TabIndex = 70;
             this.label32.Text = "SW14";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -701,10 +1180,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label31.AutoSize = true;
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label31.Location = new System.Drawing.Point(129, 360);
+            this.label31.Location = new System.Drawing.Point(125, 360);
             this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(89, 45);
+            this.label31.Size = new System.Drawing.Size(85, 45);
             this.label31.TabIndex = 69;
             this.label31.Text = "SW2";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -716,7 +1195,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label30.Location = new System.Drawing.Point(40, 360);
             this.label30.Margin = new System.Windows.Forms.Padding(0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(89, 45);
+            this.label30.Size = new System.Drawing.Size(85, 45);
             this.label30.TabIndex = 68;
             this.label30.Text = "SW1";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -725,10 +1204,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label29.AutoSize = true;
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label29.Location = new System.Drawing.Point(129, 315);
+            this.label29.Location = new System.Drawing.Point(125, 315);
             this.label29.Margin = new System.Windows.Forms.Padding(0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(89, 45);
+            this.label29.Size = new System.Drawing.Size(85, 45);
             this.label29.TabIndex = 67;
             this.label29.Text = "SW22";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -740,7 +1219,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label28.Location = new System.Drawing.Point(40, 315);
             this.label28.Margin = new System.Windows.Forms.Padding(0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(89, 45);
+            this.label28.Size = new System.Drawing.Size(85, 45);
             this.label28.TabIndex = 66;
             this.label28.Text = "SW21";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -749,10 +1228,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label27.AutoSize = true;
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label27.Location = new System.Drawing.Point(129, 270);
+            this.label27.Location = new System.Drawing.Point(125, 270);
             this.label27.Margin = new System.Windows.Forms.Padding(0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(89, 45);
+            this.label27.Size = new System.Drawing.Size(85, 45);
             this.label27.TabIndex = 65;
             this.label27.Text = "SW18";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -764,7 +1243,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label26.Location = new System.Drawing.Point(40, 270);
             this.label26.Margin = new System.Windows.Forms.Padding(0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(89, 45);
+            this.label26.Size = new System.Drawing.Size(85, 45);
             this.label26.TabIndex = 64;
             this.label26.Text = "SW17";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -773,10 +1252,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label25.AutoSize = true;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label25.Location = new System.Drawing.Point(129, 225);
+            this.label25.Location = new System.Drawing.Point(125, 225);
             this.label25.Margin = new System.Windows.Forms.Padding(0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(89, 45);
+            this.label25.Size = new System.Drawing.Size(85, 45);
             this.label25.TabIndex = 63;
             this.label25.Text = "SW15";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -788,7 +1267,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label24.Location = new System.Drawing.Point(40, 225);
             this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(89, 45);
+            this.label24.Size = new System.Drawing.Size(85, 45);
             this.label24.TabIndex = 62;
             this.label24.Text = "SW13";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -797,10 +1276,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label23.AutoSize = true;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label23.Location = new System.Drawing.Point(129, 180);
+            this.label23.Location = new System.Drawing.Point(125, 180);
             this.label23.Margin = new System.Windows.Forms.Padding(0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(89, 45);
+            this.label23.Size = new System.Drawing.Size(85, 45);
             this.label23.TabIndex = 61;
             this.label23.Text = "SW12";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -812,7 +1291,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label22.Location = new System.Drawing.Point(40, 180);
             this.label22.Margin = new System.Windows.Forms.Padding(0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(89, 45);
+            this.label22.Size = new System.Drawing.Size(85, 45);
             this.label22.TabIndex = 60;
             this.label22.Text = "SW10";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -821,10 +1300,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label21.AutoSize = true;
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label21.Location = new System.Drawing.Point(129, 135);
+            this.label21.Location = new System.Drawing.Point(125, 135);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(89, 45);
+            this.label21.Size = new System.Drawing.Size(85, 45);
             this.label21.TabIndex = 59;
             this.label21.Text = "SW11";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -836,7 +1315,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label20.Location = new System.Drawing.Point(40, 135);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 45);
+            this.label20.Size = new System.Drawing.Size(85, 45);
             this.label20.TabIndex = 58;
             this.label20.Text = "SW9";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -845,10 +1324,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Location = new System.Drawing.Point(129, 90);
+            this.label19.Location = new System.Drawing.Point(125, 90);
             this.label19.Margin = new System.Windows.Forms.Padding(0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(89, 45);
+            this.label19.Size = new System.Drawing.Size(85, 45);
             this.label19.TabIndex = 57;
             this.label19.Text = "SW8";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -860,7 +1339,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label18.Location = new System.Drawing.Point(40, 90);
             this.label18.Margin = new System.Windows.Forms.Padding(0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(89, 45);
+            this.label18.Size = new System.Drawing.Size(85, 45);
             this.label18.TabIndex = 56;
             this.label18.Text = "SW7";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -869,10 +1348,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label17.AutoSize = true;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Location = new System.Drawing.Point(129, 45);
+            this.label17.Location = new System.Drawing.Point(125, 45);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(89, 45);
+            this.label17.Size = new System.Drawing.Size(85, 45);
             this.label17.TabIndex = 55;
             this.label17.Text = "SW6";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -882,7 +1361,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw26.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw26.AutoSize = true;
             this.cboxSw26.Depth = 0;
-            this.cboxSw26.Location = new System.Drawing.Point(220, 549);
+            this.cboxSw26.Location = new System.Drawing.Point(213, 549);
             this.cboxSw26.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw26.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw26.MouseState = MaterialSkin.MouseState.HOVER;
@@ -914,7 +1393,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw24.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw24.AutoSize = true;
             this.cboxSw24.Depth = 0;
-            this.cboxSw24.Location = new System.Drawing.Point(220, 499);
+            this.cboxSw24.Location = new System.Drawing.Point(213, 499);
             this.cboxSw24.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw24.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw24.MouseState = MaterialSkin.MouseState.HOVER;
@@ -946,7 +1425,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw20.AutoSize = true;
             this.cboxSw20.Depth = 0;
-            this.cboxSw20.Location = new System.Drawing.Point(220, 454);
+            this.cboxSw20.Location = new System.Drawing.Point(213, 454);
             this.cboxSw20.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw20.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw20.MouseState = MaterialSkin.MouseState.HOVER;
@@ -978,7 +1457,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw16.AutoSize = true;
             this.cboxSw16.Depth = 0;
-            this.cboxSw16.Location = new System.Drawing.Point(220, 409);
+            this.cboxSw16.Location = new System.Drawing.Point(213, 409);
             this.cboxSw16.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw16.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw16.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1010,7 +1489,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw2.AutoSize = true;
             this.cboxSw2.Depth = 0;
-            this.cboxSw2.Location = new System.Drawing.Point(220, 364);
+            this.cboxSw2.Location = new System.Drawing.Point(213, 364);
             this.cboxSw2.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1042,7 +1521,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw22.AutoSize = true;
             this.cboxSw22.Depth = 0;
-            this.cboxSw22.Location = new System.Drawing.Point(220, 319);
+            this.cboxSw22.Location = new System.Drawing.Point(213, 319);
             this.cboxSw22.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw22.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw22.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1074,7 +1553,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw18.AutoSize = true;
             this.cboxSw18.Depth = 0;
-            this.cboxSw18.Location = new System.Drawing.Point(220, 274);
+            this.cboxSw18.Location = new System.Drawing.Point(213, 274);
             this.cboxSw18.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw18.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw18.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1106,7 +1585,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw15.AutoSize = true;
             this.cboxSw15.Depth = 0;
-            this.cboxSw15.Location = new System.Drawing.Point(220, 229);
+            this.cboxSw15.Location = new System.Drawing.Point(213, 229);
             this.cboxSw15.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw15.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw15.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1138,7 +1617,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw12.AutoSize = true;
             this.cboxSw12.Depth = 0;
-            this.cboxSw12.Location = new System.Drawing.Point(220, 184);
+            this.cboxSw12.Location = new System.Drawing.Point(213, 184);
             this.cboxSw12.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw12.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw12.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1170,7 +1649,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw11.AutoSize = true;
             this.cboxSw11.Depth = 0;
-            this.cboxSw11.Location = new System.Drawing.Point(220, 139);
+            this.cboxSw11.Location = new System.Drawing.Point(213, 139);
             this.cboxSw11.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw11.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw11.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1202,7 +1681,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw8.AutoSize = true;
             this.cboxSw8.Depth = 0;
-            this.cboxSw8.Location = new System.Drawing.Point(220, 94);
+            this.cboxSw8.Location = new System.Drawing.Point(213, 94);
             this.cboxSw8.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw8.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw8.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1234,7 +1713,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw6.AutoSize = true;
             this.cboxSw6.Depth = 0;
-            this.cboxSw6.Location = new System.Drawing.Point(220, 49);
+            this.cboxSw6.Location = new System.Drawing.Point(213, 49);
             this.cboxSw6.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw6.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw6.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1266,7 +1745,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSw4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxSw4.AutoSize = true;
             this.cboxSw4.Depth = 0;
-            this.cboxSw4.Location = new System.Drawing.Point(220, 4);
+            this.cboxSw4.Location = new System.Drawing.Point(213, 4);
             this.cboxSw4.Margin = new System.Windows.Forms.Padding(0);
             this.cboxSw4.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cboxSw4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1300,7 +1779,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label14.Location = new System.Drawing.Point(40, 0);
             this.label14.Margin = new System.Windows.Forms.Padding(0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 45);
+            this.label14.Size = new System.Drawing.Size(85, 45);
             this.label14.TabIndex = 52;
             this.label14.Text = "SW3";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1309,10 +1788,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label15.AutoSize = true;
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Location = new System.Drawing.Point(129, 0);
+            this.label15.Location = new System.Drawing.Point(125, 0);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 45);
+            this.label15.Size = new System.Drawing.Size(85, 45);
             this.label15.TabIndex = 53;
             this.label15.Text = "SW4";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1324,7 +1803,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label16.Location = new System.Drawing.Point(40, 45);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(89, 45);
+            this.label16.Size = new System.Drawing.Size(85, 45);
             this.label16.TabIndex = 54;
             this.label16.Text = "SW5";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1335,14 +1814,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.groupBox5, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(1085, 2);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(1281, 2);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.61972F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.23944F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(406, 710);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(297, 710);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // groupBox5
@@ -1352,7 +1831,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(400, 112);
+            this.groupBox5.Size = new System.Drawing.Size(291, 112);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tester Initialize";
@@ -1372,38 +1851,38 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(394, 85);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(285, 85);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // btnTesterReset
             // 
             this.btnTesterReset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTesterReset.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTesterReset.Location = new System.Drawing.Point(200, 46);
+            this.btnTesterReset.Location = new System.Drawing.Point(145, 46);
             this.btnTesterReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTesterReset.Name = "btnTesterReset";
-            this.btnTesterReset.Size = new System.Drawing.Size(191, 35);
+            this.btnTesterReset.Size = new System.Drawing.Size(137, 35);
             this.btnTesterReset.TabIndex = 55;
-            this.btnTesterReset.Text = "테스터 소프트웨어 리셋";
+            this.btnTesterReset.Text = "적용";
             this.btnTesterReset.UseVisualStyleBackColor = true;
             // 
             // btnTesterInit
             // 
             this.btnTesterInit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTesterInit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTesterInit.Location = new System.Drawing.Point(200, 4);
+            this.btnTesterInit.Location = new System.Drawing.Point(145, 4);
             this.btnTesterInit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTesterInit.Name = "btnTesterInit";
-            this.btnTesterInit.Size = new System.Drawing.Size(191, 34);
+            this.btnTesterInit.Size = new System.Drawing.Size(137, 34);
             this.btnTesterInit.TabIndex = 54;
-            this.btnTesterInit.Text = "테스터 초기화";
+            this.btnTesterInit.Text = "적용";
             this.btnTesterInit.UseVisualStyleBackColor = true;
             // 
             // label42
             // 
             this.label42.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(43, 53);
+            this.label42.Location = new System.Drawing.Point(16, 53);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(110, 21);
             this.label42.TabIndex = 4;
@@ -1413,7 +1892,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label40.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(39, 10);
+            this.label40.Location = new System.Drawing.Point(12, 10);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(118, 21);
             this.label40.TabIndex = 2;
@@ -1429,9 +1908,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel11.Location = new System.Drawing.Point(5, 5);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 2;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.74935F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.25065F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(534, 704);
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(485, 704);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
             // groupBox2
@@ -1439,11 +1918,11 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox2.Controls.Add(this.tableLayoutPanel7);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(4, 573);
+            this.groupBox2.Location = new System.Drawing.Point(4, 569);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(526, 126);
+            this.groupBox2.Size = new System.Drawing.Size(477, 130);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Output Base";
@@ -1469,17 +1948,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(518, 95);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(469, 99);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // btnOutputBaseWrite
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.btnOutputBaseWrite, 2);
             this.btnOutputBaseWrite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOutputBaseWrite.Location = new System.Drawing.Point(122, 66);
+            this.btnOutputBaseWrite.Location = new System.Drawing.Point(111, 70);
             this.btnOutputBaseWrite.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOutputBaseWrite.Name = "btnOutputBaseWrite";
-            this.btnOutputBaseWrite.Size = new System.Drawing.Size(393, 25);
+            this.btnOutputBaseWrite.Size = new System.Drawing.Size(355, 25);
             this.btnOutputBaseWrite.TabIndex = 6;
             this.btnOutputBaseWrite.Text = "Write";
             this.btnOutputBaseWrite.UseVisualStyleBackColor = true;
@@ -1488,7 +1967,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 36);
+            this.label4.Location = new System.Drawing.Point(38, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 21);
             this.label4.TabIndex = 3;
@@ -1498,7 +1977,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(383, 5);
+            this.label3.Location = new System.Drawing.Point(343, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 21);
             this.label3.TabIndex = 2;
@@ -1508,7 +1987,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(184, 5);
+            this.label2.Location = new System.Drawing.Point(164, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 21);
             this.label2.TabIndex = 1;
@@ -1518,7 +1997,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 5);
+            this.label1.Location = new System.Drawing.Point(35, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 21);
             this.label1.TabIndex = 0;
@@ -1527,17 +2006,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             // tboxPs1VoltWrite
             // 
             this.tboxPs1VoltWrite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxPs1VoltWrite.Location = new System.Drawing.Point(122, 34);
+            this.tboxPs1VoltWrite.Location = new System.Drawing.Point(111, 36);
             this.tboxPs1VoltWrite.Name = "tboxPs1VoltWrite";
-            this.tboxPs1VoltWrite.Size = new System.Drawing.Size(193, 28);
+            this.tboxPs1VoltWrite.Size = new System.Drawing.Size(174, 28);
             this.tboxPs1VoltWrite.TabIndex = 4;
             // 
             // tboxPs1CurrWrite
             // 
             this.tboxPs1CurrWrite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxPs1CurrWrite.Location = new System.Drawing.Point(321, 34);
+            this.tboxPs1CurrWrite.Location = new System.Drawing.Point(291, 36);
             this.tboxPs1CurrWrite.Name = "tboxPs1CurrWrite";
-            this.tboxPs1CurrWrite.Size = new System.Drawing.Size(194, 28);
+            this.tboxPs1CurrWrite.Size = new System.Drawing.Size(175, 28);
             this.tboxPs1CurrWrite.TabIndex = 5;
             // 
             // groupBox1
@@ -1549,7 +2028,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(526, 558);
+            this.groupBox1.Size = new System.Drawing.Size(477, 554);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Base";
@@ -1591,7 +2070,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvInputBase.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInputBase.RowTemplate.Height = 27;
-            this.dgvInputBase.Size = new System.Drawing.Size(518, 527);
+            this.dgvInputBase.Size = new System.Drawing.Size(469, 523);
             this.dgvInputBase.TabIndex = 0;
             // 
             // colBaseName
@@ -1621,7 +2100,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1501, 799);
+            this.ClientSize = new System.Drawing.Size(1588, 799);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 10F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1637,6 +2116,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
@@ -1757,5 +2238,34 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw40;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw39;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw38;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw37;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw36;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw35;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw34;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw33;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw32;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw31;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw30;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw29;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw28;
+        private MaterialSkin.Controls.MaterialCheckbox cboxSw27;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
     }
 }

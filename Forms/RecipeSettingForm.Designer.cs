@@ -51,6 +51,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnMoveUp = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnClearCheck = new System.Windows.Forms.Button();
+            this.btnAllCheck = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -60,6 +63,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgViewTaskList)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -68,6 +72,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 2, 1);
@@ -356,6 +361,57 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnDown.UseVisualStyleBackColor = true;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 6;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.Controls.Add(this.btnClearCheck, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnAllCheck, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 789);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(855, 96);
+            this.tableLayoutPanel5.TabIndex = 5;
+            // 
+            // btnClearCheck
+            // 
+            this.btnClearCheck.BackColor = System.Drawing.Color.White;
+            this.btnClearCheck.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnClearCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnClearCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnClearCheck.Location = new System.Drawing.Point(150, 8);
+            this.btnClearCheck.Margin = new System.Windows.Forms.Padding(8);
+            this.btnClearCheck.Name = "btnClearCheck";
+            this.btnClearCheck.Size = new System.Drawing.Size(126, 39);
+            this.btnClearCheck.TabIndex = 1;
+            this.btnClearCheck.Text = "Clear Check";
+            this.btnClearCheck.UseVisualStyleBackColor = false;
+            this.btnClearCheck.Click += new System.EventHandler(this.btnClearCheck_Click);
+            // 
+            // btnAllCheck
+            // 
+            this.btnAllCheck.BackColor = System.Drawing.Color.White;
+            this.btnAllCheck.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnAllCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnAllCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAllCheck.Location = new System.Drawing.Point(8, 8);
+            this.btnAllCheck.Margin = new System.Windows.Forms.Padding(8);
+            this.btnAllCheck.Name = "btnAllCheck";
+            this.btnAllCheck.Size = new System.Drawing.Size(126, 39);
+            this.btnAllCheck.TabIndex = 0;
+            this.btnAllCheck.Text = "All Check";
+            this.btnAllCheck.UseVisualStyleBackColor = false;
+            this.btnAllCheck.Click += new System.EventHandler(this.btnAllCheck_Click);
+            // 
             // RecipeSettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -375,6 +431,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgViewTaskList)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -396,5 +453,8 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Button btnMoveUp;
         private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button btnClearCheck;
+        private System.Windows.Forms.Button btnAllCheck;
     }
 }
