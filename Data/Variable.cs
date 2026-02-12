@@ -24,6 +24,21 @@ namespace p2_40_Main_PBA_Tester.Data
         public static readonly string READ_MCU_ID_ADDR = "0041";
         public static readonly string READ_MCU_ID_BYTECOUNT = "0004";
 
+        public static readonly byte[] READ_SOC = { 0x00, 0x0C, 0x00, 0x01 };
+
+        /// <summary> SDP TA 모드 확인 CMD (7F 01), 1바이트 읽기 </summary>
+        public static readonly byte[] READ_TA_CHECK = { 0x00, 0x7F, 0x00, 0x01 };
+        /// <summary> SDP 전류 확인 CMD (0A), 2바이트 읽기 (mA) </summary>
+        public static readonly byte[] READ_BAT_CURRENT = { 0x00, 0x0A, 0x00, 0x01 };
+
+        public static readonly byte[] MULTI_WRITE_FIFG_CHARGE_COUNT = { 0x02, 0x1C, 0x00, 0x04, 0x08,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+        public static readonly byte[] READ_FIFG_CHARGE_COUNT = { 0x02, 0x1C, 0x00, 0x04 };
+
+        public static readonly byte[] WRITE_CHARGE_FLAG_PASS = { 0xB, 0xBC, 0x00, 0x07 };
+        public static readonly byte[] WRITE_CHARGE_FLAG_FAIL = { 0xB, 0xBC, 0x00, 0x03 };
+        public static readonly byte[] READ_CHARGE_FLAG = { 0xB, 0xBC, 0x00, 0x01 };
+
         public static readonly byte[] READ_IMAGE_FW_VER = { 0x00, 0x2A, 0x00, 0x02 };
 
         public static readonly byte[] WRITE_VSYS_EN_PIN_ON = { 0x00, 0x05, 0x00, 0x08 };
@@ -33,7 +48,7 @@ namespace p2_40_Main_PBA_Tester.Data
 
         public static readonly byte[] WRITE_LDO_OFF = { 0x00, 0x05, 0x00, 0x00 };
 
-        public static readonly byte[] WRITE_SLEEP_CMD = { 0x00, 0x06 }; //데이터가 없는건가
+        public static readonly byte[] WRITE_SLEEP_CMD = { 0x00, 0x06, 0x00, 0x00 }; //뒤에 0000 안붙이면 반응 없긴 함 => 맞는 듯?
         public static readonly byte[] WRITE_SHIP_CMD = { 0x00, 0x01, 0x00, 0x01 };
 
         public static readonly byte[] WRITE_VIB_TEST_START = { 0x00, 0x09, 0x00, 0x01 };
@@ -52,6 +67,7 @@ namespace p2_40_Main_PBA_Tester.Data
         public static readonly byte[] WRITE_MCU_FLASH_INTEGRITY_CHECK_START = { 0x00, 0x0C, 0x00, 0x00 };
         public static readonly byte[] READ_FLASH_INTEGRITY_CHECK_RESULT = { 0x00, 0x87, 0x00, 0x01 };
         public static readonly byte[] WRITE_EXT_FLASH_INTEGRITY_CHECK_START = { 0x00, 0x0C, 0x00, 0x00 };
+        public static readonly byte[] WRITE_EXT_FLASH_CHECK = { 0x00, 0x0D, 0x00, 0x00 };
         public static readonly byte[] READ_EXT_FLASH_INTEGRITY_CHECK_RESULT = { 0x00, 0x89, 0x00, 0x01 };
 
         public static readonly byte[] WRITE_GPAK_TEST_START = { 0x00, 0x50, 0x00, 0x01 };

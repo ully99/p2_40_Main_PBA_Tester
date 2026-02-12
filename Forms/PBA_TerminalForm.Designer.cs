@@ -206,7 +206,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 382F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox8, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -285,7 +285,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(207, 5);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(976, 135);
+            this.groupBox8.Size = new System.Drawing.Size(974, 135);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "PBA Info";
@@ -297,7 +297,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 24);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(970, 108);
+            this.panel3.Size = new System.Drawing.Size(968, 108);
             this.panel3.TabIndex = 0;
             // 
             // table131312
@@ -331,17 +331,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.table131312.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.table131312.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.table131312.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.table131312.Size = new System.Drawing.Size(970, 108);
+            this.table131312.Size = new System.Drawing.Size(968, 108);
             this.table131312.TabIndex = 1;
             // 
             // btnPbaInfoAllRead
             // 
             this.btnPbaInfoAllRead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPbaInfoAllRead.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPbaInfoAllRead.Location = new System.Drawing.Point(868, 82);
+            this.btnPbaInfoAllRead.Location = new System.Drawing.Point(862, 82);
             this.btnPbaInfoAllRead.Margin = new System.Windows.Forms.Padding(1);
             this.btnPbaInfoAllRead.Name = "btnPbaInfoAllRead";
-            this.btnPbaInfoAllRead.Size = new System.Drawing.Size(101, 25);
+            this.btnPbaInfoAllRead.Size = new System.Drawing.Size(105, 25);
             this.btnPbaInfoAllRead.TabIndex = 11;
             this.btnPbaInfoAllRead.Text = "ALL READ";
             this.btnPbaInfoAllRead.UseVisualStyleBackColor = true;
@@ -354,10 +354,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblImageFwVer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblImageFwVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblImageFwVer.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImageFwVer.Location = new System.Drawing.Point(622, 28);
+            this.lblImageFwVer.Location = new System.Drawing.Point(618, 28);
             this.lblImageFwVer.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblImageFwVer.Name = "lblImageFwVer";
-            this.lblImageFwVer.Size = new System.Drawing.Size(133, 23);
+            this.lblImageFwVer.Size = new System.Drawing.Size(132, 23);
             this.lblImageFwVer.TabIndex = 9;
             this.lblImageFwVer.Text = "-";
             this.lblImageFwVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,10 +369,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(622, 3);
+            this.label16.Location = new System.Drawing.Point(618, 3);
             this.label16.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(133, 23);
+            this.label16.Size = new System.Drawing.Size(132, 23);
             this.label16.TabIndex = 8;
             this.label16.Text = "Image FW Ver";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -384,10 +384,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblLdcFwVer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLdcFwVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLdcFwVer.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLdcFwVer.Location = new System.Drawing.Point(469, 28);
+            this.lblLdcFwVer.Location = new System.Drawing.Point(466, 28);
             this.lblLdcFwVer.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblLdcFwVer.Name = "lblLdcFwVer";
-            this.lblLdcFwVer.Size = new System.Drawing.Size(133, 23);
+            this.lblLdcFwVer.Size = new System.Drawing.Size(132, 23);
             this.lblLdcFwVer.TabIndex = 7;
             this.lblLdcFwVer.Text = "-";
             this.lblLdcFwVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -399,10 +399,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(469, 3);
+            this.label15.Location = new System.Drawing.Point(466, 3);
             this.label15.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(133, 23);
+            this.label15.Size = new System.Drawing.Size(132, 23);
             this.label15.TabIndex = 6;
             this.label15.Text = "LDC FW Ver ";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -417,7 +417,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label12.Location = new System.Drawing.Point(10, 3);
             this.label12.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(133, 23);
+            this.label12.Size = new System.Drawing.Size(132, 23);
             this.label12.TabIndex = 0;
             this.label12.Text = "MCU ID ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -429,10 +429,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(163, 3);
+            this.label13.Location = new System.Drawing.Point(162, 3);
             this.label13.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(133, 23);
+            this.label13.Size = new System.Drawing.Size(132, 23);
             this.label13.TabIndex = 1;
             this.label13.Text = "SN ";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -444,10 +444,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(316, 3);
+            this.label14.Location = new System.Drawing.Point(314, 3);
             this.label14.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(133, 23);
+            this.label14.Size = new System.Drawing.Size(132, 23);
             this.label14.TabIndex = 2;
             this.label14.Text = "FW Ver ";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -462,7 +462,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblMcuId.Location = new System.Drawing.Point(10, 28);
             this.lblMcuId.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblMcuId.Name = "lblMcuId";
-            this.lblMcuId.Size = new System.Drawing.Size(133, 23);
+            this.lblMcuId.Size = new System.Drawing.Size(132, 23);
             this.lblMcuId.TabIndex = 3;
             this.lblMcuId.Text = "-";
             this.lblMcuId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -474,10 +474,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblSn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSn.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSn.Location = new System.Drawing.Point(163, 28);
+            this.lblSn.Location = new System.Drawing.Point(162, 28);
             this.lblSn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblSn.Name = "lblSn";
-            this.lblSn.Size = new System.Drawing.Size(133, 23);
+            this.lblSn.Size = new System.Drawing.Size(132, 23);
             this.lblSn.TabIndex = 4;
             this.lblSn.Text = "-";
             this.lblSn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -489,10 +489,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblFwVer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFwVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFwVer.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFwVer.Location = new System.Drawing.Point(316, 28);
+            this.lblFwVer.Location = new System.Drawing.Point(314, 28);
             this.lblFwVer.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblFwVer.Name = "lblFwVer";
-            this.lblFwVer.Size = new System.Drawing.Size(133, 23);
+            this.lblFwVer.Size = new System.Drawing.Size(132, 23);
             this.lblFwVer.TabIndex = 5;
             this.lblFwVer.Text = "-";
             this.lblFwVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -501,10 +501,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnPbaInfoAllClear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPbaInfoAllClear.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPbaInfoAllClear.Location = new System.Drawing.Point(766, 82);
+            this.btnPbaInfoAllClear.Location = new System.Drawing.Point(761, 82);
             this.btnPbaInfoAllClear.Margin = new System.Windows.Forms.Padding(1);
             this.btnPbaInfoAllClear.Name = "btnPbaInfoAllClear";
-            this.btnPbaInfoAllClear.Size = new System.Drawing.Size(100, 25);
+            this.btnPbaInfoAllClear.Size = new System.Drawing.Size(99, 25);
             this.btnPbaInfoAllClear.TabIndex = 10;
             this.btnPbaInfoAllClear.Text = "ALL CLEAR";
             this.btnPbaInfoAllClear.UseVisualStyleBackColor = true;
@@ -1416,7 +1416,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tableLayoutPanel5.Controls.Add(this.lblWriteAddr, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label4, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.tboxWriteAddr, 1, 0);
@@ -1505,7 +1505,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tableLayoutPanel15.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel15.Controls.Add(this.tboxReadAddr, 1, 0);
@@ -1560,17 +1560,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxReadQuantity.Location = new System.Drawing.Point(460, 10);
             this.tboxReadQuantity.Margin = new System.Windows.Forms.Padding(10);
             this.tboxReadQuantity.Name = "tboxReadQuantity";
-            this.tboxReadQuantity.Size = new System.Drawing.Size(200, 28);
+            this.tboxReadQuantity.Size = new System.Drawing.Size(199, 28);
             this.tboxReadQuantity.TabIndex = 3;
             // 
             // btnReadSend
             // 
             this.btnReadSend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReadSend.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadSend.Location = new System.Drawing.Point(680, 5);
+            this.btnReadSend.Location = new System.Drawing.Point(679, 5);
             this.btnReadSend.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.btnReadSend.Name = "btnReadSend";
-            this.btnReadSend.Size = new System.Drawing.Size(81, 31);
+            this.btnReadSend.Size = new System.Drawing.Size(82, 31);
             this.btnReadSend.TabIndex = 4;
             this.btnReadSend.Text = "Send";
             this.btnReadSend.UseVisualStyleBackColor = true;
@@ -1608,7 +1608,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66667F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tableLayoutPanel16.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label6, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.tboxMultiWriteAddr, 1, 0);
@@ -1663,17 +1663,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxMultiWriteDatas.Location = new System.Drawing.Point(504, 10);
             this.tboxMultiWriteDatas.Margin = new System.Windows.Forms.Padding(10);
             this.tboxMultiWriteDatas.Name = "tboxMultiWriteDatas";
-            this.tboxMultiWriteDatas.Size = new System.Drawing.Size(469, 28);
+            this.tboxMultiWriteDatas.Size = new System.Drawing.Size(468, 28);
             this.tboxMultiWriteDatas.TabIndex = 3;
             // 
             // btnMultiWriteSend
             // 
             this.btnMultiWriteSend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMultiWriteSend.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMultiWriteSend.Location = new System.Drawing.Point(993, 5);
+            this.btnMultiWriteSend.Location = new System.Drawing.Point(992, 5);
             this.btnMultiWriteSend.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.btnMultiWriteSend.Name = "btnMultiWriteSend";
-            this.btnMultiWriteSend.Size = new System.Drawing.Size(81, 31);
+            this.btnMultiWriteSend.Size = new System.Drawing.Size(82, 31);
             this.btnMultiWriteSend.TabIndex = 4;
             this.btnMultiWriteSend.Text = "Send";
             this.btnMultiWriteSend.UseVisualStyleBackColor = true;
