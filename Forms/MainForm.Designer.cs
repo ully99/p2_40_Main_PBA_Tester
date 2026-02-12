@@ -66,15 +66,15 @@ namespace p2_40_Main_PBA_Tester
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_Channels = new System.Windows.Forms.TableLayoutPanel();
+            this.chControl_ch3 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
+            this.chControl_ch4 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
+            this.chControl_ch1 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
+            this.chControl_ch2 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnStartStop = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.chControl_ch3 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
-            this.chControl_ch4 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
-            this.chControl_ch1 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
-            this.chControl_ch2 = new p2_40_Main_PBA_Tester.UserControls.ChControl();
             this.productionControl1 = new p2_40_Main_PBA_Tester.UserControls.ProductionControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PboxITM)).BeginInit();
@@ -633,6 +633,42 @@ namespace p2_40_Main_PBA_Tester
             this.tableLayoutPanel_Channels.Size = new System.Drawing.Size(1580, 778);
             this.tableLayoutPanel_Channels.TabIndex = 0;
             // 
+            // chControl_ch3
+            // 
+            this.chControl_ch3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch3.Location = new System.Drawing.Point(793, 5);
+            this.chControl_ch3.Name = "chControl_ch3";
+            this.chControl_ch3.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch3.Size = new System.Drawing.Size(386, 768);
+            this.chControl_ch3.TabIndex = 3;
+            // 
+            // chControl_ch4
+            // 
+            this.chControl_ch4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch4.Location = new System.Drawing.Point(1187, 5);
+            this.chControl_ch4.Name = "chControl_ch4";
+            this.chControl_ch4.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch4.Size = new System.Drawing.Size(388, 768);
+            this.chControl_ch4.TabIndex = 2;
+            // 
+            // chControl_ch1
+            // 
+            this.chControl_ch1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch1.Location = new System.Drawing.Point(5, 5);
+            this.chControl_ch1.Name = "chControl_ch1";
+            this.chControl_ch1.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch1.Size = new System.Drawing.Size(386, 768);
+            this.chControl_ch1.TabIndex = 1;
+            // 
+            // chControl_ch2
+            // 
+            this.chControl_ch2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chControl_ch2.Location = new System.Drawing.Point(399, 5);
+            this.chControl_ch2.Name = "chControl_ch2";
+            this.chControl_ch2.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.chControl_ch2.Size = new System.Drawing.Size(386, 768);
+            this.chControl_ch2.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -690,42 +726,6 @@ namespace p2_40_Main_PBA_Tester
             this.panel3.Size = new System.Drawing.Size(301, 584);
             this.panel3.TabIndex = 2;
             // 
-            // chControl_ch3
-            // 
-            this.chControl_ch3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch3.Location = new System.Drawing.Point(793, 5);
-            this.chControl_ch3.Name = "chControl_ch3";
-            this.chControl_ch3.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch3.Size = new System.Drawing.Size(386, 768);
-            this.chControl_ch3.TabIndex = 3;
-            // 
-            // chControl_ch4
-            // 
-            this.chControl_ch4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch4.Location = new System.Drawing.Point(1187, 5);
-            this.chControl_ch4.Name = "chControl_ch4";
-            this.chControl_ch4.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch4.Size = new System.Drawing.Size(388, 768);
-            this.chControl_ch4.TabIndex = 2;
-            // 
-            // chControl_ch1
-            // 
-            this.chControl_ch1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch1.Location = new System.Drawing.Point(5, 5);
-            this.chControl_ch1.Name = "chControl_ch1";
-            this.chControl_ch1.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch1.Size = new System.Drawing.Size(386, 768);
-            this.chControl_ch1.TabIndex = 1;
-            // 
-            // chControl_ch2
-            // 
-            this.chControl_ch2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chControl_ch2.Location = new System.Drawing.Point(399, 5);
-            this.chControl_ch2.Name = "chControl_ch2";
-            this.chControl_ch2.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.chControl_ch2.Size = new System.Drawing.Size(386, 768);
-            this.chControl_ch2.TabIndex = 0;
-            // 
             // productionControl1
             // 
             this.productionControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -742,7 +742,7 @@ namespace p2_40_Main_PBA_Tester
             this.Controls.Add(this.tableLayoutPanel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Main PBA Tester (p2 4.0) (ver 20260204 : Demo Ver)";
+            this.Text = "Main PBA Tester (p2 4.0) (ver 20260212 : Demo Ver)";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

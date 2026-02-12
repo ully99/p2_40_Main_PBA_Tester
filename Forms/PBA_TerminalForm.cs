@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +32,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             this.manualform = parentform;
             InitializeComponent();
+            ConnectEvent();
             RescanSerialPort();
             DeviceTx = new RichTextLogger(tboxTx);
             DeviceRx = new RichTextLogger(tboxRx);
@@ -62,11 +63,60 @@ namespace p2_40_Main_PBA_Tester.Forms
             lblMcuId.Text = "-";
             lblSn.Text = "-";
             lblFwVer.Text = "-";
+            lblLdcFwVer.Text= "-";
+            lblImageFwVer.Text = "-";
         }
 
         #endregion
 
         #region Event
+        private void ConnectEvent()
+        {
+
+
+
+            //READ
+            btnRead_LdcFloodState.Click += btnRead_LdcFloodState_Click; //009C 0001
+            btnRead_AccelResult.Click += btnRead_AccelResult_Click; //0025 0001
+            btnRead_McuFlashRead.Click += btnRead_McuFlashRead_Click; //0087 0001
+            btnRead_ExtFlashRead.Click += btnRead_ExtFlashRead_Click; //0089 0001
+            btnRead_GpakResult.Click += btnRead_GpakResult_Click; //0026 0001
+
+            btnRead_BatSoc.Click += btnRead_BatSoc_Click; //000C 0001
+            btnRead_TaType.Click += btnRead_TaType_Click; //007F 0001
+            btnRead_BatCurrent.Click += btnRead_BatCurrent_Click; //000A 0001
+            btnRead_ChargeCount.Click += btnRead_ChargeCount_Click; //021C 0004
+            btnRead_FlagRead.Click += btnRead_FlagRead_Click; //0BBC 0001
+
+            btnReadSend.Click += btnReadSend_Click;
+
+            //WRITE
+            btnWrite_VsysEnPinOn.Click += btnWrite_VsysEnPinOn_Click; //0005 0008
+            btnWrite_Vdd3V3On.Click += btnWrite_Vdd3V3On_Click; //0005 0002
+            btnWrite_Lcd3V0On.Click += btnWrite_Lcd3V0On_Click; //0005 0004
+            btnWrite_DcBoostOn.Click += btnWrite_DcBoostOn_Click; //0005 0001
+            btnWrite_LdoOff.Click += btnWrite_LdoOff_Click; //0005 0000
+            btnWrite_Sleep.Click += btnWrite_Sleep_Click; //0006 0001?
+            btnWrite_Ship.Click += btnWrite_Ship_Click; //0001 0001
+            btnWrite_VidMotorTest.Click += btnWrite_VidMotorTest_Click; //0009 0001
+            btnWrite_CartBoostOn.Click += btnWrite_CartBoostOn_Click; //0007 0001
+            btnWrite_CartBoostOff.Click += btnWrite_CartBoostOff_Click; //0007 0000
+            btnWrite_SubHeaterOn.Click += btnWrite_SubHeaterOn_Click; //0007 0002
+            btnWrite_SubHeaterOff.Click += btnWrite_SubHeaterOff_Click; //0007 0000
+            btnWrite_AccelStart.Click += btnWrite_AccelStart_Click; //0052 0001
+            btnWrite_McuFlashCheck.Click += btnWrite_McuFlashCheck_Click; //000C 0000
+            btnWrite_ExtFlashCheck.Click += btnWrite_ExtFlashCheck_Click; //000D 0000
+            btnWrite_GpakStart.Click += btnWrite_GpakStart_Click; //0050 0001
+            btnWrite_GpakEnd.Click += btnWrite_GpakEnd_Click; //0050 0000
+            btnWrite_FlagPass.Click += btnWrite_FlagPass_Click; //0BBC 0007
+            btnWrite_FlagFail.Click += btnWrite_FlagFail_Click; //0BBC 0003
+
+            btnWriteSend.Click += btnWriteSend_Click;
+
+            //MULTI WRITE
+            btnWrite_ChargeCount.Click += btnWrite_ChargeCount_Click; //0x02, 0x1C, 0x00, 0x04, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+            btnMultiWriteSend.Click += btnMultiWriteSend_Click;
+        }
         private void btnRescan_Click(object sender, EventArgs e)
         {
             RescanSerialPort();
@@ -82,7 +132,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                     ToggleLogComm_Device(Pba, true, false); //tx log 해제
                     ToggleLogComm_Device(Pba, false, false); //rx log 해제
                     Pba.Disconnect();
-                    InitControlData();
+                    //InitControlData();
                     btnConnect.BackColor = Color.White;
                     btnConnect.Text = "연결";
                     StatusPortOpen = false;
@@ -114,12 +164,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                 ToggleLogComm_Device(Pba, true, true); //tx log 연결
                 ToggleLogComm_Device(Pba, false, true); //rx log 연결
 
-                //연결 되었을 때 쓸 함수를 여기다 기술
                 await Task.Delay(100);
 
-                await GetMcuId();
-                await GetSn();
-                await GetFwVer();
+                
             }
             catch (Exception ex)
             {
@@ -173,79 +220,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             }
         }
 
-        
+
         #endregion
 
         #region Task
-
-
-        private async Task GetMcuId()
-        {
-            try
-            {
-                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_MCU_ID).GetPacket();
-                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
-
-                if (rx == null) { DeviceRx.Fail("ID Check: Rx is NULL"); return; }
-
-                string DeviceId = $"{rx[6]:X2}{rx[7]:X2}{rx[4]:X2}{rx[5]:X2}{rx[2]:X2}{rx[3]:X2}{rx[0]:X2}{rx[1]:X2}";
-                lblMcuId.Text = DeviceId;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("MCU ID 못가져옴" + ex.Message);
-            }
-
-        }
-
-        private async Task GetSn()
-        {
-            try
-            {
-                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_SERIAL_NO).GetPacket();
-                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
-
-                if (rx == null) { DeviceRx.Fail("SN Check: Rx is NULL"); return; }
-
-                var sb = new StringBuilder();
-                for (int i = 1; i < rx.Length; i += 2) sb.Append((char)rx[i]);
-                string SerialNo = sb.ToString();
-                lblSn.Text = SerialNo;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("SN 못가져옴" + ex.Message);
-            }
-        }
-
-        private async Task GetFwVer()
-        {
-            try
-            {
-                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FW_VER).GetPacket();
-                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
-                if (rx == null) { DeviceRx.Fail("FW Check: Rx is NULL"); return; }
-
-                string major = $"{(char)rx[0]}{(char)rx[1]}";
-                string minor = $"{(char)rx[2]}{(char)rx[3]}";
-                string FwVer = $"{major}.{minor}";
-                lblFwVer.Text = FwVer;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("FW Ver 못가져옴" + ex.Message);
-            }
-        }
-
-        private void lblClearTxRx_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            tboxTx.Clear();
-            tboxRx.Clear();
-        }
-
-
-        #endregion
-
         private async void btnReadSend_Click(object sender, EventArgs e)
         {
             if (Pba == null || !Pba.IsConnected())
@@ -322,7 +300,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, payload).GetPacket();
                 byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
 
-                if (!UtilityFunctions.CheckEchoAck(tx,rx))
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
                 {
                     if (rx == null) DeviceRx.Fail("RECV = null");
                     else DeviceRx.Fail("RX is not unexpected value");
@@ -395,6 +373,896 @@ namespace p2_40_Main_PBA_Tester.Forms
                 btnMultiWriteSend.Enabled = true;
             }
         }
+
+        private async Task GetMcuId()
+        {
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_MCU_ID).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+
+                if (rx == null) { DeviceRx.Fail("ID Check: Rx is NULL"); return; }
+
+                string DeviceId = $"{rx[6]:X2}{rx[7]:X2}{rx[4]:X2}{rx[5]:X2}{rx[2]:X2}{rx[3]:X2}{rx[0]:X2}{rx[1]:X2}";
+                lblMcuId.Text = DeviceId;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("MCU ID 못가져옴" + ex.Message);
+            }
+
+        }
+
+        private async Task GetSn()
+        {
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_SERIAL_NO).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+
+                if (rx == null) { DeviceRx.Fail("SN Check: Rx is NULL"); return; }
+
+                var sb = new StringBuilder();
+                for (int i = 1; i < rx.Length; i += 2) sb.Append((char)rx[i]);
+                string SerialNo = sb.ToString();
+                lblSn.Text = SerialNo;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SN 못가져옴" + ex.Message);
+            }
+        }
+
+        private async Task GetFwVer()
+        {
+            try
+            {
+                byte[] Fw_Ver_READ_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FW_VER).GetPacket();
+                int timeout = Settings.Instance.Pba_Read_Timeout;
+                
+
+                byte[] Fw_Ver_READ_CMD_rx = await Pba.SendAndReceivePacketAsync_OnlyData(Fw_Ver_READ_CMD_tx, timeout);
+                if (Fw_Ver_READ_CMD_rx == null) { DeviceRx.Fail("FW Ver Check : RX is NULL"); return; }
+
+                string major = $"{(char)Fw_Ver_READ_CMD_rx[0]}{(char)Fw_Ver_READ_CMD_rx[1]}";
+                string minor = $"{(char)Fw_Ver_READ_CMD_rx[2]}{(char)Fw_Ver_READ_CMD_rx[3]}";
+                string FwVer = $"{major}.{minor}";
+
+                ushort FwVer_LDC = (ushort)((Fw_Ver_READ_CMD_rx[8] << 8) | Fw_Ver_READ_CMD_rx[9]);
+
+                lblFwVer.Text = FwVer;
+                lblLdcFwVer.Text = FwVer_LDC.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("FW Ver 못가져옴" + ex.Message);
+            }
+        }
+
+        private async Task GetImageFwVer()
+        {
+            try
+            {
+                byte[] IMAGE_FW_VER_READ_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_IMAGE_FW_VER).GetPacket();
+                byte[] IMAGE_FW_VER_READ_CMD_rx = await Pba.SendAndReceivePacketAsync_OnlyData(IMAGE_FW_VER_READ_CMD_tx, Settings.Instance.Pba_Read_Timeout);
+                if (IMAGE_FW_VER_READ_CMD_rx == null) { DeviceRx.Fail("LDC FW Check: Rx is NULL"); return; }
+
+                string ImageVer = $"{(char)IMAGE_FW_VER_READ_CMD_rx[0]}{(char)IMAGE_FW_VER_READ_CMD_rx[1]}." +
+                    $"{(char)IMAGE_FW_VER_READ_CMD_rx[2]}{(char)IMAGE_FW_VER_READ_CMD_rx[3]}";
+                lblImageFwVer.Text = ImageVer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("LDC FW Ver 못가져옴" + ex.Message);
+            }
+        }
+
+        
+
+        private void lblClearTxRx_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            tboxTx.Clear();
+            tboxRx.Clear();
+        }
+
+        // READ 핸들러들
+        private async void btnRead_LdcFloodState_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FLOOD_STATE).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"LDC Flood State Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_AccelResult_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_ACCEL_IC_TEST_RESULT).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Accel Result Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_McuFlashRead_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FLASH_INTEGRITY_CHECK_RESULT).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"MCU Flash Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_ExtFlashRead_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_EXT_FLASH_INTEGRITY_CHECK_RESULT).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Ext Flash Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_GpakResult_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_GPAK_TEST_RESULT).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"GPAK Result Read 실패: {ex.Message}");
+            }
+        }
+
+        // WRITE 핸들러들
+        private async void btnWrite_VsysEnPinOn_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_VSYS_EN_PIN_ON).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("VSYS EN PIN ON Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("VSYS EN PIN ON Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"VSYS EN PIN ON Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_Vdd3V3On_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_VDD_3V3_ON).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("VDD 3V3 ON Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("VDD 3V3 ON Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"VDD 3V3 ON Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_Lcd3V0On_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_LCD_3V0_ON).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("LCD 3V0 ON Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("LCD 3V0 ON Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"LCD 3V0 ON Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_DcBoostOn_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_DC_BOOST_ON).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("DC Boost ON Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("DC Boost ON Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"DC Boost ON Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_LdoOff_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_LDO_OFF).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("LDO OFF Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("LDO OFF Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"LDO OFF Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_Sleep_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SLEEP_CMD).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Sleep Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Sleep Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Sleep Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_Ship_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SHIP_CMD).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Ship Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Ship Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Ship Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_VidMotorTest_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_VIB_TEST_START).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("VID Motor Test Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("VID Motor Test Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"VID Motor Test Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_CartBoostOn_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CARTRIDGE_BOOST_ON).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Cartridge Boost ON Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Cartridge Boost ON Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Cartridge Boost ON Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_CartBoostOff_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CARTRIDGE_BOOST_OFF).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Cartridge Boost OFF Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Cartridge Boost OFF Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Cartridge Boost OFF Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_SubHeaterOn_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SUB_HEATER_BOOST_ON).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Sub Heater ON Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Sub Heater ON Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Sub Heater ON Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_SubHeaterOff_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SUB_HEATER_BOOST_OFF).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Sub Heater OFF Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Sub Heater OFF Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Sub Heater OFF Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_AccelStart_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_ACCEL_IC_TEST_START).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Accel Start Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Accel Start Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Accel Start Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_McuFlashCheck_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_MCU_FLASH_INTEGRITY_CHECK_START).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("MCU Flash Check Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("MCU Flash Check Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"MCU Flash Check Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_ExtFlashCheck_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_EXT_FLASH_CHECK).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Ext Flash Check Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Ext Flash Check Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Ext Flash Check Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_GpakStart_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_GPAK_TEST_START).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("GPAK Start Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("GPAK Start Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"GPAK Start Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_GpakEnd_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_GPAK_TEST_END).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("GPAK End Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("GPAK End Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"GPAK End Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_BatSoc_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_SOC).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Bat SOC Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_TaType_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_TA_CHECK).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"TA Type Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_BatCurrent_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_BAT_CURRENT).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Bat Current Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_ChargeCount_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FIFG_CHARGE_COUNT).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Charge Count Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnRead_FlagRead_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_CHARGE_FLAG).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Flag Read 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_FlagPass_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CHARGE_FLAG_PASS).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Flag Pass Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Flag Pass Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Flag Pass Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_FlagFail_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CHARGE_FLAG_FAIL).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Flag Fail Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Flag Fail Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Flag Fail Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_ChargeCount_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.MULTI_WRITE, Variable.MULTI_WRITE_FIFG_CHARGE_COUNT).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                bool ok = UtilityFunctions.CheckWriteMultiAck(tx, rx);
+                if (ok)
+                {
+                    DeviceRx.Pass("Charge Count MultiWrite 성공");
+                }
+                else
+                {
+                    DeviceRx.Fail("Charge Count MultiWrite 실패");
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Charge Count MultiWrite 실패: {ex.Message}");
+            }
+        }
+
+        #endregion
+
+        
 
         
 
@@ -481,8 +1349,25 @@ namespace p2_40_Main_PBA_Tester.Forms
 
 
 
+
+
         #endregion
 
-        
+        private void btnPbaInfoAllClear_Click(object sender, EventArgs e)
+        {
+            InitControlData();
+        }
+
+        private async void btnPbaInfoAllRead_Click(object sender, EventArgs e)
+        {
+            if (!Pba.IsConnected()) return;
+
+            await GetMcuId();
+            await GetSn();
+            await GetFwVer();
+            await GetImageFwVer();
+        }
+
+     
     }
 }

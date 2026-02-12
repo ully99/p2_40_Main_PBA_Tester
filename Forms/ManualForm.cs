@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +19,6 @@ namespace p2_40_Main_PBA_Tester.Forms
         #region Field
         MainForm mainform;
         TcpChannelClient board;
-
 
         #endregion
 
@@ -73,25 +72,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             return true;
         }
 
-        private void AllClearSwitch()
-        {
-            for (int i = 0; i < 40; i++)
-            {
-                var cbox = this.Controls.Find($"cboxSw{i + 1}", true).FirstOrDefault() as CheckBox;
-                if (cbox != null)
-                {
-                    if (cbox.Checked)
-                    {
-                        cbox.Checked = false;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"cboxSw{i + 1} 컨트롤을 찾지 못함");
-                    return;
-                }
-            }
-        }
+        
         #endregion
 
         #region Event
@@ -101,13 +82,52 @@ namespace p2_40_Main_PBA_Tester.Forms
             btnTcpConnectionCheck.Click += btnTcpConnectionCheck_Click;
             btnOpenPbaTerminal.Click += btnOpenPbaTerminal_Click;
             btnOutputBaseWrite.Click += btnOutputBaseWrite_Click;
-            btnSwitchWriteAll.Click += btnSwitchWriteAll_Click;
-            btnSwitchReadAll.Click += btnSwitchReadAll_Click;
-            btnSwClear.Click += btnSwClear_Click;
+            btnSwAllRead.Click += btnSwitchReadAll_Click;
             btnClose.Click += btnClose_Click;
             dgvInputBase.CellContentClick += dgvInputBase_CellContentClick;
             btnTesterInit.Click += btnTesterInit_Click;
             btnTesterReset.Click += btnTesterReset_Click;
+
+            // btnSw1~40 클릭 이벤트 연결
+            for (int i = 1; i <= 40; i++)
+            {
+                var btn = this.Controls.Find($"btnSw{i}", true).FirstOrDefault() as Button;
+                if (btn != null)
+                {
+                    btn.Click += BtnSw_Click;
+                }
+            }
+        }
+
+        private async void BtnSw_Click(object sender, EventArgs e)
+        {
+            if (!CheckChannel()) return;
+
+            if (sender is Button btn)
+            {
+                // 버튼 이름에서 번호 추출 (예: "btnSw1" -> 1)
+                string btnName = btn.Name;
+                if (btnName.StartsWith("btnSw") && int.TryParse(btnName.Substring(5), out int swIndex))
+                {
+                    // 현재 상태 확인 (LightGreen이면 On)
+                    bool isOn_now = btn.BackColor == Color.LightGreen;
+                    string nowStatus = isOn_now ? "ON" : "OFF";
+
+                    bool isOn_nextStatus = !isOn_now;
+                    string nextStatus = isOn_nextStatus ? "ON" : "OFF";
+                    // 장비에 먼저 Write
+                    bool success = await WriteSingleSwitch(swIndex - 1, isOn_nextStatus);
+                    if (success)
+                    {
+                        btn.BackColor = isOn_nextStatus ? Color.LightGreen : SystemColors.Control;
+                        Console.WriteLine($"{nowStatus} -> {nextStatus} [SW {swIndex}]");
+                    }
+                    else
+                    {
+                        Console.WriteLine("스위치 토글 실패");
+                    }
+                }
+            }
         }
         private async void btnTesterInit_Click(object sender, EventArgs e)
         {
@@ -187,19 +207,9 @@ namespace p2_40_Main_PBA_Tester.Forms
 
         
 
-        private async void btnSwitchWriteAll_Click(object sender, EventArgs e)
-        {
-            await WriteAllSwitch();
-        }
-
         private async void btnSwitchReadAll_Click(object sender, EventArgs e)
         {
             await ReadAllSwitch();
-        }
-
-        private void btnSwClear_Click(object sender, EventArgs e)
-        {
-            AllClearSwitch();
         }
 
         private async void dgvInputBase_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -289,14 +299,14 @@ namespace p2_40_Main_PBA_Tester.Forms
                     int byteIndex = i / 8;
                     int bitIndex = i % 8;
 
-                    // cboxSw1 ~ cboxSw40 매핑
-                    var cbox = this.Controls.Find($"cboxSw{i + 1}", true).FirstOrDefault() as CheckBox;
+                    // btnSw1 ~ btnSw40 매핑
+                    var btn = this.Controls.Find($"btnSw{i + 1}", true).FirstOrDefault() as Button;
 
-                    if (cbox != null && byteIndex < switchBytes.Length)
+                    if (btn != null && byteIndex < switchBytes.Length)
                     {
                         // 이미지상 LSB가 낮은 번호 스위치이므로 (1 << bitIndex) 로직 유지
                         bool isOn = (switchBytes[byteIndex] & (1 << bitIndex)) != 0;
-                        cbox.Checked = isOn;
+                        btn.BackColor = isOn ? Color.LightGreen : SystemColors.Control;
                     }
                 }
 
@@ -318,8 +328,8 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 for (int i = 0; i < 40; i++)
                 {
-                    var cbox = this.Controls.Find($"cboxSw{i + 1}", true).FirstOrDefault() as CheckBox;
-                    if (cbox != null && cbox.Checked)
+                    var btn = this.Controls.Find($"btnSw{i + 1}", true).FirstOrDefault() as Button;
+                    if (btn != null && btn.BackColor == Color.LightGreen)
                     {
                         int byteIndex = i / 8;
                         int bitIndex = i % 8;
@@ -342,6 +352,52 @@ namespace p2_40_Main_PBA_Tester.Forms
             catch (Exception ex)
             {
                 Console.WriteLine($"예외 발생: {ex.Message}");
+            }
+        }
+
+        private async Task<bool> WriteSingleSwitch(int switchIndex, bool isOn_nextStatus)
+        {
+            try
+            {
+                if (!CheckChannel()) return false;
+                if (switchIndex < 0 || switchIndex >= 40) return false;
+                // 현재 모든 스위치 상태 읽기
+                byte[] switchBytes = new byte[5];
+                for (int i = 0; i < 40; i++)
+                {
+                    var btn = this.Controls.Find($"btnSw{i + 1}", true).FirstOrDefault() as Button;
+                    if (btn != null && btn.BackColor == Color.LightGreen)
+                    {
+                        int byteIdx = i / 8;
+                        int bitIdx = i % 8;
+                        switchBytes[byteIdx] |= (byte)(1 << bitIdx);
+                    }
+                }
+                
+                // 변경할 스위치만 업데이트
+                int byteIndex = switchIndex / 8;
+                int bitIndex = switchIndex % 8;
+                if (isOn_nextStatus) //On 상태로 바꿀거면
+                {
+                    switchBytes[byteIndex] |= (byte)(1 << bitIndex);
+                }
+                else //끌거면
+                    switchBytes[byteIndex] &= (byte)~(1 << bitIndex);
+
+                byte[] sendBytes = switchBytes.Reverse().ToArray();
+                byte[] tx = new TcpProtocol(0x04, 0x01, sendBytes).GetPacket();
+                byte[] rx = await board.SendAndReceivePacketAsync(tx, Settings.Instance.Board_Read_Timeout);
+                if (!UtilityFunctions.CheckTcpRxData(tx, rx))
+                {
+                    Console.WriteLine($"RX 이상 => rx : {rx}");
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"예외 발생: {ex.Message}");
+                return false;
             }
         }
 
@@ -464,6 +520,9 @@ namespace p2_40_Main_PBA_Tester.Forms
                 Console.WriteLine($"InputBase Read 실패: {ex.Message}");
             }
         }
+
+
+
 
 
 
