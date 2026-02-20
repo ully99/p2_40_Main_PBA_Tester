@@ -110,9 +110,9 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 case "MCU INFO":
                     table.Rows.Add("[Delay] Step", _local.MCU_INFO_Step_Delay);
-                    table.Rows.Add("[Delay] PBA Delay", _local.MCU_INFO_Pba_Delay);
                     table.Rows.Add("[Delay] TCP 01", _local.MCU_INFO_Tcp_01_Delay);
                     table.Rows.Add("[Delay] TCP 02", _local.MCU_INFO_Tcp_02_Delay);
+                    table.Rows.Add("[Delay] Booting Delay 01", _local.MCU_INFO_Booting_01_Delay);
 
                     table.Rows.Add("[판정] MCU ID 조건 자릿수", _local.MCU_INFO_Mcu_Id_Len);
                     table.Rows.Add("[판정] Main FW Ver", _local.MCU_INFO_Main_Fw_Ver);
@@ -129,9 +129,10 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 case "LDO":
                     table.Rows.Add("[Delay] Step", _local.LDO_Step_Delay);
-                    table.Rows.Add("[Delay] PBA Delay", _local.LDO_Pba_Delay);
                     table.Rows.Add("[Delay] TCP 01", _local.LDO_TCP_01_Delay);
                     table.Rows.Add("[Delay] TCP 02", _local.LDO_TCP_02_Delay);
+                    table.Rows.Add("[Delay] Booting Delay 01", _local.LDO_Booting_01_Delay);
+
 
                     table.Rows.Add("[판정] VSYS Min", _local.LDO_VSYS_Min);
                     table.Rows.Add("[판정] VSYS Max", _local.LDO_VSYS_Max);
@@ -151,7 +152,8 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 case "CURRENT_SLEEP_SHIP":
                     table.Rows.Add("[Delay] Step", _local.CURRENT_SLEEP_SHIP_Step_Delay);
-                    table.Rows.Add("[Delay] PBA Delay", _local.CURRENT_SLEEP_SHIP_Pba_Delay);
+                    table.Rows.Add("[Delay] Booting Delay 01", _local.CURRENT_SLEEP_SHIP_Booting_01_Delay);
+                    table.Rows.Add("[Delay] Booting Delay 02", _local.CURRENT_SLEEP_SHIP_Booting_02_Delay);
                     table.Rows.Add("[Delay] TCP 01", _local.CURRENT_SLEEP_SHIP_TCP_01_Delay);
                     table.Rows.Add("[Delay] TCP 02", _local.CURRENT_SLEEP_SHIP_TCP_02_Delay);
                     table.Rows.Add("[Delay] TCP 03", _local.CURRENT_SLEEP_SHIP_TCP_03_Delay);
@@ -205,10 +207,11 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 case "FLOODS":
                     table.Rows.Add("[Delay] Step", _local.FLOODS_Step_Delay);
-                    table.Rows.Add("[Delay] PBA Delay", _local.FLOODS_PBA_Delay);
                     table.Rows.Add("[Delay] TCP 01", _local.FLOODS_TCP_01_Delay);
                     table.Rows.Add("[Delay] TCP 02", _local.FLOODS_TCP_02_Delay);
-                    table.Rows.Add("[판정] FLOOD STATE", _local.FLOODS_STATE);
+                    table.Rows.Add("[판정] USB FLOODS", _local.FLOODS_USB_Floods);
+                    table.Rows.Add("[판정] BOARD FLOODS", _local.FLOODS_Board_Floods);
+
                     break;
 
                 case "HEATER":
@@ -222,18 +225,26 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 case "CARTRIDGE":
                     table.Rows.Add("[Delay] Step", _local.CARTRIDGE_Step_Delay);
-                    table.Rows.Add("[Delay] PBA Delay", _local.CARTRIDGE_PBA_Delay);
                     table.Rows.Add("[Delay] TCP 01", _local.CARTRIDGE_TCP_01_Delay);
-                    table.Rows.Add("[판정] CARTRIDGE Min", _local.CARTRIDGE_Min);
-                    table.Rows.Add("[판정] CARTRIDGE Max", _local.CARTRIDGE_Max);
+                    table.Rows.Add("[Delay] TCP 02", _local.CARTRIDGE_TCP_02_Delay);
+
+                    table.Rows.Add("[판정] CARTRIDGE PWM Min", _local.CARTRIDGE_CARTRIDGE_PWM_Min);
+                    table.Rows.Add("[판정] CARTRIDGE PWM Max", _local.CARTRIDGE_CARTRIDGE_PWM_Max);
+                    table.Rows.Add("[판정] KATO_BOOST Min", _local.CARTRIDGE_KATO_BOOST_Min);
+                    table.Rows.Add("[판정] KATO_BOOST Max", _local.CARTRIDGE_KATO_BOOST_Max);
+
                     break;
 
                 case "SUB HEATER":
                     table.Rows.Add("[Delay] Step", _local.SUB_HEATER_Step_Delay);
-                    table.Rows.Add("[Delay] PBA Delay", _local.SUB_HEATER_PBA_Delay);
                     table.Rows.Add("[Delay] TCP 01", _local.SUB_HEATER_TCP_01_Delay);
-                    table.Rows.Add("[판정] Load Switch Min", _local.SUB_HEATER_Load_Switch_Min);
-                    table.Rows.Add("[판정] Load Switch Max", _local.SUB_HEATER_Load_Switch_Max);
+                    table.Rows.Add("[Delay] TCP 02", _local.SUB_HEATER_TCP_02_Delay);
+
+                    table.Rows.Add("[판정] SUB HEATER PWM Min", _local.SUB_HEATER_BOOST_Min);
+                    table.Rows.Add("[판정] SUB HEATER PWM Max", _local.SUB_HEATER_BOOST_Max);
+                    table.Rows.Add("[판정] SUB HEATER BOOST Min", _local.SUB_HEATER_BOOST_Min);
+                    table.Rows.Add("[판정] SUB HEATER BOOST Max", _local.SUB_HEATER_BOOST_Max);
+
                     break;
 
                 case "ACCELEROMETER":
@@ -257,6 +268,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 case "PBA CMD CHECK START":
                     table.Rows.Add("[Delay] Step", _local.PBA_CMD_CHECK_START_Step_Delay);
                     table.Rows.Add("[Delay] TCP 01", _local.PBA_CMD_CHECK_START_TCP_01_Delay);
+                    table.Rows.Add("[Delay] Booting Delay 01", _local.PBA_CMD_CHECK_START_Booting_01_Delay);
+
                     break;
 
                 case "TEST END":
@@ -320,9 +333,10 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                     case "MCU INFO":
                         if (param.Contains("Step")) _local.MCU_INFO_Step_Delay = int.Parse(value);
-                        else if (param.Contains("PBA Delay")) _local.MCU_INFO_Pba_Delay = int.Parse(value);
                         else if (param.Contains("TCP 01")) _local.MCU_INFO_Tcp_01_Delay = int.Parse(value);
                         else if (param.Contains("TCP 02")) _local.MCU_INFO_Tcp_02_Delay = int.Parse(value);
+                        else if (param.Contains("Booting Delay 01")) _local.MCU_INFO_Booting_01_Delay = int.Parse(value);
+
                         else if (param.Contains("MCU ID")) _local.MCU_INFO_Mcu_Id_Len = int.Parse(value);
                         else if (param.Contains("Main FW")) _local.MCU_INFO_Main_Fw_Ver = value;
                         else if (param.Contains("LDC FW")) _local.MCU_INFO_LDC_Fw_Ver = value;
@@ -338,9 +352,10 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                     case "LDO":
                         if (param.Contains("Step")) _local.LDO_Step_Delay= int.Parse(value);
-                        else if (param.Contains("PBA Delay")) _local.LDO_Pba_Delay = int.Parse(value);
                         else if (param.Contains("TCP 01")) _local.LDO_TCP_01_Delay = int.Parse(value);
                         else if (param.Contains("TCP 02")) _local.LDO_TCP_02_Delay = int.Parse(value);
+                        else if (param.Contains("Booting Delay 01")) _local.LDO_Booting_01_Delay = int.Parse(value);
+
 
                         else if (param.Contains("VSYS Min")) _local.LDO_VSYS_Min = float.Parse(value);
                         else if (param.Contains("VSYS Max")) _local.LDO_VSYS_Max = float.Parse(value);
@@ -360,7 +375,8 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                     case "CURRENT_SLEEP_SHIP":
                         if (param.Contains("Step")) _local.CURRENT_SLEEP_SHIP_Step_Delay = int.Parse(value);
-                        if (param.Contains("PBA Delay")) _local.CURRENT_SLEEP_SHIP_Pba_Delay = int.Parse(value);
+                        else if (param.Contains("Booting Delay 01")) _local.CURRENT_SLEEP_SHIP_Booting_01_Delay = int.Parse(value);
+                        else if (param.Contains("Booting Delay 02")) _local.CURRENT_SLEEP_SHIP_Booting_02_Delay = int.Parse(value);
                         else if (param.Contains("TCP 01")) _local.CURRENT_SLEEP_SHIP_TCP_01_Delay = int.Parse(value);
                         else if (param.Contains("TCP 02")) _local.CURRENT_SLEEP_SHIP_TCP_02_Delay = int.Parse(value);
                         else if (param.Contains("TCP 03")) _local.CURRENT_SLEEP_SHIP_TCP_03_Delay = int.Parse(value);
@@ -406,16 +422,17 @@ namespace p2_40_Main_PBA_Tester.Forms
                         else if (param.Contains("PBA Delay")) _local.MOTOR_PBA_Delay = int.Parse(value);
                         else if (param.Contains("TCP 01")) _local.MOTOR_TCP_01_Delay = int.Parse(value);
                         else if (param.Contains("TCP 02")) _local.MOTOR_TCP_02_Delay = int.Parse(value);
-                        else if (param.Contains("PWM Min")) _local.MOTOR_PWM_Min = short.Parse(value);
-                        else if (param.Contains("PWM Max")) _local.MOTOR_PWM_Max = short.Parse(value);
+                        else if (param.Contains("PWM Min")) _local.MOTOR_PWM_Min = uint.Parse(value);
+                        else if (param.Contains("PWM Max")) _local.MOTOR_PWM_Max = uint.Parse(value);
                         break;
 
                     case "FLOODS":
                         if (param.Contains("Step")) _local.FLOODS_Step_Delay = int.Parse(value);
-                        else if (param.Contains("PBA Delay")) _local.FLOODS_PBA_Delay = int.Parse(value);
                         else if (param.Contains("TCP 01")) _local.FLOODS_TCP_01_Delay = int.Parse(value);
                         else if (param.Contains("TCP 02")) _local.FLOODS_TCP_02_Delay = int.Parse(value);
-                        else if (param.Contains("FLOOD STATE")) _local.FLOODS_STATE = short.Parse(value);
+                        else if (param.Contains("USB FLOODS")) _local.FLOODS_USB_Floods = short.Parse(value);
+                        else if (param.Contains("BOARD FLOODS")) _local.FLOODS_Board_Floods = short.Parse(value);
+
                         break;
 
                     case "HEATER":
@@ -429,18 +446,26 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                     case "CARTRIDGE":
                         if (param.Contains("Step")) _local.CARTRIDGE_Step_Delay = int.Parse(value);
-                        else if (param.Contains("PBA Delay")) _local.CARTRIDGE_PBA_Delay = int.Parse(value);
                         else if (param.Contains("TCP 01")) _local.CARTRIDGE_TCP_01_Delay = int.Parse(value);
-                        else if (param.Contains("CARTRIDGE Min")) _local.CARTRIDGE_Min = float.Parse(value);
-                        else if (param.Contains("CARTRIDGE Max")) _local.CARTRIDGE_Max = float.Parse(value);
+                        else if (param.Contains("TCP 02")) _local.CARTRIDGE_TCP_02_Delay = int.Parse(value);
+                        else if (param.Contains("CARTRIDGE PWM Min")) _local.CARTRIDGE_CARTRIDGE_PWM_Min = uint.Parse(value);
+                        else if (param.Contains("CARTRIDGE PWM Max")) _local.CARTRIDGE_CARTRIDGE_PWM_Max = uint.Parse(value);
+
+                        else if (param.Contains("KATO_BOOST Min")) _local.CARTRIDGE_KATO_BOOST_Min = float.Parse(value);
+                        else if (param.Contains("KATO_BOOST Max")) _local.CARTRIDGE_KATO_BOOST_Max = float.Parse(value);
                         break;
 
                     case "SUB HEATER":
                         if (param.Contains("Step")) _local.SUB_HEATER_Step_Delay = int.Parse(value);
-                        else if (param.Contains("PBA Delay")) _local.SUB_HEATER_PBA_Delay = int.Parse(value);
                         else if (param.Contains("TCP 01")) _local.SUB_HEATER_TCP_01_Delay= int.Parse(value);
-                        else if (param.Contains("Load Switch Min")) _local.SUB_HEATER_Load_Switch_Min = float.Parse(value);
-                        else if (param.Contains("Load Switch Max")) _local.SUB_HEATER_Load_Switch_Max = float.Parse(value);
+                        else if (param.Contains("TCP 02")) _local.SUB_HEATER_TCP_02_Delay = int.Parse(value);
+
+                        else if (param.Contains("SUB HEATER PWM Min")) _local.SUB_HEATER_PWM_Min = uint.Parse(value);
+                        else if (param.Contains("SUB HEATER PWM Max")) _local.SUB_HEATER_PWM_Max = uint.Parse(value);
+
+                        else if (param.Contains("SUB HEATER BOOST Min")) _local.SUB_HEATER_BOOST_Min = float.Parse(value);
+                        else if (param.Contains("SUB HEATER BOOST Max")) _local.SUB_HEATER_BOOST_Max = float.Parse(value);
+
                         break;
 
                     case "ACCELEROMETER":
@@ -464,6 +489,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                     case "PBA CMD CHECK START":
                         if (param.Contains("Step") || param.Equals("[Delay] Step")) _local.PBA_CMD_CHECK_START_Step_Delay = int.Parse(value);
                         else if (param.Contains("TCP 01")) _local.PBA_CMD_CHECK_START_TCP_01_Delay = int.Parse(value);
+                        else if (param.Contains("Booting Delay 01")) _local.PBA_CMD_CHECK_START_Booting_01_Delay = int.Parse(value);
+
                         break;
 
                     case "TEST END":
@@ -635,9 +662,10 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 // MCU INFO
                 ["MCU_INFO_Step_Delay"] = _local.MCU_INFO_Step_Delay,
-                ["MCU_INFO_Pba_Delay"] = _local.MCU_INFO_Pba_Delay,
                 ["MCU_INFO_Tcp_01_Delay"] = _local.MCU_INFO_Tcp_01_Delay,
                 ["MCU_INFO_Tcp_02_Delay"] = _local.MCU_INFO_Tcp_02_Delay,
+                ["MCU_INFO_Booting_01_Delay"] = _local.MCU_INFO_Booting_01_Delay,
+
 
                 ["MCU_INFO_Mcu_Id_Len"] = _local.MCU_INFO_Mcu_Id_Len,
                 ["MCU_INFO_Main_Fw_Ver"] = _local.MCU_INFO_Main_Fw_Ver,
@@ -652,9 +680,10 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 // LDO
                 ["LDO_Step_Delay"] = _local.LDO_Step_Delay,
-                ["LDO_Pba_Delay"] = _local.LDO_Pba_Delay,
                 ["LDO_TCP_01_Delay"] = _local.LDO_TCP_01_Delay,
                 ["LDO_TCP_02_Delay"] = _local.LDO_TCP_02_Delay,
+                ["LDO_Booting_01_Delay"] = _local.LDO_Booting_01_Delay,
+
                 ["LDO_VSYS_Min"] = _local.LDO_VSYS_Min,
                 ["LDO_VSYS_Max"] = _local.LDO_VSYS_Max,
                 ["LDO_VSYS_3V3_OFF_Min"] = _local.LDO_VSYS_3V3_OFF_Min,
@@ -672,7 +701,8 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 // CURRENT_SLEEP_SHIP
                 ["CURRENT_SLEEP_SHIP_Step_Delay"] = _local.CURRENT_SLEEP_SHIP_Step_Delay,
-                ["CURRENT_SLEEP_SHIP_Pba_Delay"] = _local.CURRENT_SLEEP_SHIP_Pba_Delay,
+                ["CURRENT_SLEEP_SHIP_Booting_01_Delay"] = _local.CURRENT_SLEEP_SHIP_Booting_01_Delay,
+                ["CURRENT_SLEEP_SHIP_Booting_02_Delay"] = _local.CURRENT_SLEEP_SHIP_Booting_02_Delay,
                 ["CURRENT_SLEEP_SHIP_TCP_01_Delay"] = _local.CURRENT_SLEEP_SHIP_TCP_01_Delay,
                 ["CURRENT_SLEEP_SHIP_TCP_02_Delay"] = _local.CURRENT_SLEEP_SHIP_TCP_02_Delay,
                 ["CURRENT_SLEEP_SHIP_TCP_03_Delay"] = _local.CURRENT_SLEEP_SHIP_TCP_03_Delay,
@@ -721,10 +751,10 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 // FLOODS
                 ["FLOODS_Step_Delay"] = _local.FLOODS_Step_Delay,
-                ["FLOODS_PBA_Delay"] = _local.FLOODS_PBA_Delay,
                 ["FLOODS_TCP_01_Delay"] = _local.FLOODS_TCP_01_Delay,
                 ["FLOODS_TCP_02_Delay"] = _local.FLOODS_TCP_02_Delay,
-                ["FLOODS_STATE"] = _local.FLOODS_STATE,
+                ["FLOODS_USB_Floods"] = _local.FLOODS_USB_Floods,
+                ["FLOODS_Board_Floods"] = _local.FLOODS_Board_Floods,
 
 
                 // HEATER
@@ -737,17 +767,24 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 // CARTRIDGE
                 ["CARTRIDGE_Step_Delay"] = _local.CARTRIDGE_Step_Delay,
-                ["CARTRIDGE_PBA_Delay"] = _local.CARTRIDGE_PBA_Delay,
                 ["CARTRIDGE_TCP_01_Delay"] = _local.CARTRIDGE_TCP_01_Delay,
-                ["CARTRIDGE_Min"] = _local.CARTRIDGE_Min,
-                ["CARTRIDGE_Max"] = _local.CARTRIDGE_Max,
+                ["CARTRIDGE_TCP_02_Delay"] = _local.CARTRIDGE_TCP_02_Delay,
+
+                ["CARTRIDGE_CARTRIDGE_PWM_Min"] = _local.CARTRIDGE_CARTRIDGE_PWM_Min,
+                ["CARTRIDGE_CARTRIDGE_PWM_Max"] = _local.CARTRIDGE_CARTRIDGE_PWM_Max,
+                ["CARTRIDGE_KATO_BOOST_Min"] = _local.CARTRIDGE_KATO_BOOST_Min,
+                ["CARTRIDGE_KATO_BOOST_Max"] = _local.CARTRIDGE_KATO_BOOST_Max,
 
                 // SUB HEATER
                 ["SUB_HEATER_Step_Delay"] = _local.SUB_HEATER_Step_Delay,
-                ["SUB_HEATER_PBA_Delay"] = _local.SUB_HEATER_PBA_Delay,
                 ["SUB_HEATER_TCP_01_Delay"] = _local.SUB_HEATER_TCP_01_Delay,
-                ["SUB_HEATER_Load_Switch_Min"] = _local.SUB_HEATER_Load_Switch_Min,
-                ["SUB_HEATER_Load_Switch_Max"] = _local.SUB_HEATER_Load_Switch_Max,
+                ["SUB_HEATER_TCP_02_Delay"] = _local.SUB_HEATER_TCP_02_Delay,
+
+                ["SUB_HEATER_PWM_Min"] = _local.SUB_HEATER_PWM_Min,
+                ["SUB_HEATER_PWM_Max"] = _local.SUB_HEATER_PWM_Max,
+                ["SUB_HEATER_BOOST_Min"] = _local.SUB_HEATER_BOOST_Min,
+                ["SUB_HEATER_BOOST_Max"] = _local.SUB_HEATER_BOOST_Max,
+
 
                 // ACCELEROMETER
                 ["ACCELEROMETER_Step_Delay"] = _local.ACCELEROMETER_Step_Delay,
@@ -767,6 +804,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 // PBA CMD CHECK START
                 ["PBA_CMD_CHECK_START_Step_Delay"] = _local.PBA_CMD_CHECK_START_Step_Delay,
                 ["PBA_CMD_CHECK_START_TCP_01_Delay"] = _local.PBA_CMD_CHECK_START_TCP_01_Delay,
+                ["PBA_CMD_CHECK_START_Booting_01_Delay"] = _local.PBA_CMD_CHECK_START_Booting_01_Delay,
+
             };
 
             JObject recipe = new JObject
@@ -835,9 +874,10 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.QR_READ_Step_Delay = settings.QR_READ_Step_Delay;
                 _local.QR_READ_Len = settings.QR_READ_Len;
                 _local.MCU_INFO_Step_Delay = settings.MCU_INFO_Step_Delay;
-                _local.MCU_INFO_Pba_Delay = settings.MCU_INFO_Pba_Delay;
                 _local.MCU_INFO_Tcp_01_Delay = settings.MCU_INFO_Tcp_01_Delay;
                 _local.MCU_INFO_Tcp_02_Delay = settings.MCU_INFO_Tcp_02_Delay;
+                _local.MCU_INFO_Booting_01_Delay = settings.MCU_INFO_Booting_01_Delay;
+
 
                 _local.MCU_INFO_Mcu_Id_Len = settings.MCU_INFO_Mcu_Id_Len;
                 _local.MCU_INFO_Main_Fw_Ver = settings.MCU_INFO_Main_Fw_Ver;
@@ -850,9 +890,10 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.OVP_VBUS_Max = settings.OVP_VBUS_Max;
 
                 _local.LDO_Step_Delay = settings.LDO_Step_Delay;
-                _local.LDO_Pba_Delay = settings.LDO_Pba_Delay;
                 _local.LDO_TCP_01_Delay = settings.LDO_TCP_01_Delay;
                 _local.LDO_TCP_02_Delay = settings.LDO_TCP_02_Delay;
+                _local.LDO_Booting_01_Delay = settings.LDO_Booting_01_Delay;
+
 
                 _local.LDO_VSYS_Min = settings.LDO_VSYS_Min;
                 _local.LDO_VSYS_Max = settings.LDO_VSYS_Max;
@@ -870,7 +911,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.LDO_DC_BOOST_Max = settings.LDO_DC_BOOST_Max;
 
                 _local.CURRENT_SLEEP_SHIP_Step_Delay = settings.CURRENT_SLEEP_SHIP_Step_Delay;
-                _local.CURRENT_SLEEP_SHIP_Pba_Delay = settings.CURRENT_SLEEP_SHIP_Pba_Delay;
+                _local.CURRENT_SLEEP_SHIP_Booting_01_Delay = settings.CURRENT_SLEEP_SHIP_Booting_01_Delay;
+                _local.CURRENT_SLEEP_SHIP_Booting_02_Delay = settings.CURRENT_SLEEP_SHIP_Booting_02_Delay;
                 _local.CURRENT_SLEEP_SHIP_TCP_01_Delay = settings.CURRENT_SLEEP_SHIP_TCP_01_Delay;
                 _local.CURRENT_SLEEP_SHIP_TCP_02_Delay = settings.CURRENT_SLEEP_SHIP_TCP_02_Delay;
                 _local.CURRENT_SLEEP_SHIP_TCP_03_Delay = settings.CURRENT_SLEEP_SHIP_TCP_03_Delay;
@@ -914,10 +956,10 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.MOTOR_PWM_Max = settings.MOTOR_PWM_Max;
 
                 _local.FLOODS_Step_Delay = settings.FLOODS_Step_Delay;
-                _local.FLOODS_PBA_Delay = settings.FLOODS_PBA_Delay;
                 _local.FLOODS_TCP_01_Delay = settings.FLOODS_TCP_01_Delay;
                 _local.FLOODS_TCP_02_Delay = settings.FLOODS_TCP_02_Delay;
-                _local.FLOODS_STATE = settings.FLOODS_STATE;
+                _local.FLOODS_USB_Floods = settings.FLOODS_USB_Floods;
+                _local.FLOODS_Board_Floods = settings.FLOODS_Board_Floods;
 
 
                 _local.HEATER_PBA_Delay = settings.HEATER_PBA_Delay;
@@ -928,16 +970,24 @@ namespace p2_40_Main_PBA_Tester.Forms
                 _local.HEATER_Load_Switch_Max = settings.HEATER_Load_Switch_Max;
 
                 _local.CARTRIDGE_Step_Delay = settings.CARTRIDGE_Step_Delay;
-                _local.CARTRIDGE_PBA_Delay = settings.CARTRIDGE_PBA_Delay;
                 _local.CARTRIDGE_TCP_01_Delay = settings.CARTRIDGE_TCP_01_Delay;
-                _local.CARTRIDGE_Min = settings.CARTRIDGE_Min;
-                _local.CARTRIDGE_Max = settings.CARTRIDGE_Max;
+                _local.CARTRIDGE_TCP_02_Delay = settings.CARTRIDGE_TCP_02_Delay;
+
+                _local.CARTRIDGE_CARTRIDGE_PWM_Min = settings.CARTRIDGE_CARTRIDGE_PWM_Min;
+                _local.CARTRIDGE_CARTRIDGE_PWM_Max = settings.CARTRIDGE_CARTRIDGE_PWM_Max;
+                _local.CARTRIDGE_KATO_BOOST_Min = settings.CARTRIDGE_KATO_BOOST_Min;
+                _local.CARTRIDGE_KATO_BOOST_Max = settings.CARTRIDGE_KATO_BOOST_Max;
+
 
                 _local.SUB_HEATER_Step_Delay = settings.SUB_HEATER_Step_Delay;
-                _local.SUB_HEATER_PBA_Delay = settings.SUB_HEATER_PBA_Delay;
                 _local.SUB_HEATER_TCP_01_Delay = settings.SUB_HEATER_TCP_01_Delay;
-                _local.SUB_HEATER_Load_Switch_Min = settings.SUB_HEATER_Load_Switch_Min;
-                _local.SUB_HEATER_Load_Switch_Max = settings.SUB_HEATER_Load_Switch_Max;
+                _local.SUB_HEATER_TCP_02_Delay = settings.SUB_HEATER_TCP_02_Delay;
+
+                _local.SUB_HEATER_PWM_Min = settings.SUB_HEATER_PWM_Min;
+                _local.SUB_HEATER_PWM_Max = settings.SUB_HEATER_PWM_Max;
+                _local.SUB_HEATER_BOOST_Min = settings.SUB_HEATER_BOOST_Min;
+                _local.SUB_HEATER_BOOST_Max = settings.SUB_HEATER_BOOST_Max;
+
 
                 _local.ACCELEROMETER_Step_Delay = settings.ACCELEROMETER_Step_Delay;
                 _local.ACCELEROMETER_PBA_Delay = settings.ACCELEROMETER_PBA_Delay;
@@ -953,7 +1003,8 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 _local.PBA_CMD_CHECK_START_Step_Delay = settings.PBA_CMD_CHECK_START_Step_Delay;
                 _local.PBA_CMD_CHECK_START_TCP_01_Delay = settings.PBA_CMD_CHECK_START_TCP_01_Delay;
-                
+                _local.PBA_CMD_CHECK_START_Booting_01_Delay = settings.PBA_CMD_CHECK_START_Booting_01_Delay;
+
 
                 dgViewTaskList.DataSource = null;
                 dgViewSetValue.DataSource = null;

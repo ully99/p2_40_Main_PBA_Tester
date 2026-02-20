@@ -201,8 +201,8 @@ namespace p2_40_Main_PBA_Tester.Data
                 }
                 //control.Logger.Pass($"START CMD 적용 완료");
 
-                //await Task.Delay(Settings.Instance.Pba_On_Delay);
-                //Console.WriteLine($"PBA 전원 ON 대기 중... [{Settings.Instance.Pba_On_Delay}ms]");
+                await Task.Delay(Settings.Instance.MCU_INFO_Booting_01_Delay);
+                Console.WriteLine($"PBA 전원 ON 대기 중... [{Settings.Instance.MCU_INFO_Booting_01_Delay}ms] [CH{ch + 1}]");
 
                 Console.WriteLine($"pba 연결 딜레이 : {Settings.Instance.Pba_Connect_Timeout}");
                 
@@ -215,7 +215,7 @@ namespace p2_40_Main_PBA_Tester.Data
                 //control.Logger.Pass($"PBA connect success [{Return_Pba_Port_Name(ch)}]");
 
                 byte[] MCU_ID_READ_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_MCU_ID).GetPacket();
-                int MCU_ID_READ_CMD_timeout = Settings.Instance.Pba_Read_Timeout + Settings.Instance.MCU_INFO_Pba_Delay;
+                int MCU_ID_READ_CMD_timeout = Settings.Instance.Pba_Read_Timeout;
                 Console.WriteLine($"MCU ID READ CMD RX 수신 대기 [Delay : {MCU_ID_READ_CMD_timeout}ms] [CH{ch + 1}]");
 
                 byte[] MCU_ID_READ_CMD_rx = await Pba.SendAndReceivePacketAsync_OnlyData(MCU_ID_READ_CMD_tx, MCU_ID_READ_CMD_timeout, token);
@@ -234,7 +234,7 @@ namespace p2_40_Main_PBA_Tester.Data
                 control.Logger.Pass($"MCU ID : {McuId} ===> Len : {McuId.Length} [{Settings.Instance.MCU_INFO_Mcu_Id_Len}]");
 
                 byte[] Fw_Ver_READ_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FW_VER).GetPacket();
-                int Fw_Ver_READ_CMD_timeout = Settings.Instance.Pba_Read_Timeout + Settings.Instance.MCU_INFO_Pba_Delay;
+                int Fw_Ver_READ_CMD_timeout = Settings.Instance.Pba_Read_Timeout;
                 Console.WriteLine($"FW VER READ CMD RX 수신 대기 [Delay : {Fw_Ver_READ_CMD_timeout}ms] [CH{ch + 1}]");
 
                 byte[] Fw_Ver_READ_CMD_rx = await Pba.SendAndReceivePacketAsync_OnlyData(Fw_Ver_READ_CMD_tx, Fw_Ver_READ_CMD_timeout, token);
@@ -242,7 +242,8 @@ namespace p2_40_Main_PBA_Tester.Data
 
                 string major = $"{(char)Fw_Ver_READ_CMD_rx[0]}{(char)Fw_Ver_READ_CMD_rx[1]}";
                 string minor = $"{(char)Fw_Ver_READ_CMD_rx[2]}{(char)Fw_Ver_READ_CMD_rx[3]}";
-                string FwVer = $"{major}.{minor}";
+                string debugging = $"{(char)Fw_Ver_READ_CMD_rx[4]}{(char)Fw_Ver_READ_CMD_rx[5]}";
+                string FwVer = $"{major}.{minor}.{debugging}";
 
                 ushort FwVer_LDC = (ushort)((Fw_Ver_READ_CMD_rx[8] << 8) | Fw_Ver_READ_CMD_rx[9]);
 
@@ -263,7 +264,7 @@ namespace p2_40_Main_PBA_Tester.Data
                 control.Logger.Pass($"LDC FW VER : {FwVer_LDC} [{int.Parse(Settings.Instance.MCU_INFO_LDC_Fw_Ver)}]");
 
                 byte[] IMAGE_FW_VER_READ_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_IMAGE_FW_VER).GetPacket();
-                int IMAGE_FW_VER_READ_CMD_timeout = Settings.Instance.Pba_Read_Timeout + Settings.Instance.MCU_INFO_Pba_Delay;
+                int IMAGE_FW_VER_READ_CMD_timeout = Settings.Instance.Pba_Read_Timeout;
                 Console.WriteLine($"IMAGE FW READ CMD RX 수신 대기 [Delay : {IMAGE_FW_VER_READ_CMD_timeout}ms] [CH{ch + 1}]");
 
                 byte[] IMAGE_FW_VER_READ_CMD_rx = await Pba.SendAndReceivePacketAsync_OnlyData(IMAGE_FW_VER_READ_CMD_tx, IMAGE_FW_VER_READ_CMD_timeout, token);
@@ -396,7 +397,7 @@ namespace p2_40_Main_PBA_Tester.Data
                     control.Logger.Fail($"LDO START CMD RX 에러");
                     return false;
                 }
-                control.Logger.Pass($"LDO START CMD 적용 완료");
+                
                 byte[] vsys_volt_byte = new byte[] { Ldo_start_cmd_rx[7], Ldo_start_cmd_rx[8], Ldo_start_cmd_rx[9], Ldo_start_cmd_rx[10] };
                 byte[] vsys_3V3_volt_off_byte = new byte[] { Ldo_start_cmd_rx[11], Ldo_start_cmd_rx[12], Ldo_start_cmd_rx[13], Ldo_start_cmd_rx[14] };
                 float vsys_volt = BitConverter.ToSingle(vsys_volt_byte, 0);
@@ -413,7 +414,8 @@ namespace p2_40_Main_PBA_Tester.Data
 
                 if (!(isPass_vsys_volt && isPass_vsys_3V3_volt_off)) isPass = false;
 
-                
+                await Task.Delay(Settings.Instance.LDO_Booting_01_Delay);
+                Console.WriteLine($"PBA 전원 ON 대기 중... [{Settings.Instance.LDO_Booting_01_Delay}ms] [CH{ch + 1}]");
 
                 bool connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
                 if (!connectOk)
@@ -421,51 +423,20 @@ namespace p2_40_Main_PBA_Tester.Data
                     control.Logger.Fail($"PBA connect fail [{Return_Pba_Port_Name(ch)}]");
                     return false;
                 }
-                control.Logger.Pass($"PBA connect success [{Return_Pba_Port_Name(ch)}]");
+                //control.Logger.Pass($"PBA connect success [{Return_Pba_Port_Name(ch)}]");
 
-                byte[] VSYS_EN_PIN_ON_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_VSYS_EN_PIN_ON).GetPacket();
-                int VSYS_EN_PIN_ON_CMD_timeout = Settings.Instance.Pba_Read_Timeout + Settings.Instance.LDO_Pba_Delay;
-                Console.WriteLine($"VSYS_EN_PIN_ON_CMD RX 수신 대기 [Delay : {VSYS_EN_PIN_ON_CMD_timeout}ms] [CH{ch + 1}]");
-                byte[] VSYS_EN_PIN_ON_CMD_rx = await Pba.SendAndReceivePacketAsync(VSYS_EN_PIN_ON_CMD_tx, VSYS_EN_PIN_ON_CMD_timeout, token);
-                if (!UtilityFunctions.CheckEchoAck(VSYS_EN_PIN_ON_CMD_tx, VSYS_EN_PIN_ON_CMD_rx)) 
+                byte[] LDO_ALL_ON_tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_LDO_ALL_ON).GetPacket();
+                int LDO_ALL_ON_timeout = Settings.Instance.Pba_Read_Timeout;
+                Console.WriteLine($"LDO ALL ON RX 수신 대기 [Delay : {LDO_ALL_ON_timeout}ms] [CH{ch + 1}]");
+                byte[] LDO_ALL_ON_rx = await Pba.SendAndReceivePacketAsync(LDO_ALL_ON_tx, LDO_ALL_ON_timeout, token);
+                if (!UtilityFunctions.CheckEchoAck(LDO_ALL_ON_tx, LDO_ALL_ON_rx)) 
                 { 
-                    control.Logger.Fail("VSYS_EN_PIN_ON_CMD RX : Rx is NULL"); 
+                    control.Logger.Fail("LDO_ALL_ON RX : Rx is NULL"); 
                     return false;
                 }
                 //control.Logger.Pass($"VSYS_EN_PIN_ON_CMD 적용 완료");
 
-                byte[] VDD_3V3_ON_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_VDD_3V3_ON).GetPacket();
-                int VDD_3V3_ON_CMD_timeout = Settings.Instance.Pba_Read_Timeout + Settings.Instance.LDO_Pba_Delay;
-                Console.WriteLine($"VDD_3V3_ON_CMD RX 수신 대기 [Delay : {VDD_3V3_ON_CMD_timeout}ms] [CH{ch + 1}]");
-                byte[] VDD_3V3_ON_CMD_rx = await Pba.SendAndReceivePacketAsync(VDD_3V3_ON_CMD_tx, VDD_3V3_ON_CMD_timeout, token);
-                if (!UtilityFunctions.CheckEchoAck(VDD_3V3_ON_CMD_tx,VDD_3V3_ON_CMD_rx))
-                { 
-                    control.Logger.Fail("VDD_3V3_ON_CMD RX : Rx is NULL"); 
-                    return false;
-                }
-                //control.Logger.Pass($"VDD_3V3_ON_CMD 적용 완료");
-
-                byte[] LCD_3V0_ON_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_LCD_3V0_ON).GetPacket();
-                int LCD_3V0_ON_CMD_timeout = Settings.Instance.Pba_Read_Timeout + Settings.Instance.LDO_Pba_Delay;
-                Console.WriteLine($"LCD_3V0_ON_CMD RX 수신 대기 [Delay : {LCD_3V0_ON_CMD_timeout}ms] [CH{ch + 1}]");
-                byte[] LCD_3V0_ON_CMD_rx = await Pba.SendAndReceivePacketAsync(LCD_3V0_ON_CMD_tx, LCD_3V0_ON_CMD_timeout, token);
-                if (!UtilityFunctions.CheckEchoAck(LCD_3V0_ON_CMD_tx, LCD_3V0_ON_CMD_rx)) 
-                { 
-                    control.Logger.Fail("LCD_3V0_ON_CMD RX : Rx is NULL"); 
-                    return false;
-                }
-                //control.Logger.Pass($"LCD_3V0_ON_CMD 적용 완료");
-
-                byte[] DC_BOOST_ON_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_DC_BOOST_ON).GetPacket();
-                int DC_BOOST_ON_CMD_timeout = Settings.Instance.Pba_Read_Timeout + Settings.Instance.LDO_Pba_Delay;
-                Console.WriteLine($"DC_BOOST_ON_CMD RX 수신 대기 [Delay : {LCD_3V0_ON_CMD_timeout}ms] [CH{ch + 1}]");
-                byte[] DC_BOOST_ON_CMD_rx = await Pba.SendAndReceivePacketAsync(DC_BOOST_ON_CMD_tx, DC_BOOST_ON_CMD_timeout, token);
-                if (!UtilityFunctions.CheckEchoAck(DC_BOOST_ON_CMD_tx,DC_BOOST_ON_CMD_rx))
-                { 
-                    control.Logger.Fail("DC_BOOST_ON_CMD RX : Rx is NULL"); 
-                    return false; 
-                }
-                //control.Logger.Pass($"DC_BOOST_ON_CMD 적용 완료");
+                
 
                 byte[] Ldo_second_cmd_tx = new TcpProtocol(0xC3, 0x02).GetPacket();
                 int Ldo_second_cmd_timeout = Settings.Instance.Board_Read_Timeout + Settings.Instance.LDO_TCP_02_Delay;
@@ -508,7 +479,7 @@ namespace p2_40_Main_PBA_Tester.Data
                 if (!(isPass_sys_3V3 && isPass_mcu_3V0 && isPass_vdd_3V0 && isPass_lcd_3V0)) isPass = false;
 
                 byte[] LDO_OFF_CMD_tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_LDO_OFF).GetPacket();
-                int LDO_OFF_CMD_timeout = Settings.Instance.Pba_Read_Timeout + Settings.Instance.LDO_Pba_Delay;
+                int LDO_OFF_CMD_timeout = Settings.Instance.Pba_Read_Timeout;
                 Console.WriteLine($"LDO_OFF_CMD RX 수신 대기 [Delay : {LDO_OFF_CMD_timeout}ms] [CH{ch + 1}]");
                 byte[] LDO_OFF_CMD_rx = await Pba.SendAndReceivePacketAsync(LDO_OFF_CMD_tx, LDO_OFF_CMD_timeout, token);
 
@@ -580,7 +551,8 @@ namespace p2_40_Main_PBA_Tester.Data
                 }
                 //control.Logger.Pass($"START CMD 적용 완료");
                 // 2. PBA 연결
-                Console.WriteLine($"pba 연결 딜레이 : {Settings.Instance.Pba_Connect_Timeout}");
+                await Task.Delay(Settings.Instance.CURRENT_SLEEP_SHIP_Booting_01_Delay);
+                Console.WriteLine($"booting delay : {Settings.Instance.CURRENT_SLEEP_SHIP_Booting_01_Delay}");
 
                 bool connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
                 if (!connectOk)
@@ -592,7 +564,7 @@ namespace p2_40_Main_PBA_Tester.Data
 
                 // 3. Sleep CMD 전송 (PBA 0x0006)
                 byte[] sleep_cmd_tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SLEEP_CMD).GetPacket(); // Sleep 커맨드
-                int pba_delay = Settings.Instance.Pba_Read_Timeout + Settings.Instance.CURRENT_SLEEP_SHIP_Pba_Delay; // 통신 대기 Delay
+                int pba_delay = Settings.Instance.Pba_Read_Timeout; // 통신 대기 Delay
                 Console.WriteLine($"SLEEP CMD RX 수신 대기 [Delay : {pba_delay}ms] [CH{ch + 1}]");
 
                 byte[] sleep_cmd_rx = await Pba.SendAndReceivePacketAsync(sleep_cmd_tx, pba_delay, token);
@@ -628,6 +600,16 @@ namespace p2_40_Main_PBA_Tester.Data
                     control.Logger.Fail($"Sleep Curr : {sleep_curr:F6} mA ({Settings.Instance.CURRENT_SLEEP_SHIP_Sleep_Curr_Min}" +
                       $"~{Settings.Instance.CURRENT_SLEEP_SHIP_Sleep_Curr_Max})");
                     isPass = false;
+                }
+
+                await Task.Delay(Settings.Instance.CURRENT_SLEEP_SHIP_Booting_02_Delay);
+                Console.WriteLine($"booting delay : {Settings.Instance.CURRENT_SLEEP_SHIP_Booting_02_Delay}");
+
+                bool connectOk2 = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
+                if (!connectOk2)
+                {
+                    control.Logger.Fail($"PBA connect fail [{Return_Pba_Port_Name(ch)}]");
+                    return false;
                 }
 
                 //Ship CMD 전송 (PBA 0x0001)
@@ -716,8 +698,8 @@ namespace p2_40_Main_PBA_Tester.Data
                     return false;
                 }
 
-                //await Task.Delay(Settings.Instance.Pba_On_Delay);
-                //Console.WriteLine($"PBA 전원 ON 대기 중... [{Settings.Instance.Pba_On_Delay}ms]");
+                await Task.Delay(Settings.Instance.PBA_CMD_CHECK_START_Booting_01_Delay);
+                Console.WriteLine($"PBA 전원 ON 대기 중... [{Settings.Instance.PBA_CMD_CHECK_START_Booting_01_Delay}ms]");
 
                 bool connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
                 if (!connectOk)
@@ -792,7 +774,7 @@ namespace p2_40_Main_PBA_Tester.Data
                     control.Logger.Fail($"MOTOR END CMD RX 에러");
                     return false;
                 }
-                short motor_pwm = (short)((rx3[7] << 8) | rx3[8]);
+                uint motor_pwm = BitConverter.ToUInt32(rx3, 7);
                 bool ispass = motor_pwm >= Settings.Instance.MOTOR_PWM_Min && motor_pwm <= Settings.Instance.MOTOR_PWM_Max;
 
                 if(ispass)
@@ -839,12 +821,12 @@ namespace p2_40_Main_PBA_Tester.Data
 
                 byte[] tx = new TcpProtocol(0xCA, 0x01).GetPacket();
                 int delay1 = Settings.Instance.Board_Read_Timeout + Settings.Instance.FLOODS_TCP_01_Delay;
-                Console.WriteLine($"FLOODS START CMD RX 수신 대기 [Delay : {delay1}ms] [CH{ch + 1}]");
+                Console.WriteLine($"BOARD FLOODS CMD RX 수신 대기 [Delay : {delay1}ms] [CH{ch + 1}]");
 
                 byte[] rx = await Board.SendAndReceivePacketAsync(tx, delay1, token);
                 if (!UtilityFunctions.CheckTcpRxData(tx, rx))
                 {
-                    control.Logger.Fail($"FLOODS START CMD RX 에러");
+                    control.Logger.Fail($"BOARD FLOODS CMD RX 에러");
                     return false;
                 }
 
@@ -856,7 +838,7 @@ namespace p2_40_Main_PBA_Tester.Data
                 }
 
                 byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FLOOD_STATE).GetPacket();
-                int delay2 = Settings.Instance.Pba_Read_Timeout + Settings.Instance.FLOODS_PBA_Delay;
+                int delay2 = Settings.Instance.Pba_Read_Timeout;
                 byte[] rx2 = await Pba.SendAndReceivePacketAsync_OnlyData(tx2, delay2, token);
                 if (rx2 == null || rx2.Length < 2)
                 {
@@ -864,17 +846,44 @@ namespace p2_40_Main_PBA_Tester.Data
                     return false;
                 }
 
-                short flood_state = (short)((rx2[0] << 8) | (rx2[1]));
-                bool isPass = flood_state == Settings.Instance.FLOODS_STATE;
-                if (isPass) control.Logger.Pass($"FLOOD STATE : {flood_state} [{Settings.Instance.FLOODS_STATE}]");
-                else control.Logger.Fail($"FLOOD STATE : {flood_state} [{Settings.Instance.FLOODS_STATE}]");
+                short board_floods = (short)((rx2[0] << 8) | (rx2[1]));
+                bool isPass_board = board_floods == Settings.Instance.FLOODS_Board_Floods;
+                if (isPass_board) control.Logger.Pass($"BOARD FLOODS : {board_floods} [{Settings.Instance.FLOODS_Board_Floods}]");
+                else control.Logger.Fail($"BOARD FLOODS : {board_floods} [{Settings.Instance.FLOODS_Board_Floods}]");
 
                 byte[] tx3 = new TcpProtocol(0xCA, 0x02).GetPacket();
                 int delay3 = Settings.Instance.Board_Read_Timeout + Settings.Instance.FLOODS_TCP_02_Delay;
-                Console.WriteLine($"FLOODS END CMD RX 수신 대기 [Delay : {delay3}ms] [CH{ch + 1}]");
+                Console.WriteLine($"USB FLOODS CMD RX 수신 대기 [Delay : {delay3}ms] [CH{ch + 1}]");
 
                 byte[] rx3 = await Board.SendAndReceivePacketAsync(tx3, delay3, token);
                 if (!UtilityFunctions.CheckTcpRxData(tx3, rx3))
+                {
+                    control.Logger.Fail($"USB FLOODS CMD RX 에러");
+                    return false;
+                }
+
+                byte[] tx4 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FLOOD_STATE).GetPacket(); //확인 중 확정 아님
+                int delay4 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx4 = await Pba.SendAndReceivePacketAsync_OnlyData(tx4, delay4, token);
+                if (rx4 == null || rx4.Length < 2)
+                {
+                    control.Logger.Fail($"USB FLOODS cmd rx 에러");
+                    return false;
+                }
+
+                short usb_floods = (short)((rx4[0] << 8) | (rx4[1]));
+                bool isPass_usb = usb_floods == Settings.Instance.FLOODS_USB_Floods;
+                if (isPass_usb) control.Logger.Pass($"USB FLOODS : {usb_floods} [{Settings.Instance.FLOODS_USB_Floods}]");
+                else control.Logger.Fail($"USB FLOODS : {usb_floods} [{Settings.Instance.FLOODS_USB_Floods}]");
+
+                bool isPass = isPass_board && isPass_usb;
+
+                byte[] tx5 = new TcpProtocol(0xCA, 0x03).GetPacket();
+                int delay5 = Settings.Instance.Board_Read_Timeout + Settings.Instance.FLOODS_TCP_02_Delay;
+                Console.WriteLine($"FLOODS END CMD RX 수신 대기 [Delay : {delay5}ms] [CH{ch + 1}]");
+
+                byte[] rx5 = await Board.SendAndReceivePacketAsync(tx5, delay5, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx5, rx5))
                 {
                     control.Logger.Fail($"FLOODS END CMD RX 에러");
                     return false;
@@ -918,40 +927,60 @@ namespace p2_40_Main_PBA_Tester.Data
                     return false;
                 }
 
-                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CARTRIDGE_BOOST_ON).GetPacket();
-                int delay = Settings.Instance.Pba_Read_Timeout + Settings.Instance.CARTRIDGE_PBA_Delay;
-                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, delay, token);
-                if (!UtilityFunctions.CheckEchoAck(tx, rx))
-                {
-                    control.Logger.Fail($"Cartridge Boost on CMD 에러");
-                    return false;
-                }
-
-                byte[] tx2 = new TcpProtocol(0xCC, 0x01).GetPacket();
-                int delay2 = Settings.Instance.Board_Read_Timeout + Settings.Instance.CARTRIDGE_TCP_01_Delay;
-                Console.WriteLine($"CARTRIDGE START 수신 대기 [Delay : {delay2}ms] [CH{ch + 1}]");
-
-                byte[] rx2 = await Board.SendAndReceivePacketAsync(tx2, delay2, token);
-                if (!UtilityFunctions.CheckTcpRxData(tx2, rx2))
+                byte[] tx = new TcpProtocol(0xCC, 0x01).GetPacket();
+                int delay = Settings.Instance.Board_Read_Timeout + Settings.Instance.CARTRIDGE_TCP_01_Delay;
+                Console.WriteLine($"CARTRIDGE START 수신 대기 [Delay : {delay}ms] [CH{ch + 1}]");
+                byte[] rx = await Board.SendAndReceivePacketAsync(tx, delay, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx, rx))
                 {
                     control.Logger.Fail($"CARTRIDGE START CMD RX 에러");
                     return false;
                 }
 
-                byte[] cartridge_byte = new byte[] { rx2[7], rx2[8], rx2[9], rx2[10] };
-                float cartridge_result = BitConverter.ToSingle(cartridge_byte, 0);
-                bool isPass = cartridge_result >= Settings.Instance.CARTRIDGE_Load_Switch_Min &&
-                    cartridge_result <= Settings.Instance.CARTRIDGE_Load_Switch_Max;
+                byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CARTRIDGE_BOOST_ON).GetPacket();
+                int delay2 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx2 = await Pba.SendAndReceivePacketAsync(tx2, delay2, token);
+                if (!UtilityFunctions.CheckEchoAck(tx2, rx2))
+                {
+                    control.Logger.Fail($"Cartridge Boost on CMD 에러");
+                    return false;
+                }
 
-                if (isPass) control.Logger.Pass($"CARTRIDGE : {cartridge_result} [{Settings.Instance.CARTRIDGE_Load_Switch_Min}" +
-                    $" ~ {Settings.Instance.CARTRIDGE_Load_Switch_Max}]");
-                else control.Logger.Fail($"CARTRIDGE : {cartridge_result} [{Settings.Instance.CARTRIDGE_Load_Switch_Min}" +
-                    $" ~ {Settings.Instance.CARTRIDGE_Load_Switch_Max}]");
+                byte[] tx3 = new TcpProtocol(0xCC, 0x02).GetPacket();
+                int delay3 = Settings.Instance.Board_Read_Timeout + Settings.Instance.CARTRIDGE_TCP_02_Delay;
+                Console.WriteLine($"CARTRIDGE PWM CMD 수신 대기 [Delay : {delay3}ms] [CH{ch + 1}]");
+                byte[] rx3 = await Board.SendAndReceivePacketAsync(tx3, delay3, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx3, rx3))
+                {
+                    control.Logger.Fail($"CARTRIDGE PWM CMD RX 에러");
+                    return false;
+                }
 
-                byte[] tx3 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CARTRIDGE_BOOST_OFF).GetPacket();
-                int delay3 = Settings.Instance.Pba_Read_Timeout + Settings.Instance.CARTRIDGE_PBA_Delay;
-                byte[] rx3 = await Pba.SendAndReceivePacketAsync(tx3, delay3, token);
-                if (!UtilityFunctions.CheckEchoAck(tx3, rx3))
+                byte[] kato_boost_byte = new byte[] { rx3[7], rx3[8], rx3[9], rx3[10] };
+                float kato_boost_result = BitConverter.ToSingle(kato_boost_byte, 0);
+                bool isPass_kato = kato_boost_result >= Settings.Instance.CARTRIDGE_KATO_BOOST_Min &&
+                    kato_boost_result <= Settings.Instance.CARTRIDGE_KATO_BOOST_Max;
+
+                if (isPass_kato) control.Logger.Pass($"KATO BOOST : {kato_boost_result} [{Settings.Instance.CARTRIDGE_KATO_BOOST_Min}" +
+                    $" ~ {Settings.Instance.CARTRIDGE_KATO_BOOST_Max}]");
+                else control.Logger.Fail($"KATO BOOST : {kato_boost_result} [{Settings.Instance.CARTRIDGE_KATO_BOOST_Min}" +
+                    $" ~ {Settings.Instance.CARTRIDGE_KATO_BOOST_Max}]");
+
+                uint cartridge_pwm_result = BitConverter.ToUInt32(rx3, 11);
+                bool isPass_pwm = cartridge_pwm_result >= Settings.Instance.CARTRIDGE_CARTRIDGE_PWM_Min &&
+                    cartridge_pwm_result <= Settings.Instance.CARTRIDGE_CARTRIDGE_PWM_Max;
+
+                if (isPass_pwm) control.Logger.Pass($"CARTRIDGE PWM : {cartridge_pwm_result} [{Settings.Instance.CARTRIDGE_CARTRIDGE_PWM_Min}" +
+                    $" ~ {Settings.Instance.CARTRIDGE_CARTRIDGE_PWM_Max}]");
+                else control.Logger.Fail($"CARTRIDGE PWM : {cartridge_pwm_result} [{Settings.Instance.CARTRIDGE_CARTRIDGE_PWM_Min}" +
+                    $" ~ {Settings.Instance.CARTRIDGE_CARTRIDGE_PWM_Max}]");
+
+                bool isPass = isPass_kato && isPass_pwm;
+
+                byte[] tx4 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CARTRIDGE_BOOST_OFF).GetPacket();
+                int delay4 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx4 = await Pba.SendAndReceivePacketAsync(tx4, delay4, token);
+                if (!UtilityFunctions.CheckEchoAck(tx4, rx4))
                 {
                     control.Logger.Fail($"Cartridge Boost off CMD 에러");
                     return false;
@@ -996,40 +1025,62 @@ namespace p2_40_Main_PBA_Tester.Data
                     return false;
                 }
 
-                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SUB_HEATER_BOOST_ON).GetPacket();
-                int delay = Settings.Instance.Pba_Read_Timeout + Settings.Instance.SUB_HEATER_PBA_Delay;
-                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, delay, token);
-                if (!UtilityFunctions.CheckEchoAck(tx, rx))
-                {
-                    control.Logger.Fail($"SUB HEATER Boost on CMD 에러");
-                    return false;
-                }
+                byte[] tx1 = new TcpProtocol(0xCD, 0x01).GetPacket();
+                int delay1 = Settings.Instance.Board_Read_Timeout + Settings.Instance.SUB_HEATER_TCP_01_Delay;
+                Console.WriteLine($"SUB HEATER START 수신 대기 [Delay : {delay1}ms] [CH{ch + 1}]");
 
-                byte[] tx2 = new TcpProtocol(0xCD, 0x01).GetPacket();
-                int delay2 = Settings.Instance.Board_Read_Timeout + Settings.Instance.SUB_HEATER_TCP_01_Delay;
-                Console.WriteLine($"SUB HEATER START 수신 대기 [Delay : {delay2}ms] [CH{ch + 1}]");
-
-                byte[] rx2 = await Board.SendAndReceivePacketAsync(tx2, delay2, token);
-                if (!UtilityFunctions.CheckTcpRxData(tx2, rx2))
+                byte[] rx1 = await Board.SendAndReceivePacketAsync(tx1, delay1, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx1, rx1))
                 {
                     control.Logger.Fail($"SUB HEATER START CMD RX 에러");
                     return false;
                 }
 
-                byte[] sub_heater_byte = new byte[] { rx2[7], rx2[8], rx2[9], rx2[10] };
-                float sub_heater_result = BitConverter.ToSingle(sub_heater_byte, 0);
-                bool isPass = sub_heater_result >= Settings.Instance.SUB_HEATER_Load_Switch_Min &&
-                    sub_heater_result <= Settings.Instance.SUB_HEATER_Load_Switch_Max;
+                byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SUB_HEATER_BOOST_ON).GetPacket();//절차서에는 0001인데 잘못작성한거라고 판단
+                int delay2 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx2 = await Pba.SendAndReceivePacketAsync(tx2, delay2, token);
+                if (!UtilityFunctions.CheckEchoAck(tx2, rx2))
+                {
+                    control.Logger.Fail($"SUB HEATER Boost on CMD 에러");
+                    return false;
+                }
 
-                if (isPass) control.Logger.Pass($"SUB HEATER : {sub_heater_result} [{Settings.Instance.SUB_HEATER_Load_Switch_Min}" +
-                    $" ~ {Settings.Instance.SUB_HEATER_Load_Switch_Max}]");
-                else control.Logger.Fail($"SUB HEATER : {sub_heater_result} [{Settings.Instance.SUB_HEATER_Load_Switch_Min}" +
-                    $" ~ {Settings.Instance.SUB_HEATER_Load_Switch_Max}]");
+                byte[] tx3 = new TcpProtocol(0xCD, 0x02).GetPacket();
+                int delay3 = Settings.Instance.Board_Read_Timeout + Settings.Instance.SUB_HEATER_TCP_02_Delay;
+                Console.WriteLine($"SUB HEATER PWM CMD 수신 대기 [Delay : {delay3}ms] [CH{ch + 1}]");
 
-                byte[] tx3 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SUB_HEATER_BOOST_OFF).GetPacket();
-                int delay3 = Settings.Instance.Pba_Read_Timeout + Settings.Instance.SUB_HEATER_PBA_Delay;
-                byte[] rx3 = await Pba.SendAndReceivePacketAsync(tx3, delay3, token);
-                if (!UtilityFunctions.CheckEchoAck(tx3, rx3))
+                byte[] rx3 = await Board.SendAndReceivePacketAsync(tx3, delay3, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx3, rx3))
+                {
+                    control.Logger.Fail($"SUB HEATER PWM CMD RX 에러");
+                    return false;
+                }
+
+                
+                float boost_result = BitConverter.ToSingle(rx3, 7);
+                bool isPass_boost = boost_result >= Settings.Instance.SUB_HEATER_BOOST_Min &&
+                    boost_result <= Settings.Instance.SUB_HEATER_BOOST_Max;
+
+                if (isPass_boost) control.Logger.Pass($"SUB HEATER BOOST : {boost_result} [{Settings.Instance.SUB_HEATER_BOOST_Min}" +
+                    $" ~ {Settings.Instance.SUB_HEATER_BOOST_Max}]");
+                else control.Logger.Fail($"SUB HEATER BOOST : {boost_result} [{Settings.Instance.SUB_HEATER_BOOST_Min}" +
+                    $" ~ {Settings.Instance.SUB_HEATER_BOOST_Max}]");
+
+                uint pwm_result = BitConverter.ToUInt32(rx3, 11);
+                bool isPass_pwm = pwm_result >= Settings.Instance.SUB_HEATER_PWM_Min &&
+                    pwm_result <= Settings.Instance.SUB_HEATER_PWM_Max;
+
+                if (isPass_pwm) control.Logger.Pass($"SUB HEATER PWM : {pwm_result} [{Settings.Instance.SUB_HEATER_PWM_Min}" +
+                    $" ~ {Settings.Instance.SUB_HEATER_PWM_Min}]");
+                else control.Logger.Fail($"SUB HEATER PWM : {pwm_result} [{Settings.Instance.SUB_HEATER_PWM_Min}" +
+                    $" ~ {Settings.Instance.SUB_HEATER_PWM_Min}]");
+
+                bool isPass = isPass_boost && isPass_pwm;
+
+                byte[] tx4 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SUB_HEATER_BOOST_OFF).GetPacket();
+                int delay4 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx4 = await Pba.SendAndReceivePacketAsync(tx4, delay4, token);
+                if (!UtilityFunctions.CheckEchoAck(tx4, rx4))
                 {
                     control.Logger.Fail($"SUB HEATER Boost off CMD 에러");
                     return false;

@@ -26,7 +26,13 @@ namespace p2_40_Main_PBA_Tester.Communication
         static CommManager()
         {
             Pbas = new SerialChannelPort[4];
+            for (int i = 0; i < 4; i++)
+            {
+                Pbas[i] = new SerialChannelPort(i);
+
+            }
             Boards = new TcpChannelClient[4];
+            
             QrPorts = new QrChannelPort[4]; // 총 5개 생성
             for (int i = 0; i < 4; i++)
             {

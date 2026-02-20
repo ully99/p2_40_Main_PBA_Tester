@@ -46,6 +46,8 @@ namespace p2_40_Main_PBA_Tester.Data
         public static readonly byte[] WRITE_LCD_3V0_ON = { 0x00, 0x05, 0x00, 0x04 };
         public static readonly byte[] WRITE_DC_BOOST_ON = { 0x00, 0x05, 0x00, 0x01 };
 
+        public static readonly byte[] WRITE_LDO_ALL_ON = { 0x00, 0x05, 0x00, 0x07 };
+
         public static readonly byte[] WRITE_LDO_OFF = { 0x00, 0x05, 0x00, 0x00 };
 
         public static readonly byte[] WRITE_SLEEP_CMD = { 0x00, 0x06, 0x00, 0x00 }; //뒤에 0000 안붙이면 반응 없긴 함 => 맞는 듯?
@@ -53,7 +55,7 @@ namespace p2_40_Main_PBA_Tester.Data
 
         public static readonly byte[] WRITE_VIB_TEST_START = { 0x00, 0x09, 0x00, 0x01 };
 
-        public static readonly byte[] READ_FLOOD_STATE = { 0x00, 0x9C, 0x00, 0x01 };
+        public static readonly byte[] READ_FLOOD_STATE = { 0x00, 0x9C, 0x00, 0x01 }; //확인 중 (확정 아님)
 
         public static readonly byte[] WRITE_CARTRIDGE_BOOST_ON = { 0x00, 0x07, 0x00, 0x01 };
         public static readonly byte[] WRITE_CARTRIDGE_BOOST_OFF = { 0x00, 0x07, 0x00, 0x00 };
@@ -95,6 +97,12 @@ namespace p2_40_Main_PBA_Tester.Data
         public static readonly byte[] WRITE_FLASH_UPDATE = { 0x00, 0x03, 0x00, 0x00 };
         public static readonly byte[] WRITE_CHARGER_OFF = { 0x00, 0x0B, 0x00, 0x00 };
         public static readonly byte[] WRITE_CHARGER_ON = { 0x00, 0x0B, 0x00, 0x01 };
+
+        public static readonly byte[] READ_CHARGE_RECORD = { 0x00, 0x80, 0x00, 0x04 };
+        public static readonly byte[] WRITE_CHARGE_DCP = { 0x00, 0x80, 0x00, 0x01 };
+        public static readonly byte[] WRITE_CHARGE_HVDCP = { 0x00, 0x80, 0x00, 0x02 };
+        public static readonly byte[] WRITE_CHARGE_SDP = { 0x00, 0x80, 0x00, 0x03 };
+        public static readonly byte[] WRITE_CHARGE_PPS = { 0x00, 0x80, 0x00, 0x06 };
 
 
         public static readonly byte[] WRITE_CART_ON = { 0x00, 0x14, 0x00, 0x00 };

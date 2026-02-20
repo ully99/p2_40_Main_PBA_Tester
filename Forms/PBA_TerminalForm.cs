@@ -87,6 +87,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             btnRead_BatCurrent.Click += btnRead_BatCurrent_Click; //000A 0001
             btnRead_ChargeCount.Click += btnRead_ChargeCount_Click; //021C 0004
             btnRead_FlagRead.Click += btnRead_FlagRead_Click; //0BBC 0001
+            btnRead_ChargeRecord.Click += btnRead_ChargeRecord_Click; //0080 0004
+
 
             btnReadSend.Click += btnReadSend_Click;
 
@@ -110,6 +112,11 @@ namespace p2_40_Main_PBA_Tester.Forms
             btnWrite_GpakEnd.Click += btnWrite_GpakEnd_Click; //0050 0000
             btnWrite_FlagPass.Click += btnWrite_FlagPass_Click; //0BBC 0007
             btnWrite_FlagFail.Click += btnWrite_FlagFail_Click; //0BBC 0003
+            btnWrite_ChargeDcp.Click += btnWrite_ChargeDcp_Click; //0080 0001
+            btnWrite_ChargeHvdcp.Click += btnWrite_ChargeHvdcp_Click; //0080 0002
+            btnWrite_ChargeSdp.Click += btnWrite_ChargeSdp_Click; //0080 0003
+            btnWrite_ChargePps.Click += btnWrite_ChargePps_Click; //0080 0006
+
 
             btnWriteSend.Click += btnWriteSend_Click;
 
@@ -426,7 +433,8 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 string major = $"{(char)Fw_Ver_READ_CMD_rx[0]}{(char)Fw_Ver_READ_CMD_rx[1]}";
                 string minor = $"{(char)Fw_Ver_READ_CMD_rx[2]}{(char)Fw_Ver_READ_CMD_rx[3]}";
-                string FwVer = $"{major}.{minor}";
+                string debugging = $"{(char)Fw_Ver_READ_CMD_rx[4]}{(char)Fw_Ver_READ_CMD_rx[5]}";
+                string FwVer = $"{major}.{minor}.{debugging}";
 
                 ushort FwVer_LDC = (ushort)((Fw_Ver_READ_CMD_rx[8] << 8) | Fw_Ver_READ_CMD_rx[9]);
 
@@ -1185,6 +1193,37 @@ namespace p2_40_Main_PBA_Tester.Forms
             }
         }
 
+        private async void btnRead_ChargeRecord_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_CHARGE_RECORD).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Charge Record Read 실패: {ex.Message}");
+            }
+        }
+
         private async void btnWrite_FlagPass_Click(object sender, EventArgs e)
         {
             if (Pba == null || !Pba.IsConnected())
@@ -1257,6 +1296,102 @@ namespace p2_40_Main_PBA_Tester.Forms
             catch (Exception ex)
             {
                 DeviceRx.Fail($"Charge Count MultiWrite 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_ChargeDcp_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CHARGE_DCP).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Charge DCP Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Charge DCP Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Charge DCP Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_ChargeHvdcp_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CHARGE_HVDCP).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Charge HVDCP Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Charge HVDCP Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Charge HVDCP Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_ChargeSdp_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CHARGE_SDP).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Charge SDP Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Charge SDP Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Charge SDP Write 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnWrite_ChargePps_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_CHARGE_PPS).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("Charge PPS Write 실패");
+                    return;
+                }
+                DeviceRx.Pass("Charge PPS Write 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"Charge PPS Write 실패: {ex.Message}");
             }
         }
 

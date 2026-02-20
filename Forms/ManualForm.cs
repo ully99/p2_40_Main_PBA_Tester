@@ -42,11 +42,12 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             dgvInputBase.Rows.Clear();
 
-            string[] items = {"PS1 Volt", "PS1 Curr", "PS1 VBUS", "PS1 SYS",
-                "PS1 SYS 3V","PS1 MCU 33V","PS1 VBOOST", "PS1 HT BOOST",
-                "PS1 SUB HT BOOST OUT", "PS1 KATO BOOST OUT",
-                "PS1 Sleep Curr","PS1 Ship Curr",
-                "PS1 VDD 3V", "PS1 LDC 3V"};
+            string[] items = {"PS1_S1 (Volt)", "PS1_S1 (Curr)", "VBUS", "VDD_3_0V",
+                "LCD_3_0V","SYS","SYS_3V3", "MCU_3V3",
+                "VBOOST", "HT_BOOST",
+                "SUB_HT_BOOST_OUT", "KATO_BOOST_OUT", "MOTOR",
+                "H_COUNT_CHECK_INT", "KA_COUNT_CHECK_INT",
+                "SH_COUNT_CHECK_INT"};
 
             foreach (var name in items)
             {
@@ -87,6 +88,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             dgvInputBase.CellContentClick += dgvInputBase_CellContentClick;
             btnTesterInit.Click += btnTesterInit_Click;
             btnTesterReset.Click += btnTesterReset_Click;
+            btnTesterFwVerCheck.Click += btnTesterFwVerCheck_Click;
 
             // btnSw1~40 클릭 이벤트 연결
             for (int i = 1; i <= 40; i++)
@@ -98,6 +100,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 }
             }
         }
+
+        
 
         private async void BtnSw_Click(object sender, EventArgs e)
         {
@@ -193,6 +197,13 @@ namespace p2_40_Main_PBA_Tester.Forms
                 lblTcpConnectionStatus.BackColor = Color.LightCoral;
             }
         }
+
+        private async void btnTesterFwVerCheck_Click(object sender, EventArgs e)
+        {
+            await CheckTesterFwVer();
+        }
+
+        
 
         private void btnOpenPbaTerminal_Click(object sender, EventArgs e)
         {
@@ -417,28 +428,104 @@ namespace p2_40_Main_PBA_Tester.Forms
                 }
 
                 byte item;
+                bool isPwm;
+                //string[] items = {"PS1_S1 (Volt)", "PS1_S1 (Curr)", "VBUS", "VDD_3_0V",
+                //"LCD_3_0V","SYS","SYS_3V3", "MCU_3V3",
+                //"VBOOST", "HT_BOOST",
+                //"SUB_HT_BOOST_OUT", "KATO_BOOST_OUT", "MOTOR",
+                //"H_COUNT_CHECK_INT", "KA_COUNT_CHECK_INT",
+                //"SH_COUNT_CHECK_INT"};
 
-                //"PS1 Volt", "PS1 Curr", "PS1 VBUS", "PS1 SYS",
-                //"PS1 SYS 3V","PS1 MCJ 33V","PS1 VBOOST", "PS1 HT BOOST",
-                //"PS1 SUB HT BOOST OUT", "PS1 KATO BOOST OUT",
-                //"PS1 Sleep Curr","PS1 Ship Curr",
-                //"PS1 VDD 3V", "PS1 LDC 3V"
-
-                if (string.Equals(name,"PS1 Volt")) item = 0x01;
-                else if (string.Equals(name, "PS1 Curr")) item = 0x02;
-                else if (string.Equals(name, "PS1 VBUS")) item = 0x03;
-                else if (string.Equals(name, "PS1 SYS")) item = 0x04;
-                else if (string.Equals(name, "PS1 SYS 3V")) item = 0x05;
-                else if (string.Equals(name, "PS1 MCU 33V")) item = 0x06;
-                else if (string.Equals(name, "PS1 VBOOST")) item = 0x07;
-                else if (string.Equals(name, "PS1 HT BOOST")) item = 0x08;
-                else if (string.Equals(name, "PS1 SUB HT BOOST OUT")) item = 0x09;
-                else if (string.Equals(name, "PS1 KATO BOOST OUT")) item = 0x0A;
-                else if (string.Equals(name, "PS1 Sleep Curr")) item = 0x0B;
-                else if (string.Equals(name, "PS1 Ship Curr")) item = 0x0C;
-                else if (string.Equals(name, "PS1 VDD 3V")) item = 0x0D;
-                else if (string.Equals(name, "PS1 LDC 3V")) item = 0x0E;
-
+                if (string.Equals(name, "PS1_S1 (Volt)"))
+                {
+                    item = 0x01;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "PS1_S1 (Curr)"))
+                {
+                    item = 0x02;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "VBUS"))
+                {
+                    item = 0x03;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "VDD_3_0V"))
+                {
+                    item = 0x04;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "LCD_3_0V"))
+                {
+                    item = 0x05;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "SYS"))
+                {
+                    item = 0x06;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "SYS_3V3"))
+                {
+                    item = 0x07;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "MCU_3V3"))
+                {
+                    item = 0x08;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "VBOOST"))
+                {
+                    item = 0x09;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "HT_BOOST"))
+                {
+                    item = 0x0A;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "SUB_HT_BOOST_OUT"))
+                {
+                    item = 0x0B;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "KATO_BOOST_OUT"))
+                {
+                    item = 0x0C;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "MOTOR"))
+                {
+                    item = 0x0D;
+                    isPwm = true;
+                }
+                else if (string.Equals(name, "H_COUNT_CHECK_INT"))
+                {
+                    item = 0x0E;
+                    isPwm = true;
+                }
+                else if (string.Equals(name, "KA_COUNT_CHECK_INT"))
+                {
+                    item = 0x0F;
+                    isPwm = true;
+                }
+                else if (string.Equals(name, "SH_COUNT_CHECK_INT"))
+                {
+                    item = 0x10;
+                    isPwm = true;
+                }
+                else if (string.Equals(name, "SLEEP"))
+                {
+                    item = 0x11;
+                    isPwm = false;
+                }
+                else if (string.Equals(name, "SHIP"))
+                {
+                    item = 0x12;
+                    isPwm = false;
+                }
                 else
                 {
                     Console.WriteLine("이 기능은 구현되지 않았습니다.");
@@ -454,13 +541,19 @@ namespace p2_40_Main_PBA_Tester.Forms
                     return;
                 }
 
-                // rx[7]부터 FLOAT 4바이트 (Big Endian)
-                //byte[] floatBytes = rx.Skip(7).Take(4).Reverse().ToArray();
-                byte[] floatBytes = rx.Skip(7).Take(4).ToArray();
-
-                float value = BitConverter.ToSingle(floatBytes, 0);
-
-                row.Cells["colValue"].Value = value.ToString("F7");
+                if(isPwm)
+                {
+                    // rx[7]부터 FLOAT 4바이트 (Big Endian)
+                    //byte[] floatBytes = rx.Skip(7).Take(4).Reverse().ToArray();
+                    byte[] floatBytes = rx.Skip(7).Take(4).ToArray();
+                    float value = BitConverter.ToSingle(floatBytes, 0);
+                    row.Cells["colValue"].Value = value.ToString("F7");
+                }
+                else
+                {
+                    uint value = BitConverter.ToUInt32(rx, 7);
+                    row.Cells["colValue"].Value = value.ToString("F7");
+                }
 
             }
             catch (Exception ex)
@@ -476,7 +569,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 if (!CheckChannel()) return;
 
                 byte[] tx = new TcpProtocol(0x01, 0x00).GetPacket();
-                byte[] rx = await board.SendAndReceivePacketAsync(tx, Settings.Instance.Board_Connect_Timeout);
+                byte[] rx = await board.SendAndReceivePacketAsync(tx, Settings.Instance.Board_Read_Timeout);
 
                 if (!UtilityFunctions.CheckTcpRxData(tx, rx))
                 {
@@ -502,7 +595,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 Console.WriteLine("소프트웨어 리셋을 시작합니다. (통신 상태에 따라 ACK가 수신되지 않을 수도 있습니다.)");
 
                 byte[] tx = new TcpProtocol(0x01, 0xFF).GetPacket();
-                byte[] rx = await board.SendAndReceivePacketAsync(tx, Settings.Instance.Board_Connect_Timeout);
+                byte[] rx = await board.SendAndReceivePacketAsync(tx, Settings.Instance.Board_Read_Timeout);
 
                 if (!UtilityFunctions.CheckTcpRxData(tx, rx))
                 {
@@ -521,6 +614,39 @@ namespace p2_40_Main_PBA_Tester.Forms
             }
         }
 
+        private async Task CheckTesterFwVer()
+        {
+            try
+            {
+                if (!CheckChannel()) return;
+
+                byte[] tx = new TcpProtocol(0x00, 0x00).GetPacket();
+                byte[] rx = await board.SendAndReceivePacketAsync(tx, Settings.Instance.Board_Read_Timeout);
+
+                if (!UtilityFunctions.CheckTcpRxData(tx, rx))
+                {
+                    Console.WriteLine($"RX : {rx}");
+                    Console.WriteLine($"RX 값이 이상하거나 ACK가 수신되지 않았습니다.");
+
+                    return;
+                }
+
+                byte year = rx[7];
+                byte month = rx[8];
+                byte day = rx[9];
+                byte Ver_high = rx[10];
+                byte Ver_low = rx[11];
+
+                string result = $"20{year}년 {month}월 {day}일 Version {Ver_high}.{Ver_low}";
+                lblTesterFwVer.Text = result;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Check Tester Fw Ver 실패: {ex.Message}");
+            }
+        }
+
 
 
 
@@ -528,6 +654,6 @@ namespace p2_40_Main_PBA_Tester.Forms
 
         #endregion
 
-        
+
     }
 }

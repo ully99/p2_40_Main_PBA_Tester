@@ -742,7 +742,7 @@ namespace p2_40_Main_PBA_Tester
             this.Controls.Add(this.tableLayoutPanel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Main PBA Tester (p2 4.0) (ver 20260212 : Demo Ver)";
+            this.Text = "Main PBA Tester (p2 4.0) (ver 20260213 : Demo Ver)";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

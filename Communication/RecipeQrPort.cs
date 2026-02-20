@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +18,9 @@ namespace p2_40_Main_PBA_Tester.Communication
 
         // ReadLineAsync가 기다릴 때 사용하는 신호기
         private TaskCompletionSource<string> _readLineTcs;
+
+        /// <summary> 레시피 경로가 수신될 때 발생 (예: FTP_test_folder/1.JSON). MainForm에서 FTP 다운로드 후 SettingNowTask 호출에 사용 </summary>
+        public event Action<string> OnRecipePathReceived;
 
         public RecipeQrPort(int channelIndex = -1)
         {
@@ -168,7 +171,10 @@ namespace p2_40_Main_PBA_Tester.Communication
                         //  1. 모니터링 기능 (무조건 콘솔에 찍음)
                         Console.WriteLine($"[Recipe QR] RX => {line}");
 
-                        //  2. ReadLineAsync가 기다리고 있었다면 값 전달!
+                        //  2. 레시피 경로 수신 이벤트 (FTP 모드에서 파일 경로로 사용)
+                        OnRecipePathReceived?.Invoke(line);
+
+                        //  3. ReadLineAsync가 기다리고 있었다면 값 전달!
                         if (_readLineTcs != null && !_readLineTcs.Task.IsCompleted)
                         {
                             _readLineTcs.TrySetResult(line);

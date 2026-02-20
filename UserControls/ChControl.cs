@@ -140,12 +140,12 @@ namespace p2_40_Main_PBA_Tester.UserControls
                     break;
 
                 case TaskStatus.PASS:
-                    row.DefaultCellStyle.BackColor = Color.LimeGreen;
+                    row.DefaultCellStyle.BackColor = Color.Green;
                     row.DefaultCellStyle.ForeColor = Color.Black;
                     break;
 
                 case TaskStatus.FAIL:
-                    row.DefaultCellStyle.BackColor = Color.LightCoral;
+                    row.DefaultCellStyle.BackColor = Color.Red;
                     row.DefaultCellStyle.ForeColor = Color.Black;
                     break;
 
@@ -269,8 +269,8 @@ namespace p2_40_Main_PBA_Tester.UserControls
                     lblTaskStatus.BackColor = Color.LightYellow;
                     _blinkTimer?.Start();
                     break;
-                case NowStatus.PASS: lblTaskStatus.BackColor = Color.LightGreen; break;
-                case NowStatus.FAIL: lblTaskStatus.BackColor = Color.LightCoral; break;
+                case NowStatus.PASS: lblTaskStatus.BackColor = Color.Green; break;
+                case NowStatus.FAIL: lblTaskStatus.BackColor = Color.Red; break;
                 case NowStatus.READY: lblTaskStatus.BackColor = Color.AliceBlue; break;
                 case NowStatus.STOP: lblTaskStatus.BackColor = Color.LightCoral; break;
                 default: lblTaskStatus.BackColor = Color.LightGray; break;

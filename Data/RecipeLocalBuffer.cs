@@ -26,12 +26,11 @@ namespace p2_40_Main_PBA_Tester.Data
         #region MCU INFO (1)
         public bool MCU_INFO_Enable { get; set; } = true;
         public int MCU_INFO_Step_Delay { get; set; } = 200;
-
-        public int MCU_INFO_Pba_Delay { get; set; } = 200;
+        //public int MCU_INFO_Pba_Delay { get; set; } = 200;
         public int MCU_INFO_Tcp_01_Delay { get; set; } = 100;
         public int MCU_INFO_Tcp_02_Delay { get; set; } = 100;
+        public int MCU_INFO_Booting_01_Delay { get; set; } = 6000;
         public int MCU_INFO_Mcu_Id_Len { get; set; } = 16;
-
         public string MCU_INFO_Main_Fw_Ver { get; set; } = "0.1.0";
         public string MCU_INFO_LDC_Fw_Ver { get; set; } = "1";
         public string MCU_INFO_Image_Fw_Ver { get; set; } = "1.0";
@@ -48,9 +47,11 @@ namespace p2_40_Main_PBA_Tester.Data
         #region LDO (3)
         public bool LDO_Enable { get; set; } = true;
         public int LDO_Step_Delay { get; set; } = 200;
-        public int LDO_Pba_Delay { get; set; } = 200;
+
+        //public int LDO_Pba_Delay { get; set; } = 200;
         public int LDO_TCP_01_Delay { get; set; } = 1000;
         public int LDO_TCP_02_Delay { get; set; } = 1000;
+        public int LDO_Booting_01_Delay { get; set; } = 6000;
 
         public float LDO_VSYS_Min { get; set; } = 8.5F;
         public float LDO_VSYS_Max { get; set; } = 9.5F;
@@ -70,9 +71,12 @@ namespace p2_40_Main_PBA_Tester.Data
 
         #region CURRENT_SLEEP_SHIP (4)
         public bool CURRENT_SLEEP_SHIP_Enable { get; set; } = true;
-        public int CURRENT_SLEEP_SHIP_Step_Delay { get; set; } = 200;
 
-        public int CURRENT_SLEEP_SHIP_Pba_Delay { get; set; } = 200;
+        public int CURRENT_SLEEP_SHIP_Step_Delay { get; set; } = 200;
+        //public int CURRENT_SLEEP_SHIP_Pba_Delay { get; set; } = 200;
+        public int CURRENT_SLEEP_SHIP_Booting_01_Delay { get; set; } = 6000;
+        public int CURRENT_SLEEP_SHIP_Booting_02_Delay { get; set; } = 6000;
+
         public int CURRENT_SLEEP_SHIP_TCP_01_Delay { get; set; } = 1000;
         public int CURRENT_SLEEP_SHIP_TCP_02_Delay { get; set; } = 1000;
         public int CURRENT_SLEEP_SHIP_TCP_03_Delay { get; set; } = 1000;
@@ -125,17 +129,17 @@ namespace p2_40_Main_PBA_Tester.Data
         public int MOTOR_PBA_Delay { get; set; } = 100;
         public int MOTOR_TCP_01_Delay { get; set; } = 1000;
         public int MOTOR_TCP_02_Delay { get; set; } = 1000;
-        public short MOTOR_PWM_Min { get; set; } = 240;
-        public short MOTOR_PWM_Max { get; set; } = 255;
+        public uint MOTOR_PWM_Min { get; set; } = 240;
+        public uint MOTOR_PWM_Max { get; set; } = 255;
         #endregion
 
         #region FLOODS (10)
         public bool FLOODS_Enable { get; set; } = true;
         public int FLOODS_Step_Delay { get; set; } = 30;
-        public int FLOODS_PBA_Delay { get; set; } = 100;
         public int FLOODS_TCP_01_Delay { get; set; } = 1000;
         public int FLOODS_TCP_02_Delay { get; set; } = 1000;
-        public short FLOODS_STATE { get; set; } = 1;
+        public short FLOODS_USB_Floods { get; set; } = 1;
+        public short FLOODS_Board_Floods { get; set; } = 1;
         #endregion
 
         #region HEATER (11)
@@ -151,19 +155,25 @@ namespace p2_40_Main_PBA_Tester.Data
         #region CARTRIDGE (12)
         public bool CARTRIDGE_Enable { get; set; } = true;
         public int CARTRIDGE_Step_Delay { get; set; } = 30;
-        public int CARTRIDGE_PBA_Delay { get; set; } = 100;
+        //public int CARTRIDGE_PBA_Delay { get; set; } = 100;
         public int CARTRIDGE_TCP_01_Delay { get; set; } = 1000;
-        public float CARTRIDGE_Min { get; set; } = 4.65F;
-        public float CARTRIDGE_Max { get; set; } = 4.95F;
+        public int CARTRIDGE_TCP_02_Delay { get; set; } = 1000;
+
+        public uint CARTRIDGE_CARTRIDGE_PWM_Min { get; set; } = 92000;
+        public uint CARTRIDGE_CARTRIDGE_PWM_Max { get; set; } = 94080;
+        public float CARTRIDGE_KATO_BOOST_Min { get; set; } = 4.65F;
+        public float CARTRIDGE_KATO_BOOST_Max { get; set; } = 4.95F;
         #endregion
 
         #region SUB HEATER (13)
         public bool SUB_HEATER_Enable { get; set; } = true;
         public int SUB_HEATER_Step_Delay { get; set; } = 30;
-        public int SUB_HEATER_PBA_Delay { get; set; } = 100;
         public int SUB_HEATER_TCP_01_Delay { get; set; } = 3000;
-        public float SUB_HEATER_Load_Switch_Min { get; set; } = 4.650F;
-        public float SUB_HEATER_Load_Switch_Max { get; set; } = 4.950F;
+        public int SUB_HEATER_TCP_02_Delay { get; set; } = 3000;
+        public uint SUB_HEATER_PWM_Min { get; set; } = 92000;
+        public uint SUB_HEATER_PWM_Max { get; set; } = 94080;
+        public float SUB_HEATER_BOOST_Min { get; set; } = 4.650F;
+        public float SUB_HEATER_BOOST_Max { get; set; } = 4.950F;
         #endregion
 
         #region ACCELEROMETER (14)
@@ -191,6 +201,7 @@ namespace p2_40_Main_PBA_Tester.Data
         public bool PBA_CMD_CHECK_START_Enable { get; set; } = true;
         public int PBA_CMD_CHECK_START_Step_Delay { get; set; } = 100;
         public int PBA_CMD_CHECK_START_TCP_01_Delay { get; set; } = 2000;
+        public int PBA_CMD_CHECK_START_Booting_01_Delay { get; set; } = 6000;
         #endregion
 
         #region TEST END (18)

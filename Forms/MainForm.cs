@@ -194,6 +194,7 @@ namespace p2_40_Main_PBA_Tester
         private void ConnectEvent()
         {
             Application.ApplicationExit += OnApplicationExit;
+            CommManager.RecipeQr.OnRecipePathReceived += RecipeQr_OnRecipePathReceived;
             this.btnComSettingsOpen.Click += btnComSettingsOpen_Click;
             this.btnRecipeSettingsOpen.Click += btnRecipeSettingsOpen_Click;
             this.btnCalibrationOpen.Click += btnCalibrationOpen_Click;
@@ -208,6 +209,7 @@ namespace p2_40_Main_PBA_Tester
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
+            CommManager.RecipeQr.OnRecipePathReceived -= RecipeQr_OnRecipePathReceived;
             Settings.Instance.Save();
         }
 
@@ -475,6 +477,44 @@ namespace p2_40_Main_PBA_Tester
             }
         }
 
+        /// <summary> RecipeQrPort RX 수신 시 호출. FTP 사용 중이면 해당 경로의 파일을 FTP에서 다운로드 후 SettingNowTask 수행 </summary>
+        private async void RecipeQr_OnRecipePathReceived(string pathLine)
+        {
+            if (string.IsNullOrWhiteSpace(pathLine)) return;
+            string trimmed = pathLine.Trim();
+            if (!Settings.Instance.USE_FTP) return;
+
+            try
+            {
+                if (!int.TryParse(Settings.Instance.FTP_PORT, out int port)) port = 21;
+
+                string json = await FtpProfiles.DownloadJsonAsync(
+                    Settings.Instance.FTP_HOST,
+                    port,
+                    false,
+                    Settings.Instance.FTP_BASE_DIR ?? "",
+                    Settings.Instance.FTP_USER ?? "",
+                    Settings.Instance.FTP_PW ?? "",
+                    trimmed
+                );
+
+                if (string.IsNullOrEmpty(json))
+                {
+                    BeginInvoke(new Action(() =>
+                        MessageBox.Show("FTP에서 파일을 읽을 수 없습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error)));
+                    return;
+                }
+
+                string fileName = Path.GetFileName(trimmed);
+                string displayPath = $"FTP: {trimmed}";
+                BeginInvoke(new Action(() => SettingNowTaskFromContent(json, fileName, displayPath)));
+            }
+            catch (Exception ex)
+            {
+                BeginInvoke(new Action(() =>
+                    MessageBox.Show($"FTP 레시피 로드 실패: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error)));
+            }
+        }
 
         //JSON에 저장된 키 이름과 Settings의 프로퍼티이름이 같아야함!
         private void SettingNowTask(string filePath, string fileName)
@@ -482,6 +522,18 @@ namespace p2_40_Main_PBA_Tester
             try
             {
                 string json = File.ReadAllText(filePath);
+                SettingNowTaskFromContent(json, fileName, filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"레시피 적용 중 오류 발생: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SettingNowTaskFromContent(string json, string fileName, string displayPath)
+        {
+            try
+            {
                 JObject recipe = JObject.Parse(json);
 
                 // 1. 파일 형식 검사
@@ -549,11 +601,11 @@ namespace p2_40_Main_PBA_Tester
                 // 4. 결과 저장 및 UI 반영
 
                 instance.RunTaskList = newTaskList;
-                instance.CurrentRecipeFile = Path.GetFileName(filePath);
+                instance.CurrentRecipeFile = fileName;
                 instance.Save(); // config.json에도 저장
 
                 if (tboxRecipeFile != null) tboxRecipeFile.Text = instance.CurrentRecipeFile;
-                if (tboxRecipeFilePath != null) tboxRecipeFilePath.Text = filePath;
+                if (tboxRecipeFilePath != null) tboxRecipeFilePath.Text = displayPath;
 
                 string msg = $"레시피 적용 완료!\n파일명: {instance.CurrentRecipeFile}\n총 공정 수: {instance.RunTaskList.Count}개";
                 MessageBox.Show(msg, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);

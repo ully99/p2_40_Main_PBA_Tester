@@ -62,75 +62,75 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel32 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSw2 = new System.Windows.Forms.Button();
-            this.btnSw1 = new System.Windows.Forms.Button();
+            this.btnSw23 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw40 = new System.Windows.Forms.Button();
-            this.btnSw39 = new System.Windows.Forms.Button();
+            this.btnSw16 = new System.Windows.Forms.Button();
+            this.btnSw14 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.tableLayoutPanel30 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw38 = new System.Windows.Forms.Button();
-            this.btnSw37 = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw36 = new System.Windows.Forms.Button();
-            this.btnSw35 = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw34 = new System.Windows.Forms.Button();
-            this.btnSw33 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw32 = new System.Windows.Forms.Button();
-            this.btnSw31 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw30 = new System.Windows.Forms.Button();
-            this.btnSw29 = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw28 = new System.Windows.Forms.Button();
-            this.btnSw27 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw26 = new System.Windows.Forms.Button();
-            this.btnSw25 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw24 = new System.Windows.Forms.Button();
-            this.btnSw23 = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw22 = new System.Windows.Forms.Button();
-            this.btnSw21 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw20 = new System.Windows.Forms.Button();
-            this.btnSw19 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw18 = new System.Windows.Forms.Button();
-            this.btnSw17 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw16 = new System.Windows.Forms.Button();
-            this.btnSw15 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw14 = new System.Windows.Forms.Button();
-            this.btnSw13 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw12 = new System.Windows.Forms.Button();
-            this.btnSw11 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSw10 = new System.Windows.Forms.Button();
-            this.btnSw9 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSw8 = new System.Windows.Forms.Button();
             this.btnSw7 = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw40 = new System.Windows.Forms.Button();
+            this.btnSw38 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw35 = new System.Windows.Forms.Button();
+            this.btnSw32 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw37 = new System.Windows.Forms.Button();
+            this.btnSw36 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw34 = new System.Windows.Forms.Button();
+            this.btnSw33 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw31 = new System.Windows.Forms.Button();
+            this.btnSw30 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw29 = new System.Windows.Forms.Button();
+            this.btnSw28 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw1 = new System.Windows.Forms.Button();
+            this.btnSw27 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw26 = new System.Windows.Forms.Button();
+            this.btnSw25 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw39 = new System.Windows.Forms.Button();
+            this.btnSw24 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw22 = new System.Windows.Forms.Button();
+            this.btnSw21 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw20 = new System.Windows.Forms.Button();
+            this.btnSw19 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw18 = new System.Windows.Forms.Button();
+            this.btnSw17 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw15 = new System.Windows.Forms.Button();
+            this.btnSw13 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw12 = new System.Windows.Forms.Button();
+            this.btnSw10 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSw11 = new System.Windows.Forms.Button();
+            this.btnSw9 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSw6 = new System.Windows.Forms.Button();
@@ -151,6 +151,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.tboxPs1VoltWrite = new System.Windows.Forms.TextBox();
             this.tboxPs1CurrWrite = new System.Windows.Forms.TextBox();
+            this.btnTesterFwVerCheck = new System.Windows.Forms.Button();
+            this.lblTesterFwVer = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -204,7 +206,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1587, 866);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1586, 855);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -227,14 +229,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1587, 75);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1586, 75);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnClose.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(1367, 10);
+            this.btnClose.Location = new System.Drawing.Point(1366, 10);
             this.btnClose.Margin = new System.Windows.Forms.Padding(10);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(204, 55);
@@ -247,6 +249,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.lblTesterFwVer, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnTesterFwVerCheck, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblTcpConnectionStatus, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.btnTcpConnectionCheck, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -256,7 +260,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(412, 65);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(411, 65);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // lblTcpConnectionStatus
@@ -265,7 +269,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblTcpConnectionStatus.AutoSize = true;
             this.lblTcpConnectionStatus.BackColor = System.Drawing.Color.Transparent;
             this.lblTcpConnectionStatus.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTcpConnectionStatus.Location = new System.Drawing.Point(93, 34);
+            this.lblTcpConnectionStatus.Location = new System.Drawing.Point(92, 34);
             this.lblTcpConnectionStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTcpConnectionStatus.Name = "lblTcpConnectionStatus";
             this.lblTcpConnectionStatus.Size = new System.Drawing.Size(20, 29);
@@ -316,7 +320,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnOpenPbaTerminal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOpenPbaTerminal.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenPbaTerminal.Location = new System.Drawing.Point(1129, 10);
+            this.btnOpenPbaTerminal.Location = new System.Drawing.Point(1128, 10);
             this.btnOpenPbaTerminal.Margin = new System.Windows.Forms.Padding(10);
             this.btnOpenPbaTerminal.Name = "btnOpenPbaTerminal";
             this.btnOpenPbaTerminal.Size = new System.Drawing.Size(213, 55);
@@ -328,10 +332,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableLayoutPanel5.ColumnCount = 4;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.25332F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.97431F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.79806F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.97431F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.6328F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.46392F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.42483F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.47845F));
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel3, 1, 0);
@@ -341,7 +345,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1579, 781);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1578, 770);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -350,14 +354,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.groupBox5, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(887, 2);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(900, 2);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.61972F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.23944F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(294, 777);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(288, 766);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // groupBox5
@@ -367,7 +371,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(288, 123);
+            this.groupBox5.Size = new System.Drawing.Size(282, 121);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tester Initialize";
@@ -387,17 +391,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(282, 96);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(276, 94);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // btnTesterReset
             // 
             this.btnTesterReset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTesterReset.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTesterReset.Location = new System.Drawing.Point(144, 52);
+            this.btnTesterReset.Location = new System.Drawing.Point(141, 51);
             this.btnTesterReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTesterReset.Name = "btnTesterReset";
-            this.btnTesterReset.Size = new System.Drawing.Size(135, 40);
+            this.btnTesterReset.Size = new System.Drawing.Size(132, 39);
             this.btnTesterReset.TabIndex = 55;
             this.btnTesterReset.Text = "적용";
             this.btnTesterReset.UseVisualStyleBackColor = true;
@@ -406,10 +410,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnTesterInit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTesterInit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTesterInit.Location = new System.Drawing.Point(144, 4);
+            this.btnTesterInit.Location = new System.Drawing.Point(141, 4);
             this.btnTesterInit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTesterInit.Name = "btnTesterInit";
-            this.btnTesterInit.Size = new System.Drawing.Size(135, 40);
+            this.btnTesterInit.Size = new System.Drawing.Size(132, 39);
             this.btnTesterInit.TabIndex = 54;
             this.btnTesterInit.Text = "적용";
             this.btnTesterInit.UseVisualStyleBackColor = true;
@@ -418,7 +422,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label42.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(15, 61);
+            this.label42.Location = new System.Drawing.Point(14, 60);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(110, 21);
             this.label42.TabIndex = 4;
@@ -428,7 +432,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label40.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(11, 13);
+            this.label40.Location = new System.Drawing.Point(10, 13);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(118, 21);
             this.label40.TabIndex = 2;
@@ -445,7 +449,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(484, 771);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(474, 760);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
             // groupBox1
@@ -457,7 +461,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(476, 621);
+            this.groupBox1.Size = new System.Drawing.Size(466, 610);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Base";
@@ -499,7 +503,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvInputBase.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInputBase.RowTemplate.Height = 27;
-            this.dgvInputBase.Size = new System.Drawing.Size(468, 590);
+            this.dgvInputBase.Size = new System.Drawing.Size(458, 579);
             this.dgvInputBase.TabIndex = 0;
             // 
             // colBaseName
@@ -532,13 +536,13 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel8, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel14, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(497, 5);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(487, 5);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(385, 771);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(408, 760);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // tableLayoutPanel8
@@ -552,7 +556,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(379, 625);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(402, 614);
             this.tableLayoutPanel8.TabIndex = 7;
             // 
             // groupBox4
@@ -562,7 +566,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(373, 619);
+            this.groupBox4.Size = new System.Drawing.Size(396, 608);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Switch";
@@ -618,9 +622,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(367, 592);
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(390, 581);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
             // tableLayoutPanel32
@@ -630,40 +633,40 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel32.Controls.Add(this.btnSw2, 0, 0);
-            this.tableLayoutPanel32.Controls.Add(this.btnSw1, 0, 0);
+            this.tableLayoutPanel32.Controls.Add(this.btnSw23, 0, 0);
             this.tableLayoutPanel32.Controls.Add(this.label24, 0, 0);
             this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel32.Location = new System.Drawing.Point(1, 533);
+            this.tableLayoutPanel32.Location = new System.Drawing.Point(1, 514);
             this.tableLayoutPanel32.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel32.Name = "tableLayoutPanel32";
             this.tableLayoutPanel32.RowCount = 1;
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel32.TabIndex = 19;
             // 
             // btnSw2
             // 
             this.btnSw2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSw2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw2.Location = new System.Drawing.Point(293, 1);
+            this.btnSw2.Location = new System.Drawing.Point(310, 1);
             this.btnSw2.Margin = new System.Windows.Forms.Padding(1);
             this.btnSw2.Name = "btnSw2";
-            this.btnSw2.Size = new System.Drawing.Size(71, 25);
+            this.btnSw2.Size = new System.Drawing.Size(77, 24);
             this.btnSw2.TabIndex = 22;
             this.btnSw2.Text = "SW 2";
             this.btnSw2.UseVisualStyleBackColor = true;
             // 
-            // btnSw1
+            // btnSw23
             // 
-            this.btnSw1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw1.Location = new System.Drawing.Point(220, 1);
-            this.btnSw1.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw1.Name = "btnSw1";
-            this.btnSw1.Size = new System.Drawing.Size(71, 25);
-            this.btnSw1.TabIndex = 21;
-            this.btnSw1.Text = "SW 1";
-            this.btnSw1.UseVisualStyleBackColor = true;
+            this.btnSw23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw23.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw23.Location = new System.Drawing.Point(233, 1);
+            this.btnSw23.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw23.Name = "btnSw23";
+            this.btnSw23.Size = new System.Drawing.Size(75, 24);
+            this.btnSw23.TabIndex = 21;
+            this.btnSw23.Text = "SW 23";
+            this.btnSw23.UseVisualStyleBackColor = true;
             // 
             // label24
             // 
@@ -671,7 +674,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.Location = new System.Drawing.Point(3, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(213, 27);
+            this.label24.Size = new System.Drawing.Size(226, 26);
             this.label24.TabIndex = 19;
             this.label24.Text = "-";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -682,41 +685,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel31.Controls.Add(this.btnSw40, 0, 0);
-            this.tableLayoutPanel31.Controls.Add(this.btnSw39, 0, 0);
+            this.tableLayoutPanel31.Controls.Add(this.btnSw16, 0, 0);
+            this.tableLayoutPanel31.Controls.Add(this.btnSw14, 0, 0);
             this.tableLayoutPanel31.Controls.Add(this.label23, 0, 0);
             this.tableLayoutPanel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel31.Location = new System.Drawing.Point(1, 505);
+            this.tableLayoutPanel31.Location = new System.Drawing.Point(1, 487);
             this.tableLayoutPanel31.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel31.TabIndex = 18;
             // 
-            // btnSw40
+            // btnSw16
             // 
-            this.btnSw40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw40.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw40.Location = new System.Drawing.Point(293, 1);
-            this.btnSw40.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw40.Name = "btnSw40";
-            this.btnSw40.Size = new System.Drawing.Size(71, 25);
-            this.btnSw40.TabIndex = 21;
-            this.btnSw40.Text = "SW 40";
-            this.btnSw40.UseVisualStyleBackColor = true;
+            this.btnSw16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw16.Location = new System.Drawing.Point(310, 1);
+            this.btnSw16.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw16.Name = "btnSw16";
+            this.btnSw16.Size = new System.Drawing.Size(77, 24);
+            this.btnSw16.TabIndex = 21;
+            this.btnSw16.Text = "SW 16";
+            this.btnSw16.UseVisualStyleBackColor = true;
             // 
-            // btnSw39
+            // btnSw14
             // 
-            this.btnSw39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw39.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw39.Location = new System.Drawing.Point(220, 1);
-            this.btnSw39.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw39.Name = "btnSw39";
-            this.btnSw39.Size = new System.Drawing.Size(71, 25);
-            this.btnSw39.TabIndex = 20;
-            this.btnSw39.Text = "SW 39";
-            this.btnSw39.UseVisualStyleBackColor = true;
+            this.btnSw14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw14.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw14.Location = new System.Drawing.Point(233, 1);
+            this.btnSw14.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw14.Name = "btnSw14";
+            this.btnSw14.Size = new System.Drawing.Size(75, 24);
+            this.btnSw14.TabIndex = 20;
+            this.btnSw14.Text = "SW 14";
+            this.btnSw14.UseVisualStyleBackColor = true;
             // 
             // label23
             // 
@@ -724,7 +727,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Location = new System.Drawing.Point(3, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(213, 27);
+            this.label23.Size = new System.Drawing.Size(226, 26);
             this.label23.TabIndex = 18;
             this.label23.Text = "-";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -735,41 +738,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel30.Controls.Add(this.btnSw38, 0, 0);
-            this.tableLayoutPanel30.Controls.Add(this.btnSw37, 0, 0);
+            this.tableLayoutPanel30.Controls.Add(this.btnSw8, 0, 0);
+            this.tableLayoutPanel30.Controls.Add(this.btnSw7, 0, 0);
             this.tableLayoutPanel30.Controls.Add(this.label22, 0, 0);
             this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel30.Location = new System.Drawing.Point(1, 477);
+            this.tableLayoutPanel30.Location = new System.Drawing.Point(1, 460);
             this.tableLayoutPanel30.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 1;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel30.TabIndex = 17;
             // 
-            // btnSw38
+            // btnSw8
             // 
-            this.btnSw38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw38.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw38.Location = new System.Drawing.Point(293, 1);
-            this.btnSw38.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw38.Name = "btnSw38";
-            this.btnSw38.Size = new System.Drawing.Size(71, 25);
-            this.btnSw38.TabIndex = 20;
-            this.btnSw38.Text = "SW 38";
-            this.btnSw38.UseVisualStyleBackColor = true;
+            this.btnSw8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw8.Location = new System.Drawing.Point(310, 1);
+            this.btnSw8.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw8.Name = "btnSw8";
+            this.btnSw8.Size = new System.Drawing.Size(77, 24);
+            this.btnSw8.TabIndex = 20;
+            this.btnSw8.Text = "SW 8";
+            this.btnSw8.UseVisualStyleBackColor = true;
             // 
-            // btnSw37
+            // btnSw7
             // 
-            this.btnSw37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw37.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw37.Location = new System.Drawing.Point(220, 1);
-            this.btnSw37.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw37.Name = "btnSw37";
-            this.btnSw37.Size = new System.Drawing.Size(71, 25);
-            this.btnSw37.TabIndex = 19;
-            this.btnSw37.Text = "SW 37";
-            this.btnSw37.UseVisualStyleBackColor = true;
+            this.btnSw7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw7.Location = new System.Drawing.Point(233, 1);
+            this.btnSw7.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw7.Name = "btnSw7";
+            this.btnSw7.Size = new System.Drawing.Size(75, 24);
+            this.btnSw7.TabIndex = 19;
+            this.btnSw7.Text = "SW 7";
+            this.btnSw7.UseVisualStyleBackColor = true;
             // 
             // label22
             // 
@@ -777,7 +780,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Location = new System.Drawing.Point(3, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(213, 27);
+            this.label22.Size = new System.Drawing.Size(226, 26);
             this.label22.TabIndex = 17;
             this.label22.Text = "-";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -788,41 +791,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel29.Controls.Add(this.btnSw36, 0, 0);
-            this.tableLayoutPanel29.Controls.Add(this.btnSw35, 0, 0);
+            this.tableLayoutPanel29.Controls.Add(this.btnSw40, 0, 0);
+            this.tableLayoutPanel29.Controls.Add(this.btnSw38, 0, 0);
             this.tableLayoutPanel29.Controls.Add(this.label21, 0, 0);
             this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(1, 449);
+            this.tableLayoutPanel29.Location = new System.Drawing.Point(1, 433);
             this.tableLayoutPanel29.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel29.Name = "tableLayoutPanel29";
             this.tableLayoutPanel29.RowCount = 1;
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel29.TabIndex = 16;
             // 
-            // btnSw36
+            // btnSw40
             // 
-            this.btnSw36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw36.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw36.Location = new System.Drawing.Point(293, 1);
-            this.btnSw36.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw36.Name = "btnSw36";
-            this.btnSw36.Size = new System.Drawing.Size(71, 25);
-            this.btnSw36.TabIndex = 19;
-            this.btnSw36.Text = "SW 36";
-            this.btnSw36.UseVisualStyleBackColor = true;
+            this.btnSw40.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw40.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw40.Location = new System.Drawing.Point(310, 1);
+            this.btnSw40.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw40.Name = "btnSw40";
+            this.btnSw40.Size = new System.Drawing.Size(77, 24);
+            this.btnSw40.TabIndex = 19;
+            this.btnSw40.Text = "SW 40";
+            this.btnSw40.UseVisualStyleBackColor = true;
             // 
-            // btnSw35
+            // btnSw38
             // 
-            this.btnSw35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw35.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw35.Location = new System.Drawing.Point(220, 1);
-            this.btnSw35.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw35.Name = "btnSw35";
-            this.btnSw35.Size = new System.Drawing.Size(71, 25);
-            this.btnSw35.TabIndex = 18;
-            this.btnSw35.Text = "SW 35";
-            this.btnSw35.UseVisualStyleBackColor = true;
+            this.btnSw38.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw38.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw38.Location = new System.Drawing.Point(233, 1);
+            this.btnSw38.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw38.Name = "btnSw38";
+            this.btnSw38.Size = new System.Drawing.Size(75, 24);
+            this.btnSw38.TabIndex = 18;
+            this.btnSw38.Text = "SW 38";
+            this.btnSw38.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
@@ -830,9 +833,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label21.Location = new System.Drawing.Point(3, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(213, 27);
+            this.label21.Size = new System.Drawing.Size(226, 26);
             this.label21.TabIndex = 16;
-            this.label21.Text = "-";
+            this.label21.Text = "SUB HEATER PWM / PPS CURR";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel28
@@ -841,41 +844,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel28.Controls.Add(this.btnSw34, 0, 0);
-            this.tableLayoutPanel28.Controls.Add(this.btnSw33, 0, 0);
+            this.tableLayoutPanel28.Controls.Add(this.btnSw35, 0, 0);
+            this.tableLayoutPanel28.Controls.Add(this.btnSw32, 0, 0);
             this.tableLayoutPanel28.Controls.Add(this.label20, 0, 0);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel28.Location = new System.Drawing.Point(1, 421);
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(1, 406);
             this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 1;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel28.TabIndex = 15;
             // 
-            // btnSw34
+            // btnSw35
             // 
-            this.btnSw34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw34.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw34.Location = new System.Drawing.Point(293, 1);
-            this.btnSw34.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw34.Name = "btnSw34";
-            this.btnSw34.Size = new System.Drawing.Size(71, 25);
-            this.btnSw34.TabIndex = 18;
-            this.btnSw34.Text = "SW 34";
-            this.btnSw34.UseVisualStyleBackColor = true;
+            this.btnSw35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw35.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw35.Location = new System.Drawing.Point(310, 1);
+            this.btnSw35.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw35.Name = "btnSw35";
+            this.btnSw35.Size = new System.Drawing.Size(77, 24);
+            this.btnSw35.TabIndex = 18;
+            this.btnSw35.Text = "SW 35";
+            this.btnSw35.UseVisualStyleBackColor = true;
             // 
-            // btnSw33
+            // btnSw32
             // 
-            this.btnSw33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw33.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw33.Location = new System.Drawing.Point(220, 1);
-            this.btnSw33.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw33.Name = "btnSw33";
-            this.btnSw33.Size = new System.Drawing.Size(71, 25);
-            this.btnSw33.TabIndex = 17;
-            this.btnSw33.Text = "SW 33";
-            this.btnSw33.UseVisualStyleBackColor = true;
+            this.btnSw32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw32.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw32.Location = new System.Drawing.Point(233, 1);
+            this.btnSw32.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw32.Name = "btnSw32";
+            this.btnSw32.Size = new System.Drawing.Size(75, 24);
+            this.btnSw32.TabIndex = 17;
+            this.btnSw32.Text = "SW 32";
+            this.btnSw32.UseVisualStyleBackColor = true;
             // 
             // label20
             // 
@@ -883,9 +886,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Location = new System.Drawing.Point(3, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(213, 27);
+            this.label20.Size = new System.Drawing.Size(226, 26);
             this.label20.TabIndex = 15;
-            this.label20.Text = "-";
+            this.label20.Text = "HEATER PWM / KATO PWM";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel27
@@ -894,41 +897,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel27.Controls.Add(this.btnSw32, 0, 0);
-            this.tableLayoutPanel27.Controls.Add(this.btnSw31, 0, 0);
+            this.tableLayoutPanel27.Controls.Add(this.btnSw37, 0, 0);
+            this.tableLayoutPanel27.Controls.Add(this.btnSw36, 0, 0);
             this.tableLayoutPanel27.Controls.Add(this.label19, 0, 0);
             this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel27.Location = new System.Drawing.Point(1, 393);
+            this.tableLayoutPanel27.Location = new System.Drawing.Point(1, 379);
             this.tableLayoutPanel27.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel27.Name = "tableLayoutPanel27";
             this.tableLayoutPanel27.RowCount = 1;
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel27.TabIndex = 14;
             // 
-            // btnSw32
+            // btnSw37
             // 
-            this.btnSw32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw32.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw32.Location = new System.Drawing.Point(293, 1);
-            this.btnSw32.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw32.Name = "btnSw32";
-            this.btnSw32.Size = new System.Drawing.Size(71, 25);
-            this.btnSw32.TabIndex = 17;
-            this.btnSw32.Text = "SW 32";
-            this.btnSw32.UseVisualStyleBackColor = true;
+            this.btnSw37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw37.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw37.Location = new System.Drawing.Point(310, 1);
+            this.btnSw37.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw37.Name = "btnSw37";
+            this.btnSw37.Size = new System.Drawing.Size(77, 24);
+            this.btnSw37.TabIndex = 17;
+            this.btnSw37.Text = "SW 37";
+            this.btnSw37.UseVisualStyleBackColor = true;
             // 
-            // btnSw31
+            // btnSw36
             // 
-            this.btnSw31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw31.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw31.Location = new System.Drawing.Point(220, 1);
-            this.btnSw31.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw31.Name = "btnSw31";
-            this.btnSw31.Size = new System.Drawing.Size(71, 25);
-            this.btnSw31.TabIndex = 16;
-            this.btnSw31.Text = "SW 31";
-            this.btnSw31.UseVisualStyleBackColor = true;
+            this.btnSw36.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw36.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw36.Location = new System.Drawing.Point(233, 1);
+            this.btnSw36.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw36.Name = "btnSw36";
+            this.btnSw36.Size = new System.Drawing.Size(75, 24);
+            this.btnSw36.TabIndex = 16;
+            this.btnSw36.Text = "SW 36";
+            this.btnSw36.UseVisualStyleBackColor = true;
             // 
             // label19
             // 
@@ -936,9 +939,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Location = new System.Drawing.Point(3, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(213, 27);
+            this.label19.Size = new System.Drawing.Size(226, 26);
             this.label19.TabIndex = 14;
-            this.label19.Text = "-";
+            this.label19.Text = "SUB HEATER";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel26
@@ -947,41 +950,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel26.Controls.Add(this.btnSw30, 0, 0);
-            this.tableLayoutPanel26.Controls.Add(this.btnSw29, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.btnSw34, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.btnSw33, 0, 0);
             this.tableLayoutPanel26.Controls.Add(this.label18, 0, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(1, 365);
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(1, 352);
             this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 1;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel26.TabIndex = 13;
             // 
-            // btnSw30
+            // btnSw34
             // 
-            this.btnSw30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw30.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw30.Location = new System.Drawing.Point(293, 1);
-            this.btnSw30.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw30.Name = "btnSw30";
-            this.btnSw30.Size = new System.Drawing.Size(71, 25);
-            this.btnSw30.TabIndex = 16;
-            this.btnSw30.Text = "SW 30";
-            this.btnSw30.UseVisualStyleBackColor = true;
+            this.btnSw34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw34.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw34.Location = new System.Drawing.Point(310, 1);
+            this.btnSw34.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw34.Name = "btnSw34";
+            this.btnSw34.Size = new System.Drawing.Size(77, 24);
+            this.btnSw34.TabIndex = 16;
+            this.btnSw34.Text = "SW 34";
+            this.btnSw34.UseVisualStyleBackColor = true;
             // 
-            // btnSw29
+            // btnSw33
             // 
-            this.btnSw29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw29.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw29.Location = new System.Drawing.Point(220, 1);
-            this.btnSw29.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw29.Name = "btnSw29";
-            this.btnSw29.Size = new System.Drawing.Size(71, 25);
-            this.btnSw29.TabIndex = 15;
-            this.btnSw29.Text = "SW 29";
-            this.btnSw29.UseVisualStyleBackColor = true;
+            this.btnSw33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw33.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw33.Location = new System.Drawing.Point(233, 1);
+            this.btnSw33.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw33.Name = "btnSw33";
+            this.btnSw33.Size = new System.Drawing.Size(75, 24);
+            this.btnSw33.TabIndex = 15;
+            this.btnSw33.Text = "SW 33";
+            this.btnSw33.UseVisualStyleBackColor = true;
             // 
             // label18
             // 
@@ -989,9 +992,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Location = new System.Drawing.Point(3, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(213, 27);
+            this.label18.Size = new System.Drawing.Size(226, 26);
             this.label18.TabIndex = 13;
-            this.label18.Text = "-";
+            this.label18.Text = "KATO";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel25
@@ -1000,41 +1003,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel25.Controls.Add(this.btnSw28, 0, 0);
-            this.tableLayoutPanel25.Controls.Add(this.btnSw27, 0, 0);
+            this.tableLayoutPanel25.Controls.Add(this.btnSw31, 0, 0);
+            this.tableLayoutPanel25.Controls.Add(this.btnSw30, 0, 0);
             this.tableLayoutPanel25.Controls.Add(this.label17, 0, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel25.Location = new System.Drawing.Point(1, 337);
+            this.tableLayoutPanel25.Location = new System.Drawing.Point(1, 325);
             this.tableLayoutPanel25.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel25.TabIndex = 12;
             // 
-            // btnSw28
+            // btnSw31
             // 
-            this.btnSw28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw28.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw28.Location = new System.Drawing.Point(293, 1);
-            this.btnSw28.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw28.Name = "btnSw28";
-            this.btnSw28.Size = new System.Drawing.Size(71, 25);
-            this.btnSw28.TabIndex = 15;
-            this.btnSw28.Text = "SW 28";
-            this.btnSw28.UseVisualStyleBackColor = true;
+            this.btnSw31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw31.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw31.Location = new System.Drawing.Point(310, 1);
+            this.btnSw31.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw31.Name = "btnSw31";
+            this.btnSw31.Size = new System.Drawing.Size(77, 24);
+            this.btnSw31.TabIndex = 15;
+            this.btnSw31.Text = "SW 31";
+            this.btnSw31.UseVisualStyleBackColor = true;
             // 
-            // btnSw27
+            // btnSw30
             // 
-            this.btnSw27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw27.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw27.Location = new System.Drawing.Point(220, 1);
-            this.btnSw27.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw27.Name = "btnSw27";
-            this.btnSw27.Size = new System.Drawing.Size(71, 25);
-            this.btnSw27.TabIndex = 14;
-            this.btnSw27.Text = "SW 27";
-            this.btnSw27.UseVisualStyleBackColor = true;
+            this.btnSw30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw30.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw30.Location = new System.Drawing.Point(233, 1);
+            this.btnSw30.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw30.Name = "btnSw30";
+            this.btnSw30.Size = new System.Drawing.Size(75, 24);
+            this.btnSw30.TabIndex = 14;
+            this.btnSw30.Text = "SW 30";
+            this.btnSw30.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -1042,9 +1045,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Location = new System.Drawing.Point(3, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(213, 27);
+            this.label17.Size = new System.Drawing.Size(226, 26);
             this.label17.TabIndex = 12;
-            this.label17.Text = "-";
+            this.label17.Text = "HEATER";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel24
@@ -1053,41 +1056,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel24.Controls.Add(this.btnSw26, 0, 0);
-            this.tableLayoutPanel24.Controls.Add(this.btnSw25, 0, 0);
+            this.tableLayoutPanel24.Controls.Add(this.btnSw29, 0, 0);
+            this.tableLayoutPanel24.Controls.Add(this.btnSw28, 0, 0);
             this.tableLayoutPanel24.Controls.Add(this.label16, 0, 0);
             this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel24.Location = new System.Drawing.Point(1, 309);
+            this.tableLayoutPanel24.Location = new System.Drawing.Point(1, 298);
             this.tableLayoutPanel24.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel24.Name = "tableLayoutPanel24";
             this.tableLayoutPanel24.RowCount = 1;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel24.TabIndex = 11;
             // 
-            // btnSw26
+            // btnSw29
             // 
-            this.btnSw26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw26.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw26.Location = new System.Drawing.Point(293, 1);
-            this.btnSw26.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw26.Name = "btnSw26";
-            this.btnSw26.Size = new System.Drawing.Size(71, 25);
-            this.btnSw26.TabIndex = 14;
-            this.btnSw26.Text = "SW 26";
-            this.btnSw26.UseVisualStyleBackColor = true;
+            this.btnSw29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw29.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw29.Location = new System.Drawing.Point(310, 1);
+            this.btnSw29.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw29.Name = "btnSw29";
+            this.btnSw29.Size = new System.Drawing.Size(77, 24);
+            this.btnSw29.TabIndex = 14;
+            this.btnSw29.Text = "SW 29";
+            this.btnSw29.UseVisualStyleBackColor = true;
             // 
-            // btnSw25
+            // btnSw28
             // 
-            this.btnSw25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw25.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw25.Location = new System.Drawing.Point(220, 1);
-            this.btnSw25.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw25.Name = "btnSw25";
-            this.btnSw25.Size = new System.Drawing.Size(71, 25);
-            this.btnSw25.TabIndex = 13;
-            this.btnSw25.Text = "SW 25";
-            this.btnSw25.UseVisualStyleBackColor = true;
+            this.btnSw28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw28.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw28.Location = new System.Drawing.Point(233, 1);
+            this.btnSw28.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw28.Name = "btnSw28";
+            this.btnSw28.Size = new System.Drawing.Size(75, 24);
+            this.btnSw28.TabIndex = 13;
+            this.btnSw28.Text = "SW 28";
+            this.btnSw28.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -1095,9 +1098,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.Location = new System.Drawing.Point(3, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(213, 27);
+            this.label16.Size = new System.Drawing.Size(226, 26);
             this.label16.TabIndex = 11;
-            this.label16.Text = "-";
+            this.label16.Text = "PPS CC1 CC2";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel23
@@ -1106,41 +1109,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel23.Controls.Add(this.btnSw24, 0, 0);
-            this.tableLayoutPanel23.Controls.Add(this.btnSw23, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.btnSw1, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.btnSw27, 0, 0);
             this.tableLayoutPanel23.Controls.Add(this.label15, 0, 0);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(1, 281);
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(1, 271);
             this.tableLayoutPanel23.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel23.TabIndex = 10;
             // 
-            // btnSw24
+            // btnSw1
             // 
-            this.btnSw24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw24.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw24.Location = new System.Drawing.Point(293, 1);
-            this.btnSw24.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw24.Name = "btnSw24";
-            this.btnSw24.Size = new System.Drawing.Size(71, 25);
-            this.btnSw24.TabIndex = 13;
-            this.btnSw24.Text = "SW 24";
-            this.btnSw24.UseVisualStyleBackColor = true;
+            this.btnSw1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw1.Location = new System.Drawing.Point(310, 1);
+            this.btnSw1.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw1.Name = "btnSw1";
+            this.btnSw1.Size = new System.Drawing.Size(77, 24);
+            this.btnSw1.TabIndex = 13;
+            this.btnSw1.Text = "SW 1";
+            this.btnSw1.UseVisualStyleBackColor = true;
             // 
-            // btnSw23
+            // btnSw27
             // 
-            this.btnSw23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw23.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw23.Location = new System.Drawing.Point(220, 1);
-            this.btnSw23.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw23.Name = "btnSw23";
-            this.btnSw23.Size = new System.Drawing.Size(71, 25);
-            this.btnSw23.TabIndex = 12;
-            this.btnSw23.Text = "SW 23";
-            this.btnSw23.UseVisualStyleBackColor = true;
+            this.btnSw27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw27.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw27.Location = new System.Drawing.Point(233, 1);
+            this.btnSw27.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw27.Name = "btnSw27";
+            this.btnSw27.Size = new System.Drawing.Size(75, 24);
+            this.btnSw27.TabIndex = 12;
+            this.btnSw27.Text = "SW 27";
+            this.btnSw27.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -1148,9 +1151,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Location = new System.Drawing.Point(3, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(213, 27);
+            this.label15.Size = new System.Drawing.Size(226, 26);
             this.label15.TabIndex = 10;
-            this.label15.Text = "-";
+            this.label15.Text = "PPS D+, D- / 14V OVP OUT";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel22
@@ -1159,41 +1162,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel22.Controls.Add(this.btnSw22, 0, 0);
-            this.tableLayoutPanel22.Controls.Add(this.btnSw21, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.btnSw26, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.btnSw25, 0, 0);
             this.tableLayoutPanel22.Controls.Add(this.label14, 0, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(1, 253);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(1, 244);
             this.tableLayoutPanel22.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel22.TabIndex = 9;
             // 
-            // btnSw22
+            // btnSw26
             // 
-            this.btnSw22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw22.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw22.Location = new System.Drawing.Point(293, 1);
-            this.btnSw22.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw22.Name = "btnSw22";
-            this.btnSw22.Size = new System.Drawing.Size(71, 25);
-            this.btnSw22.TabIndex = 12;
-            this.btnSw22.Text = "SW 22";
-            this.btnSw22.UseVisualStyleBackColor = true;
+            this.btnSw26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw26.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw26.Location = new System.Drawing.Point(310, 1);
+            this.btnSw26.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw26.Name = "btnSw26";
+            this.btnSw26.Size = new System.Drawing.Size(77, 24);
+            this.btnSw26.TabIndex = 12;
+            this.btnSw26.Text = "SW 26";
+            this.btnSw26.UseVisualStyleBackColor = true;
             // 
-            // btnSw21
+            // btnSw25
             // 
-            this.btnSw21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw21.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw21.Location = new System.Drawing.Point(220, 1);
-            this.btnSw21.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw21.Name = "btnSw21";
-            this.btnSw21.Size = new System.Drawing.Size(71, 25);
-            this.btnSw21.TabIndex = 11;
-            this.btnSw21.Text = "SW 21";
-            this.btnSw21.UseVisualStyleBackColor = true;
+            this.btnSw25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw25.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw25.Location = new System.Drawing.Point(233, 1);
+            this.btnSw25.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw25.Name = "btnSw25";
+            this.btnSw25.Size = new System.Drawing.Size(75, 24);
+            this.btnSw25.TabIndex = 11;
+            this.btnSw25.Text = "SW 25";
+            this.btnSw25.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -1201,9 +1204,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Location = new System.Drawing.Point(3, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(213, 27);
+            this.label14.Size = new System.Drawing.Size(226, 26);
             this.label14.TabIndex = 9;
-            this.label14.Text = "-";
+            this.label14.Text = "PPS PWR";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel21
@@ -1212,41 +1215,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel21.Controls.Add(this.btnSw20, 0, 0);
-            this.tableLayoutPanel21.Controls.Add(this.btnSw19, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.btnSw39, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.btnSw24, 0, 0);
             this.tableLayoutPanel21.Controls.Add(this.label13, 0, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(1, 225);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(1, 217);
             this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel21.TabIndex = 8;
             // 
-            // btnSw20
+            // btnSw39
             // 
-            this.btnSw20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw20.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw20.Location = new System.Drawing.Point(293, 1);
-            this.btnSw20.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw20.Name = "btnSw20";
-            this.btnSw20.Size = new System.Drawing.Size(71, 25);
-            this.btnSw20.TabIndex = 11;
-            this.btnSw20.Text = "SW 20";
-            this.btnSw20.UseVisualStyleBackColor = true;
+            this.btnSw39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw39.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw39.Location = new System.Drawing.Point(310, 1);
+            this.btnSw39.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw39.Name = "btnSw39";
+            this.btnSw39.Size = new System.Drawing.Size(77, 24);
+            this.btnSw39.TabIndex = 11;
+            this.btnSw39.Text = "SW 39";
+            this.btnSw39.UseVisualStyleBackColor = true;
             // 
-            // btnSw19
+            // btnSw24
             // 
-            this.btnSw19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw19.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw19.Location = new System.Drawing.Point(220, 1);
-            this.btnSw19.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw19.Name = "btnSw19";
-            this.btnSw19.Size = new System.Drawing.Size(71, 25);
-            this.btnSw19.TabIndex = 10;
-            this.btnSw19.Text = "SW 19";
-            this.btnSw19.UseVisualStyleBackColor = true;
+            this.btnSw24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw24.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw24.Location = new System.Drawing.Point(233, 1);
+            this.btnSw24.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw24.Name = "btnSw24";
+            this.btnSw24.Size = new System.Drawing.Size(75, 24);
+            this.btnSw24.TabIndex = 10;
+            this.btnSw24.Text = "SW 24";
+            this.btnSw24.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -1254,9 +1257,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Location = new System.Drawing.Point(3, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(213, 27);
+            this.label13.Size = new System.Drawing.Size(226, 26);
             this.label13.TabIndex = 8;
-            this.label13.Text = "-";
+            this.label13.Text = "FLOOD";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel20
@@ -1265,41 +1268,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel20.Controls.Add(this.btnSw18, 0, 0);
-            this.tableLayoutPanel20.Controls.Add(this.btnSw17, 0, 0);
+            this.tableLayoutPanel20.Controls.Add(this.btnSw22, 0, 0);
+            this.tableLayoutPanel20.Controls.Add(this.btnSw21, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(1, 197);
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(1, 190);
             this.tableLayoutPanel20.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel20.TabIndex = 7;
             // 
-            // btnSw18
+            // btnSw22
             // 
-            this.btnSw18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw18.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw18.Location = new System.Drawing.Point(293, 1);
-            this.btnSw18.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw18.Name = "btnSw18";
-            this.btnSw18.Size = new System.Drawing.Size(71, 25);
-            this.btnSw18.TabIndex = 10;
-            this.btnSw18.Text = "SW 18";
-            this.btnSw18.UseVisualStyleBackColor = true;
+            this.btnSw22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw22.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw22.Location = new System.Drawing.Point(310, 1);
+            this.btnSw22.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw22.Name = "btnSw22";
+            this.btnSw22.Size = new System.Drawing.Size(77, 24);
+            this.btnSw22.TabIndex = 10;
+            this.btnSw22.Text = "SW 22";
+            this.btnSw22.UseVisualStyleBackColor = true;
             // 
-            // btnSw17
+            // btnSw21
             // 
-            this.btnSw17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw17.Location = new System.Drawing.Point(220, 1);
-            this.btnSw17.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw17.Name = "btnSw17";
-            this.btnSw17.Size = new System.Drawing.Size(71, 25);
-            this.btnSw17.TabIndex = 9;
-            this.btnSw17.Text = "SW 17";
-            this.btnSw17.UseVisualStyleBackColor = true;
+            this.btnSw21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw21.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw21.Location = new System.Drawing.Point(233, 1);
+            this.btnSw21.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw21.Name = "btnSw21";
+            this.btnSw21.Size = new System.Drawing.Size(75, 24);
+            this.btnSw21.TabIndex = 9;
+            this.btnSw21.Text = "SW 21";
+            this.btnSw21.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -1307,9 +1310,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Location = new System.Drawing.Point(3, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(213, 27);
+            this.label12.Size = new System.Drawing.Size(226, 26);
             this.label12.TabIndex = 7;
-            this.label12.Text = "-";
+            this.label12.Text = "SLEEP SHIP";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel19
@@ -1318,41 +1321,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel19.Controls.Add(this.btnSw16, 0, 0);
-            this.tableLayoutPanel19.Controls.Add(this.btnSw15, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.btnSw20, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.btnSw19, 0, 0);
             this.tableLayoutPanel19.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(1, 169);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(1, 163);
             this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel19.TabIndex = 6;
             // 
-            // btnSw16
+            // btnSw20
             // 
-            this.btnSw16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw16.Location = new System.Drawing.Point(293, 1);
-            this.btnSw16.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw16.Name = "btnSw16";
-            this.btnSw16.Size = new System.Drawing.Size(71, 25);
-            this.btnSw16.TabIndex = 9;
-            this.btnSw16.Text = "SW 16";
-            this.btnSw16.UseVisualStyleBackColor = true;
+            this.btnSw20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw20.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw20.Location = new System.Drawing.Point(310, 1);
+            this.btnSw20.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw20.Name = "btnSw20";
+            this.btnSw20.Size = new System.Drawing.Size(77, 24);
+            this.btnSw20.TabIndex = 9;
+            this.btnSw20.Text = "SW 20";
+            this.btnSw20.UseVisualStyleBackColor = true;
             // 
-            // btnSw15
+            // btnSw19
             // 
-            this.btnSw15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw15.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw15.Location = new System.Drawing.Point(220, 1);
-            this.btnSw15.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw15.Name = "btnSw15";
-            this.btnSw15.Size = new System.Drawing.Size(71, 25);
-            this.btnSw15.TabIndex = 8;
-            this.btnSw15.Text = "SW 15";
-            this.btnSw15.UseVisualStyleBackColor = true;
+            this.btnSw19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw19.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw19.Location = new System.Drawing.Point(233, 1);
+            this.btnSw19.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw19.Name = "btnSw19";
+            this.btnSw19.Size = new System.Drawing.Size(75, 24);
+            this.btnSw19.TabIndex = 8;
+            this.btnSw19.Text = "SW 19";
+            this.btnSw19.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -1360,9 +1363,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Location = new System.Drawing.Point(3, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(213, 27);
+            this.label11.Size = new System.Drawing.Size(226, 26);
             this.label11.TabIndex = 6;
-            this.label11.Text = "HVDC_T/HVDCP_B";
+            this.label11.Text = "USB SWITCH";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel18
@@ -1371,41 +1374,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel18.Controls.Add(this.btnSw14, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.btnSw13, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.btnSw18, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.btnSw17, 0, 0);
             this.tableLayoutPanel18.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(1, 141);
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(1, 136);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel18.TabIndex = 5;
             // 
-            // btnSw14
+            // btnSw18
             // 
-            this.btnSw14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw14.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw14.Location = new System.Drawing.Point(293, 1);
-            this.btnSw14.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw14.Name = "btnSw14";
-            this.btnSw14.Size = new System.Drawing.Size(71, 25);
-            this.btnSw14.TabIndex = 8;
-            this.btnSw14.Text = "SW 14";
-            this.btnSw14.UseVisualStyleBackColor = true;
+            this.btnSw18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw18.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw18.Location = new System.Drawing.Point(310, 1);
+            this.btnSw18.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw18.Name = "btnSw18";
+            this.btnSw18.Size = new System.Drawing.Size(77, 24);
+            this.btnSw18.TabIndex = 8;
+            this.btnSw18.Text = "SW 18";
+            this.btnSw18.UseVisualStyleBackColor = true;
             // 
-            // btnSw13
+            // btnSw17
             // 
-            this.btnSw13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw13.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw13.Location = new System.Drawing.Point(220, 1);
-            this.btnSw13.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw13.Name = "btnSw13";
-            this.btnSw13.Size = new System.Drawing.Size(71, 25);
-            this.btnSw13.TabIndex = 7;
-            this.btnSw13.Text = "SW 13";
-            this.btnSw13.UseVisualStyleBackColor = true;
+            this.btnSw17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw17.Location = new System.Drawing.Point(233, 1);
+            this.btnSw17.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw17.Name = "btnSw17";
+            this.btnSw17.Size = new System.Drawing.Size(75, 24);
+            this.btnSw17.TabIndex = 7;
+            this.btnSw17.Text = "SW 17";
+            this.btnSw17.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -1413,9 +1416,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Location = new System.Drawing.Point(3, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(213, 27);
+            this.label10.Size = new System.Drawing.Size(226, 26);
             this.label10.TabIndex = 5;
-            this.label10.Text = "UART_COM";
+            this.label10.Text = "HVDCP_T/HVDCP_B";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel17
@@ -1424,41 +1427,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel17.Controls.Add(this.btnSw12, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.btnSw11, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.btnSw15, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.btnSw13, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(1, 113);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(1, 109);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel17.TabIndex = 4;
             // 
-            // btnSw12
+            // btnSw15
             // 
-            this.btnSw12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw12.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw12.Location = new System.Drawing.Point(293, 1);
-            this.btnSw12.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw12.Name = "btnSw12";
-            this.btnSw12.Size = new System.Drawing.Size(71, 25);
-            this.btnSw12.TabIndex = 7;
-            this.btnSw12.Text = "SW 12";
-            this.btnSw12.UseVisualStyleBackColor = true;
+            this.btnSw15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw15.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw15.Location = new System.Drawing.Point(310, 1);
+            this.btnSw15.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw15.Name = "btnSw15";
+            this.btnSw15.Size = new System.Drawing.Size(77, 24);
+            this.btnSw15.TabIndex = 7;
+            this.btnSw15.Text = "SW 15";
+            this.btnSw15.UseVisualStyleBackColor = true;
             // 
-            // btnSw11
+            // btnSw13
             // 
-            this.btnSw11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw11.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw11.Location = new System.Drawing.Point(220, 1);
-            this.btnSw11.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw11.Name = "btnSw11";
-            this.btnSw11.Size = new System.Drawing.Size(71, 25);
-            this.btnSw11.TabIndex = 6;
-            this.btnSw11.Text = "SW 11";
-            this.btnSw11.UseVisualStyleBackColor = true;
+            this.btnSw13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw13.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw13.Location = new System.Drawing.Point(233, 1);
+            this.btnSw13.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw13.Name = "btnSw13";
+            this.btnSw13.Size = new System.Drawing.Size(75, 24);
+            this.btnSw13.TabIndex = 6;
+            this.btnSw13.Text = "SW 13";
+            this.btnSw13.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -1466,9 +1469,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(213, 27);
+            this.label9.Size = new System.Drawing.Size(226, 26);
             this.label9.TabIndex = 4;
-            this.label9.Text = "LOADER/MOTOR";
+            this.label9.Text = "UART COMM";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel16
@@ -1477,41 +1480,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel16.Controls.Add(this.btnSw12, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.btnSw10, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.btnSw9, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(1, 85);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(1, 82);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel16.TabIndex = 3;
+            // 
+            // btnSw12
+            // 
+            this.btnSw12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw12.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw12.Location = new System.Drawing.Point(310, 1);
+            this.btnSw12.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw12.Name = "btnSw12";
+            this.btnSw12.Size = new System.Drawing.Size(77, 24);
+            this.btnSw12.TabIndex = 6;
+            this.btnSw12.Text = "SW 12";
+            this.btnSw12.UseVisualStyleBackColor = true;
             // 
             // btnSw10
             // 
             this.btnSw10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSw10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw10.Location = new System.Drawing.Point(293, 1);
+            this.btnSw10.Location = new System.Drawing.Point(233, 1);
             this.btnSw10.Margin = new System.Windows.Forms.Padding(1);
             this.btnSw10.Name = "btnSw10";
-            this.btnSw10.Size = new System.Drawing.Size(71, 25);
-            this.btnSw10.TabIndex = 6;
+            this.btnSw10.Size = new System.Drawing.Size(75, 24);
+            this.btnSw10.TabIndex = 5;
             this.btnSw10.Text = "SW 10";
             this.btnSw10.UseVisualStyleBackColor = true;
-            // 
-            // btnSw9
-            // 
-            this.btnSw9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw9.Location = new System.Drawing.Point(220, 1);
-            this.btnSw9.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw9.Name = "btnSw9";
-            this.btnSw9.Size = new System.Drawing.Size(71, 25);
-            this.btnSw9.TabIndex = 5;
-            this.btnSw9.Text = "SW 9";
-            this.btnSw9.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -1519,9 +1522,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(213, 27);
+            this.label8.Size = new System.Drawing.Size(226, 26);
             this.label8.TabIndex = 3;
-            this.label8.Text = "BAT (3Ω)";
+            this.label8.Text = "BAT LOADER/MOTOR";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel15
@@ -1530,41 +1533,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel15.Controls.Add(this.btnSw8, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.btnSw7, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.btnSw11, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.btnSw9, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(1, 57);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(1, 55);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel15.TabIndex = 2;
             // 
-            // btnSw8
+            // btnSw11
             // 
-            this.btnSw8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw8.Location = new System.Drawing.Point(293, 1);
-            this.btnSw8.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw8.Name = "btnSw8";
-            this.btnSw8.Size = new System.Drawing.Size(71, 25);
-            this.btnSw8.TabIndex = 5;
-            this.btnSw8.Text = "SW 8";
-            this.btnSw8.UseVisualStyleBackColor = true;
+            this.btnSw11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw11.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw11.Location = new System.Drawing.Point(310, 1);
+            this.btnSw11.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw11.Name = "btnSw11";
+            this.btnSw11.Size = new System.Drawing.Size(77, 24);
+            this.btnSw11.TabIndex = 5;
+            this.btnSw11.Text = "SW 11";
+            this.btnSw11.UseVisualStyleBackColor = true;
             // 
-            // btnSw7
+            // btnSw9
             // 
-            this.btnSw7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSw7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw7.Location = new System.Drawing.Point(220, 1);
-            this.btnSw7.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSw7.Name = "btnSw7";
-            this.btnSw7.Size = new System.Drawing.Size(71, 25);
-            this.btnSw7.TabIndex = 4;
-            this.btnSw7.Text = "SW 7";
-            this.btnSw7.UseVisualStyleBackColor = true;
+            this.btnSw9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSw9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSw9.Location = new System.Drawing.Point(233, 1);
+            this.btnSw9.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSw9.Name = "btnSw9";
+            this.btnSw9.Size = new System.Drawing.Size(75, 24);
+            this.btnSw9.TabIndex = 4;
+            this.btnSw9.Text = "SW 9";
+            this.btnSw9.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -1572,9 +1575,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(213, 27);
+            this.label7.Size = new System.Drawing.Size(226, 26);
             this.label7.TabIndex = 2;
-            this.label7.Text = "PS1_BAT";
+            this.label7.Text = "BAT 3.7V";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel13
@@ -1587,22 +1590,22 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel13.Controls.Add(this.btnSw5, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(1, 29);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(1, 28);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel13.TabIndex = 1;
             // 
             // btnSw6
             // 
             this.btnSw6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSw6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw6.Location = new System.Drawing.Point(293, 1);
+            this.btnSw6.Location = new System.Drawing.Point(310, 1);
             this.btnSw6.Margin = new System.Windows.Forms.Padding(1);
             this.btnSw6.Name = "btnSw6";
-            this.btnSw6.Size = new System.Drawing.Size(71, 25);
+            this.btnSw6.Size = new System.Drawing.Size(77, 24);
             this.btnSw6.TabIndex = 4;
             this.btnSw6.Text = "SW 6";
             this.btnSw6.UseVisualStyleBackColor = true;
@@ -1611,10 +1614,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnSw5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSw5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw5.Location = new System.Drawing.Point(220, 1);
+            this.btnSw5.Location = new System.Drawing.Point(233, 1);
             this.btnSw5.Margin = new System.Windows.Forms.Padding(1);
             this.btnSw5.Name = "btnSw5";
-            this.btnSw5.Size = new System.Drawing.Size(71, 25);
+            this.btnSw5.Size = new System.Drawing.Size(75, 24);
             this.btnSw5.TabIndex = 3;
             this.btnSw5.Text = "SW 5";
             this.btnSw5.UseVisualStyleBackColor = true;
@@ -1625,9 +1628,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(213, 27);
+            this.label6.Size = new System.Drawing.Size(226, 26);
             this.label6.TabIndex = 1;
-            this.label6.Text = "PS1_USB_B";
+            this.label6.Text = "USB BOTTOM";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel12
@@ -1645,17 +1648,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(365, 27);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(388, 26);
             this.tableLayoutPanel12.TabIndex = 0;
             // 
             // btnSw3
             // 
             this.btnSw3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSw3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw3.Location = new System.Drawing.Point(220, 1);
+            this.btnSw3.Location = new System.Drawing.Point(233, 1);
             this.btnSw3.Margin = new System.Windows.Forms.Padding(1);
             this.btnSw3.Name = "btnSw3";
-            this.btnSw3.Size = new System.Drawing.Size(71, 25);
+            this.btnSw3.Size = new System.Drawing.Size(75, 24);
             this.btnSw3.TabIndex = 2;
             this.btnSw3.Text = "SW 3";
             this.btnSw3.UseVisualStyleBackColor = true;
@@ -1666,19 +1669,19 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(213, 27);
+            this.label5.Size = new System.Drawing.Size(226, 26);
             this.label5.TabIndex = 0;
-            this.label5.Text = "PS1_USB_T";
+            this.label5.Text = "USB TOP";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSw4
             // 
             this.btnSw4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSw4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSw4.Location = new System.Drawing.Point(293, 1);
+            this.btnSw4.Location = new System.Drawing.Point(310, 1);
             this.btnSw4.Margin = new System.Windows.Forms.Padding(1);
             this.btnSw4.Name = "btnSw4";
-            this.btnSw4.Size = new System.Drawing.Size(71, 25);
+            this.btnSw4.Size = new System.Drawing.Size(77, 24);
             this.btnSw4.TabIndex = 1;
             this.btnSw4.Text = "SW 4";
             this.btnSw4.UseVisualStyleBackColor = true;
@@ -1686,9 +1689,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // btnSwAllRead
             // 
             this.btnSwAllRead.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSwAllRead.Location = new System.Drawing.Point(4, 564);
+            this.btnSwAllRead.Location = new System.Drawing.Point(4, 544);
             this.btnSwAllRead.Name = "btnSwAllRead";
-            this.btnSwAllRead.Size = new System.Drawing.Size(359, 24);
+            this.btnSwAllRead.Size = new System.Drawing.Size(382, 33);
             this.btnSwAllRead.TabIndex = 20;
             this.btnSwAllRead.Text = "All Read";
             this.btnSwAllRead.UseVisualStyleBackColor = true;
@@ -1705,7 +1708,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(385, 140);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(408, 140);
             this.tableLayoutPanel14.TabIndex = 6;
             // 
             // groupBox2
@@ -1717,7 +1720,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(377, 130);
+            this.groupBox2.Size = new System.Drawing.Size(400, 130);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Output Base";
@@ -1743,17 +1746,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(369, 99);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(392, 99);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // btnOutputBaseWrite
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.btnOutputBaseWrite, 2);
             this.btnOutputBaseWrite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOutputBaseWrite.Location = new System.Drawing.Point(88, 70);
+            this.btnOutputBaseWrite.Location = new System.Drawing.Point(93, 70);
             this.btnOutputBaseWrite.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOutputBaseWrite.Name = "btnOutputBaseWrite";
-            this.btnOutputBaseWrite.Size = new System.Drawing.Size(278, 25);
+            this.btnOutputBaseWrite.Size = new System.Drawing.Size(296, 25);
             this.btnOutputBaseWrite.TabIndex = 6;
             this.btnOutputBaseWrite.Text = "Write";
             this.btnOutputBaseWrite.UseVisualStyleBackColor = true;
@@ -1762,7 +1765,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 39);
+            this.label4.Location = new System.Drawing.Point(29, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 21);
             this.label4.TabIndex = 3;
@@ -1772,7 +1775,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(262, 6);
+            this.label3.Location = new System.Drawing.Point(281, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 21);
             this.label3.TabIndex = 2;
@@ -1782,7 +1785,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(121, 6);
+            this.label2.Location = new System.Drawing.Point(131, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 21);
             this.label2.TabIndex = 1;
@@ -1792,7 +1795,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 6);
+            this.label1.Location = new System.Drawing.Point(26, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 21);
             this.label1.TabIndex = 0;
@@ -1801,24 +1804,49 @@ namespace p2_40_Main_PBA_Tester.Forms
             // tboxPs1VoltWrite
             // 
             this.tboxPs1VoltWrite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxPs1VoltWrite.Location = new System.Drawing.Point(88, 36);
+            this.tboxPs1VoltWrite.Location = new System.Drawing.Point(93, 36);
             this.tboxPs1VoltWrite.Name = "tboxPs1VoltWrite";
-            this.tboxPs1VoltWrite.Size = new System.Drawing.Size(135, 28);
+            this.tboxPs1VoltWrite.Size = new System.Drawing.Size(144, 28);
             this.tboxPs1VoltWrite.TabIndex = 4;
             // 
             // tboxPs1CurrWrite
             // 
             this.tboxPs1CurrWrite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxPs1CurrWrite.Location = new System.Drawing.Point(229, 36);
+            this.tboxPs1CurrWrite.Location = new System.Drawing.Point(243, 36);
             this.tboxPs1CurrWrite.Name = "tboxPs1CurrWrite";
-            this.tboxPs1CurrWrite.Size = new System.Drawing.Size(137, 28);
+            this.tboxPs1CurrWrite.Size = new System.Drawing.Size(146, 28);
             this.tboxPs1CurrWrite.TabIndex = 5;
+            // 
+            // btnTesterFwVerCheck
+            // 
+            this.btnTesterFwVerCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTesterFwVerCheck.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTesterFwVerCheck.Location = new System.Drawing.Point(215, 3);
+            this.btnTesterFwVerCheck.Margin = new System.Windows.Forms.Padding(1);
+            this.btnTesterFwVerCheck.Name = "btnTesterFwVerCheck";
+            this.btnTesterFwVerCheck.Size = new System.Drawing.Size(185, 25);
+            this.btnTesterFwVerCheck.TabIndex = 9;
+            this.btnTesterFwVerCheck.Text = "TESTER FW VER CHECK";
+            this.btnTesterFwVerCheck.UseVisualStyleBackColor = true;
+            // 
+            // lblTesterFwVer
+            // 
+            this.lblTesterFwVer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTesterFwVer.AutoSize = true;
+            this.lblTesterFwVer.BackColor = System.Drawing.Color.Transparent;
+            this.lblTesterFwVer.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTesterFwVer.Location = new System.Drawing.Point(298, 34);
+            this.lblTesterFwVer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTesterFwVer.Name = "lblTesterFwVer";
+            this.lblTesterFwVer.Size = new System.Drawing.Size(20, 29);
+            this.lblTesterFwVer.TabIndex = 10;
+            this.lblTesterFwVer.Text = "-";
             // 
             // ManualForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1587, 866);
+            this.ClientSize = new System.Drawing.Size(1586, 855);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 10F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1926,75 +1954,75 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel32;
         private System.Windows.Forms.Button btnSw2;
-        private System.Windows.Forms.Button btnSw1;
+        private System.Windows.Forms.Button btnSw23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
-        private System.Windows.Forms.Button btnSw40;
-        private System.Windows.Forms.Button btnSw39;
+        private System.Windows.Forms.Button btnSw16;
+        private System.Windows.Forms.Button btnSw14;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel30;
-        private System.Windows.Forms.Button btnSw38;
-        private System.Windows.Forms.Button btnSw37;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
-        private System.Windows.Forms.Button btnSw36;
-        private System.Windows.Forms.Button btnSw35;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
-        private System.Windows.Forms.Button btnSw34;
-        private System.Windows.Forms.Button btnSw33;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
-        private System.Windows.Forms.Button btnSw32;
-        private System.Windows.Forms.Button btnSw31;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
-        private System.Windows.Forms.Button btnSw30;
-        private System.Windows.Forms.Button btnSw29;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
-        private System.Windows.Forms.Button btnSw28;
-        private System.Windows.Forms.Button btnSw27;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
-        private System.Windows.Forms.Button btnSw26;
-        private System.Windows.Forms.Button btnSw25;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
-        private System.Windows.Forms.Button btnSw24;
-        private System.Windows.Forms.Button btnSw23;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
-        private System.Windows.Forms.Button btnSw22;
-        private System.Windows.Forms.Button btnSw21;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
-        private System.Windows.Forms.Button btnSw20;
-        private System.Windows.Forms.Button btnSw19;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
-        private System.Windows.Forms.Button btnSw18;
-        private System.Windows.Forms.Button btnSw17;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
-        private System.Windows.Forms.Button btnSw16;
-        private System.Windows.Forms.Button btnSw15;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
-        private System.Windows.Forms.Button btnSw14;
-        private System.Windows.Forms.Button btnSw13;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private System.Windows.Forms.Button btnSw12;
-        private System.Windows.Forms.Button btnSw11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
-        private System.Windows.Forms.Button btnSw10;
-        private System.Windows.Forms.Button btnSw9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Button btnSw8;
         private System.Windows.Forms.Button btnSw7;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
+        private System.Windows.Forms.Button btnSw40;
+        private System.Windows.Forms.Button btnSw38;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
+        private System.Windows.Forms.Button btnSw35;
+        private System.Windows.Forms.Button btnSw32;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
+        private System.Windows.Forms.Button btnSw37;
+        private System.Windows.Forms.Button btnSw36;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
+        private System.Windows.Forms.Button btnSw34;
+        private System.Windows.Forms.Button btnSw33;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
+        private System.Windows.Forms.Button btnSw31;
+        private System.Windows.Forms.Button btnSw30;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
+        private System.Windows.Forms.Button btnSw29;
+        private System.Windows.Forms.Button btnSw28;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
+        private System.Windows.Forms.Button btnSw1;
+        private System.Windows.Forms.Button btnSw27;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private System.Windows.Forms.Button btnSw26;
+        private System.Windows.Forms.Button btnSw25;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.Button btnSw39;
+        private System.Windows.Forms.Button btnSw24;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
+        private System.Windows.Forms.Button btnSw22;
+        private System.Windows.Forms.Button btnSw21;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+        private System.Windows.Forms.Button btnSw20;
+        private System.Windows.Forms.Button btnSw19;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private System.Windows.Forms.Button btnSw18;
+        private System.Windows.Forms.Button btnSw17;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
+        private System.Windows.Forms.Button btnSw15;
+        private System.Windows.Forms.Button btnSw13;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
+        private System.Windows.Forms.Button btnSw12;
+        private System.Windows.Forms.Button btnSw10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.Button btnSw11;
+        private System.Windows.Forms.Button btnSw9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Button btnSw6;
@@ -2011,5 +2039,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.Button btnTesterInit;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label lblTesterFwVer;
+        private System.Windows.Forms.Button btnTesterFwVerCheck;
     }
 }
