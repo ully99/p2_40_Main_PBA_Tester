@@ -33,9 +33,18 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.manualform = parentform;
             InitializeComponent();
             ConnectEvent();
+            DisConnectAllSerial();
             RescanSerialPort();
             DeviceTx = new RichTextLogger(tboxTx);
             DeviceRx = new RichTextLogger(tboxRx);
+        }
+
+        private void DisConnectAllSerial()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                CommManager.Pbas[i].Disconnect();
+            }
         }
 
         private void RescanSerialPort()

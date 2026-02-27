@@ -43,10 +43,20 @@ namespace p2_40_Main_PBA_Tester.Data
                 case "CURRENT_SLEEP_SHIP":
                     result = await Test_Current_Sleep_Ship(channelIndex, control, token);
                     break;
+                case "CHARGE":
+                    result = await Test_CHARGE(channelIndex, control, token);
+                    break;
+                case "USB CHECK":
+                    result = await Test_USB_CHECK(channelIndex, control, token);
+                    break;
 
                 //통신검사
                 case "PBA CMD CHECK START":
                     result = await Test_Pba_Cmd_Check_Start(channelIndex, control, token);
+                    break;
+
+                case "FLAG INIT":
+                    result = await Test_Flag_Init(channelIndex, control, token);
                     break;
 
                 case "MOTOR":
@@ -55,6 +65,10 @@ namespace p2_40_Main_PBA_Tester.Data
 
                 case "FLOODS":
                     result = await Test_FLOODS(channelIndex, control, token);
+                    break;
+
+                case "HEATER":
+                    result = await Test_HEATER(channelIndex, control, token);
                     break;
 
                 case "CARTRIDGE":
@@ -74,6 +88,14 @@ namespace p2_40_Main_PBA_Tester.Data
                 case "FLASH MEMORY":
                     result = await Test_Flash_Memory(channelIndex, control, token);
                     break;
+                case "PBA FLAG":
+                    result = await Test_PBA_FLAG(channelIndex, control, token, totalResult);
+                    break;
+
+                case "PBA TEST END":
+                    result = await Test_PBA_TEST_END(channelIndex, control, token);
+                    break;
+
 
                 default:
                     // 정의되지 않은 항목은 일단 PASS 처리하거나 로그 남김
@@ -88,13 +110,7 @@ namespace p2_40_Main_PBA_Tester.Data
             return result;
         }
 
-      
-
-
-
-
-
-
+       
 
 
 
@@ -448,10 +464,10 @@ namespace p2_40_Main_PBA_Tester.Data
                     control.Logger.Fail($"LDO SECOND CMD RX 에러");
                     return false;
                 }
-                byte[] mcu_3V0_byte = new byte[] { Ldo_start_cmd_rx[7], Ldo_start_cmd_rx[8], Ldo_start_cmd_rx[9], Ldo_start_cmd_rx[10] };
-                byte[] sys_3V3_byte = new byte[] { Ldo_start_cmd_rx[11], Ldo_start_cmd_rx[12], Ldo_start_cmd_rx[13], Ldo_start_cmd_rx[14] };
-                byte[] vdd_3V0_byte = new byte[] { Ldo_start_cmd_rx[15], Ldo_start_cmd_rx[16], Ldo_start_cmd_rx[17], Ldo_start_cmd_rx[18] };
-                byte[] lcd_3V0_byte = new byte[] { Ldo_start_cmd_rx[19], Ldo_start_cmd_rx[20], Ldo_start_cmd_rx[21], Ldo_start_cmd_rx[22] };
+                byte[] mcu_3V0_byte = new byte[] { Ldo_second_cmd_rx[7], Ldo_second_cmd_rx[8], Ldo_second_cmd_rx[9], Ldo_second_cmd_rx[10] };
+                byte[] sys_3V3_byte = new byte[] { Ldo_second_cmd_rx[11], Ldo_second_cmd_rx[12], Ldo_second_cmd_rx[13], Ldo_second_cmd_rx[14] };
+                byte[] vdd_3V0_byte = new byte[] { Ldo_second_cmd_rx[15], Ldo_second_cmd_rx[16], Ldo_second_cmd_rx[17], Ldo_second_cmd_rx[18] };
+                byte[] lcd_3V0_byte = new byte[] { Ldo_second_cmd_rx[19], Ldo_second_cmd_rx[20], Ldo_second_cmd_rx[21], Ldo_second_cmd_rx[22] };
                 float mcu_3V0 = BitConverter.ToSingle(mcu_3V0_byte, 0);
                 float sys_3V3 = BitConverter.ToSingle(sys_3V3_byte, 0);
                 float vdd_3V0 = BitConverter.ToSingle(vdd_3V0_byte, 0);
@@ -667,7 +683,279 @@ namespace p2_40_Main_PBA_Tester.Data
                 return false;
             }
         }
+        private static async Task<bool> Test_CHARGE(int ch, ChControl control, CancellationToken token)
+        {
+            bool isPass = true;
+            var Board = CommManager.Boards[ch];
+            var Pba = CommManager.Pbas[ch];
 
+            if (!Board.IsConnected())
+            {
+                control.Logger.Fail("TCP is not connected!");
+                return false;
+            }
+
+            try
+            {
+                await Task.Delay(Settings.Instance.CHARGE_Step_Delay);
+
+                byte[] tx1 = new TcpProtocol(0xC5, 0x01).GetPacket();
+                int delay1 = Settings.Instance.Board_Read_Timeout + Settings.Instance.CHARGE_TCP_01_Delay;
+                Console.WriteLine($"Charging HVDCP CMD RX 수신 대기 [Delay : {delay1}ms] [CH{ch + 1}]");
+                byte[] rx1 = await Board.SendAndReceivePacketAsync(tx1, delay1, token);
+
+                if (!UtilityFunctions.CheckTcpRxData(tx1, rx1))
+                {
+                    control.Logger.Fail($"Charging HVDCP CMD RX 에러");
+                    return false;
+                }
+
+                float charge_hvdcp = BitConverter.ToSingle(rx1, 7);
+                bool isPass_hvdcp = charge_hvdcp >= Settings.Instance.CHARGE_HVDCP_Min && charge_hvdcp <= Settings.Instance.CHARGE_HVDCP_Max;
+                if (isPass_hvdcp)
+                {
+                    control.Logger.Pass($"CHARGING HVDCP : {charge_hvdcp} [{Settings.Instance.CHARGE_HVDCP_Min} ~ " +
+                        $"{Settings.Instance.CHARGE_HVDCP_Max}]");
+                }
+                else
+                {
+                    control.Logger.Fail($"CHARGING HVDCP : {charge_hvdcp} [{Settings.Instance.CHARGE_HVDCP_Min} ~ " +
+                        $"{Settings.Instance.CHARGE_HVDCP_Max}]");
+                }
+
+                byte[] tx2 = new TcpProtocol(0xC5, 0x02).GetPacket();
+                int delay2 = Settings.Instance.Board_Read_Timeout + Settings.Instance.CHARGE_TCP_02_Delay;
+                Console.WriteLine($"Charging PPS CMD RX 수신 대기 [Delay : {delay2}ms] [CH{ch + 1}]");
+                byte[] rx2 = await Board.SendAndReceivePacketAsync(tx2, delay2, token);
+
+                if (!UtilityFunctions.CheckTcpRxData(tx2, rx2))
+                {
+                    control.Logger.Fail($"Charging PPS CMD RX 에러");
+                    return false;
+                }
+
+                await Task.Delay(Settings.Instance.CHARGE_Booting_01_Delay);
+                Console.WriteLine($"CHARGE booting delay 01 : {Settings.Instance.CHARGE_Booting_01_Delay}");
+
+                bool connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
+                if (!connectOk)
+                {
+                    control.Logger.Fail($"PBA connect fail [{Return_Pba_Port_Name(ch)}]");
+                    return false;
+                }
+                //control.Logger.Pass($"PBA connect success [{Return_Pba_Port_Name(ch)}]");
+
+                byte[] tx3 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_PPS_CHARGE_CURR_RECORD).GetPacket(); // Sleep 커맨드
+                int delay3 = Settings.Instance.Pba_Read_Timeout; // 통신 대기 Delay
+                Console.WriteLine($"PPS 충전전류 이력 WRITE RX 수신 대기 [Delay : {delay3}ms] [CH{ch + 1}]");
+
+                byte[] rx3 = await Pba.SendAndReceivePacketAsync(tx3, delay3, token);
+                if (!UtilityFunctions.CheckEchoAck(tx3, rx3))
+                {
+                    control.Logger.Fail("PPS 충전전류 이력 WRITE 에러");
+                    return false;
+                }
+                //control.Logger.Pass("SLEEP CMD 적용 완료");
+
+                byte[] tx4 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_PPS_CHARGE_CURR_RECORD).GetPacket(); // Sleep 커맨드
+                int delay4 = Settings.Instance.Pba_Read_Timeout; // 통신 대기 Delay
+                Console.WriteLine($"PPS 충전전류 이력 READ RX 수신 대기 [Delay : {delay4}ms] [CH{ch + 1}]");
+
+                byte[] rx4 = await Pba.SendAndReceivePacketAsync_OnlyData(tx4, delay4, token);
+                if (rx4 == null)
+                {
+                    control.Logger.Fail("PPS 충전전류 이력 READ is null");
+                    return false;
+                }
+                short charge_record_soc = (short)((rx4[0] << 8) | rx4[1]);
+                short charge_record_vbus = (short)((rx4[2] << 8) | rx4[3]);
+                short charge_record_vbat = (short)((rx4[4] << 8) | rx4[5]);
+                short charge_record_ibat = (short)((rx4[6] << 8) | rx4[7]);
+
+                control.Logger.Info($"충전 전류 이력 SOC : {charge_record_soc}%");
+                control.Logger.Info($"충전 전류 이력 VBUS : {charge_record_vbus}mV");
+                control.Logger.Info($"충전 전류 이력 VBAT : {charge_record_vbat}mV");
+
+                bool isPass_pps = charge_record_ibat >= Settings.Instance.CHARGE_PPS_Min &&
+                    charge_record_ibat <= Settings.Instance.CHARGE_PPS_Max;
+                if (isPass_pps)
+                {
+                    control.Logger.Pass($"충전 전류 이력 IBAT : {charge_record_ibat}mA [{Settings.Instance.CHARGE_PPS_Min} ~ " +
+                        $"{Settings.Instance.CHARGE_PPS_Max}]");
+                }
+                else
+                {
+                    control.Logger.Fail($"충전 전류 이력 IBAT : {charge_record_ibat}mA [{Settings.Instance.CHARGE_PPS_Min} ~ " +
+                        $"{Settings.Instance.CHARGE_PPS_Max}]");
+                }
+
+                isPass = isPass_hvdcp && isPass_pps;
+
+                byte[] tx5 = new TcpProtocol(0xC5, 0x02).GetPacket();
+                int delay5 = Settings.Instance.Board_Read_Timeout + Settings.Instance.CHARGE_TCP_03_Delay;
+                Console.WriteLine($"CHARGE PPS END CMD [Delay : {delay5}ms] [CH{ch + 1}]");
+
+                byte[] rx5 = await Board.SendAndReceivePacketAsync(tx5, delay5, token);
+
+                if (!UtilityFunctions.CheckTcpRxData(tx5, rx5))
+                {
+                    control.Logger.Fail("CHARGE PPS END CMD 실패");
+                    return false;
+                }
+
+                return isPass;
+
+            }
+            catch (OperationCanceledException)
+            {
+                control.UpdateNowStatus(ChControl.NowStatus.STOP);
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = $"[{ch + 1}CH] CHARGE 예외: {ex.Message}";
+                Console.WriteLine(errorMsg);
+                // UI 로그에도 표시
+                control.Logger.Fail(errorMsg);
+                return false;
+            }
+        }
+
+        private static async Task<bool> Test_USB_CHECK(int ch, ChControl control, CancellationToken token)
+        {
+            bool isPass = true;
+            var Board = CommManager.Boards[ch];
+            var Pba = CommManager.Pbas[ch];
+
+            if (!Board.IsConnected())
+            {
+                control.Logger.Fail("TCP is not connected!");
+                return false;
+            }
+
+            try
+            {
+                await Task.Delay(Settings.Instance.USB_CHECK_Step_Delay);
+
+                byte[] tx1 = new TcpProtocol(0xC7, 0x01).GetPacket();
+                int delay1 = Settings.Instance.Board_Read_Timeout + Settings.Instance.USB_CHECK_TCP_01_Delay;
+                Console.WriteLine($"USB TOP HVDCP CMD RX 수신 대기 [Delay : {delay1}ms] [CH{ch + 1}]");
+                byte[] rx1 = await Board.SendAndReceivePacketAsync(tx1, delay1, token);
+
+                if (!UtilityFunctions.CheckTcpRxData(tx1, rx1))
+                {
+                    control.Logger.Fail($"USB TOP HVDCP RX 에러");
+                    return false;
+                }
+
+                await Task.Delay(Settings.Instance.USB_CHECK_Booting_01_Delay);
+                Console.WriteLine($"USB CHECK Booting 01 delay : {Settings.Instance.USB_CHECK_Booting_01_Delay}");
+                bool connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
+                if (!connectOk)
+                {
+                    control.Logger.Fail($"PBA connect fail [{Return_Pba_Port_Name(ch)}]");
+                    return false;
+                }
+                //control.Logger.Pass($"PBA connect success [{Return_Pba_Port_Name(ch)}]");
+
+                byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_TA_CHECK).GetPacket();
+                int delay2 = Settings.Instance.Pba_Read_Timeout; // 통신 대기 Delay
+                Console.WriteLine($"충전기 종류 확인 RX 수신 대기 [Delay : {delay2}ms] [CH{ch + 1}]");
+
+                byte[] rx2 = await Pba.SendAndReceivePacketAsync_OnlyData(tx2, delay2, token);
+                if (rx2 == null)
+                {
+                    control.Logger.Fail($"충전기 종류 확인 실패 : NULL");
+                    return false;
+                }
+                short ta_type = (short)((rx2[0] << 8) | rx2[1]);
+                bool isPass_top = ta_type == Settings.Instance.USB_CHECK_TOP;
+                if (isPass_top)
+                {
+                    control.Logger.Pass($"USB TOP : {ta_type} [{Settings.Instance.USB_CHECK_TOP}]");
+                }
+                else
+                {
+                    control.Logger.Fail($"USB TOP : {ta_type} [{Settings.Instance.USB_CHECK_TOP}]");
+                }
+
+                byte[] tx3 = new TcpProtocol(0xC7, 0x02).GetPacket();
+                int delay3 = Settings.Instance.Board_Read_Timeout + Settings.Instance.USB_CHECK_TCP_02_Delay;
+                Console.WriteLine($"USB BOTTOM HVDCP RX 수신 대기 [Delay : {delay3}ms] [CH{ch + 1}]");
+                byte[] rx3 = await Board.SendAndReceivePacketAsync(tx3, delay3, token);
+
+                if (!UtilityFunctions.CheckTcpRxData(tx3, rx3))
+                {
+                    control.Logger.Fail($"USB BOTTOM HVDCP RX 에러");
+                    return false;
+                }
+
+                await Task.Delay(Settings.Instance.USB_CHECK_Booting_02_Delay);
+                Console.WriteLine($"USB CHECK Booting 02 delay : {Settings.Instance.USB_CHECK_Booting_02_Delay}");
+
+                connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
+                if (!connectOk)
+                {
+                    control.Logger.Fail($"PBA connect fail [{Return_Pba_Port_Name(ch)}]");
+                    return false;
+                }
+                //control.Logger.Pass($"PBA connect success [{Return_Pba_Port_Name(ch)}]");
+
+
+
+                byte[] tx4 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_TA_CHECK).GetPacket();
+                int delay4 = Settings.Instance.Pba_Read_Timeout; // 통신 대기 Delay
+                Console.WriteLine($"충전기 종류 확인 RX 수신 대기 [Delay : {delay4}ms] [CH{ch + 1}]");
+
+                byte[] rx4 = await Pba.SendAndReceivePacketAsync_OnlyData(tx4, delay4, token);
+                if (rx4 == null)
+                {
+                    control.Logger.Fail($"충전기 종류 확인 실패 : NULL");
+                    return false;
+                }
+                short ta_type2 = (short)((rx4[0] << 8) | rx4[1]);
+                bool isPass_bottom = ta_type2 == Settings.Instance.USB_CHECK_BOTTOM;
+                if (isPass_bottom)
+                {
+                    control.Logger.Pass($"USB BOTTOM : {ta_type2} [{Settings.Instance.USB_CHECK_BOTTOM}]");
+                }
+                else
+                {
+                    control.Logger.Fail($"USB BOTTOM : {ta_type2} [{Settings.Instance.USB_CHECK_BOTTOM}]");
+                }
+
+                isPass = isPass_top && isPass_bottom;
+
+                byte[] tx5 = new TcpProtocol(0xC7, 0x03).GetPacket();
+                int delay5 = Settings.Instance.Board_Read_Timeout + Settings.Instance.USB_CHECK_TCP_03_Delay;
+                Console.WriteLine($"USB END RX 수신 대기 [Delay : {delay5}ms] [CH{ch + 1}]");
+                byte[] rx5 = await Board.SendAndReceivePacketAsync(tx5, delay5, token);
+
+                if (!UtilityFunctions.CheckTcpRxData(tx5, rx5))
+                {
+                    control.Logger.Fail($"USB END RX 에러");
+                    return false;
+                }
+
+                return isPass;
+
+            }
+            catch (OperationCanceledException)
+            {
+                control.UpdateNowStatus(ChControl.NowStatus.STOP);
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = $"[{ch + 1}CH] USB CHECK 예외: {ex.Message}";
+                Console.WriteLine(errorMsg);
+                // UI 로그에도 표시
+                control.Logger.Fail(errorMsg);
+                return false;
+            }
+        }
 
         #region 통신 검사
         private static async Task<bool> Test_Pba_Cmd_Check_Start(int ch, ChControl control, CancellationToken token)
@@ -724,6 +1012,88 @@ namespace p2_40_Main_PBA_Tester.Data
                 return false;
             }
 
+        }
+
+        private static async Task<bool> Test_Flag_Init(int ch, ChControl control, CancellationToken token)
+        {
+            var Pba = CommManager.Pbas[ch];
+
+            try
+            {
+                await Task.Delay(Settings.Instance.FLAG_INIT_Step_Delay);
+
+                bool connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
+                if (!connectOk)
+                {
+                    control.Logger.Fail($"PBA connect fail [{Return_Pba_Port_Name(ch)}]");
+                    return false;
+                }
+
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_PROCESS_FLAG).GetPacket();
+                int delay = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, delay, token);
+                if (rx == null || rx.Length < 4)
+                {
+                    control.Logger.Fail($"FLAG READ CMD 에러");
+                    return false;
+                }
+
+                byte[] byte_now_flag = new byte[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    byte_now_flag[i] = rx[2 * i + 1];
+                }
+
+                string str_now_flag = BitConverter.ToString(byte_now_flag).Replace("-", "");
+                control.Logger.Info($"PROCESS FLAG (Before Init) : {str_now_flag}");
+
+                byte_now_flag[3] &= 0xFE; // PBA FLAG 비트만 0으로 초기화
+                byte[] init_flag_data = new byte[] { 0x0B, 0xB9, 0x00, 0x04, 0x08,
+                    0x00, byte_now_flag[0], 0x00, byte_now_flag[1], 0x00, byte_now_flag[2], 0x00, byte_now_flag[3] };
+
+                byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.MULTI_WRITE, init_flag_data).GetPacket();
+                byte[] rx2 = await Pba.SendAndReceivePacketAsync(tx2, delay);
+                if (rx2 == null || !UtilityFunctions.CheckWriteMultiAck(tx2, rx2))
+                {
+                    control.Logger.Fail("INIT FLAG FAIL");
+                    return false;
+                }
+
+                byte[] tx3 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_PROCESS_FLAG).GetPacket();
+                byte[] rx3 = await Pba.SendAndReceivePacketAsync_OnlyData(tx3, delay, token);
+                if (rx3 == null || rx3.Length < 4)
+                {
+                    control.Logger.Fail($"FLAG READ CMD 에러");
+                    return false;
+                }
+
+                byte[] byte_init_flag = new byte[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    byte_init_flag[i] = rx3[2 * i + 1];
+                }
+
+                string str_init_flag = BitConverter.ToString(byte_init_flag).Replace("-", "");
+
+                bool isPass = (byte_init_flag[3] & 0x01) == 0; //PBA 비트가 0으로 초기화 되었는지 확인
+
+                if (isPass) control.Logger.Pass($"PROCESS FLAG (After Init) : {str_init_flag}");
+                else control.Logger.Fail($"PROCESS FLAG (After Init) : {str_init_flag}");
+
+                return isPass;
+
+            }
+            catch (OperationCanceledException)
+            {
+                control.UpdateNowStatus(ChControl.NowStatus.STOP);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = $"[{ch + 1}CH] FLAG INIT 예외: {ex.Message}";
+                control.Logger.Fail(errorMsg);
+                return false;
+            }
         }
 
         private static async Task<bool> Test_MOTOR(int ch, ChControl control, CancellationToken token)
@@ -899,6 +1269,151 @@ namespace p2_40_Main_PBA_Tester.Data
             catch (Exception ex)
             {
                 string errorMsg = $"[{ch + 1}CH] FLOODS 예외: {ex.Message}";
+                control.Logger.Fail(errorMsg);
+                return false;
+            }
+        }
+
+        private static async Task<bool> Test_HEATER(int ch, ChControl control, CancellationToken token)
+        {
+            var Board = CommManager.Boards[ch];
+            var Pba = CommManager.Pbas[ch];
+
+            if (!Board.IsConnected())
+            {
+                Console.WriteLine($"TCP가 연결되어있지 않습니다. [CH{ch + 1}]");
+                control.Logger.Fail("TCP is not connected!");
+                return false;
+            }
+
+            try
+            {
+                await Task.Delay(Settings.Instance.HEATER_Step_Delay);
+
+                bool connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
+                if (!connectOk)
+                {
+                    control.Logger.Fail($"PBA connect fail [{Return_Pba_Port_Name(ch)}]");
+                    return false;
+                }
+
+                byte[] tx = new TcpProtocol(0xCB, 0x01).GetPacket();
+                int delay = Settings.Instance.Board_Read_Timeout + Settings.Instance.HEATER_TCP_01_Delay;
+                Console.WriteLine($"HEATER START 수신 대기 [Delay : {delay}ms] [CH{ch + 1}]");
+                byte[] rx = await Board.SendAndReceivePacketAsync(tx, delay, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx, rx))
+                {
+                    control.Logger.Fail($"HEATER START CMD RX 에러");
+                    return false;
+                }
+
+                byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SENSING_PIN_OFF).GetPacket();
+                int delay2 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx2 = await Pba.SendAndReceivePacketAsync(tx2, delay2, token);
+                if (!UtilityFunctions.CheckEchoAck(tx2, rx2))
+                {
+                    control.Logger.Fail($"SENSING PIN OFF 에러");
+                    return false;
+                }
+
+                byte[] tx3 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_HEATER_NOW_RESIST).GetPacket();
+                int delay3 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx3 = await Pba.SendAndReceivePacketAsync_OnlyData(tx3, delay3, token);
+                if (rx3 == null)
+                {
+                    control.Logger.Fail($"READ HEATER NOW RESIST RX is null");
+                    return false;
+                }
+                short pinOff_resist_short = (short)((rx3[0] << 8) | rx3[1]);
+                float pinOff_resist = pinOff_resist_short / 1000;
+                bool isPass_pinOff = pinOff_resist >= Settings.Instance.HEATER_Sensing_Pin_Off_Min
+                    && pinOff_resist <= Settings.Instance.HEATER_Sensing_Pin_Off_Max;
+                if (isPass_pinOff)
+                {
+                    control.Logger.Pass($"HEATER SENSING PIN OFF : {pinOff_resist} [{Settings.Instance.HEATER_Sensing_Pin_Off_Min} ~ " +
+                        $"{Settings.Instance.HEATER_Sensing_Pin_Off_Max}]");
+                }
+                else
+                {
+                    control.Logger.Fail($"HEATER SENSING PIN OFF : {pinOff_resist} [{Settings.Instance.HEATER_Sensing_Pin_Off_Min} ~ " +
+                        $"{Settings.Instance.HEATER_Sensing_Pin_Off_Max}]");
+                }
+
+                byte[] tx4 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SENSING_PIN_ON).GetPacket();
+                int delay4 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx4 = await Pba.SendAndReceivePacketAsync(tx4, delay4, token);
+                if (!UtilityFunctions.CheckEchoAck(tx4, rx4))
+                {
+                    control.Logger.Fail($"SENSING PIN ON 에러");
+                    return false;
+                }
+
+                byte[] tx5 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_HEATER_NOW_RESIST).GetPacket();
+                int delay5 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx5 = await Pba.SendAndReceivePacketAsync_OnlyData(tx5, delay5, token);
+                if (rx5 == null)
+                {
+                    control.Logger.Fail($"READ HEATER NOW RESIST RX is null");
+                    return false;
+                }
+                short pinOn_resist_short = (short)((rx5[0] << 8) | rx5[1]);
+                float pinOn_resist = pinOn_resist_short / 1000;
+                bool isPass_pinOn = pinOn_resist >= Settings.Instance.HEATER_Sensing_Pin_On_Min
+                    && pinOn_resist <= Settings.Instance.HEATER_Sensing_Pin_On_Max;
+                if (isPass_pinOn)
+                {
+                    control.Logger.Pass($"HEATER SENSING PIN ON : {pinOn_resist} [{Settings.Instance.HEATER_Sensing_Pin_On_Min} ~ " +
+                        $"{Settings.Instance.HEATER_Sensing_Pin_On_Max}]");
+                }
+                else
+                {
+                    control.Logger.Fail($"HEATER SENSING PIN ON : {pinOn_resist} [{Settings.Instance.HEATER_Sensing_Pin_On_Min} ~ " +
+                        $"{Settings.Instance.HEATER_Sensing_Pin_On_Max}]");
+                }
+
+                byte[] tx6 = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_HEATER_PWM).GetPacket();
+                int delay6 = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx6 = await Pba.SendAndReceivePacketAsync(tx6, delay6, token);
+                if (!UtilityFunctions.CheckEchoAck(tx6, rx6))
+                {
+                    control.Logger.Fail($"WRITE HEATER PWM 에러");
+                    return false;
+                }
+
+                byte[] tx7 = new TcpProtocol(0xCB, 0x02).GetPacket();
+                int delay7 = Settings.Instance.Board_Read_Timeout + Settings.Instance.HEATER_TCP_02_Delay;
+                Console.WriteLine($"HEATER PWM 수신 대기 [Delay : {delay7}ms] [CH{ch + 1}]");
+                byte[] rx7 = await Board.SendAndReceivePacketAsync(tx7, delay7, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx7, rx7))
+                {
+                    control.Logger.Fail($"HEATER PWM RX 에러");
+                    return false;
+                }
+                uint heater_pwm = BitConverter.ToUInt32(rx7, 7);
+                bool isPass_pwm = heater_pwm >= Settings.Instance.HEATER_PWM_Min && heater_pwm <= Settings.Instance.HEATER_PWM_Max;
+                if (isPass_pwm)
+                {
+                    control.Logger.Pass($"HEATER PWM : {heater_pwm} [{Settings.Instance.HEATER_PWM_Min} ~ " +
+                        $"{Settings.Instance.HEATER_PWM_Max}]");
+                }
+                else
+                {
+                    control.Logger.Fail($"HEATER PWM : {heater_pwm} [{Settings.Instance.HEATER_PWM_Min} ~ " +
+                        $"{Settings.Instance.HEATER_PWM_Max}]");
+                }
+                bool isPass = isPass_pinOn && isPass_pinOff && isPass_pwm;
+
+                return isPass;
+
+            }
+            catch (OperationCanceledException)
+            {
+                control.UpdateNowStatus(ChControl.NowStatus.STOP);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = $"[{ch + 1}CH] HEATER 예외: {ex.Message}";
                 control.Logger.Fail(errorMsg);
                 return false;
             }
@@ -1250,8 +1765,7 @@ namespace p2_40_Main_PBA_Tester.Data
                     control.Logger.Fail($"MCU Flash Integrity Check Start CMD 에러");
                     return false;
                 }
-                await Task.Delay(Settings.Instance.FLASH_MEMORY_MCU_FLASH_WAIT);
-                control.Logger.Info($"MCU FLASH WAIT 대기...[{Settings.Instance.FLASH_MEMORY_MCU_FLASH_WAIT}ms]");
+                
 
                 byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FLASH_INTEGRITY_CHECK_RESULT).GetPacket();
                 int delay2 = Settings.Instance.Pba_Read_Timeout + Settings.Instance.FLASH_MEMORY_Pba_Delay;
@@ -1279,8 +1793,7 @@ namespace p2_40_Main_PBA_Tester.Data
                     control.Logger.Fail($"Ext Flash Integrity Check Start CMD 에러");
                     return false;
                 }
-                await Task.Delay(Settings.Instance.FLASH_MEMORY_MCU_EXT_WAIT);
-                control.Logger.Info($"EXT FLASH WAIT 대기...[{Settings.Instance.FLASH_MEMORY_MCU_EXT_WAIT}ms]");
+                
 
                 byte[] tx4 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_EXT_FLASH_INTEGRITY_CHECK_RESULT).GetPacket();
                 int delay4 = Settings.Instance.Pba_Read_Timeout + Settings.Instance.FLASH_MEMORY_Pba_Delay;
@@ -1309,6 +1822,152 @@ namespace p2_40_Main_PBA_Tester.Data
             catch (Exception ex)
             {
                 string errorMsg = $"[{ch + 1}CH] FLASH MEMORY 예외: {ex.Message}";
+                control.Logger.Fail(errorMsg);
+                return false;
+            }
+        }
+
+        private static async Task<bool> Test_PBA_FLAG(int ch, ChControl control, CancellationToken token, bool totalResult)
+        {
+            bool isPass = true;
+            var Pba = CommManager.Pbas[ch];
+
+            try
+            {
+                await Task.Delay(Settings.Instance.PBA_FLAG_Step_Delay);
+
+                bool connectOk = await Pba.ConnectAsync(Return_Pba_Port_Name(ch), Return_Pba_Port_Baudrate(ch), Settings.Instance.Pba_Connect_Timeout, token);
+                if (!connectOk)
+                {
+                    control.Logger.Fail($"PBA connect fail [{Return_Pba_Port_Name(ch)}]");
+                    return false;
+                }
+
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_PROCESS_FLAG).GetPacket();
+                int delay = Settings.Instance.Pba_Read_Timeout;
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, delay, token);
+                if (rx == null || rx.Length < 4)
+                {
+                    control.Logger.Fail($"FLAG READ CMD 에러");
+                    return false;
+                }
+
+                byte[] byte_now_flag = new byte[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    byte_now_flag[i] = rx[2 * i + 1];
+                }
+
+                string str_now_flag = BitConverter.ToString(byte_now_flag).Replace("-", "");
+                control.Logger.Info($"PROCESS FLAG (Before Write) : {str_now_flag}");
+
+                if (totalResult)
+                {
+                    byte_now_flag[3] |= 0x01; //이전 결과까지 성공이면 PBA FLAG 비트 1
+                    control.Logger.Info("Write pass flag...");
+                }
+                else
+                {
+                    byte_now_flag[3] &= 0xFE; // 실패면 PBA FLAG 비트 0
+                    control.Logger.Info("Write fail flag...");
+                }
+
+                byte[] write_flag_data = new byte[] { 0x0B, 0xB9, 0x00, 0x04, 0x08,
+                    0x00, byte_now_flag[0], 0x00, byte_now_flag[1], 0x00, byte_now_flag[2], 0x00, byte_now_flag[3] };
+
+                byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.MULTI_WRITE, write_flag_data).GetPacket();
+                byte[] rx2 = await Pba.SendAndReceivePacketAsync(tx2, delay);
+                if (rx2 == null || !UtilityFunctions.CheckWriteMultiAck(tx2, rx2))
+                {
+                    control.Logger.Fail("WRITE PBA FLAG FAIL");
+                    return false;
+                }
+
+                byte[] tx3 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_PROCESS_FLAG).GetPacket();
+                byte[] rx3 = await Pba.SendAndReceivePacketAsync_OnlyData(tx3, delay, token);
+                if (rx3 == null || rx3.Length < 4)
+                {
+                    control.Logger.Fail($"FLAG READ CMD 에러");
+                    return false;
+                }
+
+                byte[] byte_written_flag = new byte[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    byte_written_flag[i] = rx3[2 * i + 1];
+                }
+
+                string str_written_flag = BitConverter.ToString(byte_written_flag).Replace("-", "");
+
+                short verdict_flag = 0;
+                if ((byte_written_flag[3] & 0x01) == 1) verdict_flag = 1;
+                else verdict_flag = 0;
+
+                isPass = verdict_flag == Settings.Instance.PBA_FLAG_FLAG;
+
+                if (isPass)
+                {
+                    control.Logger.Pass($"PBA FLAG : {verdict_flag} [{Settings.Instance.PBA_FLAG_FLAG}]");
+                }
+                else
+                {
+                    control.Logger.Fail($"PBA FLAG : {verdict_flag} [{Settings.Instance.PBA_FLAG_FLAG}]");
+                }
+
+                return isPass;
+            }
+            catch (OperationCanceledException)
+            {
+                control.UpdateNowStatus(ChControl.NowStatus.STOP);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = $"[{ch + 1}CH] FLAG INIT 예외: {ex.Message}";
+                control.Logger.Fail(errorMsg);
+                return false;
+            }
+        }
+
+        private static async Task<bool> Test_PBA_TEST_END(int ch, ChControl control, CancellationToken token) 
+        {
+            var Board = CommManager.Boards[ch];
+
+            if (!Board.IsConnected())
+            {
+                Console.WriteLine($"TCP가 연결되어있지 않습니다. [CH{ch + 1}]");
+                control.Logger.Fail("TCP is not connected!");
+                return false;
+            }
+
+            try
+            {
+                await Task.Delay(Settings.Instance.PBA_TEST_END_Step_Delay);
+
+                byte[] tx = new TcpProtocol(0x01, 0x00).GetPacket();
+                int delay = Settings.Instance.Board_Read_Timeout + Settings.Instance.PBA_TEST_END_TCP_01_Delay;
+                Console.WriteLine($"PBA CMD CHECK START CMD RX 수신 대기 [Delay : {delay}ms] [CH{ch + 1}]");
+
+                byte[] rx = await Board.SendAndReceivePacketAsync(tx, delay, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx, rx))
+                {
+                    control.Logger.Fail($"TESTER INITIALIZE CMD RX 에러");
+                    return false;
+                }
+
+                
+
+                return true;
+
+            }
+            catch (OperationCanceledException)
+            {
+                control.UpdateNowStatus(ChControl.NowStatus.STOP);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = $"[{ch + 1}CH] PBA CMD CHECK START 예외: {ex.Message}";
                 control.Logger.Fail(errorMsg);
                 return false;
             }

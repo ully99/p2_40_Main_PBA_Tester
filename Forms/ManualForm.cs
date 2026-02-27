@@ -47,7 +47,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 "VBOOST", "HT_BOOST",
                 "SUB_HT_BOOST_OUT", "KATO_BOOST_OUT", "MOTOR",
                 "H_COUNT_CHECK_INT", "KA_COUNT_CHECK_INT",
-                "SH_COUNT_CHECK_INT"};
+                "SH_COUNT_CHECK_INT", "SLEEP", "SHIP"};
 
             foreach (var name in items)
             {
@@ -123,7 +123,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                     bool success = await WriteSingleSwitch(swIndex - 1, isOn_nextStatus);
                     if (success)
                     {
-                        btn.BackColor = isOn_nextStatus ? Color.LightGreen : SystemColors.Control;
+                        btn.BackColor = isOn_nextStatus ? Color.LightGreen : Color.White;
                         Console.WriteLine($"{nowStatus} -> {nextStatus} [SW {swIndex}]");
                     }
                     else
@@ -131,6 +131,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                         Console.WriteLine("스위치 토글 실패");
                     }
                 }
+
+                await ReadAllSwitch();
             }
         }
         private async void btnTesterInit_Click(object sender, EventArgs e)
@@ -317,7 +319,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                     {
                         // 이미지상 LSB가 낮은 번호 스위치이므로 (1 << bitIndex) 로직 유지
                         bool isOn = (switchBytes[byteIndex] & (1 << bitIndex)) != 0;
-                        btn.BackColor = isOn ? Color.LightGreen : SystemColors.Control;
+                        btn.BackColor = isOn ? Color.LightGreen : Color.White;
                     }
                 }
 
@@ -541,7 +543,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                     return;
                 }
 
-                if(isPwm)
+                if(!isPwm)
                 {
                     // rx[7]부터 FLOAT 4바이트 (Big Endian)
                     //byte[] floatBytes = rx.Skip(7).Take(4).Reverse().ToArray();
@@ -637,7 +639,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 byte Ver_high = rx[10];
                 byte Ver_low = rx[11];
 
-                string result = $"20{year}년 {month}월 {day}일 Version {Ver_high}.{Ver_low}";
+                string result = $"20{year}.{month}.{day}  Version {Ver_high}.{Ver_low}";
                 lblTesterFwVer.Text = result;
 
             }

@@ -12,9 +12,7 @@ namespace p2_40_Main_PBA_Tester.Data
     public sealed class RecipeLocalBuffer
     {
         //여기에 적힌 값들이 레시피 디폴트 값
-        #region INTERLOCK 
-        public bool INTERLOCK_Enable { get; set; } = true;
-        #endregion
+        
 
         #region QR READ (0)
         public bool QR_READ_Enable { get; set; } = true;
@@ -89,10 +87,17 @@ namespace p2_40_Main_PBA_Tester.Data
 
         #region CHARGE (5)
         public bool CHARGE_Enable { get; set; } = true;
-        public int CHARGE_Processor_Step_Delay { get; set; } = 10;
-        public int CHARGE_TCP1_Delay { get; set; } = 5000;
-        public float CHARGE_Current_Min { get; set; } = 1.111F;
-        public float CHARGE_Current_Max { get; set; } = 1.111F;
+        public int CHARGE_Step_Delay { get; set; } = 10;
+        public int CHARGE_Booting_01_Delay { get; set; } = 6000;
+        public int CHARGE_TCP_01_Delay { get; set; } = 5000;
+        public int CHARGE_TCP_02_Delay { get; set; } = 5000;
+        public int CHARGE_TCP_03_Delay { get; set; } = 5000;
+
+        public float CHARGE_HVDCP_Min { get; set; } = 800F;
+        public float CHARGE_HVDCP_Max { get; set; } = 1200F;
+
+        public short CHARGE_PPS_Min { get; set; } = 800;
+        public short CHARGE_PPS_Max { get; set; } = 1200;
         #endregion
 
         #region GPAK (6)
@@ -100,25 +105,25 @@ namespace p2_40_Main_PBA_Tester.Data
         public int GPAK_Step_Delay { get; set; } = 30;
         public int GPAK_Pba_Delay { get; set; } = 100;
         public short GPAK_Result { get; set; } = 1;
-        
+
         #endregion
 
         #region USB CHECK (7)
         public bool USB_CHECK_Enable { get; set; } = true;
-        public int USB_CHECK_Delay { get; set; } = 300;
-        public int USB_CHECK_Processor_Step_Delay { get; set; } = 10;
-        public int USB_CHECK_TCP1_Delay { get; set; } = 5000;
-        public int USB_CHECK_TCP2_Delay { get; set; } = 5000;
-        public int USB_CHECK_TOP { get; set; } = 3;
-        public int USB_CHECK_BOTTOM { get; set; } = 3;
+        public int USB_CHECK_Step_Delay { get; set; } = 10;
+        public int USB_CHECK_Booting_01_Delay { get; set; } = 6000;
+        public int USB_CHECK_Booting_02_Delay { get; set; } = 6000;
+        public int USB_CHECK_TCP_01_Delay { get; set; } = 5000;
+        public int USB_CHECK_TCP_02_Delay { get; set; } = 5000;
+        public int USB_CHECK_TCP_03_Delay { get; set; } = 5000;
+        public short USB_CHECK_TOP { get; set; } = 2;
+        public short USB_CHECK_BOTTOM { get; set; } = 2;
         #endregion
 
         #region FLASH MEMORY (8)
         public bool FLASH_MEMORY_Enable { get; set; } = true;
         public int FLASH_MEMORY_Step_Delay { get; set; } = 30;
         public int FLASH_MEMORY_Pba_Delay { get; set; } = 100;
-        public int FLASH_MEMORY_MCU_FLASH_WAIT { get; set; } = 5000;
-        public int FLASH_MEMORY_MCU_EXT_WAIT { get; set; } = 3000;
         public short FLASH_MEMORY_MCU_MEMORY { get; set; } = 1;
         public short FLASH_MEMORY_EXT_MEMORY { get; set; } = 1;
         #endregion
@@ -129,8 +134,8 @@ namespace p2_40_Main_PBA_Tester.Data
         public int MOTOR_PBA_Delay { get; set; } = 100;
         public int MOTOR_TCP_01_Delay { get; set; } = 1000;
         public int MOTOR_TCP_02_Delay { get; set; } = 1000;
-        public uint MOTOR_PWM_Min { get; set; } = 240;
-        public uint MOTOR_PWM_Max { get; set; } = 255;
+        public uint MOTOR_PWM_Min { get; set; } = 150;
+        public uint MOTOR_PWM_Max { get; set; } = 170;
         #endregion
 
         #region FLOODS (10)
@@ -144,12 +149,16 @@ namespace p2_40_Main_PBA_Tester.Data
 
         #region HEATER (11)
         public bool HEATER_Enable { get; set; } = true;
-        public int HEATER_PBA_Delay { get; set; } = 100;
-        public int HEATER_Processor_Step_Delay { get; set; } = 10;
-        public int HEATER_PWM_Min { get; set; } = 9200;
-        public int HEATER_PWM_Max { get; set; } = 9408;
-        public float HEATER_Load_Switch_Min { get; set; } = 4.650F;
-        public float HEATER_Load_Switch_Max { get; set; } = 4.950F;
+        public int HEATER_Step_Delay { get; set; } = 10;
+        public int HEATER_TCP_01_Delay { get; set; } = 1000;
+        public int HEATER_TCP_02_Delay { get; set; } = 1000;
+
+        public uint HEATER_PWM_Min { get; set; } = 92000;
+        public uint HEATER_PWM_Max { get; set; } = 94080;
+        public float HEATER_Sensing_Pin_Off_Min { get; set; } = 0.4F;
+        public float HEATER_Sensing_Pin_Off_Max { get; set; } = 0.6F;
+        public float HEATER_Sensing_Pin_On_Min { get; set; } = 0.9F;
+        public float HEATER_Sensing_Pin_On_Max { get; set; } = 1.1F;
         #endregion
 
         #region CARTRIDGE (12)
@@ -183,18 +192,17 @@ namespace p2_40_Main_PBA_Tester.Data
         public short ACCELEROMETER_Result { get; set; } = 1;
         #endregion
 
-        #region PRESSURE SENSOR (15)
-        public bool PRESSURE_SENSOR_Enable { get; set; } = true;
-        public int PRESSURE_SENSOR_PBA_Delay { get; set; } = 100;
-        public int PRESSURE_SENSOR_Processor_Delay { get; set; } = 100;
-        public int PRESSURE_SENSOR_COM_CHECK { get; set; } = 1;
+        #region FLAG INIT (15)
+        public bool FLAG_INIT_Enable { get; set; } = true;
+        public int FLAG_INIT_Step_Delay { get; set; } = 100;
+
         #endregion
 
         #region PBA FLAG (16)
         public bool PBA_FLAG_Enable { get; set; } = true;
-        public int PBA_FLAG_PBA_Delay { get; set; } = 100;
-        public int PBA_FLAG_Processor_Step { get; set; } = 10;
-        public int PBA_FLAG_Test { get; set; } = 0;
+        public int PBA_FLAG_Step_Delay { get; set; } = 100;
+        public short PBA_FLAG_FLAG { get; set; } = 1;
+
         #endregion
 
         #region PBA CMD CHECK START (17)
@@ -204,12 +212,14 @@ namespace p2_40_Main_PBA_Tester.Data
         public int PBA_CMD_CHECK_START_Booting_01_Delay { get; set; } = 6000;
         #endregion
 
-        #region TEST END (18)
-        public bool TEST_END_Enable { get; set; } = true;
+        #region PBA TEST END (18)
+        public bool PBA_TEST_END_Enable { get; set; } = true;
+
+        public int PBA_TEST_END_Step_Delay { get; set; } = 100;
+        public int PBA_TEST_END_TCP_01_Delay { get; set; } = 2000;
+
         #endregion
 
-        #region MES
-        public bool MES_Enable { get; set; } = true;
-        #endregion
+        
     }
 }

@@ -45,7 +45,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             ConfigureAllNumericUpDowns(this); //폼안에 모든 numericControl 세팅 초기화
         }
 
-        private void ConfigureAllNumericUpDowns(Control parent, int decimalPlaces = 7, decimal increment = 0.0000001M, decimal min = 0, decimal max = 100)
+        private void ConfigureAllNumericUpDowns(Control parent, int decimalPlaces = 3, decimal increment = 0.001M, decimal min = -1000, decimal max = 1000)
         {
             foreach (Control c in parent.Controls)
             {
@@ -55,6 +55,12 @@ namespace p2_40_Main_PBA_Tester.Forms
                     num.Increment = increment;
                     num.Minimum = min;
                     num.Maximum = max;
+
+                    // Tag 속성에 값이 적혀있으면 그 값을 Value로 세팅
+                    if (num.Tag != null && decimal.TryParse(num.Tag.ToString(), out decimal defaultValue))
+                    {
+                        num.Value = defaultValue;
+                    }
                 }
 
                 if (c.HasChildren)
@@ -68,6 +74,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             cboxCalChannel.SelectedIndexChanged += cboxCalChannel_SelectedIndexChanged;
 
+            btnInitCal.Click += btnInitCal_Click;
             btnGainRead.Click += btnGainRead_Click;
             btnOffsetSave.Click += btnOffsetSave_Click;
 
@@ -117,7 +124,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             btnCalMux8.Click += btnCalMux8_Click;
         }
 
-        
+       
 
         private void cboxCalChannel_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,6 +156,38 @@ namespace p2_40_Main_PBA_Tester.Forms
         }
 
         #region entire cal Data
+
+        private void btnInitCal_Click(object sender, EventArgs e)
+        {
+            // 1. 초기화할 Gain 텍스트박스들을 배열로 선언
+            TextBox[] gainBoxes = new TextBox[]
+            {
+                tboxGainDa1, tboxGainDa2,
+                tboxGainMux1, tboxGainMux2, tboxGainMux3, tboxGainMux4,
+                tboxGainMux5, tboxGainMux7, tboxGainMux8
+            };
+
+            // 2. 초기화할 Offset 텍스트박스들을 배열로 선언
+            TextBox[] offsetBoxes = new TextBox[]
+            {
+                tboxOffsetDa1, tboxOffsetDa2,
+                tboxOffsetMux1, tboxOffsetMux2, tboxOffsetMux3, tboxOffsetMux4,
+                tboxOffsetMux5, tboxOffsetMux7, tboxOffsetMux8
+            };
+
+            // 3. 반복문을 돌며 값 할당 (Gain = 1.000, Offset = 0.000)
+            foreach (var tb in gainBoxes)
+            {
+                if (tb != null) tb.Text = "1.000";
+            }
+
+            foreach (var tb in offsetBoxes)
+            {
+                if (tb != null) tb.Text = "0.000";
+            }
+
+        }
+
         private async void btnGainRead_Click(object sender, EventArgs e)
         {
             try
@@ -172,8 +211,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 {
                     tboxGainDa1,  // 0x01
                     tboxGainDa2,  // 0x02
-                    tboxGainDa4,
-                    tboxGainMux1, // 0x04
+                    //tboxGainDa4,
+                    tboxGainMux1, 
                     tboxGainMux2,
                     tboxGainMux3,
                     tboxGainMux4,
@@ -187,8 +226,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 {
                     tboxOffsetDa1,  // 0x01
                     tboxOffsetDa2,  // 0x02
-                    tboxOffsetDa4,
-                    tboxOffsetMux1, // 0x04
+                    //tboxOffsetDa4,
+                    tboxOffsetMux1, 
                     tboxOffsetMux2,
                     tboxOffsetMux3,
                     tboxOffsetMux4,
@@ -209,8 +248,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                     float gain = BitConverter.ToSingle(gainBytes, 0);
                     float offset = BitConverter.ToSingle(offsetBytes, 0);
 
-                    gainBoxes[i].Text = gain.ToString("F7");
-                    offsetBoxes[i].Text = offset.ToString("F7");
+                    gainBoxes[i].Text = gain.ToString("F3");
+                    offsetBoxes[i].Text = offset.ToString("F3");
                 }
 
                 Console.WriteLine("Calibration Read 성공");
@@ -299,6 +338,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             float setValue = (float)numMux1SetOutputMin.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x03, setValue, false); // 항상 CAL 적용 = true
+            Console.WriteLine($"measured : {measured}");
             if (!float.IsNaN(measured))
                 numMux1MeassuredValueMin.Value = (decimal)measured;
         }
@@ -501,21 +541,21 @@ namespace p2_40_Main_PBA_Tester.Forms
             float setValue = (float)numMux5SetOutputMin.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, false);
             if (!float.IsNaN(measured))
-                numMux5MeassuredValueMin.Value = (decimal)measured;
+                numMux7MeassuredValueMin.Value = (decimal)measured;
         }
         private async void btnMux7Max_Click(object sender, EventArgs e)
         {
             float setValue = (float)numMux5SetOutputMax.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, false);
             if (!float.IsNaN(measured))
-                numMux5MeassuredValueMax.Value = (decimal)measured;
+                numMux7MeassuredValueMax.Value = (decimal)measured;
         }
         private async void btnMux7Test_Click(object sender, EventArgs e)
         {
             float setValue = (float)numMux5SetTestoutput.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, true);
             if (!float.IsNaN(measured))
-                numMux5MeassuredValueTest.Value = (decimal)measured;
+                numMux7MeassuredValueTest.Value = (decimal)measured;
         }
 
         private void btnCalMux7_Click(object sender, EventArgs e)
@@ -540,21 +580,21 @@ namespace p2_40_Main_PBA_Tester.Forms
             float setValue = (float)numMux5SetOutputMin.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, false);
             if (!float.IsNaN(measured))
-                numMux5MeassuredValueMin.Value = (decimal)measured;
+                numMux8MeassuredValueMin.Value = (decimal)measured;
         }
         private async void btnMux8Max_Click(object sender, EventArgs e)
         {
             float setValue = (float)numMux5SetOutputMax.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, false);
             if (!float.IsNaN(measured))
-                numMux5MeassuredValueMax.Value = (decimal)measured;
+                numMux8MeassuredValueMax.Value = (decimal)measured;
         }
         private async void btnMux8Test_Click(object sender, EventArgs e)
         {
             float setValue = (float)numMux5SetTestoutput.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, true);
             if (!float.IsNaN(measured))
-                numMux5MeassuredValueTest.Value = (decimal)measured;
+                numMux8MeassuredValueTest.Value = (decimal)measured;
         }
         private void btnCalMux8_Click(object sender, EventArgs e)
         {
@@ -643,7 +683,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                     return float.NaN;
                 }
 
-                byte[] measuredBytes = rx.Skip(7).Take(4).Reverse().ToArray();
+                byte[] measuredBytes = rx.Skip(7).Take(4).ToArray();
                 float measuredValue = BitConverter.ToSingle(measuredBytes, 0);
 
                 return measuredValue;
@@ -672,28 +712,30 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             try
             {
-                float x1 = (float)numMeasuredMin.Value;
+                
+
                 float y1 = (float)numSetMin.Value;
-                float x2 = (float)numMeasuredMax.Value;
+                float x1 = (float)numMeasuredMin.Value;
                 float y2 = (float)numSetMax.Value;
+                float x2 = (float)numMeasuredMax.Value;
 
                 if (x1 == x2)
                 {
-                    MessageBox.Show("No equalize Set Output Min and Max.");
+                    MessageBox.Show("Don't equalize ADC Min and Max Value.");
                     return;
                 }
 
                 float gain = (y2 - y1) / (x2 - x1);
                 float offset = y1 - gain * x1;
 
-                lblGain.Text = gain.ToString("F7");
-                lblOffset.Text = offset.ToString("F7");
-                tboxGain.Text = gain.ToString("F7");
-                tboxOffset.Text = offset.ToString("F7");
+                lblGain.Text = gain.ToString("F3");
+                lblOffset.Text = offset.ToString("F3");
+                tboxGain.Text = gain.ToString("F3");
+                tboxOffset.Text = offset.ToString("F3");
 
                 Console.WriteLine($"[Cal] → Gain: {gain}, Offset: {offset}");
 
-                //AllWriteGainOffset(); //원래는 계산하고 Gain/Offset 값 자동으로 쓰려고한건데 일단 빼자
+                AllWriteGainOffset(); //계산하고 바로 저장
             }
             catch (Exception ex)
             {
@@ -716,13 +758,13 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 TextBox[] gainBoxes =
                 {
-                    tboxGainDa1, tboxGainDa2, tboxGainDa4,
+                    tboxGainDa1, tboxGainDa2, //tboxGainDa4,
                     tboxGainMux1, tboxGainMux2, tboxGainMux3, tboxGainMux4,
                     tboxGainMux5, tboxGainMux7, tboxGainMux8
                 };
                 TextBox[] offsetBoxes =
                 {
-                    tboxOffsetDa1, tboxOffsetDa2, tboxOffsetDa4,
+                    tboxOffsetDa1, tboxOffsetDa2, //tboxOffsetDa4,
                     tboxOffsetMux1, tboxOffsetMux2, tboxOffsetMux3, tboxOffsetMux4,
                     tboxOffsetMux5, tboxOffsetMux7, tboxOffsetMux8
                 };

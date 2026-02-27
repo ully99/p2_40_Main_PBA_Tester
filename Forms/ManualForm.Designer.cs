@@ -37,6 +37,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClose = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTesterFwVer = new System.Windows.Forms.Label();
+            this.btnTesterFwVerCheck = new System.Windows.Forms.Button();
             this.lblTcpConnectionStatus = new System.Windows.Forms.Label();
             this.btnTcpConnectionCheck = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -151,8 +153,6 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.tboxPs1VoltWrite = new System.Windows.Forms.TextBox();
             this.tboxPs1CurrWrite = new System.Windows.Forms.TextBox();
-            this.btnTesterFwVerCheck = new System.Windows.Forms.Button();
-            this.lblTesterFwVer = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -213,12 +213,12 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.70588F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.47058F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.70588F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.70588F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.70588F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.70588F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.55014F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.24933F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.55014F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.55014F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.55014F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.55014F));
             this.tableLayoutPanel2.Controls.Add(this.btnClose, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox3, 0, 0);
@@ -236,10 +236,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnClose.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(1366, 10);
+            this.btnClose.Location = new System.Drawing.Point(1377, 10);
             this.btnClose.Margin = new System.Windows.Forms.Padding(10);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(204, 55);
+            this.btnClose.Size = new System.Drawing.Size(199, 55);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -254,14 +254,39 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel4.Controls.Add(this.lblTcpConnectionStatus, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.btnTcpConnectionCheck, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(237, 5);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(218, 5);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(411, 65);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(503, 65);
             this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // lblTesterFwVer
+            // 
+            this.lblTesterFwVer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTesterFwVer.AutoSize = true;
+            this.lblTesterFwVer.BackColor = System.Drawing.Color.Transparent;
+            this.lblTesterFwVer.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTesterFwVer.Location = new System.Drawing.Point(367, 34);
+            this.lblTesterFwVer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTesterFwVer.Name = "lblTesterFwVer";
+            this.lblTesterFwVer.Size = new System.Drawing.Size(20, 29);
+            this.lblTesterFwVer.TabIndex = 10;
+            this.lblTesterFwVer.Text = "-";
+            // 
+            // btnTesterFwVerCheck
+            // 
+            this.btnTesterFwVerCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTesterFwVerCheck.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTesterFwVerCheck.Location = new System.Drawing.Point(284, 3);
+            this.btnTesterFwVerCheck.Margin = new System.Windows.Forms.Padding(1);
+            this.btnTesterFwVerCheck.Name = "btnTesterFwVerCheck";
+            this.btnTesterFwVerCheck.Size = new System.Drawing.Size(185, 25);
+            this.btnTesterFwVerCheck.TabIndex = 9;
+            this.btnTesterFwVerCheck.Text = "TESTER FW VER CHECK";
+            this.btnTesterFwVerCheck.UseVisualStyleBackColor = true;
             // 
             // lblTcpConnectionStatus
             // 
@@ -269,7 +294,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblTcpConnectionStatus.AutoSize = true;
             this.lblTcpConnectionStatus.BackColor = System.Drawing.Color.Transparent;
             this.lblTcpConnectionStatus.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTcpConnectionStatus.Location = new System.Drawing.Point(92, 34);
+            this.lblTcpConnectionStatus.Location = new System.Drawing.Point(115, 34);
             this.lblTcpConnectionStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTcpConnectionStatus.Name = "lblTcpConnectionStatus";
             this.lblTcpConnectionStatus.Size = new System.Drawing.Size(20, 29);
@@ -280,7 +305,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnTcpConnectionCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTcpConnectionCheck.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTcpConnectionCheck.Location = new System.Drawing.Point(10, 3);
+            this.btnTcpConnectionCheck.Location = new System.Drawing.Point(33, 3);
             this.btnTcpConnectionCheck.Margin = new System.Windows.Forms.Padding(1);
             this.btnTcpConnectionCheck.Name = "btnTcpConnectionCheck";
             this.btnTcpConnectionCheck.Size = new System.Drawing.Size(185, 25);
@@ -295,7 +320,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(227, 69);
+            this.groupBox3.Size = new System.Drawing.Size(208, 69);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Channel";
@@ -313,17 +338,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxSelectChannel.Location = new System.Drawing.Point(3, 24);
             this.cboxSelectChannel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.cboxSelectChannel.Name = "cboxSelectChannel";
-            this.cboxSelectChannel.Size = new System.Drawing.Size(221, 29);
+            this.cboxSelectChannel.Size = new System.Drawing.Size(202, 29);
             this.cboxSelectChannel.TabIndex = 2;
             // 
             // btnOpenPbaTerminal
             // 
             this.btnOpenPbaTerminal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOpenPbaTerminal.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenPbaTerminal.Location = new System.Drawing.Point(1128, 10);
+            this.btnOpenPbaTerminal.Location = new System.Drawing.Point(1163, 10);
             this.btnOpenPbaTerminal.Margin = new System.Windows.Forms.Padding(10);
             this.btnOpenPbaTerminal.Name = "btnOpenPbaTerminal";
-            this.btnOpenPbaTerminal.Size = new System.Drawing.Size(213, 55);
+            this.btnOpenPbaTerminal.Size = new System.Drawing.Size(194, 55);
             this.btnOpenPbaTerminal.TabIndex = 5;
             this.btnOpenPbaTerminal.Text = "PBA Terminal";
             this.btnOpenPbaTerminal.UseVisualStyleBackColor = true;
@@ -1816,31 +1841,6 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxPs1CurrWrite.Name = "tboxPs1CurrWrite";
             this.tboxPs1CurrWrite.Size = new System.Drawing.Size(146, 28);
             this.tboxPs1CurrWrite.TabIndex = 5;
-            // 
-            // btnTesterFwVerCheck
-            // 
-            this.btnTesterFwVerCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnTesterFwVerCheck.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTesterFwVerCheck.Location = new System.Drawing.Point(215, 3);
-            this.btnTesterFwVerCheck.Margin = new System.Windows.Forms.Padding(1);
-            this.btnTesterFwVerCheck.Name = "btnTesterFwVerCheck";
-            this.btnTesterFwVerCheck.Size = new System.Drawing.Size(185, 25);
-            this.btnTesterFwVerCheck.TabIndex = 9;
-            this.btnTesterFwVerCheck.Text = "TESTER FW VER CHECK";
-            this.btnTesterFwVerCheck.UseVisualStyleBackColor = true;
-            // 
-            // lblTesterFwVer
-            // 
-            this.lblTesterFwVer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTesterFwVer.AutoSize = true;
-            this.lblTesterFwVer.BackColor = System.Drawing.Color.Transparent;
-            this.lblTesterFwVer.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTesterFwVer.Location = new System.Drawing.Point(298, 34);
-            this.lblTesterFwVer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTesterFwVer.Name = "lblTesterFwVer";
-            this.lblTesterFwVer.Size = new System.Drawing.Size(20, 29);
-            this.lblTesterFwVer.TabIndex = 10;
-            this.lblTesterFwVer.Text = "-";
             // 
             // ManualForm
             // 

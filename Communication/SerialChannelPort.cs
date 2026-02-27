@@ -89,7 +89,7 @@ namespace p2_40_Main_PBA_Tester.Communication
             // 포트가 이미 열려 있고, 이름과 속도가 같다면 시도하지 않고 바로 true 리턴
             if (Port != null && Port.IsOpen && Port.PortName == portName && Port.BaudRate == baudRate)
             {
-                Console.WriteLine($"[Serial] CH{ChannelNo} 이미 동일한 포트로 연결되어 있습니다. ({portName})");
+                Console.WriteLine($"[Serial] 이미 동일한 포트로 연결되어 있습니다. [CH{ChannelNo + 1}] ({portName})");
                 return true;
             }
 
@@ -177,7 +177,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                     _lastTxUtc = DateTime.UtcNow;
                     if (LogCommToUI != null) LogCommToUI(LogTarget, SafeAscii(data), true); 
                     if (LogTxToUI != null) LogTxToUI(LogTarget, SafeAscii(data));
-                    if (TxRxOutToConsole) Console.WriteLine($"TX => {SafeAscii(data).Replace("\r", "").Replace("\n", "")} [Channel {ChannelNo}]");
+                    if (TxRxOutToConsole) Console.WriteLine($"TX => {SafeAscii(data).Replace("\r", "").Replace("\n", "")} [Channel {ChannelNo + 1}]");
 
                     if (Settings.Instance.Use_Write_Log)
                     {
@@ -263,7 +263,7 @@ namespace p2_40_Main_PBA_Tester.Communication
 
                 if (LogCommToUI != null) LogCommToUI(LogTarget, SafeAscii(frame), false);
                 if (LogRxToUI != null) LogRxToUI(LogTarget, SafeAscii(frame));
-                if (TxRxOutToConsole) Console.WriteLine($"RX => {SafeAscii(frame).Replace("\r", "").Replace("\n", "")} [Channel {ChannelNo}]");
+                if (TxRxOutToConsole) Console.WriteLine($"RX => {SafeAscii(frame).Replace("\r", "").Replace("\n", "")} [Channel {ChannelNo + 1}]");
                 if (Settings.Instance.Use_Write_Log)
                 {
                     string Saved_Data = SafeAscii(frame);

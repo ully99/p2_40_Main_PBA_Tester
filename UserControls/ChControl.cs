@@ -181,8 +181,9 @@ namespace p2_40_Main_PBA_Tester.UserControls
             _stepWatch.Stop();
             _displayTimer.Stop();
             UpdateNowStatus(Result ? NowStatus.PASS : NowStatus.FAIL);
-            if (Result) IncreaseFailCount();
+            if (Result) IncreasePassCount();
             else IncreaseFailCount();
+            Settings.Instance.Save();
         }
 
         public void IncreasePassCount()
@@ -286,6 +287,12 @@ namespace p2_40_Main_PBA_Tester.UserControls
 
         private void lblClearComm_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            tboxComm.Clear();
+        }
+
+        public void ClearAllTbox()
+        {
+            tboxLog.Clear();
             tboxComm.Clear();
         }
 

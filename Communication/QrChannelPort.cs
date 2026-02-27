@@ -87,8 +87,13 @@ namespace p2_40_Main_PBA_Tester.Communication
             {
                 await Port.BaseStream.WriteAsync(data, 0, data.Length);
                 // 필요하다면 여기서 TX 로그 출력
-                string msg = Encoding.ASCII.GetString(data);
-                Console.WriteLine($"[QR TX] {msg} [CH {ChannelIndex}]");
+                string msg = Encoding.ASCII.GetString(data)
+                        .Replace("\x16", "") // 0x16 제거
+                        .Replace("\r", "")     // 0x0D 시각화
+                        .Replace("\n", "");    // 0x0A 시각화
+                Console.WriteLine($"[QR TX] {msg} [CH {ChannelIndex + 1}]");
+
+                if (LogCommToUI != null) LogCommToUI(LogTarget, msg, true);
             }
             catch (Exception ex)
             {
@@ -212,7 +217,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                         if (string.IsNullOrEmpty(line)) continue; // 빈 줄 무시
 
                         //  1. 모니터링 기능 (무조건 콘솔에 찍음)
-                        Console.WriteLine($"[QR RX] {(ChannelIndex == 4 ? "Recipe" : $"CH{ChannelIndex + 1}")} => {line}");
+                        Console.WriteLine($"[QR RX] {line} [CH {ChannelIndex + 1}]");
 
                         // RX 로그 전송
                         if (LogCommToUI != null) LogCommToUI(LogTarget, line, false);

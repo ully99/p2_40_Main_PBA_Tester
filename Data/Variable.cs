@@ -53,9 +53,21 @@ namespace p2_40_Main_PBA_Tester.Data
         public static readonly byte[] WRITE_SLEEP_CMD = { 0x00, 0x06, 0x00, 0x00 }; //뒤에 0000 안붙이면 반응 없긴 함 => 맞는 듯?
         public static readonly byte[] WRITE_SHIP_CMD = { 0x00, 0x01, 0x00, 0x01 };
 
-        public static readonly byte[] WRITE_VIB_TEST_START = { 0x00, 0x09, 0x00, 0x01 };
+        public static readonly byte[] WRITE_PPS_CHARGE_CURR_RECORD = { 0x00, 0x80, 0x00, 0x06 };
+        public static readonly byte[] READ_PPS_CHARGE_CURR_RECORD = { 0x00, 0x80, 0x00, 0x04 };
+
+
+
+        public static readonly byte[] WRITE_VIB_TEST_START = { 0x00, 0x20, 0x32, 0x1E };
 
         public static readonly byte[] READ_FLOOD_STATE = { 0x00, 0x9C, 0x00, 0x01 }; //확인 중 (확정 아님)
+
+        public static readonly byte[] WRITE_SENSING_PIN_ON = { 0x00, 0x8A, 0x00, 0x00 };
+        public static readonly byte[] WRITE_SENSING_PIN_OFF = { 0x00, 0x8A, 0x00, 0x01 };
+        public static readonly byte[] READ_HEATER_NOW_RESIST = { 0x00, 0x8A, 0x00, 0x01 };
+
+        public static readonly byte[] WRITE_HEATER_PWM = { 0x00, 0x89, 0x00, 0x00 };
+
 
         public static readonly byte[] WRITE_CARTRIDGE_BOOST_ON = { 0x00, 0x07, 0x00, 0x01 };
         public static readonly byte[] WRITE_CARTRIDGE_BOOST_OFF = { 0x00, 0x07, 0x00, 0x00 };
@@ -68,7 +80,7 @@ namespace p2_40_Main_PBA_Tester.Data
 
         public static readonly byte[] WRITE_MCU_FLASH_INTEGRITY_CHECK_START = { 0x00, 0x0C, 0x00, 0x00 };
         public static readonly byte[] READ_FLASH_INTEGRITY_CHECK_RESULT = { 0x00, 0x87, 0x00, 0x01 };
-        public static readonly byte[] WRITE_EXT_FLASH_INTEGRITY_CHECK_START = { 0x00, 0x0C, 0x00, 0x00 };
+        public static readonly byte[] WRITE_EXT_FLASH_INTEGRITY_CHECK_START = { 0x00, 0x0D, 0x00, 0x00 };
         public static readonly byte[] WRITE_EXT_FLASH_CHECK = { 0x00, 0x0D, 0x00, 0x00 };
         public static readonly byte[] READ_EXT_FLASH_INTEGRITY_CHECK_RESULT = { 0x00, 0x89, 0x00, 0x01 };
 

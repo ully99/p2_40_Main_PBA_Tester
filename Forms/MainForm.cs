@@ -193,8 +193,9 @@ namespace p2_40_Main_PBA_Tester
         #region Event
         private void ConnectEvent()
         {
-            Application.ApplicationExit += OnApplicationExit;
+            //Application.ApplicationExit += OnApplicationExit; //이거 안되는 듯?
             CommManager.RecipeQr.OnRecipePathReceived += RecipeQr_OnRecipePathReceived;
+            this.FormClosing += MainForm_FormClosing;
             this.btnComSettingsOpen.Click += btnComSettingsOpen_Click;
             this.btnRecipeSettingsOpen.Click += btnRecipeSettingsOpen_Click;
             this.btnCalibrationOpen.Click += btnCalibrationOpen_Click;
@@ -204,14 +205,22 @@ namespace p2_40_Main_PBA_Tester
             this.lblValueModel.DoubleClick += lblValueModel_DoubleClick;
             this.btnRecipeOpen.Click += btnRecipeOpen_Click;
             this.btnStartStop.Click += btnStartStop_Click;
+            this.lblTextMcuNo.Click += lblTextMcuNo_Click;
         }
- 
 
-        private void OnApplicationExit(object sender, EventArgs e)
+        
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             CommManager.RecipeQr.OnRecipePathReceived -= RecipeQr_OnRecipePathReceived;
             Settings.Instance.Save();
         }
+
+        //private void OnApplicationExit(object sender, EventArgs e)
+        //{
+        //    CommManager.RecipeQr.OnRecipePathReceived -= RecipeQr_OnRecipePathReceived;
+        //    Settings.Instance.Save();
+        //}
 
         private void btnManualOpen_Click(object sender, EventArgs e)
         {
@@ -287,8 +296,11 @@ namespace p2_40_Main_PBA_Tester
             form.ShowDialog(this);
         }
 
+        private void lblTextMcuNo_Click(object sender, EventArgs e)
+        {
+            Console.Clear();
+        }
 
-        
 
 
         #endregion
@@ -697,6 +709,7 @@ namespace p2_40_Main_PBA_Tester
             {
                 if (chEnables[i])
                 {
+                    chControls[i].ClearAllTbox();
                     // 각 채널별로 비동기 검사 시작
                     runningTasks.Add(RunSequenceAsync(chControls[i], i, _cts.Token));
                 }
@@ -820,6 +833,9 @@ namespace p2_40_Main_PBA_Tester
 
                 }
 
+                await Init_Board(chIdx, ch, token); //모든 작업 완료 후 테스터 보드를 초기화 한다.
+
+
                 ch.EndInspection(totalResult);
             }
             finally
@@ -830,7 +846,48 @@ namespace p2_40_Main_PBA_Tester
             }
         }
 
+        private static async Task Init_Board(int ch, ChControl control, CancellationToken token)
+        {
+            var Board = CommManager.Boards[ch];
 
+            if (!Board.IsConnected())
+            {
+                Console.WriteLine($"TCP가 연결되어있지 않습니다. [CH{ch + 1}]");
+                return;
+            }
+
+            try
+            {
+                await Task.Delay(10);
+
+                byte[] tx = new TcpProtocol(0x01, 0x00).GetPacket();
+                int delay = Settings.Instance.Board_Read_Timeout;
+                Console.WriteLine($"BOARD INIT START CMD RX 수신 대기 [Delay : {delay}ms] [CH{ch + 1}]");
+
+                byte[] rx = await Board.SendAndReceivePacketAsync(tx, delay, token);
+                if (!UtilityFunctions.CheckTcpRxData(tx, rx))
+                {
+                    Console.WriteLine($"TESTER INITIALIZE CMD RX 에러");
+                    return;
+                }
+                Console.WriteLine($"TESTER INIT 완료 [CH {ch + 1}]");
+
+
+                return;
+
+            }
+            catch (OperationCanceledException)
+            {
+                control.UpdateNowStatus(ChControl.NowStatus.STOP);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = $"[{ch + 1}CH] BOARD INIT 예외: {ex.Message}";
+                Console.WriteLine(errorMsg);
+                return;
+            }
+        }
 
 
 
