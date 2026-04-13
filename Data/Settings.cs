@@ -15,23 +15,26 @@ namespace p2_40_Main_PBA_Tester.Data
     {
         private readonly object _lock = new object();
 
-
+        //public string Equipment_Id { get; set; } = "ITM-0000-000";
+        public string Tester_Ver { get; set; } = "Demo 25.4 Ver";
         public string Password { get; set; } = "ITM";
 
         #region MCU LOT MODEL 
-        public string Mcu_No { get; set; } = "1";
+        public string Mc_No { get; set; } = "1";
         public string Lot_No { get; set; } = "1";
         public string Model_No { get; set; } = "P2 4.0";
         public List<string> ModelList { get; set; } = new List<string>() {"P2 4.0", "Model A", "Model B"};
         #endregion
 
-        public bool Use_Write_Log { get; set; }
+        
 
         public string SavedCurrentDate { get; set; }
-        public int LogFileStack { get; set; } = 1;
+        
 
         public int Board_Connect_Timeout { get; set; } = 3000;
         public int Pba_Connect_Timeout { get; set; } = 3000;
+        public int Pba_Connect_Interval { get; set; } = 500;
+
         public int Board_Read_Timeout { get; set; } = 4500;
         public int Pba_Read_Timeout { get; set; } = 4500;
 
@@ -216,8 +219,9 @@ namespace p2_40_Main_PBA_Tester.Data
 
         public List<string> RunTaskList { get; set; } = new List<string>(); // 실행할 테스트 목록
         public string CurrentRecipeFile { get; set; } = ""; // 현재 불러온 레시피 파일명
+        public string CurrentRecipeFilePath { get; set; } = ""; // 현재 불러온 레시피 파일명
 
-        
+
 
         #region QR READ (0)
         public bool QR_READ_Enable { get; set; } = true;
@@ -233,9 +237,9 @@ namespace p2_40_Main_PBA_Tester.Data
         public int MCU_INFO_Tcp_02_Delay { get; set; } = 100;
         public int MCU_INFO_Booting_01_Delay { get; set; } = 6000;
         public int MCU_INFO_Mcu_Id_Len { get; set; } = 16;
-        public string MCU_INFO_Main_Fw_Ver { get; set; } = "0.1.0";
-        public string MCU_INFO_LDC_Fw_Ver { get; set; } = "1";
-        public string MCU_INFO_Image_Fw_Ver { get; set; } = "1.0";
+        public string MCU_INFO_Main_Fw_Ver { get; set; } = "1.4.26";
+        public string MCU_INFO_LDC_Fw_Ver { get; set; } = "9";
+        public string MCU_INFO_Image_Fw_Ver { get; set; } = "1.8";
 
         #endregion
 
@@ -243,8 +247,10 @@ namespace p2_40_Main_PBA_Tester.Data
         public bool OVP_Enable { get; set; } = true;
         public int OVP_Step_Delay { get; set; } = 200;
         public int OVP_TCP_01_Delay { get; set; } = 3000;
-        public float OVP_VBUS_Min { get; set; } = 13.7F;
-        public float OVP_VBUS_Max { get; set; } = 14.3F;
+        public float OVP_OVP_Min { get; set; } = 13.7F;
+        public float OVP_OVP_Max { get; set; } = 14.3F;
+        public float OVP_VBUS_Min { get; set; } = 8.5F;
+        public float OVP_VBUS_Max { get; set; } = 9.5F;
 
         #endregion
 
@@ -252,27 +258,31 @@ namespace p2_40_Main_PBA_Tester.Data
         public bool LDO_Enable { get; set; } = true;
         public int LDO_Step_Delay { get; set; } = 200;
 
-        //public int LDO_Pba_Delay { get; set; } = 200;
         public int LDO_TCP_01_Delay { get; set; } = 1000;
         public int LDO_TCP_02_Delay { get; set; } = 1000;
         public int LDO_Booting_01_Delay { get; set; } = 6000;
 
 
         
-        public float LDO_VSYS_Min { get; set; } = 8.5F;
-        public float LDO_VSYS_Max { get; set; } = 9.5F;
-        public float LDO_VSYS_3V3_OFF_Min { get; set; } = 3.9F;
-        public float LDO_VSYS_3V3_OFF_Max { get; set; } = 4.1F;
-        public float LDO_VSYS_3V3_Min { get; set; } = 3.9F;
-        public float LDO_VSYS_3V3_Max { get; set; } = 4.1F;
-        public float LDO_MCU_3V0_Min { get; set; } = 4.0F;
-        public float LDO_MCU_3V0_Max { get; set; } = 4.3F;
+        public float LDO_VSYS_Min { get; set; } = 3.65F;
+        public float LDO_VSYS_Max { get; set; } = 3.75F;
+        
+        public float LDO_VSYS_3V3_Min { get; set; } = 3.65F;
+        public float LDO_VSYS_3V3_Max { get; set; } = 3.75F;
+        public float LDO_MCU_3V0_Min { get; set; } = 2.95F;
+        public float LDO_MCU_3V0_Max { get; set; } = 3.05F;
         public float LDO_VDD_3V0_Min { get; set; } = 2.95F;
         public float LDO_VDD_3V0_Max { get; set; } = 3.05F;
-        public float LDO_LCD_3V0_Min { get; set; } = 4.9F;
-        public float LDO_LCD_3V0_Max { get; set; } = 5.1F;
-        public float LDO_DC_BOOST_Min { get; set; } = 5.9F;
-        public float LDO_DC_BOOST_Max { get; set; } = 6.1F;
+        public float LDO_LCD_3V0_Min { get; set; } = 2.95F;
+        public float LDO_LCD_3V0_Max { get; set; } = 3.05F;
+        public float LDO_DC_BOOST_Min { get; set; } = 4.65F;
+        public float LDO_DC_BOOST_Max { get; set; } = 4.95F;
+        public float LDO_VDD_3V0_OFF_Min { get; set; } = 0F;
+        public float LDO_VDD_3V0_OFF_Max { get; set; } = 0.25F;
+        public float LDO_LCD_3V0_OFF_Min { get; set; } = 0F;
+        public float LDO_LCD_3V0_OFF_Max { get; set; } = 0.25F;
+        public float LDO_DC_BOOST_OFF_Min { get; set; } = 3.65F;
+        public float LDO_DC_BOOST_OFF_Max { get; set; } = 3.75F;
 
 
         #endregion
@@ -285,10 +295,12 @@ namespace p2_40_Main_PBA_Tester.Data
         public int CURRENT_SLEEP_SHIP_Booting_02_Delay { get; set; } = 6000;
 
         public int CURRENT_SLEEP_SHIP_TCP_01_Delay { get; set; } = 1000;
-        public int CURRENT_SLEEP_SHIP_TCP_02_Delay { get; set; } = 1000;
+        public int CURRENT_SLEEP_SHIP_TCP_02_Delay { get; set; } = 8000;
         public int CURRENT_SLEEP_SHIP_TCP_03_Delay { get; set; } = 1000;
 
-        public float CURRENT_SLEEP_SHIP_Sleep_Curr_Min { get; set; } = 2.9F;//mA
+        public ushort CURRENT_SLEEP_SHIP_Retry_Count_01 { get; set; } = 5;
+
+        public float CURRENT_SLEEP_SHIP_Sleep_Curr_Min { get; set; } = 0.5F;//mA
         public float CURRENT_SLEEP_SHIP_Sleep_Curr_Max { get; set; } = 3F; //mA
         public float CURRENT_SLEEP_SHIP_Ship_Curr_Min { get; set; } = 20F; //uA
         public float CURRENT_SLEEP_SHIP_Ship_Curr_Max { get; set; } = 50F; //uA
@@ -310,8 +322,8 @@ namespace p2_40_Main_PBA_Tester.Data
         public float CHARGE_HVDCP_Min { get; set; } = 800F;
         public float CHARGE_HVDCP_Max { get; set; } = 1200F;
 
-        public short CHARGE_PPS_Min { get; set; } = 800;
-        public short CHARGE_PPS_Max { get; set; } = 1200;
+        public short CHARGE_PPS_Min { get; set; } = 1480;
+        public short CHARGE_PPS_Max { get; set; } = 2220;
 
 
         #endregion
@@ -327,9 +339,9 @@ namespace p2_40_Main_PBA_Tester.Data
 
         #region USB CHECK (7)
         public bool USB_CHECK_Enable { get; set; } = true;
-        public int USB_CHECK_Step_Delay { get; set; } = 10;
+        public int USB_CHECK_Step_Delay { get; set; } = 500;
         public int USB_CHECK_Booting_01_Delay { get; set; } = 6000;
-        public int USB_CHECK_Booting_02_Delay { get; set; } = 6000;
+        public int USB_CHECK_Booting_02_Delay { get; set; } = 3000;
         public int USB_CHECK_TCP_01_Delay { get; set; } = 5000;
         public int USB_CHECK_TCP_02_Delay { get; set; } = 5000;
         public int USB_CHECK_TCP_03_Delay { get; set; } = 5000;
@@ -383,6 +395,8 @@ namespace p2_40_Main_PBA_Tester.Data
         public float HEATER_Sensing_Pin_Off_Max { get; set; } = 0.6F;
         public float HEATER_Sensing_Pin_On_Min { get; set; } = 0.9F;
         public float HEATER_Sensing_Pin_On_Max { get; set; } = 1.1F;
+        public float[] HEATER_Offsets { get; set; } = new float[4];
+        public uint HEATER_Retry_Count { get; set; } = 1;
 
         #endregion
 
@@ -423,6 +437,7 @@ namespace p2_40_Main_PBA_Tester.Data
         #region FLAG INIT (15)
         public bool FLAG_INIT_Enable { get; set; } = true;
         public int FLAG_INIT_Step_Delay { get; set; } = 100;
+        public int FLAG_INIT_Update_Delay { get; set; } = 500;
 
         #endregion
 
@@ -430,6 +445,7 @@ namespace p2_40_Main_PBA_Tester.Data
         public bool PBA_FLAG_Enable { get; set; } = true;
         public int PBA_FLAG_Step_Delay { get; set; } = 100;
         public short PBA_FLAG_FLAG { get; set; } = 1;
+        public int PBA_FLAG_Update_Delay { get; set; } = 500;
 
         #endregion
 
@@ -448,33 +464,80 @@ namespace p2_40_Main_PBA_Tester.Data
         public int PBA_TEST_END_TCP_01_Delay { get; set; } = 2000;
         #endregion
 
-      
+        #region TEST_1_HEATER
+        public bool TEST1_Enable { get; set; } = true;
+        public int TEST_1_HEATER_Step_Delay { get; set; } = 10;
+        public int TEST_1_HEATER_TCP_01_Delay { get; set; } = 1000;
+        public int TEST_1_HEATER_TCP_02_Delay { get; set; } = 1000;
 
+        public uint TEST_1_HEATER_PWM_Min { get; set; } = 92000;
+        public uint TEST_1_HEATER_PWM_Max { get; set; } = 94080;
+        public float TEST_1_HEATER_Sensing_Pin_Off_Min { get; set; } = 0.4F;
+        public float TEST_1_HEATER_Sensing_Pin_Off_Max { get; set; } = 0.6F;
+        public float TEST_1_HEATER_Sensing_Pin_On_Min { get; set; } = 0.9F;
+        public float TEST_1_HEATER_Sensing_Pin_On_Max { get; set; } = 1.1F;
+        public float[] TEST_1_HEATER_Offsets { get; set; } = new float[4];
+        public uint TEST_1_HEATER_Retry_Count { get; set; } = 1;
+        #endregion
+
+        #region TEST_2_HEATER
+        public bool TEST2_Enable { get; set; } = true;
+        public int TEST_2_HEATER_Step_Delay { get; set; } = 10;
+        public int TEST_2_HEATER_TCP_01_Delay { get; set; } = 1000;
+        public int TEST_2_HEATER_TCP_02_Delay { get; set; } = 1000;
+
+        public uint TEST_2_HEATER_PWM_Min { get; set; } = 92000;
+        public uint TEST_2_HEATER_PWM_Max { get; set; } = 94080;
+        public float TEST_2_HEATER_Sensing_Pin_Off_Min { get; set; } = 0.4F;
+        public float TEST_2_HEATER_Sensing_Pin_Off_Max { get; set; } = 0.6F;
+        public float TEST_2_HEATER_Sensing_Pin_On_Min { get; set; } = 0.9F;
+        public float TEST_2_HEATER_Sensing_Pin_On_Max { get; set; } = 1.1F;
+        public float[] TEST_2_HEATER_Offsets { get; set; } = new float[4];
+        public uint TEST_2_HEATER_Retry_Count { get; set; } = 1;
+        #endregion
+
+        #region TEST_3_HEATER
+        public bool TEST3_Enable { get; set; } = true;
+        public int TEST_3_HEATER_Step_Delay { get; set; } = 10;
+        public int TEST_3_HEATER_TCP_01_Delay { get; set; } = 1000;
+        public int TEST_3_HEATER_TCP_02_Delay { get; set; } = 1000;
+
+        public uint TEST_3_HEATER_PWM_Min { get; set; } = 92000;
+        public uint TEST_3_HEATER_PWM_Max { get; set; } = 94080;
+        public float TEST_3_HEATER_Sensing_Pin_Off_Min { get; set; } = 0.4F;
+        public float TEST_3_HEATER_Sensing_Pin_Off_Max { get; set; } = 0.6F;
+        public float TEST_3_HEATER_Sensing_Pin_On_Min { get; set; } = 0.9F;
+        public float TEST_3_HEATER_Sensing_Pin_On_Max { get; set; } = 1.1F;
+        public float[] TEST_3_HEATER_Offsets { get; set; } = new float[4];
+        public uint TEST_3_HEATER_Retry_Count { get; set; } = 1;
+        #endregion
         //-------------------------------------
 
         #endregion
 
+
+
         #region MES
         //DB
         public bool USE_MES { get; set; } = false;
-        public string DB_IP { get; set; }
+        public string DB_IP { get; set; } = "192.168.82.147";
         public string DB_PORT { get; set; } = "1433";
-        public string DB_NAME { get; set; }
-        public string DB_TABLE { get; set; }
-        public string DB_USER { get; set; }
-        public string DB_PW { get; set; }
+        public string DB_NAME { get; set; } = "ITMV_KTNG_DB_TEST";
+        public string DB_TABLE { get; set; } = "AFA_P240_PBA_FUNCTION_HISTORY_TEST";
+        public string DB_USER { get; set; } = "ITMV_KTNG";
+        public string DB_PW { get; set; } = "!itm@semi!12";
         public bool USE_INTERLOCK { get; set; }
-        public string INTERLOCK_PROCEDURE_1 { get; set; }
+        public string INTERLOCK_PROCEDURE_1 { get; set; } = "P2_FIRMWARE_CHECK";
 
         #endregion
 
         #region FTP
         //FTP
         public bool USE_FTP { get; set; } = false;
-        public string FTP_HOST { get; set; }
-        public string FTP_PORT { get; set; }
-        public string FTP_USER { get; set; }
-        public string FTP_PW { get; set; }
+        public string FTP_HOST { get; set; } = "192.168.82.147";
+        public string FTP_PORT { get; set; } = "21";
+        public string FTP_USER { get; set; } = "testuser";
+        public string FTP_PW { get; set; } = "ghwjddl050!";
         public string FTP_BASE_DIR { get; set; }
         public bool FTP_USE_SSL { get; set; } = false;
 

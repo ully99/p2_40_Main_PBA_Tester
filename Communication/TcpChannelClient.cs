@@ -163,7 +163,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                               ? Settings.Instance.Board_Retry_Count
                               : 1;
 
-            for (int attempt = 1; attempt <= maxAttempts; attempt++)
+            for (int attempt = 0; attempt <= maxAttempts; attempt++)
             {
                 // 1. 토큰이 유효한(기본값이 아닌) 경우에만 취소 체크
                 if (token != default) token.ThrowIfCancellationRequested();
@@ -197,7 +197,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                         if (_packetTcs.Task.IsCompleted && !_packetTcs.Task.IsFaulted)
                         {
                             // (옵션) 로그에 재시도 성공했다는 걸 남기면 좋음
-                            if (attempt > 1)
+                            if (attempt >= 1)
                                 Console.WriteLine($"[TCP Success] CH{ChannelNo} Succeeded at attempt {attempt}");
 
                             return await _packetTcs.Task.ConfigureAwait(false);
@@ -213,7 +213,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                 // --- 재시도 준비 ---
                 if (attempt < maxAttempts)
                 {
-                    Console.WriteLine($"[TCP Retry] CH{ChannelNo} Retrying TX... ({attempt}/{maxAttempts})");
+                    Console.WriteLine($"[TCP Retry] CH{ChannelNo} Retrying TX... ({attempt + 1}/{maxAttempts})");
                     // 너무 급하게 보내지 않도록 잠깐 숨 고르기 (장비 부하 방지)
                     await Task.Delay(200, token).ConfigureAwait(false);
                 }

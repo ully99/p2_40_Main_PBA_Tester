@@ -37,6 +37,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecipeSettingForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnClearCheck = new System.Windows.Forms.Button();
+            this.btnAllCheck = new System.Windows.Forms.Button();
+            this.lblAdminMode = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgViewSetValue = new System.Windows.Forms.DataGridView();
@@ -51,10 +55,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnMoveUp = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnClearCheck = new System.Windows.Forms.Button();
-            this.btnAllCheck = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgViewSetValue)).BeginInit();
@@ -63,7 +65,6 @@ namespace p2_40_Main_PBA_Tester.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgViewTaskList)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -84,8 +85,74 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1505, 887);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1544, 887);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 6;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.Controls.Add(this.btnClearCheck, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnAllCheck, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lblAdminMode, 2, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 789);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(878, 96);
+            this.tableLayoutPanel5.TabIndex = 5;
+            // 
+            // btnClearCheck
+            // 
+            this.btnClearCheck.BackColor = System.Drawing.Color.White;
+            this.btnClearCheck.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnClearCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnClearCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnClearCheck.Location = new System.Drawing.Point(154, 8);
+            this.btnClearCheck.Margin = new System.Windows.Forms.Padding(8);
+            this.btnClearCheck.Name = "btnClearCheck";
+            this.btnClearCheck.Size = new System.Drawing.Size(126, 39);
+            this.btnClearCheck.TabIndex = 1;
+            this.btnClearCheck.Text = "Clear Check";
+            this.btnClearCheck.UseVisualStyleBackColor = false;
+            this.btnClearCheck.Click += new System.EventHandler(this.btnClearCheck_Click);
+            // 
+            // btnAllCheck
+            // 
+            this.btnAllCheck.BackColor = System.Drawing.Color.White;
+            this.btnAllCheck.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnAllCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnAllCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAllCheck.Location = new System.Drawing.Point(8, 8);
+            this.btnAllCheck.Margin = new System.Windows.Forms.Padding(8);
+            this.btnAllCheck.Name = "btnAllCheck";
+            this.btnAllCheck.Size = new System.Drawing.Size(126, 39);
+            this.btnAllCheck.TabIndex = 0;
+            this.btnAllCheck.Text = "All Check";
+            this.btnAllCheck.UseVisualStyleBackColor = false;
+            this.btnAllCheck.Click += new System.EventHandler(this.btnAllCheck_Click);
+            // 
+            // lblAdminMode
+            // 
+            this.lblAdminMode.AutoSize = true;
+            this.lblAdminMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAdminMode.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblAdminMode.ForeColor = System.Drawing.Color.Blue;
+            this.lblAdminMode.Location = new System.Drawing.Point(295, 3);
+            this.lblAdminMode.Margin = new System.Windows.Forms.Padding(3);
+            this.lblAdminMode.Name = "lblAdminMode";
+            this.lblAdminMode.Size = new System.Drawing.Size(140, 49);
+            this.lblAdminMode.TabIndex = 2;
+            this.lblAdminMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAdminMode.DoubleClick += new System.EventHandler(this.lblAdminMode_DoubleClick);
             // 
             // tableLayoutPanel3
             // 
@@ -95,13 +162,13 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel3.Controls.Add(this.groupBox2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(941, 10);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(964, 10);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 764F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(554, 767);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(570, 767);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // groupBox2
@@ -112,10 +179,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(542, 757);
+            this.groupBox2.Size = new System.Drawing.Size(558, 757);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "-";
             // 
             // dgViewSetValue
             // 
@@ -157,7 +223,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.dgViewSetValue.RowHeadersVisible = false;
             this.dgViewSetValue.RowHeadersWidth = 51;
             this.dgViewSetValue.RowTemplate.Height = 27;
-            this.dgViewSetValue.Size = new System.Drawing.Size(536, 735);
+            this.dgViewSetValue.Size = new System.Drawing.Size(552, 735);
             this.dgViewSetValue.TabIndex = 1;
             this.dgViewSetValue.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgViewSetValue_CellFormatting);
             this.dgViewSetValue.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgViewSetValue_CellValueChanged);
@@ -177,7 +243,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 764F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(841, 767);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(864, 767);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox1
@@ -188,7 +254,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(829, 757);
+            this.groupBox1.Size = new System.Drawing.Size(852, 757);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Task List";
@@ -233,7 +299,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.dgViewTaskList.RowHeadersVisible = false;
             this.dgViewTaskList.RowHeadersWidth = 51;
             this.dgViewTaskList.RowTemplate.Height = 27;
-            this.dgViewTaskList.Size = new System.Drawing.Size(823, 735);
+            this.dgViewTaskList.Size = new System.Drawing.Size(846, 735);
             this.dgViewTaskList.TabIndex = 0;
             this.dgViewTaskList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgViewTaskList_CellClick);
             this.dgViewTaskList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgViewTaskList_CellValueChanged);
@@ -251,13 +317,13 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel4.Controls.Add(this.btnSaveRecipe, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnLoadRecipe, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(934, 789);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(957, 789);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(568, 96);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(584, 96);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // btnClose
@@ -266,7 +332,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnClose.Location = new System.Drawing.Point(434, 8);
+            this.btnClose.Location = new System.Drawing.Point(446, 8);
             this.btnClose.Margin = new System.Windows.Forms.Padding(8);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(126, 39);
@@ -281,7 +347,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnPwChange.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnPwChange.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnPwChange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnPwChange.Location = new System.Drawing.Point(292, 8);
+            this.btnPwChange.Location = new System.Drawing.Point(300, 8);
             this.btnPwChange.Margin = new System.Windows.Forms.Padding(8);
             this.btnPwChange.Name = "btnPwChange";
             this.btnPwChange.Size = new System.Drawing.Size(126, 39);
@@ -296,7 +362,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnSaveRecipe.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnSaveRecipe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnSaveRecipe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnSaveRecipe.Location = new System.Drawing.Point(150, 8);
+            this.btnSaveRecipe.Location = new System.Drawing.Point(154, 8);
             this.btnSaveRecipe.Margin = new System.Windows.Forms.Padding(8);
             this.btnSaveRecipe.Name = "btnSaveRecipe";
             this.btnSaveRecipe.Size = new System.Drawing.Size(126, 39);
@@ -327,7 +393,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9.Controls.Add(this.btnMoveUp, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.btnDown, 0, 2);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(864, 3);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(887, 3);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 4;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -361,68 +427,19 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnDown.UseVisualStyleBackColor = true;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 6;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.Controls.Add(this.btnClearCheck, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnAllCheck, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 789);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(855, 96);
-            this.tableLayoutPanel5.TabIndex = 5;
-            // 
-            // btnClearCheck
-            // 
-            this.btnClearCheck.BackColor = System.Drawing.Color.White;
-            this.btnClearCheck.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnClearCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.btnClearCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnClearCheck.Location = new System.Drawing.Point(150, 8);
-            this.btnClearCheck.Margin = new System.Windows.Forms.Padding(8);
-            this.btnClearCheck.Name = "btnClearCheck";
-            this.btnClearCheck.Size = new System.Drawing.Size(126, 39);
-            this.btnClearCheck.TabIndex = 1;
-            this.btnClearCheck.Text = "Clear Check";
-            this.btnClearCheck.UseVisualStyleBackColor = false;
-            this.btnClearCheck.Click += new System.EventHandler(this.btnClearCheck_Click);
-            // 
-            // btnAllCheck
-            // 
-            this.btnAllCheck.BackColor = System.Drawing.Color.White;
-            this.btnAllCheck.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnAllCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.btnAllCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAllCheck.Location = new System.Drawing.Point(8, 8);
-            this.btnAllCheck.Margin = new System.Windows.Forms.Padding(8);
-            this.btnAllCheck.Name = "btnAllCheck";
-            this.btnAllCheck.Size = new System.Drawing.Size(126, 39);
-            this.btnAllCheck.TabIndex = 0;
-            this.btnAllCheck.Text = "All Check";
-            this.btnAllCheck.UseVisualStyleBackColor = false;
-            this.btnAllCheck.Click += new System.EventHandler(this.btnAllCheck_Click);
-            // 
             // RecipeSettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1505, 887);
+            this.ClientSize = new System.Drawing.Size(1544, 887);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RecipeSettingForm";
             this.Text = "RecipeSettingForm";
             this.Load += new System.EventHandler(this.RecipeSettingForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgViewSetValue)).EndInit();
@@ -431,7 +448,6 @@ namespace p2_40_Main_PBA_Tester.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgViewTaskList)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -456,5 +472,6 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btnClearCheck;
         private System.Windows.Forms.Button btnAllCheck;
+        private System.Windows.Forms.Label lblAdminMode;
     }
 }

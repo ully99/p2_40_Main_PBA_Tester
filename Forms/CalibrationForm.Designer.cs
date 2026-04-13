@@ -731,7 +731,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.numDa2SetOutputMax.Name = "numDa2SetOutputMax";
             this.numDa2SetOutputMax.Size = new System.Drawing.Size(129, 25);
             this.numDa2SetOutputMax.TabIndex = 7;
-            this.numDa2SetOutputMax.Tag = "3.5";
+            this.numDa2SetOutputMax.Tag = "2";
             // 
             // numDa2MeassuredValueMax
             // 
@@ -1010,7 +1010,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.numDa1SetOutputMax.Name = "numDa1SetOutputMax";
             this.numDa1SetOutputMax.Size = new System.Drawing.Size(129, 25);
             this.numDa1SetOutputMax.TabIndex = 7;
-            this.numDa1SetOutputMax.Tag = "7";
+            this.numDa1SetOutputMax.Tag = "6";
             // 
             // numDa1MeassuredValueMax
             // 
@@ -2781,7 +2781,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.numMux2SetOutputMax.Name = "numMux2SetOutputMax";
             this.numMux2SetOutputMax.Size = new System.Drawing.Size(129, 25);
             this.numMux2SetOutputMax.TabIndex = 7;
-            this.numMux2SetOutputMax.Tag = "3.5";
+            this.numMux2SetOutputMax.Tag = "2";
             // 
             // numMux2MeassuredValueMax
             // 
@@ -3061,7 +3061,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.numMux1SetOutputMax.Name = "numMux1SetOutputMax";
             this.numMux1SetOutputMax.Size = new System.Drawing.Size(129, 25);
             this.numMux1SetOutputMax.TabIndex = 7;
-            this.numMux1SetOutputMax.Tag = "4.5";
+            this.numMux1SetOutputMax.Tag = "10";
             // 
             // numMux1MeassuredValueMax
             // 
@@ -3080,7 +3080,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.numMux1SetTestoutput.Name = "numMux1SetTestoutput";
             this.numMux1SetTestoutput.Size = new System.Drawing.Size(129, 25);
             this.numMux1SetTestoutput.TabIndex = 14;
-            this.numMux1SetTestoutput.Tag = "3";
+            this.numMux1SetTestoutput.Tag = "9";
             // 
             // numMux1MeassuredValueTest
             // 

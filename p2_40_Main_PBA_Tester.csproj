@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Costura.Fody.6.0.0\build\Costura.Fody.props" Condition="Exists('packages\Costura.Fody.6.0.0\build\Costura.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +34,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -45,6 +50,9 @@
     </Win32Resource>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Costura, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>packages\Costura.Fody.6.0.0\lib\netstandard2.0\Costura.dll</HintPath>
+    </Reference>
     <Reference Include="Krypton.Navigator, Version=100.26.1.19, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <HintPath>packages\Krypton.Navigator.100.26.1.19\lib\net472\Krypton.Navigator.dll</HintPath>
     </Reference>
@@ -87,12 +95,15 @@
     <Compile Include="Communication\CDCProtocol.cs" />
     <Compile Include="Communication\CommManager.cs" />
     <Compile Include="Communication\FtpProfiles.cs" />
+    <Compile Include="Communication\JigPort.cs" />
+    <Compile Include="Communication\JigProtocol.cs" />
     <Compile Include="Communication\OleDbHelper.cs" />
     <Compile Include="Communication\QrChannelPort.cs" />
     <Compile Include="Communication\RecipeQrPort.cs" />
     <Compile Include="Communication\SerialChannelPort.cs" />
     <Compile Include="Communication\TcpChannelClient.cs" />
     <Compile Include="Communication\TcpProtocol.cs" />
+    <Compile Include="Data\MesData.cs" />
     <Compile Include="Data\RecipeLocalBuffer.cs" />
     <Compile Include="Data\Settings.cs" />
     <Compile Include="Data\TaskFunctions.cs" />
@@ -127,6 +138,12 @@
     <Compile Include="Forms\FtpSettingForm.Designer.cs">
       <DependentUpon>FtpSettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InterLockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InterLockForm.Designer.cs">
+      <DependentUpon>InterLockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,11 +168,11 @@
     <Compile Include="Forms\ManualForm.Designer.cs">
       <DependentUpon>ManualForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\McuLotModelSettingForm.cs">
+    <Compile Include="Forms\McLotModelSettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\McuLotModelSettingForm.Designer.cs">
-      <DependentUpon>McuLotModelSettingForm.cs</DependentUpon>
+    <Compile Include="Forms\McLotModelSettingForm.Designer.cs">
+      <DependentUpon>McLotModelSettingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PBA_TerminalForm.cs">
       <SubType>Form</SubType>
@@ -169,7 +186,6 @@
     <Compile Include="Forms\RecipeSettingForm.Designer.cs">
       <DependentUpon>RecipeSettingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LIB\CsvManager.cs" />
     <Compile Include="LIB\UtilityFunctions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,7 +193,7 @@
     <Compile Include="UserControls\ChControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ChControl.Designer.cs">
+    <Compile Include="UserControls\ChControl.designer.cs">
       <DependentUpon>ChControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ProductionControl.cs">
@@ -201,6 +217,9 @@
     <EmbeddedResource Include="Forms\FtpSettingForm.resx">
       <DependentUpon>FtpSettingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InterLockForm.resx">
+      <DependentUpon>InterLockForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,8 +232,8 @@
     <EmbeddedResource Include="Forms\ManualForm.resx">
       <DependentUpon>ManualForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\McuLotModelSettingForm.resx">
-      <DependentUpon>McuLotModelSettingForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\McLotModelSettingForm.resx">
+      <DependentUpon>McLotModelSettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PBA_TerminalForm.resx">
       <DependentUpon>PBA_TerminalForm.cs</DependentUpon>
@@ -269,7 +288,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="FodyWeavers.xml" />
     <None Include="Resources\favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Fody.6.8.2\build\Fody.targets" Condition="Exists('packages\Fody.6.8.2\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Fody.6.8.2\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.8.2\build\Fody.targets'))" />
+    <Error Condition="!Exists('packages\Costura.Fody.6.0.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Costura.Fody.6.0.0\build\Costura.Fody.props'))" />
+    <Error Condition="!Exists('packages\Costura.Fody.6.0.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Costura.Fody.6.0.0\build\Costura.Fody.targets'))" />
+  </Target>
+  <Import Project="packages\Costura.Fody.6.0.0\build\Costura.Fody.targets" Condition="Exists('packages\Costura.Fody.6.0.0\build\Costura.Fody.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(TargetDir)"
+
+del *.xml</PostBuildEvent>
+  </PropertyGroup>
 </Project>

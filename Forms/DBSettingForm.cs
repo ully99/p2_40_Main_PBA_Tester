@@ -55,8 +55,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 Settings.Instance.USE_MES = checkboxMesUse.Checked;
                 Settings.Instance.DB_IP = tboxIp.Text;
                 Settings.Instance.DB_PORT = numPort.Text;
-                Settings.Instance.DB_NAME = tboxTable.Text;
-                Settings.Instance.DB_TABLE = tboxDatabase.Text;
+                Settings.Instance.DB_NAME = tboxDatabase.Text;
+                Settings.Instance.DB_TABLE = tboxTable.Text;
                 Settings.Instance.DB_USER = tboxId.Text;
                 Settings.Instance.DB_PW = tboxPw.Text;
 

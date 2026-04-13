@@ -11,10 +11,10 @@ using p2_40_Main_PBA_Tester.Data;
 
 namespace p2_40_Main_PBA_Tester.Forms
 {
-    public partial class McuLotModelSettingForm : Form
+    public partial class McLotModelSettingForm : Form
     {
         MainForm mainform;
-        public McuLotModelSettingForm(MainForm parentform)
+        public McLotModelSettingForm(MainForm parentform)
         {
             this.mainform = parentform;
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             var set = Settings.Instance;
 
             // 1. 텍스트 박스 채우기 (tboxMcuNo, tboxLotNo)
-            tboxMcuNo.Text = set.Mcu_No;
+            tboxMcuNo.Text = set.Mc_No;
             tboxLotNo.Text = set.Lot_No;
 
             // 2. 모델 콤보박스 목록 채우기 (cboxModel)
@@ -105,7 +105,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             var set = Settings.Instance;
 
             // 1. 화면의 값을 변수에 저장
-            set.Mcu_No = tboxMcuNo.Text;
+            set.Mc_No = tboxMcuNo.Text;
             set.Lot_No = tboxLotNo.Text;
 
             // 2. 선택된 모델 저장 (선택 안하고 타이핑만 된 상태도 고려)
@@ -129,7 +129,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             set.Save();
 
             // 5. 메인 화면 갱신
-            mainform.lblValueMcuNo.Text = set.Mcu_No;
+            mainform.lblValueMcuNo.Text = set.Mc_No;
             mainform.lblValueLotNo.Text = set.Lot_No;
             mainform.lblValueModel.Text = set.Model_No;
 

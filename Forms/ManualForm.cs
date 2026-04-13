@@ -17,16 +17,16 @@ namespace p2_40_Main_PBA_Tester.Forms
     public partial class ManualForm : Form
     {
         #region Field
-        MainForm mainform;
+        //MainForm mainform;
         TcpChannelClient board;
 
         #endregion
 
 
         #region Init
-        public ManualForm(MainForm parentform)
+        public ManualForm()
         {
-            this.mainform = parentform;
+            //this.mainform = parentform;
             InitializeComponent();
             ConnectEvent();
         }
@@ -156,7 +156,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.Close();
         }
 
-        private void cboxSelectChannel_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cboxSelectChannel_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cboxSelectChannel.SelectedIndex)
             {
@@ -184,6 +184,8 @@ namespace p2_40_Main_PBA_Tester.Forms
 
             lblTcpConnectionStatus.Text = "";
             lblTcpConnectionStatus.BackColor = Color.Transparent;
+
+            await ReadAllSwitch();
         }
 
         private void btnTcpConnectionCheck_Click(object sender, EventArgs e)
@@ -209,11 +211,11 @@ namespace p2_40_Main_PBA_Tester.Forms
 
         private void btnOpenPbaTerminal_Click(object sender, EventArgs e)
         {
-            var form = new PBA_TerminalForm(this)
+            var form = new PBA_TerminalForm()
             {
                 StartPosition = FormStartPosition.CenterScreen
             };
-            form.Show(this);
+            form.Show();
         }
 
         
@@ -234,7 +236,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         }
 
 
-
+        
         #endregion
 
         #region Task
@@ -553,7 +555,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 }
                 else
                 {
-                    uint value = BitConverter.ToUInt32(rx, 7);
+                    byte[] Int32Bytes = rx.Skip(7).Take(4).Reverse().ToArray();
+                    uint value = BitConverter.ToUInt32(Int32Bytes, 0);
                     row.Cells["colValue"].Value = value.ToString("F7");
                 }
 

@@ -21,8 +21,8 @@ namespace p2_40_Main_PBA_Tester.UserControls
         private System.Windows.Forms.Timer _displayTimer = new System.Windows.Forms.Timer();
         private System.Windows.Forms.Timer _blinkTimer;
 
-        public enum NowStatus { READY, RUNNING, PASS, FAIL, STOP }
-        public enum TaskStatus { READY, RUNNING, PASS, FAIL, STOP }
+        public enum NowStatus { READY, TESTING, PASS, FAIL, STOP }
+        public enum TaskStatus { READY, TESTING, PASS, FAIL, STOP }
 
         public ChControl()
         {
@@ -41,6 +41,8 @@ namespace p2_40_Main_PBA_Tester.UserControls
 
             BindUseStatus();
             BindCounts();
+
+            tabPage1.Text = $"Channel {channelIndex}";
 
             InitGrid();
         }
@@ -71,9 +73,10 @@ namespace p2_40_Main_PBA_Tester.UserControls
             dgvTaskList.MultiSelect = false;            // 다중 선택 금지
             dgvTaskList.BackgroundColor = Color.White;  // 배경색 깔끔하게
 
-            // (선택) 헤더도 보기 싫으면 아래 주석 해제
             dgvTaskList.ColumnHeadersVisible = false;
-
+            dgvTaskList.ScrollBars = ScrollBars.None;
+            dgvTaskList.Enabled = false;
+            dgvTaskList.Resize += (s, e) => AdjustRowHeight();
         }
 
         public void InitTimer()
@@ -81,7 +84,8 @@ namespace p2_40_Main_PBA_Tester.UserControls
             _displayTimer.Interval = 500; 
             _displayTimer.Tick += (s, e) =>
             {
-                lblTaskTime.Text = _stepWatch.Elapsed.ToString(@"mm\:ss");
+                //lblTaskTime.Text = _stepWatch.Elapsed.ToString(@"mm\:ss");
+                lblTaskTime.Text = _stepWatch.Elapsed.TotalSeconds.ToString("F0") + " Sec";
             };
             _blinkTimer = new System.Windows.Forms.Timer { Interval = 400 };
             _blinkTimer.Tick += (s, e) =>
@@ -93,7 +97,10 @@ namespace p2_40_Main_PBA_Tester.UserControls
             };
         }
 
-        
+        public string GetElapsedTime()
+        {
+            return _stepWatch.Elapsed.TotalSeconds.ToString("F0");
+        }
 
         public void SetRecipeList(List<string> taskList) //작업 리스트 세팅
         {
@@ -105,15 +112,30 @@ namespace p2_40_Main_PBA_Tester.UserControls
 
             dgvTaskList.Rows.Clear();
 
-            if (taskList == null) return;
+            if (taskList == null || taskList.Count == 0) return;
 
             foreach (var task in taskList)
             {
-                // 컬럼이 하나니까 값도 하나만 넣으면 됨
                 dgvTaskList.Rows.Add(task);
             }
 
-            dgvTaskList.ClearSelection(); // 처음에 선택된 거 없게
+            AdjustRowHeight();
+            dgvTaskList.ClearSelection();
+        }
+
+        private void AdjustRowHeight()
+        {
+            if (dgvTaskList.Rows.Count == 0) return;
+
+            int availableHeight = dgvTaskList.ClientSize.Height;
+            if (dgvTaskList.ColumnHeadersVisible)
+                availableHeight -= dgvTaskList.ColumnHeadersHeight;
+
+            int rowHeight = Math.Max(availableHeight / dgvTaskList.Rows.Count, 1);
+            foreach (DataGridViewRow row in dgvTaskList.Rows)
+            {
+                row.Height = rowHeight;
+            }
         }
 
         public void UpdateItemStatus(int stepIndex, TaskStatus status) // 작업 상태 세팅
@@ -132,11 +154,11 @@ namespace p2_40_Main_PBA_Tester.UserControls
             // 상태별 색상 칠하기 (텍스트 변경 로직은 제거함)
             switch (status)
             {
-                case TaskStatus.RUNNING:
+                case TaskStatus.TESTING:
                     row.DefaultCellStyle.BackColor = Color.LightYellow;
                     row.DefaultCellStyle.ForeColor = Color.Black;
                     // 현재 진행 중인 항목이 보이도록 스크롤 이동
-                    dgvTaskList.FirstDisplayedScrollingRowIndex = stepIndex;
+                    //dgvTaskList.FirstDisplayedScrollingRowIndex = stepIndex;
                     break;
 
                 case TaskStatus.PASS:
@@ -166,7 +188,7 @@ namespace p2_40_Main_PBA_Tester.UserControls
 
             _stepWatch.Restart();
             _displayTimer.Start();
-            UpdateNowStatus(NowStatus.RUNNING);
+            UpdateNowStatus(NowStatus.TESTING);
         }
 
         public void StopInspection()
@@ -266,7 +288,7 @@ namespace p2_40_Main_PBA_Tester.UserControls
             lblTaskStatus.Text = status.ToString();
             switch (status)
             {
-                case NowStatus.RUNNING:
+                case NowStatus.TESTING:
                     lblTaskStatus.BackColor = Color.LightYellow;
                     _blinkTimer?.Start();
                     break;

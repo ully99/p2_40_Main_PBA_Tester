@@ -282,7 +282,7 @@ namespace p2_40_Main_PBA_Tester
             this.lblTextMcuNo.Name = "lblTextMcuNo";
             this.lblTextMcuNo.Size = new System.Drawing.Size(131, 61);
             this.lblTextMcuNo.TabIndex = 2;
-            this.lblTextMcuNo.Text = "Mcu No.";
+            this.lblTextMcuNo.Text = "Mc No.";
             this.lblTextMcuNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PboxITM
@@ -290,7 +290,7 @@ namespace p2_40_Main_PBA_Tester
             this.PboxITM.BackColor = System.Drawing.Color.White;
             this.PboxITM.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PboxITM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PboxITM.Image = global::p2_40_Main_PBA_Tester.Properties.Resources.ITMImage;
+            this.PboxITM.Image = ((System.Drawing.Image)(resources.GetObject("PboxITM.Image")));
             this.PboxITM.Location = new System.Drawing.Point(6, 6);
             this.PboxITM.Margin = new System.Windows.Forms.Padding(6);
             this.PboxITM.Name = "PboxITM";
@@ -742,7 +742,7 @@ namespace p2_40_Main_PBA_Tester
             this.Controls.Add(this.tableLayoutPanel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Main PBA Tester (p2 4.0) (ver 20260224 : Demo Ver)";
+            this.Text = "Main PBA Tester (p2 4.0) (Demo 25.4 Ver)";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

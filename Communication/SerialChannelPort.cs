@@ -83,13 +83,12 @@ namespace p2_40_Main_PBA_Tester.Communication
             }
         }
 
-        public async Task<bool> ConnectAsync(string portName, int baudRate = 115200, int timeoutMs = 3000, CancellationToken token = default)//Timeout 있는 시리얼 연결 메서드
+        public async Task<bool> ConnectAsync(string portName, int baudRate = 115200, int timeoutMs = 3000, CancellationToken token = default)
         {
             // ★ 1. 현재 연결 상태 확인
-            // 포트가 이미 열려 있고, 이름과 속도가 같다면 시도하지 않고 바로 true 리턴
             if (Port != null && Port.IsOpen && Port.PortName == portName && Port.BaudRate == baudRate)
             {
-                Console.WriteLine($"[Serial] 이미 동일한 포트로 연결되어 있습니다. [CH{ChannelNo + 1}] ({portName})");
+                Console.WriteLine($"[Serial] CH{ChannelNo} 이미 동일한 포트로 연결되어 있습니다. ({portName})");
                 return true;
             }
 
@@ -119,8 +118,23 @@ namespace p2_40_Main_PBA_Tester.Communication
                     Port.WriteTimeout = 1000;
                     Port.DataReceived += OnDataReceived;
 
-                    // 4. 물리적 연결 시도
-                    Port.Open();
+                    // ★ 4. 물리적 연결 시도 (Task.Run으로 감싸 UI 멈춤 방지)
+                    bool openSuccess = await Task.Run(() =>
+                    {
+                        try
+                        {
+                            Port.Open();
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"[Serial] CH{ChannelNo} Open 시도 중 에러: {ex.Message}");
+                            return false;
+                        }
+                    }, token);
+
+                    // Open 실패 시 예외를 던져서 catch 블록의 재시도 로직(Task.Delay)을 타게 함
+                    if (!openSuccess) throw new Exception("Port Open Failed");
 
                     Port.DiscardInBuffer();
                     Port.DiscardOutBuffer();
@@ -128,12 +142,16 @@ namespace p2_40_Main_PBA_Tester.Communication
                     Console.WriteLine($"[Serial] CH{ChannelNo} 새 연결 성공 ({portName})");
                     return true;
                 }
+                catch (OperationCanceledException)
+                {
+                    throw; // 취소는 상위로 던짐
+                }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"[Serial] CH{ChannelNo} 연결 시도 중... ({ex.Message})");
 
-                    // 재시도 대기 시간 중에도 STOP 체크 가능하도록 token 전달
-                    await Task.Delay(500, token);
+                    // 재시도 전 대기 (속성으로 뺀 Interval 사용)
+                    await Task.Delay(Settings.Instance.Pba_Connect_Interval, token);
                 }
             }
 
@@ -179,13 +197,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                     if (LogTxToUI != null) LogTxToUI(LogTarget, SafeAscii(data));
                     if (TxRxOutToConsole) Console.WriteLine($"TX => {SafeAscii(data).Replace("\r", "").Replace("\n", "")} [Channel {ChannelNo + 1}]");
 
-                    if (Settings.Instance.Use_Write_Log)
-                    {
-                        string Saved_Data = SafeAscii(data);
-                        if (!Saved_Data.Contains(":2A030000000DC6")) //90ms마다 데이터 불러오는 건 넣지 않겠다.(너무 많음)
-                            CsvManager.CsvSave($"[TX] => {Saved_Data}");
-
-                    }
+                    
                     return true;
                 }
                 catch (OperationCanceledException)
@@ -264,12 +276,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                 if (LogCommToUI != null) LogCommToUI(LogTarget, SafeAscii(frame), false);
                 if (LogRxToUI != null) LogRxToUI(LogTarget, SafeAscii(frame));
                 if (TxRxOutToConsole) Console.WriteLine($"RX => {SafeAscii(frame).Replace("\r", "").Replace("\n", "")} [Channel {ChannelNo + 1}]");
-                if (Settings.Instance.Use_Write_Log)
-                {
-                    string Saved_Data = SafeAscii(frame);
-                    if (!Saved_Data.Contains(":2A031A")) //90ms마다 데이터 불러오는 건 넣지 않겠다.(너무 많음)
-                        CsvManager.CsvSave($"[RX] => {Saved_Data}");
-                }
+                
 
                 _packetTcs.TrySetResult(frame); // ':'~CRLF 포함 그대로 반환
                 return;
@@ -282,7 +289,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                       ? Settings.Instance.Pba_Retry_Count
                       : 1;
 
-            for (int attempt = 1; attempt <= maxAttempts; attempt++)
+            for (int attempt = 0; attempt <= maxAttempts; attempt++)
             {
                 if (token != default) token.ThrowIfCancellationRequested();
                 // === 기존 로직 시작 ===
@@ -317,7 +324,7 @@ namespace p2_40_Main_PBA_Tester.Communication
                 // 실패해서 여기까지 왔는데, 아직 기회가 남았다면?
                 if (attempt < maxAttempts)
                 {
-                    Console.WriteLine($"[Serial Retry] CH{ChannelNo} Timeout! Retrying... ({attempt}/{maxAttempts})");
+                    Console.WriteLine($"[Serial Retry] CH{ChannelNo} Timeout! Retrying... ({attempt + 1}/{maxAttempts})");
                     // 너무 빠르게 재시도하면 장비가 체할 수 있으니 살짝 쉰다 (선택 사항)
                     await Task.Delay(200, token).ConfigureAwait(false);
                 }

@@ -32,6 +32,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComSettingForm));
             this.gboxTimeOutValue = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.tboxPbaConnectInterval = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.tboxPbaConnectTimeout = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.tboxPbaOnDelay = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.tboxBoardMinInterval = new System.Windows.Forms.TextBox();
@@ -40,8 +44,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label30 = new System.Windows.Forms.Label();
             this.checkboxBoardRetry = new MaterialSkin.Controls.MaterialCheckbox();
             this.checkboxPbaRetry = new MaterialSkin.Controls.MaterialCheckbox();
-            this.tboxPbaRetryCount = new System.Windows.Forms.TextBox();
             this.tboxBoardRetryCount = new System.Windows.Forms.TextBox();
+            this.tboxPbaRetryCount = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.tboxBoardReadTimeOut = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -235,11 +239,11 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.gboxTimeOutValue.Controls.Add(this.tableLayoutPanel21);
             this.gboxTimeOutValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gboxTimeOutValue.Location = new System.Drawing.Point(3, 244);
+            this.gboxTimeOutValue.Location = new System.Drawing.Point(3, 224);
             this.gboxTimeOutValue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gboxTimeOutValue.Name = "gboxTimeOutValue";
             this.gboxTimeOutValue.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gboxTimeOutValue.Size = new System.Drawing.Size(578, 232);
+            this.gboxTimeOutValue.Size = new System.Drawing.Size(555, 212);
             this.gboxTimeOutValue.TabIndex = 16;
             this.gboxTimeOutValue.TabStop = false;
             this.gboxTimeOutValue.Text = "Value Setting";
@@ -251,16 +255,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
+            this.tableLayoutPanel21.Controls.Add(this.tboxPbaConnectInterval, 3, 3);
+            this.tableLayoutPanel21.Controls.Add(this.label36, 2, 3);
+            this.tableLayoutPanel21.Controls.Add(this.tboxPbaConnectTimeout, 1, 3);
+            this.tableLayoutPanel21.Controls.Add(this.label35, 0, 3);
             this.tableLayoutPanel21.Controls.Add(this.tboxPbaOnDelay, 3, 2);
             this.tableLayoutPanel21.Controls.Add(this.label34, 2, 2);
             this.tableLayoutPanel21.Controls.Add(this.tboxBoardMinInterval, 3, 1);
             this.tableLayoutPanel21.Controls.Add(this.label33, 2, 1);
             this.tableLayoutPanel21.Controls.Add(this.tboxPbaMinInterval, 3, 0);
             this.tableLayoutPanel21.Controls.Add(this.label30, 2, 0);
-            this.tableLayoutPanel21.Controls.Add(this.checkboxBoardRetry, 0, 4);
-            this.tableLayoutPanel21.Controls.Add(this.checkboxPbaRetry, 0, 3);
+            this.tableLayoutPanel21.Controls.Add(this.checkboxBoardRetry, 0, 5);
+            this.tableLayoutPanel21.Controls.Add(this.checkboxPbaRetry, 0, 4);
+            this.tableLayoutPanel21.Controls.Add(this.tboxBoardRetryCount, 2, 5);
             this.tableLayoutPanel21.Controls.Add(this.tboxPbaRetryCount, 2, 4);
-            this.tableLayoutPanel21.Controls.Add(this.tboxBoardRetryCount, 2, 3);
             this.tableLayoutPanel21.Controls.Add(this.label27, 0, 2);
             this.tableLayoutPanel21.Controls.Add(this.tboxBoardReadTimeOut, 1, 2);
             this.tableLayoutPanel21.Controls.Add(this.label29, 0, 0);
@@ -270,23 +278,66 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 26);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
-            this.tableLayoutPanel21.RowCount = 5;
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(572, 202);
+            this.tableLayoutPanel21.RowCount = 6;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(549, 182);
             this.tableLayoutPanel21.TabIndex = 0;
+            // 
+            // tboxPbaConnectInterval
+            // 
+            this.tboxPbaConnectInterval.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxPbaConnectInterval.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxPbaConnectInterval.Location = new System.Drawing.Point(414, 94);
+            this.tboxPbaConnectInterval.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxPbaConnectInterval.Name = "tboxPbaConnectInterval";
+            this.tboxPbaConnectInterval.Size = new System.Drawing.Size(132, 30);
+            this.tboxPbaConnectInterval.TabIndex = 36;
+            // 
+            // label36
+            // 
+            this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Calibri", 11F);
+            this.label36.Location = new System.Drawing.Point(286, 90);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(112, 30);
+            this.label36.TabIndex = 35;
+            this.label36.Text = "PBA Connect Interval (ms)";
+            // 
+            // tboxPbaConnectTimeout
+            // 
+            this.tboxPbaConnectTimeout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxPbaConnectTimeout.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxPbaConnectTimeout.Location = new System.Drawing.Point(140, 94);
+            this.tboxPbaConnectTimeout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxPbaConnectTimeout.Name = "tboxPbaConnectTimeout";
+            this.tboxPbaConnectTimeout.Size = new System.Drawing.Size(131, 30);
+            this.tboxPbaConnectTimeout.TabIndex = 34;
+            // 
+            // label35
+            // 
+            this.label35.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Calibri", 11F);
+            this.label35.Location = new System.Drawing.Point(12, 90);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(112, 30);
+            this.label35.TabIndex = 33;
+            this.label35.Text = "PBA Connect Delay (ms)";
             // 
             // tboxPbaOnDelay
             // 
             this.tboxPbaOnDelay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaOnDelay.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaOnDelay.Location = new System.Drawing.Point(432, 85);
+            this.tboxPbaOnDelay.Location = new System.Drawing.Point(414, 64);
             this.tboxPbaOnDelay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxPbaOnDelay.Name = "tboxPbaOnDelay";
-            this.tboxPbaOnDelay.Size = new System.Drawing.Size(137, 30);
+            this.tboxPbaOnDelay.Size = new System.Drawing.Size(132, 30);
             this.tboxPbaOnDelay.TabIndex = 31;
             // 
             // label34
@@ -294,7 +345,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label34.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label34.Location = new System.Drawing.Point(299, 88);
+            this.label34.Location = new System.Drawing.Point(284, 63);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(117, 23);
             this.label34.TabIndex = 30;
@@ -304,10 +355,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tboxBoardMinInterval.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardMinInterval.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardMinInterval.Location = new System.Drawing.Point(432, 45);
+            this.tboxBoardMinInterval.Location = new System.Drawing.Point(414, 34);
             this.tboxBoardMinInterval.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardMinInterval.Name = "tboxBoardMinInterval";
-            this.tboxBoardMinInterval.Size = new System.Drawing.Size(137, 30);
+            this.tboxBoardMinInterval.Size = new System.Drawing.Size(132, 30);
             this.tboxBoardMinInterval.TabIndex = 29;
             // 
             // label33
@@ -315,9 +366,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label33.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label33.Location = new System.Drawing.Point(310, 40);
+            this.label33.Location = new System.Drawing.Point(295, 30);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(94, 40);
+            this.label33.Size = new System.Drawing.Size(94, 30);
             this.label33.TabIndex = 28;
             this.label33.Text = "Board Min Interval";
             // 
@@ -325,10 +376,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tboxPbaMinInterval.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaMinInterval.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaMinInterval.Location = new System.Drawing.Point(432, 5);
+            this.tboxPbaMinInterval.Location = new System.Drawing.Point(414, 4);
             this.tboxPbaMinInterval.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxPbaMinInterval.Name = "tboxPbaMinInterval";
-            this.tboxPbaMinInterval.Size = new System.Drawing.Size(137, 30);
+            this.tboxPbaMinInterval.Size = new System.Drawing.Size(132, 30);
             this.tboxPbaMinInterval.TabIndex = 27;
             // 
             // label30
@@ -336,9 +387,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label30.Location = new System.Drawing.Point(318, 0);
+            this.label30.Location = new System.Drawing.Point(303, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(79, 40);
+            this.label30.Size = new System.Drawing.Size(79, 30);
             this.label30.TabIndex = 26;
             this.label30.Text = "PBA Min Interval";
             // 
@@ -348,14 +399,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.checkboxBoardRetry.AutoSize = true;
             this.tableLayoutPanel21.SetColumnSpan(this.checkboxBoardRetry, 2);
             this.checkboxBoardRetry.Depth = 0;
-            this.checkboxBoardRetry.Location = new System.Drawing.Point(0, 162);
+            this.checkboxBoardRetry.Location = new System.Drawing.Point(0, 150);
             this.checkboxBoardRetry.Margin = new System.Windows.Forms.Padding(0);
             this.checkboxBoardRetry.MouseLocation = new System.Drawing.Point(-1, -1);
             this.checkboxBoardRetry.MouseState = MaterialSkin.MouseState.HOVER;
             this.checkboxBoardRetry.Name = "checkboxBoardRetry";
             this.checkboxBoardRetry.ReadOnly = false;
             this.checkboxBoardRetry.Ripple = true;
-            this.checkboxBoardRetry.Size = new System.Drawing.Size(163, 37);
+            this.checkboxBoardRetry.Size = new System.Drawing.Size(163, 32);
             this.checkboxBoardRetry.TabIndex = 24;
             this.checkboxBoardRetry.Text = "Board Retry Count";
             this.checkboxBoardRetry.UseVisualStyleBackColor = true;
@@ -366,46 +417,46 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.checkboxPbaRetry.AutoSize = true;
             this.tableLayoutPanel21.SetColumnSpan(this.checkboxPbaRetry, 2);
             this.checkboxPbaRetry.Depth = 0;
-            this.checkboxPbaRetry.Location = new System.Drawing.Point(0, 121);
+            this.checkboxPbaRetry.Location = new System.Drawing.Point(0, 120);
             this.checkboxPbaRetry.Margin = new System.Windows.Forms.Padding(0);
             this.checkboxPbaRetry.MouseLocation = new System.Drawing.Point(-1, -1);
             this.checkboxPbaRetry.MouseState = MaterialSkin.MouseState.HOVER;
             this.checkboxPbaRetry.Name = "checkboxPbaRetry";
             this.checkboxPbaRetry.ReadOnly = false;
             this.checkboxPbaRetry.Ripple = true;
-            this.checkboxPbaRetry.Size = new System.Drawing.Size(151, 37);
+            this.checkboxPbaRetry.Size = new System.Drawing.Size(151, 30);
             this.checkboxPbaRetry.TabIndex = 24;
             this.checkboxPbaRetry.Text = "PBA Retry Count";
             this.checkboxPbaRetry.UseVisualStyleBackColor = true;
-            // 
-            // tboxPbaRetryCount
-            // 
-            this.tboxPbaRetryCount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tboxPbaRetryCount.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaRetryCount.Location = new System.Drawing.Point(289, 166);
-            this.tboxPbaRetryCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tboxPbaRetryCount.Name = "tboxPbaRetryCount";
-            this.tboxPbaRetryCount.Size = new System.Drawing.Size(137, 30);
-            this.tboxPbaRetryCount.TabIndex = 25;
             // 
             // tboxBoardRetryCount
             // 
             this.tboxBoardRetryCount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardRetryCount.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardRetryCount.Location = new System.Drawing.Point(289, 125);
+            this.tboxBoardRetryCount.Location = new System.Drawing.Point(277, 154);
             this.tboxBoardRetryCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardRetryCount.Name = "tboxBoardRetryCount";
-            this.tboxBoardRetryCount.Size = new System.Drawing.Size(137, 30);
-            this.tboxBoardRetryCount.TabIndex = 24;
+            this.tboxBoardRetryCount.Size = new System.Drawing.Size(131, 30);
+            this.tboxBoardRetryCount.TabIndex = 25;
+            // 
+            // tboxPbaRetryCount
+            // 
+            this.tboxPbaRetryCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxPbaRetryCount.Font = new System.Drawing.Font("Calibri", 11F);
+            this.tboxPbaRetryCount.Location = new System.Drawing.Point(277, 124);
+            this.tboxPbaRetryCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxPbaRetryCount.Name = "tboxPbaRetryCount";
+            this.tboxPbaRetryCount.Size = new System.Drawing.Size(131, 30);
+            this.tboxPbaRetryCount.TabIndex = 24;
             // 
             // label27
             // 
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label27.Location = new System.Drawing.Point(20, 80);
+            this.label27.Location = new System.Drawing.Point(17, 60);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(102, 40);
+            this.label27.Size = new System.Drawing.Size(102, 30);
             this.label27.TabIndex = 5;
             this.label27.Text = "Board Read Delay (ms)";
             // 
@@ -413,10 +464,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tboxBoardReadTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardReadTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardReadTimeOut.Location = new System.Drawing.Point(146, 85);
+            this.tboxBoardReadTimeOut.Location = new System.Drawing.Point(140, 64);
             this.tboxBoardReadTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardReadTimeOut.Name = "tboxBoardReadTimeOut";
-            this.tboxBoardReadTimeOut.Size = new System.Drawing.Size(137, 30);
+            this.tboxBoardReadTimeOut.Size = new System.Drawing.Size(131, 30);
             this.tboxBoardReadTimeOut.TabIndex = 4;
             // 
             // label29
@@ -424,9 +475,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label29.Location = new System.Drawing.Point(8, 0);
+            this.label29.Location = new System.Drawing.Point(5, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(127, 40);
+            this.label29.Size = new System.Drawing.Size(127, 30);
             this.label29.TabIndex = 1;
             this.label29.Text = "Board Connect Delay (ms)";
             // 
@@ -435,9 +486,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Calibri", 11F);
-            this.label28.Location = new System.Drawing.Point(4, 40);
+            this.label28.Location = new System.Drawing.Point(3, 30);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(134, 40);
+            this.label28.Size = new System.Drawing.Size(130, 30);
             this.label28.TabIndex = 2;
             this.label28.Text = "PBA Read Delay (ms)";
             // 
@@ -445,20 +496,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.tboxPbaReadTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaReadTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaReadTimeOut.Location = new System.Drawing.Point(146, 45);
+            this.tboxPbaReadTimeOut.Location = new System.Drawing.Point(140, 34);
             this.tboxPbaReadTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxPbaReadTimeOut.Name = "tboxPbaReadTimeOut";
-            this.tboxPbaReadTimeOut.Size = new System.Drawing.Size(137, 30);
+            this.tboxPbaReadTimeOut.Size = new System.Drawing.Size(131, 30);
             this.tboxPbaReadTimeOut.TabIndex = 3;
             // 
             // tboxBoardConnectTimeOut
             // 
             this.tboxBoardConnectTimeOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxBoardConnectTimeOut.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxBoardConnectTimeOut.Location = new System.Drawing.Point(146, 5);
+            this.tboxBoardConnectTimeOut.Location = new System.Drawing.Point(140, 4);
             this.tboxBoardConnectTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxBoardConnectTimeOut.Name = "tboxBoardConnectTimeOut";
-            this.tboxBoardConnectTimeOut.Size = new System.Drawing.Size(137, 30);
+            this.tboxBoardConnectTimeOut.Size = new System.Drawing.Size(131, 30);
             this.tboxBoardConnectTimeOut.TabIndex = 0;
             // 
             // btnRescan
@@ -474,9 +525,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // btnConnect
             // 
             this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConnect.Location = new System.Drawing.Point(195, 3);
+            this.btnConnect.Location = new System.Drawing.Point(188, 3);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(186, 42);
+            this.btnConnect.Size = new System.Drawing.Size(179, 42);
             this.btnConnect.TabIndex = 18;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -485,20 +536,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(388, 3);
+            this.btnClose.Location = new System.Drawing.Point(373, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(187, 42);
+            this.btnClose.Size = new System.Drawing.Size(179, 42);
             this.btnClose.TabIndex = 20;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Save";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnOpenMesSetting
             // 
             this.btnOpenMesSetting.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOpenMesSetting.Location = new System.Drawing.Point(3, 155);
+            this.btnOpenMesSetting.Location = new System.Drawing.Point(3, 140);
             this.btnOpenMesSetting.Name = "btnOpenMesSetting";
-            this.btnOpenMesSetting.Size = new System.Drawing.Size(186, 41);
+            this.btnOpenMesSetting.Size = new System.Drawing.Size(179, 41);
             this.btnOpenMesSetting.TabIndex = 21;
             this.btnOpenMesSetting.Text = "MES";
             this.btnOpenMesSetting.UseVisualStyleBackColor = true;
@@ -507,9 +558,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // btnOpenFtpSetting
             // 
             this.btnOpenFtpSetting.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOpenFtpSetting.Location = new System.Drawing.Point(195, 155);
+            this.btnOpenFtpSetting.Location = new System.Drawing.Point(188, 140);
             this.btnOpenFtpSetting.Name = "btnOpenFtpSetting";
-            this.btnOpenFtpSetting.Size = new System.Drawing.Size(186, 41);
+            this.btnOpenFtpSetting.Size = new System.Drawing.Size(179, 41);
             this.btnOpenFtpSetting.TabIndex = 22;
             this.btnOpenFtpSetting.Text = "FTP";
             this.btnOpenFtpSetting.UseVisualStyleBackColor = true;
@@ -519,9 +570,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.groupBox19.Controls.Add(this.tableLayoutPanel19);
             this.groupBox19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox19.Location = new System.Drawing.Point(3, 483);
+            this.groupBox19.Location = new System.Drawing.Point(3, 443);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(578, 236);
+            this.groupBox19.Size = new System.Drawing.Size(555, 215);
             this.groupBox19.TabIndex = 23;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Function Setting";
@@ -544,7 +595,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(572, 208);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(549, 187);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
             // checkboxDebugMode
@@ -552,7 +603,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.checkboxDebugMode.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkboxDebugMode.AutoSize = true;
             this.checkboxDebugMode.Depth = 0;
-            this.checkboxDebugMode.Location = new System.Drawing.Point(0, 163);
+            this.checkboxDebugMode.Location = new System.Drawing.Point(0, 144);
             this.checkboxDebugMode.Margin = new System.Windows.Forms.Padding(0);
             this.checkboxDebugMode.MouseLocation = new System.Drawing.Point(-1, -1);
             this.checkboxDebugMode.MouseState = MaterialSkin.MouseState.HOVER;
@@ -569,7 +620,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.checkbox1ChOnly.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkbox1ChOnly.AutoSize = true;
             this.checkbox1ChOnly.Depth = 0;
-            this.checkbox1ChOnly.Location = new System.Drawing.Point(0, 7);
+            this.checkbox1ChOnly.Location = new System.Drawing.Point(0, 4);
             this.checkbox1ChOnly.Margin = new System.Windows.Forms.Padding(0);
             this.checkbox1ChOnly.MouseLocation = new System.Drawing.Point(-1, -1);
             this.checkbox1ChOnly.MouseState = MaterialSkin.MouseState.HOVER;
@@ -586,7 +637,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.checkboxTxRxConsole_pba.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkboxTxRxConsole_pba.AutoSize = true;
             this.checkboxTxRxConsole_pba.Depth = 0;
-            this.checkboxTxRxConsole_pba.Location = new System.Drawing.Point(0, 111);
+            this.checkboxTxRxConsole_pba.Location = new System.Drawing.Point(0, 96);
             this.checkboxTxRxConsole_pba.Margin = new System.Windows.Forms.Padding(0);
             this.checkboxTxRxConsole_pba.MouseLocation = new System.Drawing.Point(-1, -1);
             this.checkboxTxRxConsole_pba.MouseState = MaterialSkin.MouseState.HOVER;
@@ -603,7 +654,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.checkboxTxRxConsole_board.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkboxTxRxConsole_board.AutoSize = true;
             this.checkboxTxRxConsole_board.Depth = 0;
-            this.checkboxTxRxConsole_board.Location = new System.Drawing.Point(0, 59);
+            this.checkboxTxRxConsole_board.Location = new System.Drawing.Point(0, 50);
             this.checkboxTxRxConsole_board.Margin = new System.Windows.Forms.Padding(0);
             this.checkboxTxRxConsole_board.MouseLocation = new System.Drawing.Point(-1, -1);
             this.checkboxTxRxConsole_board.MouseState = MaterialSkin.MouseState.HOVER;
@@ -629,7 +680,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(1560, 762);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(1498, 701);
             this.tableLayoutPanel22.TabIndex = 24;
             // 
             // tableLayoutPanel26
@@ -640,14 +691,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel26.Controls.Add(this.groupBox19, 0, 2);
             this.tableLayoutPanel26.Controls.Add(this.gboxTimeOutValue, 0, 1);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(956, 20);
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(917, 20);
             this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(20);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 3;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(584, 722);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(561, 661);
             this.tableLayoutPanel26.TabIndex = 4;
             // 
             // tableLayoutPanel24
@@ -667,7 +718,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel24.RowCount = 2;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(578, 234);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(555, 214);
             this.tableLayoutPanel24.TabIndex = 0;
             // 
             // tableLayoutPanel23
@@ -694,7 +745,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.40851F));
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.096876F));
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.2691F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(930, 756);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(891, 695);
             this.tableLayoutPanel23.TabIndex = 6;
             // 
             // groupBox16
@@ -702,10 +753,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox16.Controls.Add(this.tableLayoutPanel16);
             this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox16.Location = new System.Drawing.Point(235, 567);
+            this.groupBox16.Location = new System.Drawing.Point(225, 522);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox16.Size = new System.Drawing.Size(226, 186);
+            this.groupBox16.Size = new System.Drawing.Size(216, 170);
             this.groupBox16.TabIndex = 19;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "JIG";
@@ -720,10 +771,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(206, 147);
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(196, 131);
             this.tableLayoutPanel16.TabIndex = 0;
             // 
             // groupBox20
@@ -732,7 +783,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox20.Location = new System.Drawing.Point(3, 3);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(200, 141);
+            this.groupBox20.Size = new System.Drawing.Size(190, 125);
             this.groupBox20.TabIndex = 0;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "JIG ";
@@ -757,7 +808,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33167F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(194, 116);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(184, 100);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
             // lblJigStatus
@@ -766,10 +817,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel20.SetColumnSpan(this.lblJigStatus, 2);
             this.lblJigStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblJigStatus.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJigStatus.Location = new System.Drawing.Point(1, 39);
+            this.lblJigStatus.Location = new System.Drawing.Point(1, 34);
             this.lblJigStatus.Margin = new System.Windows.Forms.Padding(0);
             this.lblJigStatus.Name = "lblJigStatus";
-            this.lblJigStatus.Size = new System.Drawing.Size(192, 37);
+            this.lblJigStatus.Size = new System.Drawing.Size(182, 31);
             this.lblJigStatus.TabIndex = 12;
             this.lblJigStatus.Text = "-";
             this.lblJigStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -780,10 +831,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxJigPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxJigPort.Font = new System.Drawing.Font("Calibri", 11F);
             this.cboxJigPort.FormattingEnabled = true;
-            this.cboxJigPort.Location = new System.Drawing.Point(97, 4);
+            this.cboxJigPort.Location = new System.Drawing.Point(92, 1);
             this.cboxJigPort.Margin = new System.Windows.Forms.Padding(0);
             this.cboxJigPort.Name = "cboxJigPort";
-            this.cboxJigPort.Size = new System.Drawing.Size(96, 30);
+            this.cboxJigPort.Size = new System.Drawing.Size(91, 30);
             this.cboxJigPort.TabIndex = 11;
             // 
             // cboxJigBaudRate
@@ -796,10 +847,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxJigBaudRate.Location = new System.Drawing.Point(97, 81);
+            this.cboxJigBaudRate.Location = new System.Drawing.Point(92, 67);
             this.cboxJigBaudRate.Margin = new System.Windows.Forms.Padding(0);
             this.cboxJigBaudRate.Name = "cboxJigBaudRate";
-            this.cboxJigBaudRate.Size = new System.Drawing.Size(96, 30);
+            this.cboxJigBaudRate.Size = new System.Drawing.Size(91, 30);
             this.cboxJigBaudRate.TabIndex = 6;
             // 
             // label31
@@ -808,10 +859,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label31.BackColor = System.Drawing.Color.MintCream;
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label31.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(1, 77);
+            this.label31.Location = new System.Drawing.Point(1, 66);
             this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(95, 38);
+            this.label31.Size = new System.Drawing.Size(90, 33);
             this.label31.TabIndex = 4;
             this.label31.Text = "Baud Rate";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -825,7 +876,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label32.Location = new System.Drawing.Point(1, 1);
             this.label32.Margin = new System.Windows.Forms.Padding(0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(95, 37);
+            this.label32.Size = new System.Drawing.Size(90, 32);
             this.label32.TabIndex = 1;
             this.label32.Text = "Port";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -835,10 +886,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox17.Controls.Add(this.tableLayoutPanel17);
             this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox17.Location = new System.Drawing.Point(3, 567);
+            this.groupBox17.Location = new System.Drawing.Point(3, 522);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox17.Size = new System.Drawing.Size(226, 186);
+            this.groupBox17.Size = new System.Drawing.Size(216, 170);
             this.groupBox17.TabIndex = 18;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Recipe QR Reader";
@@ -853,10 +904,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(206, 147);
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(196, 131);
             this.tableLayoutPanel17.TabIndex = 0;
             // 
             // groupBox18
@@ -865,7 +916,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox18.Location = new System.Drawing.Point(3, 3);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(200, 141);
+            this.groupBox18.Size = new System.Drawing.Size(190, 125);
             this.groupBox18.TabIndex = 0;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Recipe QR";
@@ -890,7 +941,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33167F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(194, 116);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(184, 100);
             this.tableLayoutPanel18.TabIndex = 0;
             // 
             // lblRecipeQrStatus
@@ -899,10 +950,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel18.SetColumnSpan(this.lblRecipeQrStatus, 2);
             this.lblRecipeQrStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblRecipeQrStatus.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecipeQrStatus.Location = new System.Drawing.Point(1, 39);
+            this.lblRecipeQrStatus.Location = new System.Drawing.Point(1, 34);
             this.lblRecipeQrStatus.Margin = new System.Windows.Forms.Padding(0);
             this.lblRecipeQrStatus.Name = "lblRecipeQrStatus";
-            this.lblRecipeQrStatus.Size = new System.Drawing.Size(192, 37);
+            this.lblRecipeQrStatus.Size = new System.Drawing.Size(182, 31);
             this.lblRecipeQrStatus.TabIndex = 13;
             this.lblRecipeQrStatus.Text = "-";
             this.lblRecipeQrStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -913,10 +964,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxRecipeQrPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxRecipeQrPort.Font = new System.Drawing.Font("Calibri", 11F);
             this.cboxRecipeQrPort.FormattingEnabled = true;
-            this.cboxRecipeQrPort.Location = new System.Drawing.Point(97, 4);
+            this.cboxRecipeQrPort.Location = new System.Drawing.Point(92, 1);
             this.cboxRecipeQrPort.Margin = new System.Windows.Forms.Padding(0);
             this.cboxRecipeQrPort.Name = "cboxRecipeQrPort";
-            this.cboxRecipeQrPort.Size = new System.Drawing.Size(96, 30);
+            this.cboxRecipeQrPort.Size = new System.Drawing.Size(91, 30);
             this.cboxRecipeQrPort.TabIndex = 12;
             // 
             // cboxRecipeQrBaudRate
@@ -929,10 +980,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxRecipeQrBaudRate.Location = new System.Drawing.Point(97, 81);
+            this.cboxRecipeQrBaudRate.Location = new System.Drawing.Point(92, 67);
             this.cboxRecipeQrBaudRate.Margin = new System.Windows.Forms.Padding(0);
             this.cboxRecipeQrBaudRate.Name = "cboxRecipeQrBaudRate";
-            this.cboxRecipeQrBaudRate.Size = new System.Drawing.Size(96, 30);
+            this.cboxRecipeQrBaudRate.Size = new System.Drawing.Size(91, 30);
             this.cboxRecipeQrBaudRate.TabIndex = 6;
             // 
             // label25
@@ -941,10 +992,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label25.BackColor = System.Drawing.Color.MintCream;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(1, 77);
+            this.label25.Location = new System.Drawing.Point(1, 66);
             this.label25.Margin = new System.Windows.Forms.Padding(0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(95, 38);
+            this.label25.Size = new System.Drawing.Size(90, 33);
             this.label25.TabIndex = 4;
             this.label25.Text = "Baud Rate";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -958,7 +1009,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label26.Location = new System.Drawing.Point(1, 1);
             this.label26.Margin = new System.Windows.Forms.Padding(0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(95, 37);
+            this.label26.Size = new System.Drawing.Size(90, 32);
             this.label26.TabIndex = 1;
             this.label26.Text = "Port";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -967,10 +1018,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.groupBox24.Controls.Add(this.tableLayoutPanel32);
             this.groupBox24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox24.Location = new System.Drawing.Point(699, 3);
+            this.groupBox24.Location = new System.Drawing.Point(669, 3);
             this.groupBox24.Name = "groupBox24";
             this.tableLayoutPanel23.SetRowSpan(this.groupBox24, 4);
-            this.groupBox24.Size = new System.Drawing.Size(228, 490);
+            this.groupBox24.Size = new System.Drawing.Size(219, 450);
             this.groupBox24.TabIndex = 3;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "CH 4";
@@ -989,16 +1040,16 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.77551F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.61225F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.61225F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(222, 462);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(213, 422);
             this.tableLayoutPanel32.TabIndex = 3;
             // 
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.tableLayoutPanel12);
             this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox12.Location = new System.Drawing.Point(3, 323);
+            this.groupBox12.Location = new System.Drawing.Point(3, 295);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(216, 136);
+            this.groupBox12.Size = new System.Drawing.Size(207, 124);
             this.groupBox12.TabIndex = 6;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "QR ";
@@ -1023,7 +1074,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33167F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(210, 108);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(201, 96);
             this.tableLayoutPanel12.TabIndex = 0;
             // 
             // lblQrStatusCh4
@@ -1032,10 +1083,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel12.SetColumnSpan(this.lblQrStatusCh4, 2);
             this.lblQrStatusCh4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQrStatusCh4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQrStatusCh4.Location = new System.Drawing.Point(1, 36);
+            this.lblQrStatusCh4.Location = new System.Drawing.Point(1, 32);
             this.lblQrStatusCh4.Margin = new System.Windows.Forms.Padding(0);
             this.lblQrStatusCh4.Name = "lblQrStatusCh4";
-            this.lblQrStatusCh4.Size = new System.Drawing.Size(208, 34);
+            this.lblQrStatusCh4.Size = new System.Drawing.Size(199, 30);
             this.lblQrStatusCh4.TabIndex = 11;
             this.lblQrStatusCh4.Text = "-";
             this.lblQrStatusCh4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1046,10 +1097,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxQrPortCh4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxQrPortCh4.Font = new System.Drawing.Font("Calibri", 11F);
             this.cboxQrPortCh4.FormattingEnabled = true;
-            this.cboxQrPortCh4.Location = new System.Drawing.Point(105, 3);
+            this.cboxQrPortCh4.Location = new System.Drawing.Point(101, 1);
             this.cboxQrPortCh4.Margin = new System.Windows.Forms.Padding(0);
             this.cboxQrPortCh4.Name = "cboxQrPortCh4";
-            this.cboxQrPortCh4.Size = new System.Drawing.Size(104, 30);
+            this.cboxQrPortCh4.Size = new System.Drawing.Size(99, 30);
             this.cboxQrPortCh4.TabIndex = 10;
             // 
             // cboxQrBaudRateCh4
@@ -1062,10 +1113,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxQrBaudRateCh4.Location = new System.Drawing.Point(105, 73);
+            this.cboxQrBaudRateCh4.Location = new System.Drawing.Point(101, 64);
             this.cboxQrBaudRateCh4.Margin = new System.Windows.Forms.Padding(0);
             this.cboxQrBaudRateCh4.Name = "cboxQrBaudRateCh4";
-            this.cboxQrBaudRateCh4.Size = new System.Drawing.Size(104, 30);
+            this.cboxQrBaudRateCh4.Size = new System.Drawing.Size(99, 30);
             this.cboxQrBaudRateCh4.TabIndex = 6;
             // 
             // label15
@@ -1074,10 +1125,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label15.BackColor = System.Drawing.Color.MintCream;
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(1, 71);
+            this.label15.Location = new System.Drawing.Point(1, 63);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(103, 36);
+            this.label15.Size = new System.Drawing.Size(99, 32);
             this.label15.TabIndex = 4;
             this.label15.Text = "Baud Rate";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1091,7 +1142,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label16.Location = new System.Drawing.Point(1, 1);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(103, 34);
+            this.label16.Size = new System.Drawing.Size(99, 30);
             this.label16.TabIndex = 1;
             this.label16.Text = "Port";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1100,9 +1151,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.groupBox9.Controls.Add(this.tableLayoutPanel9);
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox9.Location = new System.Drawing.Point(3, 182);
+            this.groupBox9.Location = new System.Drawing.Point(3, 166);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(216, 135);
+            this.groupBox9.Size = new System.Drawing.Size(207, 123);
             this.groupBox9.TabIndex = 5;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "PBA ";
@@ -1125,7 +1176,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.9975F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(210, 107);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(201, 95);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // cboxPbaBaudRateCh4
@@ -1138,20 +1189,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxPbaBaudRateCh4.Location = new System.Drawing.Point(105, 65);
+            this.cboxPbaBaudRateCh4.Location = new System.Drawing.Point(101, 56);
             this.cboxPbaBaudRateCh4.Margin = new System.Windows.Forms.Padding(0);
             this.cboxPbaBaudRateCh4.Name = "cboxPbaBaudRateCh4";
-            this.cboxPbaBaudRateCh4.Size = new System.Drawing.Size(104, 30);
+            this.cboxPbaBaudRateCh4.Size = new System.Drawing.Size(99, 30);
             this.cboxPbaBaudRateCh4.TabIndex = 6;
             // 
             // tboxPbaPortCh4
             // 
             this.tboxPbaPortCh4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaPortCh4.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaPortCh4.Location = new System.Drawing.Point(105, 12);
+            this.tboxPbaPortCh4.Location = new System.Drawing.Point(101, 9);
             this.tboxPbaPortCh4.Margin = new System.Windows.Forms.Padding(0);
             this.tboxPbaPortCh4.Name = "tboxPbaPortCh4";
-            this.tboxPbaPortCh4.Size = new System.Drawing.Size(104, 30);
+            this.tboxPbaPortCh4.Size = new System.Drawing.Size(99, 30);
             this.tboxPbaPortCh4.TabIndex = 5;
             // 
             // label13
@@ -1160,10 +1211,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label13.BackColor = System.Drawing.Color.MintCream;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1, 54);
+            this.label13.Location = new System.Drawing.Point(1, 48);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(103, 52);
+            this.label13.Size = new System.Drawing.Size(99, 46);
             this.label13.TabIndex = 4;
             this.label13.Text = "Baud Rate";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1177,7 +1228,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label14.Location = new System.Drawing.Point(1, 1);
             this.label14.Margin = new System.Windows.Forms.Padding(0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(103, 52);
+            this.label14.Size = new System.Drawing.Size(99, 46);
             this.label14.TabIndex = 1;
             this.label14.Text = "Port";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1188,7 +1239,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(216, 173);
+            this.groupBox4.Size = new System.Drawing.Size(207, 157);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "BOARD";
@@ -1213,27 +1264,27 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(210, 145);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(201, 129);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tboxTcpCh4Port
             // 
             this.tboxTcpCh4Port.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxTcpCh4Port.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxTcpCh4Port.Location = new System.Drawing.Point(105, 111);
+            this.tboxTcpCh4Port.Location = new System.Drawing.Point(101, 97);
             this.tboxTcpCh4Port.Margin = new System.Windows.Forms.Padding(0);
             this.tboxTcpCh4Port.Name = "tboxTcpCh4Port";
-            this.tboxTcpCh4Port.Size = new System.Drawing.Size(104, 30);
+            this.tboxTcpCh4Port.Size = new System.Drawing.Size(99, 30);
             this.tboxTcpCh4Port.TabIndex = 6;
             // 
             // tboxTcpCh4Ip
             // 
             this.tboxTcpCh4Ip.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxTcpCh4Ip.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxTcpCh4Ip.Location = new System.Drawing.Point(105, 75);
+            this.tboxTcpCh4Ip.Location = new System.Drawing.Point(101, 65);
             this.tboxTcpCh4Ip.Margin = new System.Windows.Forms.Padding(0);
             this.tboxTcpCh4Ip.Name = "tboxTcpCh4Ip";
-            this.tboxTcpCh4Ip.Size = new System.Drawing.Size(104, 30);
+            this.tboxTcpCh4Ip.Size = new System.Drawing.Size(99, 30);
             this.tboxTcpCh4Ip.TabIndex = 5;
             // 
             // label9
@@ -1242,10 +1293,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label9.BackColor = System.Drawing.Color.MintCream;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1, 109);
+            this.label9.Location = new System.Drawing.Point(1, 97);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 35);
+            this.label9.Size = new System.Drawing.Size(99, 31);
             this.label9.TabIndex = 4;
             this.label9.Text = "Port";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1259,7 +1310,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel4.Location = new System.Drawing.Point(1, 1);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(208, 35);
+            this.panel4.Size = new System.Drawing.Size(199, 31);
             this.panel4.TabIndex = 0;
             // 
             // SwitchUseCh4
@@ -1274,7 +1325,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.SwitchUseCh4.MouseState = MaterialSkin.MouseState.HOVER;
             this.SwitchUseCh4.Name = "SwitchUseCh4";
             this.SwitchUseCh4.Ripple = true;
-            this.SwitchUseCh4.Size = new System.Drawing.Size(208, 35);
+            this.SwitchUseCh4.Size = new System.Drawing.Size(199, 31);
             this.SwitchUseCh4.TabIndex = 0;
             this.SwitchUseCh4.Text = "USE CH4";
             this.SwitchUseCh4.UseVisualStyleBackColor = true;
@@ -1285,10 +1336,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label10.BackColor = System.Drawing.Color.MintCream;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1, 73);
+            this.label10.Location = new System.Drawing.Point(1, 65);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 35);
+            this.label10.Size = new System.Drawing.Size(99, 31);
             this.label10.TabIndex = 1;
             this.label10.Text = "IP";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1299,10 +1350,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel7.SetColumnSpan(this.lblCh4Status, 2);
             this.lblCh4Status.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCh4Status.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCh4Status.Location = new System.Drawing.Point(1, 37);
+            this.lblCh4Status.Location = new System.Drawing.Point(1, 33);
             this.lblCh4Status.Margin = new System.Windows.Forms.Padding(0);
             this.lblCh4Status.Name = "lblCh4Status";
-            this.lblCh4Status.Size = new System.Drawing.Size(208, 35);
+            this.lblCh4Status.Size = new System.Drawing.Size(199, 31);
             this.lblCh4Status.TabIndex = 3;
             this.lblCh4Status.Text = "-";
             this.lblCh4Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1311,10 +1362,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.groupBox23.Controls.Add(this.tableLayoutPanel31);
             this.groupBox23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox23.Location = new System.Drawing.Point(467, 3);
+            this.groupBox23.Location = new System.Drawing.Point(447, 3);
             this.groupBox23.Name = "groupBox23";
             this.tableLayoutPanel23.SetRowSpan(this.groupBox23, 4);
-            this.groupBox23.Size = new System.Drawing.Size(226, 490);
+            this.groupBox23.Size = new System.Drawing.Size(216, 450);
             this.groupBox23.TabIndex = 2;
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "CH 3";
@@ -1333,16 +1384,16 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.77551F));
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.61225F));
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.61225F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(220, 462);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(210, 422);
             this.tableLayoutPanel31.TabIndex = 3;
             // 
             // groupBox13
             // 
             this.groupBox13.Controls.Add(this.tableLayoutPanel13);
             this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox13.Location = new System.Drawing.Point(3, 323);
+            this.groupBox13.Location = new System.Drawing.Point(3, 295);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(214, 136);
+            this.groupBox13.Size = new System.Drawing.Size(204, 124);
             this.groupBox13.TabIndex = 5;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "QR ";
@@ -1367,7 +1418,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33167F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(208, 108);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(198, 96);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // lblQrStatusCh3
@@ -1376,10 +1427,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel13.SetColumnSpan(this.lblQrStatusCh3, 2);
             this.lblQrStatusCh3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQrStatusCh3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQrStatusCh3.Location = new System.Drawing.Point(1, 36);
+            this.lblQrStatusCh3.Location = new System.Drawing.Point(1, 32);
             this.lblQrStatusCh3.Margin = new System.Windows.Forms.Padding(0);
             this.lblQrStatusCh3.Name = "lblQrStatusCh3";
-            this.lblQrStatusCh3.Size = new System.Drawing.Size(206, 34);
+            this.lblQrStatusCh3.Size = new System.Drawing.Size(196, 30);
             this.lblQrStatusCh3.TabIndex = 10;
             this.lblQrStatusCh3.Text = "-";
             this.lblQrStatusCh3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1390,10 +1441,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxQrPortCh3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxQrPortCh3.Font = new System.Drawing.Font("Calibri", 11F);
             this.cboxQrPortCh3.FormattingEnabled = true;
-            this.cboxQrPortCh3.Location = new System.Drawing.Point(104, 3);
+            this.cboxQrPortCh3.Location = new System.Drawing.Point(99, 1);
             this.cboxQrPortCh3.Margin = new System.Windows.Forms.Padding(0);
             this.cboxQrPortCh3.Name = "cboxQrPortCh3";
-            this.cboxQrPortCh3.Size = new System.Drawing.Size(103, 30);
+            this.cboxQrPortCh3.Size = new System.Drawing.Size(98, 30);
             this.cboxQrPortCh3.TabIndex = 9;
             // 
             // cboxQrBaudRateCh3
@@ -1406,10 +1457,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxQrBaudRateCh3.Location = new System.Drawing.Point(104, 73);
+            this.cboxQrBaudRateCh3.Location = new System.Drawing.Point(99, 64);
             this.cboxQrBaudRateCh3.Margin = new System.Windows.Forms.Padding(0);
             this.cboxQrBaudRateCh3.Name = "cboxQrBaudRateCh3";
-            this.cboxQrBaudRateCh3.Size = new System.Drawing.Size(103, 30);
+            this.cboxQrBaudRateCh3.Size = new System.Drawing.Size(98, 30);
             this.cboxQrBaudRateCh3.TabIndex = 6;
             // 
             // label17
@@ -1418,10 +1469,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label17.BackColor = System.Drawing.Color.MintCream;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(1, 71);
+            this.label17.Location = new System.Drawing.Point(1, 63);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(102, 36);
+            this.label17.Size = new System.Drawing.Size(97, 32);
             this.label17.TabIndex = 4;
             this.label17.Text = "Baud Rate";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1435,7 +1486,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label20.Location = new System.Drawing.Point(1, 1);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(102, 34);
+            this.label20.Size = new System.Drawing.Size(97, 30);
             this.label20.TabIndex = 1;
             this.label20.Text = "Port";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1444,9 +1495,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.groupBox8.Controls.Add(this.tableLayoutPanel8);
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox8.Location = new System.Drawing.Point(3, 182);
+            this.groupBox8.Location = new System.Drawing.Point(3, 166);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(214, 135);
+            this.groupBox8.Size = new System.Drawing.Size(204, 123);
             this.groupBox8.TabIndex = 4;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "PBA ";
@@ -1469,7 +1520,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.9975F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(208, 107);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(198, 95);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // cboxPbaBaudRateCh3
@@ -1482,20 +1533,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxPbaBaudRateCh3.Location = new System.Drawing.Point(104, 65);
+            this.cboxPbaBaudRateCh3.Location = new System.Drawing.Point(99, 56);
             this.cboxPbaBaudRateCh3.Margin = new System.Windows.Forms.Padding(0);
             this.cboxPbaBaudRateCh3.Name = "cboxPbaBaudRateCh3";
-            this.cboxPbaBaudRateCh3.Size = new System.Drawing.Size(103, 30);
+            this.cboxPbaBaudRateCh3.Size = new System.Drawing.Size(98, 30);
             this.cboxPbaBaudRateCh3.TabIndex = 6;
             // 
             // tboxPbaPortCh3
             // 
             this.tboxPbaPortCh3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaPortCh3.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaPortCh3.Location = new System.Drawing.Point(104, 12);
+            this.tboxPbaPortCh3.Location = new System.Drawing.Point(99, 9);
             this.tboxPbaPortCh3.Margin = new System.Windows.Forms.Padding(0);
             this.tboxPbaPortCh3.Name = "tboxPbaPortCh3";
-            this.tboxPbaPortCh3.Size = new System.Drawing.Size(103, 30);
+            this.tboxPbaPortCh3.Size = new System.Drawing.Size(98, 30);
             this.tboxPbaPortCh3.TabIndex = 5;
             // 
             // label11
@@ -1504,10 +1555,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label11.BackColor = System.Drawing.Color.MintCream;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1, 54);
+            this.label11.Location = new System.Drawing.Point(1, 48);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 52);
+            this.label11.Size = new System.Drawing.Size(97, 46);
             this.label11.TabIndex = 4;
             this.label11.Text = "Baud Rate";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1521,7 +1572,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label12.Location = new System.Drawing.Point(1, 1);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 52);
+            this.label12.Size = new System.Drawing.Size(97, 46);
             this.label12.TabIndex = 1;
             this.label12.Text = "Port";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1532,7 +1583,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(214, 173);
+            this.groupBox3.Size = new System.Drawing.Size(204, 157);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "BOARD";
@@ -1557,27 +1608,27 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(208, 145);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(198, 129);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // tboxTcpCh3Port
             // 
             this.tboxTcpCh3Port.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxTcpCh3Port.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxTcpCh3Port.Location = new System.Drawing.Point(104, 111);
+            this.tboxTcpCh3Port.Location = new System.Drawing.Point(99, 97);
             this.tboxTcpCh3Port.Margin = new System.Windows.Forms.Padding(0);
             this.tboxTcpCh3Port.Name = "tboxTcpCh3Port";
-            this.tboxTcpCh3Port.Size = new System.Drawing.Size(103, 30);
+            this.tboxTcpCh3Port.Size = new System.Drawing.Size(98, 30);
             this.tboxTcpCh3Port.TabIndex = 6;
             // 
             // tboxTcpCh3Ip
             // 
             this.tboxTcpCh3Ip.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxTcpCh3Ip.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxTcpCh3Ip.Location = new System.Drawing.Point(104, 75);
+            this.tboxTcpCh3Ip.Location = new System.Drawing.Point(99, 65);
             this.tboxTcpCh3Ip.Margin = new System.Windows.Forms.Padding(0);
             this.tboxTcpCh3Ip.Name = "tboxTcpCh3Ip";
-            this.tboxTcpCh3Ip.Size = new System.Drawing.Size(103, 30);
+            this.tboxTcpCh3Ip.Size = new System.Drawing.Size(98, 30);
             this.tboxTcpCh3Ip.TabIndex = 5;
             // 
             // label6
@@ -1586,10 +1637,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label6.BackColor = System.Drawing.Color.MintCream;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1, 109);
+            this.label6.Location = new System.Drawing.Point(1, 97);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 35);
+            this.label6.Size = new System.Drawing.Size(97, 31);
             this.label6.TabIndex = 4;
             this.label6.Text = "Port";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1603,7 +1654,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel3.Location = new System.Drawing.Point(1, 1);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(206, 35);
+            this.panel3.Size = new System.Drawing.Size(196, 31);
             this.panel3.TabIndex = 0;
             // 
             // SwitchUseCh3
@@ -1618,7 +1669,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.SwitchUseCh3.MouseState = MaterialSkin.MouseState.HOVER;
             this.SwitchUseCh3.Name = "SwitchUseCh3";
             this.SwitchUseCh3.Ripple = true;
-            this.SwitchUseCh3.Size = new System.Drawing.Size(206, 35);
+            this.SwitchUseCh3.Size = new System.Drawing.Size(196, 31);
             this.SwitchUseCh3.TabIndex = 0;
             this.SwitchUseCh3.Text = "USE CH3";
             this.SwitchUseCh3.UseVisualStyleBackColor = true;
@@ -1629,10 +1680,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label7.BackColor = System.Drawing.Color.MintCream;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1, 73);
+            this.label7.Location = new System.Drawing.Point(1, 65);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 35);
+            this.label7.Size = new System.Drawing.Size(97, 31);
             this.label7.TabIndex = 1;
             this.label7.Text = "IP";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1643,10 +1694,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel6.SetColumnSpan(this.lblCh3Status, 2);
             this.lblCh3Status.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCh3Status.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCh3Status.Location = new System.Drawing.Point(1, 37);
+            this.lblCh3Status.Location = new System.Drawing.Point(1, 33);
             this.lblCh3Status.Margin = new System.Windows.Forms.Padding(0);
             this.lblCh3Status.Name = "lblCh3Status";
-            this.lblCh3Status.Size = new System.Drawing.Size(206, 35);
+            this.lblCh3Status.Size = new System.Drawing.Size(196, 31);
             this.lblCh3Status.TabIndex = 3;
             this.lblCh3Status.Text = "-";
             this.lblCh3Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1655,10 +1706,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.groupBox22.Controls.Add(this.tableLayoutPanel30);
             this.groupBox22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox22.Location = new System.Drawing.Point(235, 3);
+            this.groupBox22.Location = new System.Drawing.Point(225, 3);
             this.groupBox22.Name = "groupBox22";
             this.tableLayoutPanel23.SetRowSpan(this.groupBox22, 4);
-            this.groupBox22.Size = new System.Drawing.Size(226, 490);
+            this.groupBox22.Size = new System.Drawing.Size(216, 450);
             this.groupBox22.TabIndex = 1;
             this.groupBox22.TabStop = false;
             this.groupBox22.Text = "CH 2";
@@ -1677,16 +1728,16 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.77551F));
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.61225F));
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.61225F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(220, 462);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(210, 422);
             this.tableLayoutPanel30.TabIndex = 2;
             // 
             // groupBox14
             // 
             this.groupBox14.Controls.Add(this.tableLayoutPanel14);
             this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox14.Location = new System.Drawing.Point(3, 323);
+            this.groupBox14.Location = new System.Drawing.Point(3, 295);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(214, 136);
+            this.groupBox14.Size = new System.Drawing.Size(204, 124);
             this.groupBox14.TabIndex = 4;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "QR ";
@@ -1711,7 +1762,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33167F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(208, 108);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(198, 96);
             this.tableLayoutPanel14.TabIndex = 0;
             // 
             // lblQrStatusCh2
@@ -1720,10 +1771,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel14.SetColumnSpan(this.lblQrStatusCh2, 2);
             this.lblQrStatusCh2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQrStatusCh2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQrStatusCh2.Location = new System.Drawing.Point(1, 36);
+            this.lblQrStatusCh2.Location = new System.Drawing.Point(1, 32);
             this.lblQrStatusCh2.Margin = new System.Windows.Forms.Padding(0);
             this.lblQrStatusCh2.Name = "lblQrStatusCh2";
-            this.lblQrStatusCh2.Size = new System.Drawing.Size(206, 34);
+            this.lblQrStatusCh2.Size = new System.Drawing.Size(196, 30);
             this.lblQrStatusCh2.TabIndex = 9;
             this.lblQrStatusCh2.Text = "-";
             this.lblQrStatusCh2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1734,10 +1785,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxQrPortCh2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxQrPortCh2.Font = new System.Drawing.Font("Calibri", 11F);
             this.cboxQrPortCh2.FormattingEnabled = true;
-            this.cboxQrPortCh2.Location = new System.Drawing.Point(104, 3);
+            this.cboxQrPortCh2.Location = new System.Drawing.Point(99, 1);
             this.cboxQrPortCh2.Margin = new System.Windows.Forms.Padding(0);
             this.cboxQrPortCh2.Name = "cboxQrPortCh2";
-            this.cboxQrPortCh2.Size = new System.Drawing.Size(103, 30);
+            this.cboxQrPortCh2.Size = new System.Drawing.Size(98, 30);
             this.cboxQrPortCh2.TabIndex = 8;
             // 
             // cboxQrBaudRateCh2
@@ -1750,10 +1801,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxQrBaudRateCh2.Location = new System.Drawing.Point(104, 73);
+            this.cboxQrBaudRateCh2.Location = new System.Drawing.Point(99, 64);
             this.cboxQrBaudRateCh2.Margin = new System.Windows.Forms.Padding(0);
             this.cboxQrBaudRateCh2.Name = "cboxQrBaudRateCh2";
-            this.cboxQrBaudRateCh2.Size = new System.Drawing.Size(103, 30);
+            this.cboxQrBaudRateCh2.Size = new System.Drawing.Size(98, 30);
             this.cboxQrBaudRateCh2.TabIndex = 6;
             // 
             // label21
@@ -1762,10 +1813,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label21.BackColor = System.Drawing.Color.MintCream;
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(1, 71);
+            this.label21.Location = new System.Drawing.Point(1, 63);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(102, 36);
+            this.label21.Size = new System.Drawing.Size(97, 32);
             this.label21.TabIndex = 4;
             this.label21.Text = "Baud Rate";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1779,7 +1830,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label22.Location = new System.Drawing.Point(1, 1);
             this.label22.Margin = new System.Windows.Forms.Padding(0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(102, 34);
+            this.label22.Size = new System.Drawing.Size(97, 30);
             this.label22.TabIndex = 1;
             this.label22.Text = "Port";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1788,9 +1839,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.groupBox7.Controls.Add(this.tableLayoutPanel2);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Location = new System.Drawing.Point(3, 182);
+            this.groupBox7.Location = new System.Drawing.Point(3, 166);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(214, 135);
+            this.groupBox7.Size = new System.Drawing.Size(204, 123);
             this.groupBox7.TabIndex = 3;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "PBA ";
@@ -1813,7 +1864,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.9975F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(208, 107);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(198, 95);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // cboxPbaBaudRateCh2
@@ -1826,20 +1877,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxPbaBaudRateCh2.Location = new System.Drawing.Point(104, 65);
+            this.cboxPbaBaudRateCh2.Location = new System.Drawing.Point(99, 56);
             this.cboxPbaBaudRateCh2.Margin = new System.Windows.Forms.Padding(0);
             this.cboxPbaBaudRateCh2.Name = "cboxPbaBaudRateCh2";
-            this.cboxPbaBaudRateCh2.Size = new System.Drawing.Size(103, 30);
+            this.cboxPbaBaudRateCh2.Size = new System.Drawing.Size(98, 30);
             this.cboxPbaBaudRateCh2.TabIndex = 6;
             // 
             // tboxPbaPortCh2
             // 
             this.tboxPbaPortCh2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaPortCh2.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaPortCh2.Location = new System.Drawing.Point(104, 12);
+            this.tboxPbaPortCh2.Location = new System.Drawing.Point(99, 9);
             this.tboxPbaPortCh2.Margin = new System.Windows.Forms.Padding(0);
             this.tboxPbaPortCh2.Name = "tboxPbaPortCh2";
-            this.tboxPbaPortCh2.Size = new System.Drawing.Size(103, 30);
+            this.tboxPbaPortCh2.Size = new System.Drawing.Size(98, 30);
             this.tboxPbaPortCh2.TabIndex = 5;
             // 
             // label5
@@ -1848,10 +1899,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label5.BackColor = System.Drawing.Color.MintCream;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1, 54);
+            this.label5.Location = new System.Drawing.Point(1, 48);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 52);
+            this.label5.Size = new System.Drawing.Size(97, 46);
             this.label5.TabIndex = 4;
             this.label5.Text = "Baud Rate";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1865,7 +1916,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label8.Location = new System.Drawing.Point(1, 1);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 52);
+            this.label8.Size = new System.Drawing.Size(97, 46);
             this.label8.TabIndex = 1;
             this.label8.Text = "Port";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1876,7 +1927,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(214, 173);
+            this.groupBox2.Size = new System.Drawing.Size(204, 157);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "BOARD";
@@ -1901,27 +1952,27 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(208, 145);
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(198, 129);
             this.tableLayoutPanel27.TabIndex = 0;
             // 
             // tboxTcpCh2Port
             // 
             this.tboxTcpCh2Port.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxTcpCh2Port.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxTcpCh2Port.Location = new System.Drawing.Point(104, 111);
+            this.tboxTcpCh2Port.Location = new System.Drawing.Point(99, 97);
             this.tboxTcpCh2Port.Margin = new System.Windows.Forms.Padding(0);
             this.tboxTcpCh2Port.Name = "tboxTcpCh2Port";
-            this.tboxTcpCh2Port.Size = new System.Drawing.Size(103, 30);
+            this.tboxTcpCh2Port.Size = new System.Drawing.Size(98, 30);
             this.tboxTcpCh2Port.TabIndex = 6;
             // 
             // tboxTcpCh2Ip
             // 
             this.tboxTcpCh2Ip.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxTcpCh2Ip.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxTcpCh2Ip.Location = new System.Drawing.Point(104, 75);
+            this.tboxTcpCh2Ip.Location = new System.Drawing.Point(99, 65);
             this.tboxTcpCh2Ip.Margin = new System.Windows.Forms.Padding(0);
             this.tboxTcpCh2Ip.Name = "tboxTcpCh2Ip";
-            this.tboxTcpCh2Ip.Size = new System.Drawing.Size(103, 30);
+            this.tboxTcpCh2Ip.Size = new System.Drawing.Size(98, 30);
             this.tboxTcpCh2Ip.TabIndex = 5;
             // 
             // label3
@@ -1930,10 +1981,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label3.BackColor = System.Drawing.Color.MintCream;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1, 109);
+            this.label3.Location = new System.Drawing.Point(1, 97);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 35);
+            this.label3.Size = new System.Drawing.Size(97, 31);
             this.label3.TabIndex = 4;
             this.label3.Text = "Port";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1947,7 +1998,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel2.Location = new System.Drawing.Point(1, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(206, 35);
+            this.panel2.Size = new System.Drawing.Size(196, 31);
             this.panel2.TabIndex = 0;
             // 
             // SwitchUseCh2
@@ -1962,7 +2013,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.SwitchUseCh2.MouseState = MaterialSkin.MouseState.HOVER;
             this.SwitchUseCh2.Name = "SwitchUseCh2";
             this.SwitchUseCh2.Ripple = true;
-            this.SwitchUseCh2.Size = new System.Drawing.Size(206, 35);
+            this.SwitchUseCh2.Size = new System.Drawing.Size(196, 31);
             this.SwitchUseCh2.TabIndex = 0;
             this.SwitchUseCh2.Text = "USE CH2";
             this.SwitchUseCh2.UseVisualStyleBackColor = true;
@@ -1973,10 +2024,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label4.BackColor = System.Drawing.Color.MintCream;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1, 73);
+            this.label4.Location = new System.Drawing.Point(1, 65);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 35);
+            this.label4.Size = new System.Drawing.Size(97, 31);
             this.label4.TabIndex = 1;
             this.label4.Text = "IP";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1987,10 +2038,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel27.SetColumnSpan(this.lblCh2Status, 2);
             this.lblCh2Status.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCh2Status.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCh2Status.Location = new System.Drawing.Point(1, 37);
+            this.lblCh2Status.Location = new System.Drawing.Point(1, 33);
             this.lblCh2Status.Margin = new System.Windows.Forms.Padding(0);
             this.lblCh2Status.Name = "lblCh2Status";
-            this.lblCh2Status.Size = new System.Drawing.Size(206, 35);
+            this.lblCh2Status.Size = new System.Drawing.Size(196, 31);
             this.lblCh2Status.TabIndex = 3;
             this.lblCh2Status.Text = "-";
             this.lblCh2Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2002,7 +2053,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox21.Location = new System.Drawing.Point(3, 3);
             this.groupBox21.Name = "groupBox21";
             this.tableLayoutPanel23.SetRowSpan(this.groupBox21, 4);
-            this.groupBox21.Size = new System.Drawing.Size(226, 490);
+            this.groupBox21.Size = new System.Drawing.Size(216, 450);
             this.groupBox21.TabIndex = 0;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "CH 1";
@@ -2021,16 +2072,16 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.77551F));
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.61225F));
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.61225F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(220, 462);
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(210, 422);
             this.tableLayoutPanel29.TabIndex = 0;
             // 
             // groupBox15
             // 
             this.groupBox15.Controls.Add(this.tableLayoutPanel15);
             this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox15.Location = new System.Drawing.Point(3, 323);
+            this.groupBox15.Location = new System.Drawing.Point(3, 295);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(214, 136);
+            this.groupBox15.Size = new System.Drawing.Size(204, 124);
             this.groupBox15.TabIndex = 3;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "QR ";
@@ -2055,7 +2106,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33167F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(208, 108);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(198, 96);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // lblQrStatusCh1
@@ -2064,10 +2115,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel15.SetColumnSpan(this.lblQrStatusCh1, 2);
             this.lblQrStatusCh1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQrStatusCh1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQrStatusCh1.Location = new System.Drawing.Point(1, 36);
+            this.lblQrStatusCh1.Location = new System.Drawing.Point(1, 32);
             this.lblQrStatusCh1.Margin = new System.Windows.Forms.Padding(0);
             this.lblQrStatusCh1.Name = "lblQrStatusCh1";
-            this.lblQrStatusCh1.Size = new System.Drawing.Size(206, 34);
+            this.lblQrStatusCh1.Size = new System.Drawing.Size(196, 30);
             this.lblQrStatusCh1.TabIndex = 8;
             this.lblQrStatusCh1.Text = "-";
             this.lblQrStatusCh1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2078,10 +2129,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.cboxQrPortCh1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxQrPortCh1.Font = new System.Drawing.Font("Calibri", 11F);
             this.cboxQrPortCh1.FormattingEnabled = true;
-            this.cboxQrPortCh1.Location = new System.Drawing.Point(104, 3);
+            this.cboxQrPortCh1.Location = new System.Drawing.Point(99, 1);
             this.cboxQrPortCh1.Margin = new System.Windows.Forms.Padding(0);
             this.cboxQrPortCh1.Name = "cboxQrPortCh1";
-            this.cboxQrPortCh1.Size = new System.Drawing.Size(103, 30);
+            this.cboxQrPortCh1.Size = new System.Drawing.Size(98, 30);
             this.cboxQrPortCh1.TabIndex = 7;
             // 
             // cboxQrBaudRateCh1
@@ -2094,10 +2145,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxQrBaudRateCh1.Location = new System.Drawing.Point(104, 73);
+            this.cboxQrBaudRateCh1.Location = new System.Drawing.Point(99, 64);
             this.cboxQrBaudRateCh1.Margin = new System.Windows.Forms.Padding(0);
             this.cboxQrBaudRateCh1.Name = "cboxQrBaudRateCh1";
-            this.cboxQrBaudRateCh1.Size = new System.Drawing.Size(103, 30);
+            this.cboxQrBaudRateCh1.Size = new System.Drawing.Size(98, 30);
             this.cboxQrBaudRateCh1.TabIndex = 6;
             // 
             // label23
@@ -2106,10 +2157,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label23.BackColor = System.Drawing.Color.MintCream;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(1, 71);
+            this.label23.Location = new System.Drawing.Point(1, 63);
             this.label23.Margin = new System.Windows.Forms.Padding(0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(102, 36);
+            this.label23.Size = new System.Drawing.Size(97, 32);
             this.label23.TabIndex = 4;
             this.label23.Text = "Baud Rate";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2123,7 +2174,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label24.Location = new System.Drawing.Point(1, 1);
             this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(102, 34);
+            this.label24.Size = new System.Drawing.Size(97, 30);
             this.label24.TabIndex = 1;
             this.label24.Text = "Port";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2132,9 +2183,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.groupBox10.Controls.Add(this.tableLayoutPanel10);
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox10.Location = new System.Drawing.Point(3, 182);
+            this.groupBox10.Location = new System.Drawing.Point(3, 166);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(214, 135);
+            this.groupBox10.Size = new System.Drawing.Size(204, 123);
             this.groupBox10.TabIndex = 2;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "PBA ";
@@ -2157,7 +2208,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.9975F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(208, 107);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(198, 95);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // cboxPbaBaudRateCh1
@@ -2170,20 +2221,20 @@ namespace p2_40_Main_PBA_Tester.Forms
             "9600",
             "19200",
             "115200"});
-            this.cboxPbaBaudRateCh1.Location = new System.Drawing.Point(104, 65);
+            this.cboxPbaBaudRateCh1.Location = new System.Drawing.Point(99, 56);
             this.cboxPbaBaudRateCh1.Margin = new System.Windows.Forms.Padding(0);
             this.cboxPbaBaudRateCh1.Name = "cboxPbaBaudRateCh1";
-            this.cboxPbaBaudRateCh1.Size = new System.Drawing.Size(103, 30);
+            this.cboxPbaBaudRateCh1.Size = new System.Drawing.Size(98, 30);
             this.cboxPbaBaudRateCh1.TabIndex = 6;
             // 
             // tboxPbaPortCh1
             // 
             this.tboxPbaPortCh1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxPbaPortCh1.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxPbaPortCh1.Location = new System.Drawing.Point(104, 12);
+            this.tboxPbaPortCh1.Location = new System.Drawing.Point(99, 9);
             this.tboxPbaPortCh1.Margin = new System.Windows.Forms.Padding(0);
             this.tboxPbaPortCh1.Name = "tboxPbaPortCh1";
-            this.tboxPbaPortCh1.Size = new System.Drawing.Size(103, 30);
+            this.tboxPbaPortCh1.Size = new System.Drawing.Size(98, 30);
             this.tboxPbaPortCh1.TabIndex = 5;
             // 
             // label18
@@ -2192,10 +2243,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label18.BackColor = System.Drawing.Color.MintCream;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(1, 54);
+            this.label18.Location = new System.Drawing.Point(1, 48);
             this.label18.Margin = new System.Windows.Forms.Padding(0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(102, 52);
+            this.label18.Size = new System.Drawing.Size(97, 46);
             this.label18.TabIndex = 4;
             this.label18.Text = "Baud Rate";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2209,7 +2260,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label19.Location = new System.Drawing.Point(1, 1);
             this.label19.Margin = new System.Windows.Forms.Padding(0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(102, 52);
+            this.label19.Size = new System.Drawing.Size(97, 46);
             this.label19.TabIndex = 1;
             this.label19.Text = "Port";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2220,7 +2271,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(214, 173);
+            this.groupBox1.Size = new System.Drawing.Size(204, 157);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "BOARD";
@@ -2246,27 +2297,27 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(208, 145);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(198, 129);
             this.tableLayoutPanel28.TabIndex = 0;
             // 
             // tboxTcpCh1Port
             // 
             this.tboxTcpCh1Port.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxTcpCh1Port.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxTcpCh1Port.Location = new System.Drawing.Point(104, 111);
+            this.tboxTcpCh1Port.Location = new System.Drawing.Point(99, 97);
             this.tboxTcpCh1Port.Margin = new System.Windows.Forms.Padding(0);
             this.tboxTcpCh1Port.Name = "tboxTcpCh1Port";
-            this.tboxTcpCh1Port.Size = new System.Drawing.Size(103, 30);
+            this.tboxTcpCh1Port.Size = new System.Drawing.Size(98, 30);
             this.tboxTcpCh1Port.TabIndex = 6;
             // 
             // tboxTcpCh1Ip
             // 
             this.tboxTcpCh1Ip.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tboxTcpCh1Ip.Font = new System.Drawing.Font("Calibri", 11F);
-            this.tboxTcpCh1Ip.Location = new System.Drawing.Point(104, 75);
+            this.tboxTcpCh1Ip.Location = new System.Drawing.Point(99, 65);
             this.tboxTcpCh1Ip.Margin = new System.Windows.Forms.Padding(0);
             this.tboxTcpCh1Ip.Name = "tboxTcpCh1Ip";
-            this.tboxTcpCh1Ip.Size = new System.Drawing.Size(103, 30);
+            this.tboxTcpCh1Ip.Size = new System.Drawing.Size(98, 30);
             this.tboxTcpCh1Ip.TabIndex = 5;
             // 
             // label2
@@ -2275,10 +2326,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label2.BackColor = System.Drawing.Color.MintCream;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1, 109);
+            this.label2.Location = new System.Drawing.Point(1, 97);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 35);
+            this.label2.Size = new System.Drawing.Size(97, 31);
             this.label2.TabIndex = 4;
             this.label2.Text = "Port";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2292,7 +2343,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 35);
+            this.panel1.Size = new System.Drawing.Size(196, 31);
             this.panel1.TabIndex = 0;
             // 
             // SwitchUseCh1
@@ -2307,7 +2358,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.SwitchUseCh1.MouseState = MaterialSkin.MouseState.HOVER;
             this.SwitchUseCh1.Name = "SwitchUseCh1";
             this.SwitchUseCh1.Ripple = true;
-            this.SwitchUseCh1.Size = new System.Drawing.Size(206, 35);
+            this.SwitchUseCh1.Size = new System.Drawing.Size(196, 31);
             this.SwitchUseCh1.TabIndex = 0;
             this.SwitchUseCh1.Text = "USE CH1";
             this.SwitchUseCh1.UseVisualStyleBackColor = true;
@@ -2318,10 +2369,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label1.BackColor = System.Drawing.Color.MintCream;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1, 73);
+            this.label1.Location = new System.Drawing.Point(1, 65);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 35);
+            this.label1.Size = new System.Drawing.Size(97, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "IP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2332,10 +2383,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel28.SetColumnSpan(this.lblCh1Status, 2);
             this.lblCh1Status.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCh1Status.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCh1Status.Location = new System.Drawing.Point(1, 37);
+            this.lblCh1Status.Location = new System.Drawing.Point(1, 33);
             this.lblCh1Status.Margin = new System.Windows.Forms.Padding(0);
             this.lblCh1Status.Name = "lblCh1Status";
-            this.lblCh1Status.Size = new System.Drawing.Size(206, 35);
+            this.lblCh1Status.Size = new System.Drawing.Size(196, 31);
             this.lblCh1Status.TabIndex = 3;
             this.lblCh1Status.Text = "-";
             this.lblCh1Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2344,7 +2395,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1560, 762);
+            this.ClientSize = new System.Drawing.Size(1498, 701);
             this.Controls.Add(this.tableLayoutPanel22);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2450,8 +2501,8 @@ namespace p2_40_Main_PBA_Tester.Forms
         private MaterialSkin.Controls.MaterialCheckbox checkboxDebugMode;
         private MaterialSkin.Controls.MaterialCheckbox checkboxBoardRetry;
         private MaterialSkin.Controls.MaterialCheckbox checkboxPbaRetry;
-        private System.Windows.Forms.TextBox tboxPbaRetryCount;
         private System.Windows.Forms.TextBox tboxBoardRetryCount;
+        private System.Windows.Forms.TextBox tboxPbaRetryCount;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
@@ -2576,5 +2627,9 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.ComboBox cboxRecipeQrBaudRate;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox tboxPbaConnectTimeout;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox tboxPbaConnectInterval;
+        private System.Windows.Forms.Label label36;
     }
 }

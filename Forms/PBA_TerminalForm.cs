@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
@@ -20,17 +21,18 @@ namespace p2_40_Main_PBA_Tester.Forms
     public partial class PBA_TerminalForm : Form
     {
         #region Field
-        public ManualForm manualform;
+        //public ManualForm manualform;
         private SerialChannelPort Pba;
         RichTextLogger DeviceTx;
         RichTextLogger DeviceRx;
         private bool StatusPortOpen = false;
+        //private CancellationTokenSource _cts;
         #endregion
 
         #region Init
-        public PBA_TerminalForm(ManualForm parentform)
+        public PBA_TerminalForm()
         {
-            this.manualform = parentform;
+            //this.manualform = parentform;
             InitializeComponent();
             ConnectEvent();
             DisConnectAllSerial();
@@ -81,7 +83,9 @@ namespace p2_40_Main_PBA_Tester.Forms
         #region Event
         private void ConnectEvent()
         {
-
+            //FLAG
+            btnFlagWrite.Click += btnFlagWrite_Click;
+            btnFlagRead.Click += btnFlagRead_Click;
 
 
             //READ
@@ -111,9 +115,11 @@ namespace p2_40_Main_PBA_Tester.Forms
             btnWrite_Ship.Click += btnWrite_Ship_Click; //0001 0001
             btnWrite_VidMotorTest.Click += btnWrite_VidMotorTest_Click; //0009 0001
             btnWrite_CartBoostOn.Click += btnWrite_CartBoostOn_Click; //0007 0001
-            btnWrite_CartBoostOff.Click += btnWrite_CartBoostOff_Click; //0007 0000
+            //btnWrite_CartBoostOff.Click += btnWrite_CartBoostOff_Click; //0007 0000
+            btnPinOff.Click += btnPinOff_Click;
+            btnPinOn.Click += btnPinOn_Click;
             btnWrite_SubHeaterOn.Click += btnWrite_SubHeaterOn_Click; //0007 0002
-            btnWrite_SubHeaterOff.Click += btnWrite_SubHeaterOff_Click; //0007 0000
+            //btnWrite_SubHeaterOff.Click += btnWrite_SubHeaterOff_Click; //0007 0000
             btnWrite_AccelStart.Click += btnWrite_AccelStart_Click; //0052 0001
             btnWrite_McuFlashCheck.Click += btnWrite_McuFlashCheck_Click; //000C 0000
             btnWrite_ExtFlashCheck.Click += btnWrite_ExtFlashCheck_Click; //000D 0000
@@ -132,7 +138,104 @@ namespace p2_40_Main_PBA_Tester.Forms
             //MULTI WRITE
             btnWrite_ChargeCount.Click += btnWrite_ChargeCount_Click; //0x02, 0x1C, 0x00, 0x04, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
             btnMultiWriteSend.Click += btnMultiWriteSend_Click;
+
+            //Read2
+            btnReadSend2.Click += btnReadSend2_Click;
+
+            //Write2
+            btnWriteSend2.Click += btnWriteSend2_Click;
+
+            //HEATER ON/OFF RESIST
+            btnGetHeaterOnResist.Click += btnGetHeaterOnResist_Click;
+            btnGetHeaterOffResist.Click += btnGetHeaterOffResist_Click;
+
         }
+
+        
+
+        private async void btnFlagRead_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                
+
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_PROCESS_FLAG).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+
+                if (rx != null && rx.Length >= 8)
+                {
+                    byte[] byte_flags = new byte[4];
+                    for (int i = 0; i < 4; i++) byte_flags[i] = rx[2 * i + 1];
+
+                    string str_flag = BitConverter.ToString(byte_flags).Replace("-", "");
+                    tboxReadFlag.Text = str_flag; // 읽은 값 표시
+
+                    UpdateFlagUI(byte_flags); // 라벨 색상 업데이트
+                }
+                else
+                {
+                    MessageBox.Show("Read Fail");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Read Error: {ex.Message}");
+            }
+        }
+
+        private async void btnFlagWrite_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                string input = tboxWriteFlag.Text.Trim();
+                if (input.Length != 8) // FFFFFFFF 기준 8자
+                {
+                    MessageBox.Show("8자리의 16진수를 입력하세요. (예: FFFFFFFF)");
+                    return;
+                }
+
+                // 16진수 문자열을 바이트 배열로 변환
+                byte[] write_data = new byte[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    write_data[i] = Convert.ToByte(input.Substring(i * 2, 2), 16);
+                }
+
+                // 전송 패킷 생성 (기존 로직의 MULTI_WRITE 구조 활용)
+                byte[] send_payload = new byte[] {
+                        0x0B, 0xB9, 0x00, 0x04, 0x08,
+                        0x00, write_data[0], 0x00, write_data[1], 0x00, write_data[2], 0x00, write_data[3] };
+
+                
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.MULTI_WRITE, send_payload).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+
+                if (rx != null && UtilityFunctions.CheckWriteMultiAck(tx, rx))
+                {
+                    // 쓰기 성공 시 바로 읽기 버튼 이벤트 강제 호출하여 UI 갱신
+                    btnFlagRead_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("Write Fail");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Write Error: {ex.Message}");
+            }
+        }
+
         private void btnRescan_Click(object sender, EventArgs e)
         {
             RescanSerialPort();
@@ -204,6 +307,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 Console.WriteLine($"PBA Port 해제");
             }
         }
+
+        
         #endregion
 
         #region Utility
@@ -234,6 +339,33 @@ namespace p2_40_Main_PBA_Tester.Forms
                     device.LogRxToUI = null;
                 }
             }
+        }
+
+        private void UpdateFlagUI(byte[] flags)
+        {
+            // 전제: flags[3]이 Bit 0~7, flags[2]가 Bit 8~15를 포함한다고 가정 (빅 엔디언 방식)
+            // 만약 값이 거꾸로 나온다면 flags[3] 대신 flags[0]부터 확인해야 합니다.
+
+            // flags[3] 영역 (Bit 0 ~ 7)
+            SetLabelColor(lblPbaFlag, (flags[3] & 0x01) != 0); // Bit 0
+            SetLabelColor(lblLcdFlag, (flags[3] & 0x02) != 0); // Bit 1
+            SetLabelColor(lblChargerFlag, (flags[3] & 0x04) != 0); // Bit 2
+            SetLabelColor(lblVeriFlag, (flags[3] & 0x08) != 0); // Bit 3 (Heater Cal)
+            SetLabelColor(lblCalFlag, (flags[3] & 0x10) != 0); // Bit 4 (Heater Veri)
+            SetLabelColor(lblPuffFlag, (flags[3] & 0x20) != 0); // Bit 5 (Puffing)
+            SetLabelColor(lblOpticalFlag, (flags[3] & 0x40) != 0); // Bit 6 (Prox Cal)
+            SetLabelColor(lblStickFlag, (flags[3] & 0x80) != 0); // Bit 7 (CAP)
+
+            // flags[2] 영역 (Bit 8 ~ 15)
+            SetLabelColor(lblCapFlag, (flags[2] & 0x01) != 0); // Bit 8 (Stick)
+            SetLabelColor(lblSnFlag, (flags[2] & 0x02) != 0); // Bit 9 (S/N Write)
+            SetLabelColor(lblFinalFlag, (flags[2] & 0x04) != 0); // Bit 10 (Final Test)
+        }
+
+        private void SetLabelColor(Label lbl, bool isPass)
+        {
+            lbl.BackColor = isPass ? Color.LimeGreen : Color.Red;
+            lbl.ForeColor = Color.White; // 가독성을 위해 흰색 글자
         }
 
 
@@ -331,6 +463,100 @@ namespace p2_40_Main_PBA_Tester.Forms
             finally
             {
                 btnWriteSend.Enabled = true;
+            }
+        }
+
+        private async void btnWriteSend2_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+
+            btnWriteSend2.Enabled = false;
+
+            try
+            {
+                ushort addr = UtilityFunctions.ParseU16HexLoose(tboxWriteAddr2.Text); // 예: "1" -> 0x0001
+                ushort data = UtilityFunctions.ParseU16HexLoose(tboxWriteData2.Text); // 예: "A" -> 0x000A
+
+                // payload = [AddrHi AddrLo DataHi DataLo]
+                byte[] payload = new byte[4];
+                payload[0] = (byte)(addr >> 8);
+                payload[1] = (byte)(addr & 0xFF);
+                payload[2] = (byte)(data >> 8);
+                payload[3] = (byte)(data & 0xFF);
+
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, payload).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    if (rx == null) DeviceRx.Fail("RECV = null");
+                    else DeviceRx.Fail("RX is not unexpected value");
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail("Write 실패: " + ex.Message);
+            }
+            finally
+            {
+                btnWriteSend2.Enabled = true;
+            }
+        }
+
+        private async void btnReadSend2_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+
+            btnReadSend2.Enabled = false;
+
+            try
+            {
+                // 전부 HEX로 해석
+                ushort addr = UtilityFunctions.ParseU16HexLoose(tboxReadAddr2.Text);   // ex: "1"  -> 0x0001
+                ushort qty = UtilityFunctions.ParseU16HexLoose(tboxReadQuantity2.Text);    // ex: "17" -> 0x0017
+
+                // payload = [AddrHi AddrLo QtyHi QtyLo]
+                byte[] payload = new byte[4];
+                payload[0] = (byte)(addr >> 8);
+                payload[1] = (byte)(addr & 0xFF);
+                payload[2] = (byte)(qty >> 8);
+                payload[3] = (byte)(qty & 0xFF);
+
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, payload).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
+
+                if (rx == null)
+                {
+                    DeviceRx.Fail("RECV = null");
+                    return;
+                }
+
+                var regs = UtilityFunctions.ParseRegistersBigEndian(rx);
+                for (int i = 0; i < regs.Length; i++)
+                {
+                    DeviceRx.Info(
+                        $"RECV[{i}] ( DEC = {regs[i]}, HEX = {regs[i]:X4} )"
+                    );
+                }
+
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail("Read 실패: " + ex.Message);
+            }
+            finally
+            {
+                btnReadSend2.Enabled = true;
             }
         }
 
@@ -474,7 +700,83 @@ namespace p2_40_Main_PBA_Tester.Forms
             }
         }
 
-        
+        private async void btnGetHeaterOffResist_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SENSING_PIN_OFF).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("SENSING PIN ON 실패");
+                    return;
+                }
+
+                byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_HEATER_NOW_RESIST).GetPacket();
+                byte[] rx2 = await Pba.SendAndReceivePacketAsync_OnlyData(tx2, Settings.Instance.Pba_Read_Timeout);
+                if (rx2 == null || rx2.Length < 2)
+                {
+                    DeviceRx.Fail($"READ HEATER NOW RESIST (OFF) RX 에러");
+                }
+                else
+                {
+                    short pinOff_resist_short = (short)((rx2[0] << 8) | rx2[1]);
+                    float pinOff_resist = (float)pinOff_resist_short / 1000;
+
+                    tboxHeaterOffResist.Text = pinOff_resist.ToString();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"GET HEATER OFF RESIST 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnGetHeaterOnResist_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SENSING_PIN_ON).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("SENSING PIN ON 실패");
+                    return;
+                }
+
+                byte[] tx2 = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_HEATER_NOW_RESIST).GetPacket();
+                byte[] rx2 = await Pba.SendAndReceivePacketAsync_OnlyData(tx2, Settings.Instance.Pba_Read_Timeout);
+                if (rx2 == null || rx2.Length < 2)
+                {
+                    DeviceRx.Fail($"READ HEATER NOW RESIST (ON) RX 에러");
+                }
+                else
+                {
+                    short pinOn_resist_short = (short)((rx2[0] << 8) | rx2[1]);
+                    float pinOn_resist = (float)pinOn_resist_short / 1000;
+
+                    tboxHeaterOnResist.Text = pinOn_resist.ToString();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"GET HEATER ON RESIST 실패: {ex.Message}");
+            }
+        }
 
         private void lblClearTxRx_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -492,7 +794,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             }
             try
             {
-                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_FLOOD_STATE).GetPacket();
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.READ, Variable.READ_BOARD_FLOOD_STATE).GetPacket();
                 byte[] rx = await Pba.SendAndReceivePacketAsync_OnlyData(tx, Settings.Instance.Pba_Read_Timeout);
                 if (rx == null)
                 {
@@ -1404,11 +1706,60 @@ namespace p2_40_Main_PBA_Tester.Forms
             }
         }
 
+        private async void btnPinOn_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SENSING_PIN_ON).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("SENSING PIN ON 실패");
+                    return;
+                }
+                DeviceRx.Pass("SENSING PIN ON 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"SENSING PIN ON 실패: {ex.Message}");
+            }
+        }
+
+        private async void btnPinOff_Click(object sender, EventArgs e)
+        {
+            if (Pba == null || !Pba.IsConnected())
+            {
+                DeviceRx.Fail("포트 연결 안됨");
+                return;
+            }
+            try
+            {
+                byte[] tx = new CDCProtocol(Variable.SLAVE, Variable.WRITE, Variable.WRITE_SENSING_PIN_OFF).GetPacket();
+                byte[] rx = await Pba.SendAndReceivePacketAsync(tx, Settings.Instance.Pba_Read_Timeout);
+                if (!UtilityFunctions.CheckEchoAck(tx, rx))
+                {
+                    DeviceRx.Fail("SENSING PIN OFF 실패");
+                    return;
+                }
+                DeviceRx.Pass("SENSING PIN OFF 성공");
+            }
+            catch (Exception ex)
+            {
+                DeviceRx.Fail($"SENSING PIN OFF 실패: {ex.Message}");
+            }
+        }
+
+
         #endregion
 
-        
 
-        
+
+
 
         #region Parsing
         private void btnIntToHex_Click(object sender, EventArgs e)

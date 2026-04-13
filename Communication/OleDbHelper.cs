@@ -165,6 +165,33 @@ namespace p2_40_Main_PBA_Tester.Communication
                 }
             }, ct);
         }
+
+        public static Task<string> ExecuteProcedureAsync(string cs, string procedureName, int timeoutSeconds = 10, CancellationToken ct = default(CancellationToken), params OleDbParameter[] parameters)
+        {
+            return Task.Run(() =>
+            {
+                using (var conn = new OleDbConnection(cs))
+                using (var cmd = new OleDbCommand(procedureName, conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandTimeout = timeoutSeconds;
+                    if (parameters != null)
+                    {
+                        foreach (var p in parameters) cmd.Parameters.Add(p);
+                    }
+
+                    using (ct.Register(delegate { try { cmd.Cancel(); } catch { } }))
+                    {
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+                        return result == null || result == DBNull.Value
+                            ? null
+                            : result.ToString().Trim();
+                    }
+                }
+            }, ct);
+        }
+
         #endregion
     }
 }

@@ -31,6 +31,21 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PBA_TerminalForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tboxWriteAddr2 = new System.Windows.Forms.TextBox();
+            this.tboxWriteData2 = new System.Windows.Forms.TextBox();
+            this.btnWriteSend2 = new System.Windows.Forms.Button();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tboxReadAddr2 = new System.Windows.Forms.TextBox();
+            this.tboxReadQuantity2 = new System.Windows.Forms.TextBox();
+            this.btnReadSend2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,10 +67,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblSn = new System.Windows.Forms.Label();
             this.lblFwVer = new System.Windows.Forms.Label();
             this.btnPbaInfoAllClear = new System.Windows.Forms.Button();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnFlagRead = new System.Windows.Forms.Button();
+            this.btnFlagWrite = new System.Windows.Forms.Button();
+            this.tboxReadFlag = new System.Windows.Forms.TextBox();
+            this.tboxWriteFlag = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.lblPbaFlag = new System.Windows.Forms.Label();
+            this.lblLcdFlag = new System.Windows.Forms.Label();
+            this.lblChargerFlag = new System.Windows.Forms.Label();
+            this.lblVeriFlag = new System.Windows.Forms.Label();
+            this.lblCalFlag = new System.Windows.Forms.Label();
+            this.lblPuffFlag = new System.Windows.Forms.Label();
+            this.lblOpticalFlag = new System.Windows.Forms.Label();
+            this.lblStickFlag = new System.Windows.Forms.Label();
+            this.lblCapFlag = new System.Windows.Forms.Label();
+            this.lblSnFlag = new System.Windows.Forms.Label();
+            this.lblFinalFlag = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnPinOff = new System.Windows.Forms.Button();
+            this.btnPinOn = new System.Windows.Forms.Button();
             this.btnWrite_ChargeHvdcp = new System.Windows.Forms.Button();
             this.btnWrite_ChargeDcp = new System.Windows.Forms.Button();
             this.btnWrite_ChargePps = new System.Windows.Forms.Button();
@@ -68,9 +114,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnWrite_ExtFlashCheck = new System.Windows.Forms.Button();
             this.btnWrite_McuFlashCheck = new System.Windows.Forms.Button();
             this.btnWrite_AccelStart = new System.Windows.Forms.Button();
-            this.btnWrite_SubHeaterOff = new System.Windows.Forms.Button();
             this.btnWrite_SubHeaterOn = new System.Windows.Forms.Button();
-            this.btnWrite_CartBoostOff = new System.Windows.Forms.Button();
             this.btnWrite_CartBoostOn = new System.Windows.Forms.Button();
             this.btnWrite_VidMotorTest = new System.Windows.Forms.Button();
             this.btnWrite_Ship = new System.Windows.Forms.Button();
@@ -147,13 +191,28 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxMultiWriteAddr = new System.Windows.Forms.TextBox();
             this.tboxMultiWriteDatas = new System.Windows.Forms.TextBox();
             this.btnMultiWriteSend = new System.Windows.Forms.Button();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnGetHeaterOnResist = new System.Windows.Forms.Button();
+            this.btnGetHeaterOffResist = new System.Windows.Forms.Button();
+            this.tboxHeaterOffResist = new System.Windows.Forms.TextBox();
+            this.tboxHeaterOnResist = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel20.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.panel3.SuspendLayout();
             this.table131312.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -178,31 +237,228 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel20, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox5, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel10, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel10, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1572, 973);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1707, 973);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel20
+            // 
+            this.tableLayoutPanel20.ColumnCount = 2;
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel20.Controls.Add(this.groupBox12, 0, 0);
+            this.tableLayoutPanel20.Controls.Add(this.groupBox13, 0, 0);
+            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 428);
+            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
+            this.tableLayoutPanel20.RowCount = 1;
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(1701, 74);
+            this.tableLayoutPanel20.TabIndex = 10;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox12.Controls.Add(this.tableLayoutPanel21);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox12.Location = new System.Drawing.Point(853, 3);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(845, 68);
+            this.groupBox12.TabIndex = 3;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "WRITE";
+            // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.ColumnCount = 5;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel21.Controls.Add(this.label17, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.label18, 2, 0);
+            this.tableLayoutPanel21.Controls.Add(this.tboxWriteAddr2, 1, 0);
+            this.tableLayoutPanel21.Controls.Add(this.tboxWriteData2, 3, 0);
+            this.tableLayoutPanel21.Controls.Add(this.btnWriteSend2, 4, 0);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 24);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 1;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(839, 41);
+            this.tableLayoutPanel21.TabIndex = 0;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label17.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(10, 10);
+            this.label17.Margin = new System.Windows.Forms.Padding(10);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(105, 21);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Addr(HEX)";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label18.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(379, 10);
+            this.label18.Margin = new System.Windows.Forms.Padding(10);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(105, 21);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Data(HEX)";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tboxWriteAddr2
+            // 
+            this.tboxWriteAddr2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxWriteAddr2.Location = new System.Drawing.Point(135, 10);
+            this.tboxWriteAddr2.Margin = new System.Windows.Forms.Padding(10);
+            this.tboxWriteAddr2.Name = "tboxWriteAddr2";
+            this.tboxWriteAddr2.Size = new System.Drawing.Size(224, 28);
+            this.tboxWriteAddr2.TabIndex = 2;
+            // 
+            // tboxWriteData2
+            // 
+            this.tboxWriteData2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxWriteData2.Location = new System.Drawing.Point(504, 10);
+            this.tboxWriteData2.Margin = new System.Windows.Forms.Padding(10);
+            this.tboxWriteData2.Name = "tboxWriteData2";
+            this.tboxWriteData2.Size = new System.Drawing.Size(224, 28);
+            this.tboxWriteData2.TabIndex = 3;
+            // 
+            // btnWriteSend2
+            // 
+            this.btnWriteSend2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnWriteSend2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWriteSend2.Location = new System.Drawing.Point(748, 5);
+            this.btnWriteSend2.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.btnWriteSend2.Name = "btnWriteSend2";
+            this.btnWriteSend2.Size = new System.Drawing.Size(81, 31);
+            this.btnWriteSend2.TabIndex = 4;
+            this.btnWriteSend2.Text = "Send";
+            this.btnWriteSend2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox13.Controls.Add(this.tableLayoutPanel22);
+            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox13.Location = new System.Drawing.Point(3, 3);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(844, 68);
+            this.groupBox13.TabIndex = 2;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "READ";
+            // 
+            // tableLayoutPanel22
+            // 
+            this.tableLayoutPanel22.ColumnCount = 5;
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
+            this.tableLayoutPanel22.Controls.Add(this.label19, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.label20, 2, 0);
+            this.tableLayoutPanel22.Controls.Add(this.tboxReadAddr2, 1, 0);
+            this.tableLayoutPanel22.Controls.Add(this.tboxReadQuantity2, 3, 0);
+            this.tableLayoutPanel22.Controls.Add(this.btnReadSend2, 4, 0);
+            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(3, 24);
+            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
+            this.tableLayoutPanel22.RowCount = 1;
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(838, 41);
+            this.tableLayoutPanel22.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label19.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(10, 10);
+            this.label19.Margin = new System.Windows.Forms.Padding(10);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(105, 21);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Addr(HEX)";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(312, 10);
+            this.label20.Margin = new System.Windows.Forms.Padding(10);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(130, 21);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Quantity(HEX)";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tboxReadAddr2
+            // 
+            this.tboxReadAddr2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxReadAddr2.Location = new System.Drawing.Point(135, 10);
+            this.tboxReadAddr2.Margin = new System.Windows.Forms.Padding(10);
+            this.tboxReadAddr2.Name = "tboxReadAddr2";
+            this.tboxReadAddr2.Size = new System.Drawing.Size(157, 28);
+            this.tboxReadAddr2.TabIndex = 2;
+            // 
+            // tboxReadQuantity2
+            // 
+            this.tboxReadQuantity2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxReadQuantity2.Location = new System.Drawing.Point(462, 10);
+            this.tboxReadQuantity2.Margin = new System.Windows.Forms.Padding(10);
+            this.tboxReadQuantity2.Name = "tboxReadQuantity2";
+            this.tboxReadQuantity2.Size = new System.Drawing.Size(201, 28);
+            this.tboxReadQuantity2.TabIndex = 3;
+            // 
+            // btnReadSend2
+            // 
+            this.btnReadSend2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReadSend2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadSend2.Location = new System.Drawing.Point(683, 5);
+            this.btnReadSend2.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.btnReadSend2.Name = "btnReadSend2";
+            this.btnReadSend2.Size = new System.Drawing.Size(145, 31);
+            this.btnReadSend2.TabIndex = 4;
+            this.btnReadSend2.Text = "Send";
+            this.btnReadSend2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -211,16 +467,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 410F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 510F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox8, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox11, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1572, 145);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1707, 145);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox1
@@ -290,7 +547,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(207, 5);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(948, 135);
+            this.groupBox8.Size = new System.Drawing.Size(983, 135);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "PBA Info";
@@ -302,7 +559,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 24);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(942, 108);
+            this.panel3.Size = new System.Drawing.Size(977, 108);
             this.panel3.TabIndex = 0;
             // 
             // table131312
@@ -336,17 +593,17 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.table131312.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.table131312.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.table131312.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.table131312.Size = new System.Drawing.Size(942, 108);
+            this.table131312.Size = new System.Drawing.Size(977, 108);
             this.table131312.TabIndex = 1;
             // 
             // btnPbaInfoAllRead
             // 
             this.btnPbaInfoAllRead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPbaInfoAllRead.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPbaInfoAllRead.Location = new System.Drawing.Point(840, 82);
+            this.btnPbaInfoAllRead.Location = new System.Drawing.Point(873, 82);
             this.btnPbaInfoAllRead.Margin = new System.Windows.Forms.Padding(1);
             this.btnPbaInfoAllRead.Name = "btnPbaInfoAllRead";
-            this.btnPbaInfoAllRead.Size = new System.Drawing.Size(101, 25);
+            this.btnPbaInfoAllRead.Size = new System.Drawing.Size(103, 25);
             this.btnPbaInfoAllRead.TabIndex = 11;
             this.btnPbaInfoAllRead.Text = "ALL READ";
             this.btnPbaInfoAllRead.UseVisualStyleBackColor = true;
@@ -359,10 +616,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblImageFwVer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblImageFwVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblImageFwVer.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImageFwVer.Location = new System.Drawing.Point(602, 28);
+            this.lblImageFwVer.Location = new System.Drawing.Point(626, 28);
             this.lblImageFwVer.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblImageFwVer.Name = "lblImageFwVer";
-            this.lblImageFwVer.Size = new System.Drawing.Size(128, 23);
+            this.lblImageFwVer.Size = new System.Drawing.Size(134, 23);
             this.lblImageFwVer.TabIndex = 9;
             this.lblImageFwVer.Text = "-";
             this.lblImageFwVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -374,10 +631,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(602, 3);
+            this.label16.Location = new System.Drawing.Point(626, 3);
             this.label16.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(128, 23);
+            this.label16.Size = new System.Drawing.Size(134, 23);
             this.label16.TabIndex = 8;
             this.label16.Text = "Image FW Ver";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -389,10 +646,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblLdcFwVer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLdcFwVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLdcFwVer.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLdcFwVer.Location = new System.Drawing.Point(454, 28);
+            this.lblLdcFwVer.Location = new System.Drawing.Point(472, 28);
             this.lblLdcFwVer.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblLdcFwVer.Name = "lblLdcFwVer";
-            this.lblLdcFwVer.Size = new System.Drawing.Size(128, 23);
+            this.lblLdcFwVer.Size = new System.Drawing.Size(134, 23);
             this.lblLdcFwVer.TabIndex = 7;
             this.lblLdcFwVer.Text = "-";
             this.lblLdcFwVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -404,10 +661,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(454, 3);
+            this.label15.Location = new System.Drawing.Point(472, 3);
             this.label15.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(128, 23);
+            this.label15.Size = new System.Drawing.Size(134, 23);
             this.label15.TabIndex = 6;
             this.label15.Text = "LDC FW Ver ";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -422,7 +679,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label12.Location = new System.Drawing.Point(10, 3);
             this.label12.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 23);
+            this.label12.Size = new System.Drawing.Size(134, 23);
             this.label12.TabIndex = 0;
             this.label12.Text = "MCU ID ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -434,10 +691,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(158, 3);
+            this.label13.Location = new System.Drawing.Point(164, 3);
             this.label13.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(128, 23);
+            this.label13.Size = new System.Drawing.Size(134, 23);
             this.label13.TabIndex = 1;
             this.label13.Text = "SN ";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -449,10 +706,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(306, 3);
+            this.label14.Location = new System.Drawing.Point(318, 3);
             this.label14.Margin = new System.Windows.Forms.Padding(10, 3, 10, 1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(128, 23);
+            this.label14.Size = new System.Drawing.Size(134, 23);
             this.label14.TabIndex = 2;
             this.label14.Text = "FW Ver ";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -467,7 +724,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblMcuId.Location = new System.Drawing.Point(10, 28);
             this.lblMcuId.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblMcuId.Name = "lblMcuId";
-            this.lblMcuId.Size = new System.Drawing.Size(128, 23);
+            this.lblMcuId.Size = new System.Drawing.Size(134, 23);
             this.lblMcuId.TabIndex = 3;
             this.lblMcuId.Text = "-";
             this.lblMcuId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -479,10 +736,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblSn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSn.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSn.Location = new System.Drawing.Point(158, 28);
+            this.lblSn.Location = new System.Drawing.Point(164, 28);
             this.lblSn.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblSn.Name = "lblSn";
-            this.lblSn.Size = new System.Drawing.Size(128, 23);
+            this.lblSn.Size = new System.Drawing.Size(134, 23);
             this.lblSn.TabIndex = 4;
             this.lblSn.Text = "-";
             this.lblSn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -494,10 +751,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.lblFwVer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFwVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFwVer.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFwVer.Location = new System.Drawing.Point(306, 28);
+            this.lblFwVer.Location = new System.Drawing.Point(318, 28);
             this.lblFwVer.Margin = new System.Windows.Forms.Padding(10, 1, 10, 3);
             this.lblFwVer.Name = "lblFwVer";
-            this.lblFwVer.Size = new System.Drawing.Size(128, 23);
+            this.lblFwVer.Size = new System.Drawing.Size(134, 23);
             this.lblFwVer.TabIndex = 5;
             this.lblFwVer.Text = "-";
             this.lblFwVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -506,14 +763,373 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnPbaInfoAllClear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPbaInfoAllClear.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPbaInfoAllClear.Location = new System.Drawing.Point(741, 82);
+            this.btnPbaInfoAllClear.Location = new System.Drawing.Point(771, 82);
             this.btnPbaInfoAllClear.Margin = new System.Windows.Forms.Padding(1);
             this.btnPbaInfoAllClear.Name = "btnPbaInfoAllClear";
-            this.btnPbaInfoAllClear.Size = new System.Drawing.Size(97, 25);
+            this.btnPbaInfoAllClear.Size = new System.Drawing.Size(100, 25);
             this.btnPbaInfoAllClear.TabIndex = 10;
             this.btnPbaInfoAllClear.Text = "ALL CLEAR";
             this.btnPbaInfoAllClear.UseVisualStyleBackColor = true;
             this.btnPbaInfoAllClear.Click += new System.EventHandler(this.btnPbaInfoAllClear_Click);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.tableLayoutPanel17);
+            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox11.Location = new System.Drawing.Point(1198, 5);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(504, 135);
+            this.groupBox11.TabIndex = 2;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Process FLAG";
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 2;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel17.Controls.Add(this.btnFlagRead, 1, 2);
+            this.tableLayoutPanel17.Controls.Add(this.btnFlagWrite, 1, 1);
+            this.tableLayoutPanel17.Controls.Add(this.tboxReadFlag, 0, 2);
+            this.tableLayoutPanel17.Controls.Add(this.tboxWriteFlag, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel18, 0, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 24);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 3;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(498, 108);
+            this.tableLayoutPanel17.TabIndex = 0;
+            // 
+            // btnFlagRead
+            // 
+            this.btnFlagRead.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFlagRead.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFlagRead.Location = new System.Drawing.Point(401, 75);
+            this.btnFlagRead.Name = "btnFlagRead";
+            this.btnFlagRead.Size = new System.Drawing.Size(94, 30);
+            this.btnFlagRead.TabIndex = 8;
+            this.btnFlagRead.Text = "Read";
+            this.btnFlagRead.UseVisualStyleBackColor = true;
+            // 
+            // btnFlagWrite
+            // 
+            this.btnFlagWrite.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFlagWrite.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFlagWrite.Location = new System.Drawing.Point(401, 39);
+            this.btnFlagWrite.Name = "btnFlagWrite";
+            this.btnFlagWrite.Size = new System.Drawing.Size(94, 30);
+            this.btnFlagWrite.TabIndex = 7;
+            this.btnFlagWrite.Text = "Write";
+            this.btnFlagWrite.UseVisualStyleBackColor = true;
+            // 
+            // tboxReadFlag
+            // 
+            this.tboxReadFlag.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxReadFlag.Location = new System.Drawing.Point(35, 76);
+            this.tboxReadFlag.Name = "tboxReadFlag";
+            this.tboxReadFlag.ReadOnly = true;
+            this.tboxReadFlag.Size = new System.Drawing.Size(328, 28);
+            this.tboxReadFlag.TabIndex = 6;
+            // 
+            // tboxWriteFlag
+            // 
+            this.tboxWriteFlag.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxWriteFlag.Location = new System.Drawing.Point(35, 40);
+            this.tboxWriteFlag.Name = "tboxWriteFlag";
+            this.tboxWriteFlag.Size = new System.Drawing.Size(328, 28);
+            this.tboxWriteFlag.TabIndex = 4;
+            // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 12;
+            this.tableLayoutPanel17.SetColumnSpan(this.tableLayoutPanel18, 2);
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
+            this.tableLayoutPanel18.Controls.Add(this.label38, 10, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label37, 9, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label36, 8, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label35, 7, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label34, 6, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label33, 5, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label32, 4, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label31, 3, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label30, 2, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label29, 1, 1);
+            this.tableLayoutPanel18.Controls.Add(this.lblPbaFlag, 10, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblLcdFlag, 9, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblChargerFlag, 8, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblVeriFlag, 7, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblCalFlag, 6, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblPuffFlag, 5, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblOpticalFlag, 4, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblStickFlag, 3, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblCapFlag, 2, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblSnFlag, 1, 0);
+            this.tableLayoutPanel18.Controls.Add(this.lblFinalFlag, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.label28, 0, 1);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 2;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(492, 30);
+            this.tableLayoutPanel18.TabIndex = 9;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(373, 20);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(31, 10);
+            this.label38.TabIndex = 21;
+            this.label38.Text = "PBA";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(336, 20);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(30, 10);
+            this.label37.TabIndex = 20;
+            this.label37.Text = "LCD";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(299, 20);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(29, 10);
+            this.label36.TabIndex = 19;
+            this.label36.Text = "Charger";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(262, 20);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(30, 10);
+            this.label35.TabIndex = 18;
+            this.label35.Text = "Veri";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(225, 20);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(25, 10);
+            this.label34.TabIndex = 17;
+            this.label34.Text = "Cal";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(188, 20);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(30, 10);
+            this.label33.TabIndex = 16;
+            this.label33.Text = "PUFF";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(151, 20);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(31, 10);
+            this.label32.TabIndex = 15;
+            this.label32.Text = "OPTICAL";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(114, 20);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(25, 10);
+            this.label31.TabIndex = 14;
+            this.label31.Text = "STICK";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(77, 20);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(30, 10);
+            this.label30.TabIndex = 13;
+            this.label30.Text = "CAP";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(40, 20);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(28, 10);
+            this.label29.TabIndex = 12;
+            this.label29.Text = "S/N";
+            // 
+            // lblPbaFlag
+            // 
+            this.lblPbaFlag.AutoSize = true;
+            this.lblPbaFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblPbaFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPbaFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPbaFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblPbaFlag.Location = new System.Drawing.Point(373, 0);
+            this.lblPbaFlag.Name = "lblPbaFlag";
+            this.lblPbaFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblPbaFlag.TabIndex = 10;
+            // 
+            // lblLcdFlag
+            // 
+            this.lblLcdFlag.AutoSize = true;
+            this.lblLcdFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblLcdFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblLcdFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLcdFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblLcdFlag.Location = new System.Drawing.Point(336, 0);
+            this.lblLcdFlag.Name = "lblLcdFlag";
+            this.lblLcdFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblLcdFlag.TabIndex = 9;
+            // 
+            // lblChargerFlag
+            // 
+            this.lblChargerFlag.AutoSize = true;
+            this.lblChargerFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblChargerFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblChargerFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblChargerFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblChargerFlag.Location = new System.Drawing.Point(299, 0);
+            this.lblChargerFlag.Name = "lblChargerFlag";
+            this.lblChargerFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblChargerFlag.TabIndex = 8;
+            // 
+            // lblVeriFlag
+            // 
+            this.lblVeriFlag.AutoSize = true;
+            this.lblVeriFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblVeriFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblVeriFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblVeriFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblVeriFlag.Location = new System.Drawing.Point(262, 0);
+            this.lblVeriFlag.Name = "lblVeriFlag";
+            this.lblVeriFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblVeriFlag.TabIndex = 7;
+            // 
+            // lblCalFlag
+            // 
+            this.lblCalFlag.AutoSize = true;
+            this.lblCalFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblCalFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCalFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCalFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblCalFlag.Location = new System.Drawing.Point(225, 0);
+            this.lblCalFlag.Name = "lblCalFlag";
+            this.lblCalFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblCalFlag.TabIndex = 6;
+            // 
+            // lblPuffFlag
+            // 
+            this.lblPuffFlag.AutoSize = true;
+            this.lblPuffFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblPuffFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPuffFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPuffFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblPuffFlag.Location = new System.Drawing.Point(188, 0);
+            this.lblPuffFlag.Name = "lblPuffFlag";
+            this.lblPuffFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblPuffFlag.TabIndex = 5;
+            // 
+            // lblOpticalFlag
+            // 
+            this.lblOpticalFlag.AutoSize = true;
+            this.lblOpticalFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblOpticalFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblOpticalFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblOpticalFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblOpticalFlag.Location = new System.Drawing.Point(151, 0);
+            this.lblOpticalFlag.Name = "lblOpticalFlag";
+            this.lblOpticalFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblOpticalFlag.TabIndex = 4;
+            // 
+            // lblStickFlag
+            // 
+            this.lblStickFlag.AutoSize = true;
+            this.lblStickFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblStickFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblStickFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblStickFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblStickFlag.Location = new System.Drawing.Point(114, 0);
+            this.lblStickFlag.Name = "lblStickFlag";
+            this.lblStickFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblStickFlag.TabIndex = 3;
+            // 
+            // lblCapFlag
+            // 
+            this.lblCapFlag.AutoSize = true;
+            this.lblCapFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblCapFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCapFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCapFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblCapFlag.Location = new System.Drawing.Point(77, 0);
+            this.lblCapFlag.Name = "lblCapFlag";
+            this.lblCapFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblCapFlag.TabIndex = 2;
+            // 
+            // lblSnFlag
+            // 
+            this.lblSnFlag.AutoSize = true;
+            this.lblSnFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblSnFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSnFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSnFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblSnFlag.Location = new System.Drawing.Point(40, 0);
+            this.lblSnFlag.Name = "lblSnFlag";
+            this.lblSnFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblSnFlag.TabIndex = 1;
+            // 
+            // lblFinalFlag
+            // 
+            this.lblFinalFlag.AutoSize = true;
+            this.lblFinalFlag.BackColor = System.Drawing.Color.DarkGray;
+            this.lblFinalFlag.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFinalFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFinalFlag.ForeColor = System.Drawing.Color.Black;
+            this.lblFinalFlag.Location = new System.Drawing.Point(3, 0);
+            this.lblFinalFlag.Name = "lblFinalFlag";
+            this.lblFinalFlag.Size = new System.Drawing.Size(31, 20);
+            this.lblFinalFlag.TabIndex = 0;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(3, 20);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(31, 10);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "Final";
             // 
             // groupBox5
             // 
@@ -522,7 +1138,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 148);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1566, 194);
+            this.groupBox5.Size = new System.Drawing.Size(1701, 194);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "COMMAND";
@@ -540,16 +1156,16 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(1560, 167);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1695, 167);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.tableLayoutPanel14);
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox10.Location = new System.Drawing.Point(783, 3);
+            this.groupBox10.Location = new System.Drawing.Point(850, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(774, 161);
+            this.groupBox10.Size = new System.Drawing.Size(842, 161);
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "WRITE";
@@ -562,6 +1178,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel14.Controls.Add(this.btnPinOff, 4, 1);
+            this.tableLayoutPanel14.Controls.Add(this.btnPinOn, 1, 2);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_ChargeHvdcp, 0, 4);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_ChargeDcp, 0, 4);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_ChargePps, 0, 4);
@@ -574,9 +1192,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_ExtFlashCheck, 4, 2);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_McuFlashCheck, 3, 2);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_AccelStart, 2, 2);
-            this.tableLayoutPanel14.Controls.Add(this.btnWrite_SubHeaterOff, 1, 2);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_SubHeaterOn, 0, 2);
-            this.tableLayoutPanel14.Controls.Add(this.btnWrite_CartBoostOff, 4, 1);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_CartBoostOn, 3, 1);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_VidMotorTest, 2, 1);
             this.tableLayoutPanel14.Controls.Add(this.btnWrite_Ship, 1, 1);
@@ -595,17 +1211,41 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(768, 134);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(836, 134);
             this.tableLayoutPanel14.TabIndex = 1;
+            // 
+            // btnPinOff
+            // 
+            this.btnPinOff.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPinOff.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPinOff.Location = new System.Drawing.Point(669, 27);
+            this.btnPinOff.Margin = new System.Windows.Forms.Padding(1);
+            this.btnPinOff.Name = "btnPinOff";
+            this.btnPinOff.Size = new System.Drawing.Size(166, 24);
+            this.btnPinOff.TabIndex = 25;
+            this.btnPinOff.Text = "SENSING PIN OFF";
+            this.btnPinOff.UseVisualStyleBackColor = true;
+            // 
+            // btnPinOn
+            // 
+            this.btnPinOn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPinOn.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPinOn.Location = new System.Drawing.Point(168, 53);
+            this.btnPinOn.Margin = new System.Windows.Forms.Padding(1);
+            this.btnPinOn.Name = "btnPinOn";
+            this.btnPinOn.Size = new System.Drawing.Size(165, 24);
+            this.btnPinOn.TabIndex = 24;
+            this.btnPinOn.Text = "SENSING PIN ON";
+            this.btnPinOn.UseVisualStyleBackColor = true;
             // 
             // btnWrite_ChargeHvdcp
             // 
             this.btnWrite_ChargeHvdcp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_ChargeHvdcp.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_ChargeHvdcp.Location = new System.Drawing.Point(154, 105);
+            this.btnWrite_ChargeHvdcp.Location = new System.Drawing.Point(168, 105);
             this.btnWrite_ChargeHvdcp.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_ChargeHvdcp.Name = "btnWrite_ChargeHvdcp";
-            this.btnWrite_ChargeHvdcp.Size = new System.Drawing.Size(151, 28);
+            this.btnWrite_ChargeHvdcp.Size = new System.Drawing.Size(165, 28);
             this.btnWrite_ChargeHvdcp.TabIndex = 23;
             this.btnWrite_ChargeHvdcp.Text = "CHARGE HVDCP";
             this.btnWrite_ChargeHvdcp.UseVisualStyleBackColor = true;
@@ -614,10 +1254,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_ChargeDcp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_ChargeDcp.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_ChargeDcp.Location = new System.Drawing.Point(1, 105);
+            this.btnWrite_ChargeDcp.Location = new System.Drawing.Point(502, 105);
             this.btnWrite_ChargeDcp.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_ChargeDcp.Name = "btnWrite_ChargeDcp";
-            this.btnWrite_ChargeDcp.Size = new System.Drawing.Size(151, 28);
+            this.btnWrite_ChargeDcp.Size = new System.Drawing.Size(165, 28);
             this.btnWrite_ChargeDcp.TabIndex = 22;
             this.btnWrite_ChargeDcp.Text = "CHARGE DCP";
             this.btnWrite_ChargeDcp.UseVisualStyleBackColor = true;
@@ -626,10 +1266,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_ChargePps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_ChargePps.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_ChargePps.Location = new System.Drawing.Point(460, 105);
+            this.btnWrite_ChargePps.Location = new System.Drawing.Point(1, 105);
             this.btnWrite_ChargePps.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_ChargePps.Name = "btnWrite_ChargePps";
-            this.btnWrite_ChargePps.Size = new System.Drawing.Size(151, 28);
+            this.btnWrite_ChargePps.Size = new System.Drawing.Size(165, 28);
             this.btnWrite_ChargePps.TabIndex = 21;
             this.btnWrite_ChargePps.Text = "CHARGE PPS";
             this.btnWrite_ChargePps.UseVisualStyleBackColor = true;
@@ -638,10 +1278,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_ChargeSdp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_ChargeSdp.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_ChargeSdp.Location = new System.Drawing.Point(307, 105);
+            this.btnWrite_ChargeSdp.Location = new System.Drawing.Point(335, 105);
             this.btnWrite_ChargeSdp.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_ChargeSdp.Name = "btnWrite_ChargeSdp";
-            this.btnWrite_ChargeSdp.Size = new System.Drawing.Size(151, 28);
+            this.btnWrite_ChargeSdp.Size = new System.Drawing.Size(165, 28);
             this.btnWrite_ChargeSdp.TabIndex = 20;
             this.btnWrite_ChargeSdp.Text = "CHARGE SDP";
             this.btnWrite_ChargeSdp.UseVisualStyleBackColor = true;
@@ -650,10 +1290,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_FlagFail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_FlagFail.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_FlagFail.Location = new System.Drawing.Point(613, 79);
+            this.btnWrite_FlagFail.Location = new System.Drawing.Point(669, 79);
             this.btnWrite_FlagFail.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_FlagFail.Name = "btnWrite_FlagFail";
-            this.btnWrite_FlagFail.Size = new System.Drawing.Size(154, 24);
+            this.btnWrite_FlagFail.Size = new System.Drawing.Size(166, 24);
             this.btnWrite_FlagFail.TabIndex = 19;
             this.btnWrite_FlagFail.Text = "FLAG FAIL";
             this.btnWrite_FlagFail.UseVisualStyleBackColor = true;
@@ -662,10 +1302,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_FlagPass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_FlagPass.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_FlagPass.Location = new System.Drawing.Point(460, 79);
+            this.btnWrite_FlagPass.Location = new System.Drawing.Point(502, 79);
             this.btnWrite_FlagPass.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_FlagPass.Name = "btnWrite_FlagPass";
-            this.btnWrite_FlagPass.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_FlagPass.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_FlagPass.TabIndex = 18;
             this.btnWrite_FlagPass.Text = "FLAG PASS";
             this.btnWrite_FlagPass.UseVisualStyleBackColor = true;
@@ -674,10 +1314,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_ChargeCount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_ChargeCount.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_ChargeCount.Location = new System.Drawing.Point(307, 79);
+            this.btnWrite_ChargeCount.Location = new System.Drawing.Point(335, 79);
             this.btnWrite_ChargeCount.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_ChargeCount.Name = "btnWrite_ChargeCount";
-            this.btnWrite_ChargeCount.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_ChargeCount.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_ChargeCount.TabIndex = 17;
             this.btnWrite_ChargeCount.Text = "CHARGE COUNT";
             this.btnWrite_ChargeCount.UseVisualStyleBackColor = true;
@@ -686,10 +1326,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_GpakEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_GpakEnd.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_GpakEnd.Location = new System.Drawing.Point(154, 79);
+            this.btnWrite_GpakEnd.Location = new System.Drawing.Point(168, 79);
             this.btnWrite_GpakEnd.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_GpakEnd.Name = "btnWrite_GpakEnd";
-            this.btnWrite_GpakEnd.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_GpakEnd.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_GpakEnd.TabIndex = 16;
             this.btnWrite_GpakEnd.Text = "GPAK END";
             this.btnWrite_GpakEnd.UseVisualStyleBackColor = true;
@@ -701,7 +1341,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnWrite_GpakStart.Location = new System.Drawing.Point(1, 79);
             this.btnWrite_GpakStart.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_GpakStart.Name = "btnWrite_GpakStart";
-            this.btnWrite_GpakStart.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_GpakStart.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_GpakStart.TabIndex = 15;
             this.btnWrite_GpakStart.Text = "GPAK START";
             this.btnWrite_GpakStart.UseVisualStyleBackColor = true;
@@ -710,10 +1350,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_ExtFlashCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_ExtFlashCheck.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_ExtFlashCheck.Location = new System.Drawing.Point(613, 53);
+            this.btnWrite_ExtFlashCheck.Location = new System.Drawing.Point(669, 53);
             this.btnWrite_ExtFlashCheck.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_ExtFlashCheck.Name = "btnWrite_ExtFlashCheck";
-            this.btnWrite_ExtFlashCheck.Size = new System.Drawing.Size(154, 24);
+            this.btnWrite_ExtFlashCheck.Size = new System.Drawing.Size(166, 24);
             this.btnWrite_ExtFlashCheck.TabIndex = 14;
             this.btnWrite_ExtFlashCheck.Text = "EXT FLASH CHECK";
             this.btnWrite_ExtFlashCheck.UseVisualStyleBackColor = true;
@@ -722,10 +1362,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_McuFlashCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_McuFlashCheck.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_McuFlashCheck.Location = new System.Drawing.Point(460, 53);
+            this.btnWrite_McuFlashCheck.Location = new System.Drawing.Point(502, 53);
             this.btnWrite_McuFlashCheck.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_McuFlashCheck.Name = "btnWrite_McuFlashCheck";
-            this.btnWrite_McuFlashCheck.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_McuFlashCheck.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_McuFlashCheck.TabIndex = 13;
             this.btnWrite_McuFlashCheck.Text = "MCU FLASH CHECK";
             this.btnWrite_McuFlashCheck.UseVisualStyleBackColor = true;
@@ -734,25 +1374,13 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_AccelStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_AccelStart.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_AccelStart.Location = new System.Drawing.Point(307, 53);
+            this.btnWrite_AccelStart.Location = new System.Drawing.Point(335, 53);
             this.btnWrite_AccelStart.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_AccelStart.Name = "btnWrite_AccelStart";
-            this.btnWrite_AccelStart.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_AccelStart.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_AccelStart.TabIndex = 12;
             this.btnWrite_AccelStart.Text = "ACCEL START";
             this.btnWrite_AccelStart.UseVisualStyleBackColor = true;
-            // 
-            // btnWrite_SubHeaterOff
-            // 
-            this.btnWrite_SubHeaterOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnWrite_SubHeaterOff.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_SubHeaterOff.Location = new System.Drawing.Point(154, 53);
-            this.btnWrite_SubHeaterOff.Margin = new System.Windows.Forms.Padding(1);
-            this.btnWrite_SubHeaterOff.Name = "btnWrite_SubHeaterOff";
-            this.btnWrite_SubHeaterOff.Size = new System.Drawing.Size(151, 24);
-            this.btnWrite_SubHeaterOff.TabIndex = 11;
-            this.btnWrite_SubHeaterOff.Text = "SUB HEATER OFF";
-            this.btnWrite_SubHeaterOff.UseVisualStyleBackColor = true;
             // 
             // btnWrite_SubHeaterOn
             // 
@@ -761,31 +1389,19 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnWrite_SubHeaterOn.Location = new System.Drawing.Point(1, 53);
             this.btnWrite_SubHeaterOn.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_SubHeaterOn.Name = "btnWrite_SubHeaterOn";
-            this.btnWrite_SubHeaterOn.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_SubHeaterOn.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_SubHeaterOn.TabIndex = 10;
             this.btnWrite_SubHeaterOn.Text = "SUB HEATER ON";
             this.btnWrite_SubHeaterOn.UseVisualStyleBackColor = true;
-            // 
-            // btnWrite_CartBoostOff
-            // 
-            this.btnWrite_CartBoostOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnWrite_CartBoostOff.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_CartBoostOff.Location = new System.Drawing.Point(613, 27);
-            this.btnWrite_CartBoostOff.Margin = new System.Windows.Forms.Padding(1);
-            this.btnWrite_CartBoostOff.Name = "btnWrite_CartBoostOff";
-            this.btnWrite_CartBoostOff.Size = new System.Drawing.Size(154, 24);
-            this.btnWrite_CartBoostOff.TabIndex = 9;
-            this.btnWrite_CartBoostOff.Text = "CART BOOST OFF";
-            this.btnWrite_CartBoostOff.UseVisualStyleBackColor = true;
             // 
             // btnWrite_CartBoostOn
             // 
             this.btnWrite_CartBoostOn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_CartBoostOn.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_CartBoostOn.Location = new System.Drawing.Point(460, 27);
+            this.btnWrite_CartBoostOn.Location = new System.Drawing.Point(502, 27);
             this.btnWrite_CartBoostOn.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_CartBoostOn.Name = "btnWrite_CartBoostOn";
-            this.btnWrite_CartBoostOn.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_CartBoostOn.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_CartBoostOn.TabIndex = 8;
             this.btnWrite_CartBoostOn.Text = "CART BOOST ON";
             this.btnWrite_CartBoostOn.UseVisualStyleBackColor = true;
@@ -794,10 +1410,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_VidMotorTest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_VidMotorTest.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_VidMotorTest.Location = new System.Drawing.Point(307, 27);
+            this.btnWrite_VidMotorTest.Location = new System.Drawing.Point(335, 27);
             this.btnWrite_VidMotorTest.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_VidMotorTest.Name = "btnWrite_VidMotorTest";
-            this.btnWrite_VidMotorTest.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_VidMotorTest.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_VidMotorTest.TabIndex = 7;
             this.btnWrite_VidMotorTest.Text = "VID MOTOR TEST";
             this.btnWrite_VidMotorTest.UseVisualStyleBackColor = true;
@@ -806,10 +1422,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_Ship.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_Ship.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_Ship.Location = new System.Drawing.Point(154, 27);
+            this.btnWrite_Ship.Location = new System.Drawing.Point(168, 27);
             this.btnWrite_Ship.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_Ship.Name = "btnWrite_Ship";
-            this.btnWrite_Ship.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_Ship.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_Ship.TabIndex = 6;
             this.btnWrite_Ship.Text = "SHIP";
             this.btnWrite_Ship.UseVisualStyleBackColor = true;
@@ -821,7 +1437,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnWrite_Sleep.Location = new System.Drawing.Point(1, 27);
             this.btnWrite_Sleep.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_Sleep.Name = "btnWrite_Sleep";
-            this.btnWrite_Sleep.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_Sleep.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_Sleep.TabIndex = 5;
             this.btnWrite_Sleep.Text = "SLEEP";
             this.btnWrite_Sleep.UseVisualStyleBackColor = true;
@@ -830,10 +1446,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_LdoOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_LdoOff.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_LdoOff.Location = new System.Drawing.Point(613, 1);
+            this.btnWrite_LdoOff.Location = new System.Drawing.Point(669, 1);
             this.btnWrite_LdoOff.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_LdoOff.Name = "btnWrite_LdoOff";
-            this.btnWrite_LdoOff.Size = new System.Drawing.Size(154, 24);
+            this.btnWrite_LdoOff.Size = new System.Drawing.Size(166, 24);
             this.btnWrite_LdoOff.TabIndex = 4;
             this.btnWrite_LdoOff.Text = "LDO OFF";
             this.btnWrite_LdoOff.UseVisualStyleBackColor = true;
@@ -842,10 +1458,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_DcBoostOn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_DcBoostOn.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_DcBoostOn.Location = new System.Drawing.Point(460, 1);
+            this.btnWrite_DcBoostOn.Location = new System.Drawing.Point(502, 1);
             this.btnWrite_DcBoostOn.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_DcBoostOn.Name = "btnWrite_DcBoostOn";
-            this.btnWrite_DcBoostOn.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_DcBoostOn.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_DcBoostOn.TabIndex = 3;
             this.btnWrite_DcBoostOn.Text = "DC_BOOST ON";
             this.btnWrite_DcBoostOn.UseVisualStyleBackColor = true;
@@ -854,10 +1470,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_Lcd3V0On.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_Lcd3V0On.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_Lcd3V0On.Location = new System.Drawing.Point(307, 1);
+            this.btnWrite_Lcd3V0On.Location = new System.Drawing.Point(335, 1);
             this.btnWrite_Lcd3V0On.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_Lcd3V0On.Name = "btnWrite_Lcd3V0On";
-            this.btnWrite_Lcd3V0On.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_Lcd3V0On.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_Lcd3V0On.TabIndex = 2;
             this.btnWrite_Lcd3V0On.Text = "LCD_3V0 ON";
             this.btnWrite_Lcd3V0On.UseVisualStyleBackColor = true;
@@ -866,10 +1482,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnWrite_Vdd3V3On.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWrite_Vdd3V3On.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite_Vdd3V3On.Location = new System.Drawing.Point(154, 1);
+            this.btnWrite_Vdd3V3On.Location = new System.Drawing.Point(168, 1);
             this.btnWrite_Vdd3V3On.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_Vdd3V3On.Name = "btnWrite_Vdd3V3On";
-            this.btnWrite_Vdd3V3On.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_Vdd3V3On.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_Vdd3V3On.TabIndex = 1;
             this.btnWrite_Vdd3V3On.Text = "VDD_3V3 ON";
             this.btnWrite_Vdd3V3On.UseVisualStyleBackColor = true;
@@ -881,7 +1497,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnWrite_VsysEnPinOn.Location = new System.Drawing.Point(1, 1);
             this.btnWrite_VsysEnPinOn.Margin = new System.Windows.Forms.Padding(1);
             this.btnWrite_VsysEnPinOn.Name = "btnWrite_VsysEnPinOn";
-            this.btnWrite_VsysEnPinOn.Size = new System.Drawing.Size(151, 24);
+            this.btnWrite_VsysEnPinOn.Size = new System.Drawing.Size(165, 24);
             this.btnWrite_VsysEnPinOn.TabIndex = 0;
             this.btnWrite_VsysEnPinOn.Text = "VSYS_EN PIN ON";
             this.btnWrite_VsysEnPinOn.UseVisualStyleBackColor = true;
@@ -892,7 +1508,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox9.Location = new System.Drawing.Point(3, 3);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(774, 161);
+            this.groupBox9.Size = new System.Drawing.Size(841, 161);
             this.groupBox9.TabIndex = 0;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "READ";
@@ -925,7 +1541,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(768, 134);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(835, 134);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // btnRead_ChargeRecord
@@ -935,7 +1551,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnRead_ChargeRecord.Location = new System.Drawing.Point(1, 53);
             this.btnRead_ChargeRecord.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_ChargeRecord.Name = "btnRead_ChargeRecord";
-            this.btnRead_ChargeRecord.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_ChargeRecord.Size = new System.Drawing.Size(165, 24);
             this.btnRead_ChargeRecord.TabIndex = 22;
             this.btnRead_ChargeRecord.Text = "CHARGE RECORD";
             this.btnRead_ChargeRecord.UseVisualStyleBackColor = true;
@@ -944,10 +1560,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnRead_FlagRead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRead_FlagRead.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead_FlagRead.Location = new System.Drawing.Point(613, 27);
+            this.btnRead_FlagRead.Location = new System.Drawing.Point(669, 27);
             this.btnRead_FlagRead.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_FlagRead.Name = "btnRead_FlagRead";
-            this.btnRead_FlagRead.Size = new System.Drawing.Size(154, 24);
+            this.btnRead_FlagRead.Size = new System.Drawing.Size(165, 24);
             this.btnRead_FlagRead.TabIndex = 21;
             this.btnRead_FlagRead.Text = "FLAG READ";
             this.btnRead_FlagRead.UseVisualStyleBackColor = true;
@@ -956,10 +1572,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnRead_ChargeCount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRead_ChargeCount.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead_ChargeCount.Location = new System.Drawing.Point(460, 27);
+            this.btnRead_ChargeCount.Location = new System.Drawing.Point(502, 27);
             this.btnRead_ChargeCount.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_ChargeCount.Name = "btnRead_ChargeCount";
-            this.btnRead_ChargeCount.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_ChargeCount.Size = new System.Drawing.Size(165, 24);
             this.btnRead_ChargeCount.TabIndex = 20;
             this.btnRead_ChargeCount.Text = "CHARGE COUNT";
             this.btnRead_ChargeCount.UseVisualStyleBackColor = true;
@@ -968,10 +1584,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnRead_BatCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRead_BatCurrent.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead_BatCurrent.Location = new System.Drawing.Point(307, 27);
+            this.btnRead_BatCurrent.Location = new System.Drawing.Point(335, 27);
             this.btnRead_BatCurrent.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_BatCurrent.Name = "btnRead_BatCurrent";
-            this.btnRead_BatCurrent.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_BatCurrent.Size = new System.Drawing.Size(165, 24);
             this.btnRead_BatCurrent.TabIndex = 19;
             this.btnRead_BatCurrent.Text = "BAT CURRENT";
             this.btnRead_BatCurrent.UseVisualStyleBackColor = true;
@@ -980,10 +1596,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnRead_TaType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRead_TaType.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead_TaType.Location = new System.Drawing.Point(154, 27);
+            this.btnRead_TaType.Location = new System.Drawing.Point(168, 27);
             this.btnRead_TaType.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_TaType.Name = "btnRead_TaType";
-            this.btnRead_TaType.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_TaType.Size = new System.Drawing.Size(165, 24);
             this.btnRead_TaType.TabIndex = 18;
             this.btnRead_TaType.Text = "TA TYPE";
             this.btnRead_TaType.UseVisualStyleBackColor = true;
@@ -995,7 +1611,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnRead_BatSoc.Location = new System.Drawing.Point(1, 27);
             this.btnRead_BatSoc.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_BatSoc.Name = "btnRead_BatSoc";
-            this.btnRead_BatSoc.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_BatSoc.Size = new System.Drawing.Size(165, 24);
             this.btnRead_BatSoc.TabIndex = 17;
             this.btnRead_BatSoc.Text = "BAT SOC";
             this.btnRead_BatSoc.UseVisualStyleBackColor = true;
@@ -1004,10 +1620,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnRead_GpakResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRead_GpakResult.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead_GpakResult.Location = new System.Drawing.Point(613, 1);
+            this.btnRead_GpakResult.Location = new System.Drawing.Point(669, 1);
             this.btnRead_GpakResult.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_GpakResult.Name = "btnRead_GpakResult";
-            this.btnRead_GpakResult.Size = new System.Drawing.Size(154, 24);
+            this.btnRead_GpakResult.Size = new System.Drawing.Size(165, 24);
             this.btnRead_GpakResult.TabIndex = 16;
             this.btnRead_GpakResult.Text = "GPAK RESULT";
             this.btnRead_GpakResult.UseVisualStyleBackColor = true;
@@ -1016,10 +1632,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnRead_ExtFlashRead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRead_ExtFlashRead.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead_ExtFlashRead.Location = new System.Drawing.Point(460, 1);
+            this.btnRead_ExtFlashRead.Location = new System.Drawing.Point(502, 1);
             this.btnRead_ExtFlashRead.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_ExtFlashRead.Name = "btnRead_ExtFlashRead";
-            this.btnRead_ExtFlashRead.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_ExtFlashRead.Size = new System.Drawing.Size(165, 24);
             this.btnRead_ExtFlashRead.TabIndex = 15;
             this.btnRead_ExtFlashRead.Text = "EXT FLASH READ";
             this.btnRead_ExtFlashRead.UseVisualStyleBackColor = true;
@@ -1028,10 +1644,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnRead_McuFlashRead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRead_McuFlashRead.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead_McuFlashRead.Location = new System.Drawing.Point(307, 1);
+            this.btnRead_McuFlashRead.Location = new System.Drawing.Point(335, 1);
             this.btnRead_McuFlashRead.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_McuFlashRead.Name = "btnRead_McuFlashRead";
-            this.btnRead_McuFlashRead.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_McuFlashRead.Size = new System.Drawing.Size(165, 24);
             this.btnRead_McuFlashRead.TabIndex = 14;
             this.btnRead_McuFlashRead.Text = "MCU FLASH READ";
             this.btnRead_McuFlashRead.UseVisualStyleBackColor = true;
@@ -1040,10 +1656,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 
             this.btnRead_AccelResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRead_AccelResult.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead_AccelResult.Location = new System.Drawing.Point(154, 1);
+            this.btnRead_AccelResult.Location = new System.Drawing.Point(168, 1);
             this.btnRead_AccelResult.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_AccelResult.Name = "btnRead_AccelResult";
-            this.btnRead_AccelResult.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_AccelResult.Size = new System.Drawing.Size(165, 24);
             this.btnRead_AccelResult.TabIndex = 13;
             this.btnRead_AccelResult.Text = "ACCEL RESULT";
             this.btnRead_AccelResult.UseVisualStyleBackColor = true;
@@ -1055,7 +1671,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnRead_LdcFloodState.Location = new System.Drawing.Point(1, 1);
             this.btnRead_LdcFloodState.Margin = new System.Windows.Forms.Padding(1);
             this.btnRead_LdcFloodState.Name = "btnRead_LdcFloodState";
-            this.btnRead_LdcFloodState.Size = new System.Drawing.Size(151, 24);
+            this.btnRead_LdcFloodState.Size = new System.Drawing.Size(165, 24);
             this.btnRead_LdcFloodState.TabIndex = 8;
             this.btnRead_LdcFloodState.Text = "LDC FLOOD STATE";
             this.btnRead_LdcFloodState.UseVisualStyleBackColor = true;
@@ -1066,11 +1682,11 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 640);
+            this.panel1.Location = new System.Drawing.Point(0, 720);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(1572, 333);
+            this.panel1.Size = new System.Drawing.Size(1707, 253);
             this.panel1.TabIndex = 6;
             // 
             // panel2
@@ -1081,7 +1697,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1548, 309);
+            this.panel2.Size = new System.Drawing.Size(1683, 229);
             this.panel2.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -1100,7 +1716,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1544, 305);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1679, 225);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
             // tableLayoutPanel8
@@ -1114,7 +1730,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(764, 261);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(832, 181);
             this.tableLayoutPanel8.TabIndex = 3;
             // 
             // tboxTx
@@ -1123,7 +1739,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxTx.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tboxTx.Location = new System.Drawing.Point(3, 23);
             this.tboxTx.Name = "tboxTx";
-            this.tboxTx.Size = new System.Drawing.Size(758, 235);
+            this.tboxTx.Size = new System.Drawing.Size(826, 155);
             this.tboxTx.TabIndex = 9;
             this.tboxTx.Text = "";
             // 
@@ -1134,19 +1750,19 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel23.Controls.Add(this.lblClearTxRx, 0, 0);
             this.tableLayoutPanel23.Controls.Add(this.tboxRx, 0, 1);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(775, 40);
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(843, 40);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 2;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(765, 261);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(832, 181);
             this.tableLayoutPanel23.TabIndex = 2;
             // 
             // lblClearTxRx
             // 
             this.lblClearTxRx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblClearTxRx.AutoSize = true;
-            this.lblClearTxRx.Location = new System.Drawing.Point(717, 0);
+            this.lblClearTxRx.Location = new System.Drawing.Point(784, 0);
             this.lblClearTxRx.Name = "lblClearTxRx";
             this.lblClearTxRx.Size = new System.Drawing.Size(45, 20);
             this.lblClearTxRx.TabIndex = 12;
@@ -1160,7 +1776,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxRx.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tboxRx.Location = new System.Drawing.Point(3, 23);
             this.tboxRx.Name = "tboxRx";
-            this.tboxRx.Size = new System.Drawing.Size(759, 235);
+            this.tboxRx.Size = new System.Drawing.Size(826, 155);
             this.tboxRx.TabIndex = 9;
             this.tboxRx.Text = "";
             // 
@@ -1174,7 +1790,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label3.Location = new System.Drawing.Point(1, 1);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(770, 35);
+            this.label3.Size = new System.Drawing.Size(838, 35);
             this.label3.TabIndex = 4;
             this.label3.Text = "TX";
             // 
@@ -1185,10 +1801,10 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(772, 1);
+            this.label7.Location = new System.Drawing.Point(840, 1);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(771, 35);
+            this.label7.Size = new System.Drawing.Size(838, 35);
             this.label7.TabIndex = 5;
             this.label7.Text = "RX";
             // 
@@ -1200,12 +1816,12 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel10.Controls.Add(this.groupBox7, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.groupBox6, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(0, 505);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(0, 585);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(1572, 135);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(1707, 135);
             this.tableLayoutPanel10.TabIndex = 7;
             // 
             // groupBox7
@@ -1213,9 +1829,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox7.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox7.Controls.Add(this.tableLayoutPanel12);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Location = new System.Drawing.Point(789, 3);
+            this.groupBox7.Location = new System.Drawing.Point(856, 3);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(780, 129);
+            this.groupBox7.Size = new System.Drawing.Size(848, 129);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "PARSING FLOAT";
@@ -1245,7 +1861,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(774, 102);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(842, 102);
             this.tableLayoutPanel12.TabIndex = 1;
             // 
             // tboxHex4
@@ -1348,7 +1964,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(780, 129);
+            this.groupBox6.Size = new System.Drawing.Size(847, 129);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "PARSING INT";
@@ -1374,7 +1990,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.62393F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.89743F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(774, 102);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(841, 102);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // label8
@@ -1464,7 +2080,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1566, 74);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1701, 74);
             this.tableLayoutPanel4.TabIndex = 8;
             // 
             // groupBox3
@@ -1472,9 +2088,9 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox3.Controls.Add(this.tableLayoutPanel5);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(786, 3);
+            this.groupBox3.Location = new System.Drawing.Point(853, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(777, 68);
+            this.groupBox3.Size = new System.Drawing.Size(845, 68);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "WRITE";
@@ -1497,7 +2113,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(771, 41);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(839, 41);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // lblWriteAddr
@@ -1518,7 +2134,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(345, 10);
+            this.label4.Location = new System.Drawing.Point(379, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 21);
@@ -1532,23 +2148,23 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxWriteAddr.Location = new System.Drawing.Point(135, 10);
             this.tboxWriteAddr.Margin = new System.Windows.Forms.Padding(10);
             this.tboxWriteAddr.Name = "tboxWriteAddr";
-            this.tboxWriteAddr.Size = new System.Drawing.Size(190, 28);
+            this.tboxWriteAddr.Size = new System.Drawing.Size(224, 28);
             this.tboxWriteAddr.TabIndex = 2;
             // 
             // tboxWriteData
             // 
             this.tboxWriteData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxWriteData.Location = new System.Drawing.Point(470, 10);
+            this.tboxWriteData.Location = new System.Drawing.Point(504, 10);
             this.tboxWriteData.Margin = new System.Windows.Forms.Padding(10);
             this.tboxWriteData.Name = "tboxWriteData";
-            this.tboxWriteData.Size = new System.Drawing.Size(190, 28);
+            this.tboxWriteData.Size = new System.Drawing.Size(224, 28);
             this.tboxWriteData.TabIndex = 3;
             // 
             // btnWriteSend
             // 
             this.btnWriteSend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWriteSend.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWriteSend.Location = new System.Drawing.Point(680, 5);
+            this.btnWriteSend.Location = new System.Drawing.Point(748, 5);
             this.btnWriteSend.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.btnWriteSend.Name = "btnWriteSend";
             this.btnWriteSend.Size = new System.Drawing.Size(81, 31);
@@ -1563,7 +2179,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(777, 68);
+            this.groupBox2.Size = new System.Drawing.Size(844, 68);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "READ";
@@ -1575,7 +2191,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel15.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel15.Controls.Add(this.tboxReadAddr, 1, 0);
@@ -1586,7 +2202,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(771, 41);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(838, 41);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // label1
@@ -1607,7 +2223,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(304, 10);
+            this.label2.Location = new System.Drawing.Point(312, 10);
             this.label2.Margin = new System.Windows.Forms.Padding(10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 21);
@@ -1621,26 +2237,26 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxReadAddr.Location = new System.Drawing.Point(135, 10);
             this.tboxReadAddr.Margin = new System.Windows.Forms.Padding(10);
             this.tboxReadAddr.Name = "tboxReadAddr";
-            this.tboxReadAddr.Size = new System.Drawing.Size(149, 28);
+            this.tboxReadAddr.Size = new System.Drawing.Size(157, 28);
             this.tboxReadAddr.TabIndex = 2;
             // 
             // tboxReadQuantity
             // 
             this.tboxReadQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxReadQuantity.Location = new System.Drawing.Point(454, 10);
+            this.tboxReadQuantity.Location = new System.Drawing.Point(462, 10);
             this.tboxReadQuantity.Margin = new System.Windows.Forms.Padding(10);
             this.tboxReadQuantity.Name = "tboxReadQuantity";
-            this.tboxReadQuantity.Size = new System.Drawing.Size(192, 28);
+            this.tboxReadQuantity.Size = new System.Drawing.Size(201, 28);
             this.tboxReadQuantity.TabIndex = 3;
             // 
             // btnReadSend
             // 
             this.btnReadSend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReadSend.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadSend.Location = new System.Drawing.Point(666, 5);
+            this.btnReadSend.Location = new System.Drawing.Point(683, 5);
             this.btnReadSend.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.btnReadSend.Name = "btnReadSend";
-            this.btnReadSend.Size = new System.Drawing.Size(95, 31);
+            this.btnReadSend.Size = new System.Drawing.Size(145, 31);
             this.btnReadSend.TabIndex = 4;
             this.btnReadSend.Text = "Send";
             this.btnReadSend.UseVisualStyleBackColor = true;
@@ -1651,12 +2267,13 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel6.Controls.Add(this.groupBox4, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel19, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 428);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 508);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1566, 74);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1701, 74);
             this.tableLayoutPanel6.TabIndex = 9;
             // 
             // groupBox4
@@ -1666,7 +2283,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1090, 68);
+            this.groupBox4.Size = new System.Drawing.Size(1184, 68);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "MULTI WRITE";
@@ -1678,7 +2295,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66667F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel16.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label6, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.tboxMultiWriteAddr, 1, 0);
@@ -1689,7 +2306,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(1084, 41);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(1178, 41);
             this.tableLayoutPanel16.TabIndex = 0;
             // 
             // label5
@@ -1710,7 +2327,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(375, 10);
+            this.label6.Location = new System.Drawing.Point(389, 10);
             this.label6.Margin = new System.Windows.Forms.Padding(10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 21);
@@ -1724,35 +2341,125 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tboxMultiWriteAddr.Location = new System.Drawing.Point(135, 10);
             this.tboxMultiWriteAddr.Margin = new System.Windows.Forms.Padding(10);
             this.tboxMultiWriteAddr.Name = "tboxMultiWriteAddr";
-            this.tboxMultiWriteAddr.Size = new System.Drawing.Size(220, 28);
+            this.tboxMultiWriteAddr.Size = new System.Drawing.Size(234, 28);
             this.tboxMultiWriteAddr.TabIndex = 2;
             // 
             // tboxMultiWriteDatas
             // 
             this.tboxMultiWriteDatas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxMultiWriteDatas.Location = new System.Drawing.Point(500, 10);
+            this.tboxMultiWriteDatas.Location = new System.Drawing.Point(514, 10);
             this.tboxMultiWriteDatas.Margin = new System.Windows.Forms.Padding(10);
             this.tboxMultiWriteDatas.Name = "tboxMultiWriteDatas";
-            this.tboxMultiWriteDatas.Size = new System.Drawing.Size(459, 28);
+            this.tboxMultiWriteDatas.Size = new System.Drawing.Size(489, 28);
             this.tboxMultiWriteDatas.TabIndex = 3;
             // 
             // btnMultiWriteSend
             // 
             this.btnMultiWriteSend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMultiWriteSend.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMultiWriteSend.Location = new System.Drawing.Point(979, 5);
+            this.btnMultiWriteSend.Location = new System.Drawing.Point(1023, 5);
             this.btnMultiWriteSend.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.btnMultiWriteSend.Name = "btnMultiWriteSend";
-            this.btnMultiWriteSend.Size = new System.Drawing.Size(95, 31);
+            this.btnMultiWriteSend.Size = new System.Drawing.Size(145, 31);
             this.btnMultiWriteSend.TabIndex = 4;
             this.btnMultiWriteSend.Text = "Send";
             this.btnMultiWriteSend.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 3;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel19.Controls.Add(this.btnGetHeaterOnResist, 2, 0);
+            this.tableLayoutPanel19.Controls.Add(this.btnGetHeaterOffResist, 2, 1);
+            this.tableLayoutPanel19.Controls.Add(this.tboxHeaterOffResist, 1, 1);
+            this.tableLayoutPanel19.Controls.Add(this.tboxHeaterOnResist, 1, 0);
+            this.tableLayoutPanel19.Controls.Add(this.label22, 0, 1);
+            this.tableLayoutPanel19.Controls.Add(this.label21, 0, 0);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(1190, 0);
+            this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 2;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(491, 74);
+            this.tableLayoutPanel19.TabIndex = 5;
+            // 
+            // btnGetHeaterOnResist
+            // 
+            this.btnGetHeaterOnResist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGetHeaterOnResist.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetHeaterOnResist.Location = new System.Drawing.Point(433, 3);
+            this.btnGetHeaterOnResist.Name = "btnGetHeaterOnResist";
+            this.btnGetHeaterOnResist.Size = new System.Drawing.Size(55, 31);
+            this.btnGetHeaterOnResist.TabIndex = 9;
+            this.btnGetHeaterOnResist.Text = "Get";
+            this.btnGetHeaterOnResist.UseVisualStyleBackColor = true;
+            // 
+            // btnGetHeaterOffResist
+            // 
+            this.btnGetHeaterOffResist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGetHeaterOffResist.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetHeaterOffResist.Location = new System.Drawing.Point(433, 40);
+            this.btnGetHeaterOffResist.Name = "btnGetHeaterOffResist";
+            this.btnGetHeaterOffResist.Size = new System.Drawing.Size(55, 31);
+            this.btnGetHeaterOffResist.TabIndex = 8;
+            this.btnGetHeaterOffResist.Text = "Get";
+            this.btnGetHeaterOffResist.UseVisualStyleBackColor = true;
+            // 
+            // tboxHeaterOffResist
+            // 
+            this.tboxHeaterOffResist.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxHeaterOffResist.Location = new System.Drawing.Point(218, 41);
+            this.tboxHeaterOffResist.Name = "tboxHeaterOffResist";
+            this.tboxHeaterOffResist.ReadOnly = true;
+            this.tboxHeaterOffResist.Size = new System.Drawing.Size(209, 28);
+            this.tboxHeaterOffResist.TabIndex = 6;
+            this.tboxHeaterOffResist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tboxHeaterOnResist
+            // 
+            this.tboxHeaterOnResist.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxHeaterOnResist.Location = new System.Drawing.Point(218, 4);
+            this.tboxHeaterOnResist.Name = "tboxHeaterOnResist";
+            this.tboxHeaterOnResist.ReadOnly = true;
+            this.tboxHeaterOnResist.Size = new System.Drawing.Size(209, 28);
+            this.tboxHeaterOnResist.TabIndex = 5;
+            this.tboxHeaterOnResist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label22.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(3, 40);
+            this.label22.Margin = new System.Windows.Forms.Padding(3);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(209, 31);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "HEATER OFF 저항";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(3, 3);
+            this.label21.Margin = new System.Windows.Forms.Padding(3);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(209, 31);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "HEATER ON 저항";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PBA_TerminalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1572, 973);
+            this.ClientSize = new System.Drawing.Size(1707, 973);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1760,6 +2467,13 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.Text = "PBA_TerminalForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PBA_TerminalForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel20.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel21.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.tableLayoutPanel22.ResumeLayout(false);
+            this.tableLayoutPanel22.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1767,6 +2481,11 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.panel3.ResumeLayout(false);
             this.table131312.ResumeLayout(false);
             this.table131312.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel17.PerformLayout();
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel18.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
@@ -1798,6 +2517,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1868,9 +2589,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.Button btnWrite_ExtFlashCheck;
         private System.Windows.Forms.Button btnWrite_McuFlashCheck;
         private System.Windows.Forms.Button btnWrite_AccelStart;
-        private System.Windows.Forms.Button btnWrite_SubHeaterOff;
         private System.Windows.Forms.Button btnWrite_SubHeaterOn;
-        private System.Windows.Forms.Button btnWrite_CartBoostOff;
         private System.Windows.Forms.Button btnWrite_CartBoostOn;
         private System.Windows.Forms.Button btnWrite_VidMotorTest;
         private System.Windows.Forms.Button btnWrite_Ship;
@@ -1921,5 +2640,58 @@ namespace p2_40_Main_PBA_Tester.Forms
         private System.Windows.Forms.Button btnWrite_ChargeDcp;
         private System.Windows.Forms.Button btnWrite_ChargePps;
         private System.Windows.Forms.Button btnWrite_ChargeSdp;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
+        private System.Windows.Forms.Button btnFlagRead;
+        private System.Windows.Forms.Button btnFlagWrite;
+        private System.Windows.Forms.TextBox tboxReadFlag;
+        private System.Windows.Forms.TextBox tboxWriteFlag;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private System.Windows.Forms.Label lblPbaFlag;
+        private System.Windows.Forms.Label lblLcdFlag;
+        private System.Windows.Forms.Label lblChargerFlag;
+        private System.Windows.Forms.Label lblVeriFlag;
+        private System.Windows.Forms.Label lblCalFlag;
+        private System.Windows.Forms.Label lblPuffFlag;
+        private System.Windows.Forms.Label lblOpticalFlag;
+        private System.Windows.Forms.Label lblStickFlag;
+        private System.Windows.Forms.Label lblCapFlag;
+        private System.Windows.Forms.Label lblSnFlag;
+        private System.Windows.Forms.Label lblFinalFlag;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button btnPinOff;
+        private System.Windows.Forms.Button btnPinOn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox tboxWriteAddr2;
+        private System.Windows.Forms.TextBox tboxWriteData2;
+        private System.Windows.Forms.Button btnWriteSend2;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tboxReadAddr2;
+        private System.Windows.Forms.TextBox tboxReadQuantity2;
+        private System.Windows.Forms.Button btnReadSend2;
+        private System.Windows.Forms.Button btnGetHeaterOnResist;
+        private System.Windows.Forms.Button btnGetHeaterOffResist;
+        private System.Windows.Forms.TextBox tboxHeaterOffResist;
+        private System.Windows.Forms.TextBox tboxHeaterOnResist;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }

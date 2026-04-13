@@ -1,7 +1,7 @@
 ﻿
 namespace p2_40_Main_PBA_Tester.Forms
 {
-    partial class McuLotModelSettingForm
+    partial class McLotModelSettingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,23 +29,23 @@ namespace p2_40_Main_PBA_Tester.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(McuLotModelSettingForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(McLotModelSettingForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tboxMcuNo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tboxLotNo = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tboxMcuNo = new System.Windows.Forms.TextBox();
-            this.tboxLotNo = new System.Windows.Forms.TextBox();
             this.cboxModel = new System.Windows.Forms.ComboBox();
             this.btnAddModel = new System.Windows.Forms.Button();
             this.btnDeleteModel = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tboxAddModel = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tboxAddModel = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,7 +63,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.groupBox1.Size = new System.Drawing.Size(256, 110);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Mcu No";
+            this.groupBox1.Text = "Mc No";
             // 
             // tableLayoutPanel1
             // 
@@ -77,6 +77,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 86);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tboxMcuNo
+            // 
+            this.tboxMcuNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxMcuNo.Location = new System.Drawing.Point(15, 30);
+            this.tboxMcuNo.Name = "tboxMcuNo";
+            this.tboxMcuNo.Size = new System.Drawing.Size(220, 25);
+            this.tboxMcuNo.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -100,6 +108,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 86);
             this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // tboxLotNo
+            // 
+            this.tboxLotNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxLotNo.Location = new System.Drawing.Point(15, 30);
+            this.tboxLotNo.Name = "tboxLotNo";
+            this.tboxLotNo.Size = new System.Drawing.Size(220, 25);
+            this.tboxLotNo.TabIndex = 1;
             // 
             // groupBox3
             // 
@@ -132,22 +148,6 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.tableLayoutPanel3.Size = new System.Drawing.Size(430, 86);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // tboxMcuNo
-            // 
-            this.tboxMcuNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tboxMcuNo.Location = new System.Drawing.Point(15, 30);
-            this.tboxMcuNo.Name = "tboxMcuNo";
-            this.tboxMcuNo.Size = new System.Drawing.Size(220, 25);
-            this.tboxMcuNo.TabIndex = 0;
-            // 
-            // tboxLotNo
-            // 
-            this.tboxLotNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tboxLotNo.Location = new System.Drawing.Point(15, 30);
-            this.tboxLotNo.Name = "tboxLotNo";
-            this.tboxLotNo.Size = new System.Drawing.Size(220, 25);
-            this.tboxLotNo.TabIndex = 1;
-            // 
             // cboxModel
             // 
             this.cboxModel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -179,6 +179,26 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnDeleteModel.Text = "삭제";
             this.btnDeleteModel.UseVisualStyleBackColor = true;
             this.btnDeleteModel.Click += new System.EventHandler(this.btnDeleteModel_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(159, 35);
+            this.label1.Name = "label1";
+            this.tableLayoutPanel3.SetRowSpan(this.label1, 2);
+            this.label1.Size = new System.Drawing.Size(22, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "◀";
+            // 
+            // tboxAddModel
+            // 
+            this.tboxAddModel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tboxAddModel.Location = new System.Drawing.Point(188, 30);
+            this.tboxAddModel.Name = "tboxAddModel";
+            this.tableLayoutPanel3.SetRowSpan(this.tboxAddModel, 2);
+            this.tboxAddModel.Size = new System.Drawing.Size(149, 25);
+            this.tboxAddModel.TabIndex = 4;
             // 
             // tableLayoutPanel4
             // 
@@ -216,27 +236,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(159, 35);
-            this.label1.Name = "label1";
-            this.tableLayoutPanel3.SetRowSpan(this.label1, 2);
-            this.label1.Size = new System.Drawing.Size(22, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "◀";
-            // 
-            // tboxAddModel
-            // 
-            this.tboxAddModel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tboxAddModel.Location = new System.Drawing.Point(188, 30);
-            this.tboxAddModel.Name = "tboxAddModel";
-            this.tableLayoutPanel3.SetRowSpan(this.tboxAddModel, 2);
-            this.tboxAddModel.Size = new System.Drawing.Size(149, 25);
-            this.tboxAddModel.TabIndex = 4;
-            // 
-            // McuLotModelSettingForm
+            // McLotModelSettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,8 +246,8 @@ namespace p2_40_Main_PBA_Tester.Forms
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "McuLotModelSettingForm";
-            this.Text = "Mcu Lot Model 세팅";
+            this.Name = "McLotModelSettingForm";
+            this.Text = "Mc Lot Model 세팅";
             this.Load += new System.EventHandler(this.McuLotModelSettingForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

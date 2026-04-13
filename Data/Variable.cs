@@ -26,6 +26,7 @@ namespace p2_40_Main_PBA_Tester.Data
 
         public static readonly byte[] READ_SOC = { 0x00, 0x0C, 0x00, 0x01 };
 
+
         /// <summary> SDP TA 모드 확인 CMD (7F 01), 1바이트 읽기 </summary>
         public static readonly byte[] READ_TA_CHECK = { 0x00, 0x7F, 0x00, 0x01 };
         /// <summary> SDP 전류 확인 CMD (0A), 2바이트 읽기 (mA) </summary>
@@ -60,7 +61,8 @@ namespace p2_40_Main_PBA_Tester.Data
 
         public static readonly byte[] WRITE_VIB_TEST_START = { 0x00, 0x20, 0x32, 0x1E };
 
-        public static readonly byte[] READ_FLOOD_STATE = { 0x00, 0x9C, 0x00, 0x01 }; //확인 중 (확정 아님)
+        public static readonly byte[] READ_BOARD_FLOOD_STATE = { 0x00, 0x9C, 0x00, 0x01 }; 
+        public static readonly byte[] READ_USB_FLOOD_STATE = { 0x00, 0x9D, 0x00, 0x01 };
 
         public static readonly byte[] WRITE_SENSING_PIN_ON = { 0x00, 0x8A, 0x00, 0x00 };
         public static readonly byte[] WRITE_SENSING_PIN_OFF = { 0x00, 0x8A, 0x00, 0x01 };
@@ -69,11 +71,11 @@ namespace p2_40_Main_PBA_Tester.Data
         public static readonly byte[] WRITE_HEATER_PWM = { 0x00, 0x89, 0x00, 0x00 };
 
 
-        public static readonly byte[] WRITE_CARTRIDGE_BOOST_ON = { 0x00, 0x07, 0x00, 0x01 };
-        public static readonly byte[] WRITE_CARTRIDGE_BOOST_OFF = { 0x00, 0x07, 0x00, 0x00 };
+        public static readonly byte[] WRITE_CARTRIDGE_BOOST_ON = { 0x00, 0x8D, 0x00, 0x01 };
+        public static readonly byte[] WRITE_CARTRIDGE_BOOST_OFF = { 0x00, 0x07, 0x00, 0x00 }; //아직 모름
 
-        public static readonly byte[] WRITE_SUB_HEATER_BOOST_ON = { 0x00, 0x07, 0x00, 0x02 };
-        public static readonly byte[] WRITE_SUB_HEATER_BOOST_OFF = { 0x00, 0x07, 0x00, 0x00 };
+        public static readonly byte[] WRITE_SUB_HEATER_BOOST_ON = { 0x00, 0x8E, 0x00, 0x01 };
+        public static readonly byte[] WRITE_SUB_HEATER_BOOST_OFF = { 0x00, 0x07, 0x00, 0x00 }; //아직 모름
 
         public static readonly byte[] WRITE_ACCEL_IC_TEST_START = { 0x00, 0x52, 0x00, 0x01 };
         public static readonly byte[] READ_ACCEL_IC_TEST_RESULT = { 0x00, 0x25, 0x00, 0x01 };

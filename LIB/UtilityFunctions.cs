@@ -79,6 +79,15 @@ namespace p2_40_Main_PBA_Tester.LIB
             return true;
         }
 
+        public static bool CheckJigRxData(byte[] tx, byte[] rx)
+        {
+            if (rx == null) return false;
+            if (rx.Length < 7) return false;
+            if (tx[5] != rx[5]) return false;
+
+            return true;
+        }
+
         public static bool TryParseAsciiBytesToPacketBytes(byte[] asciiFrame, out byte[] bytes)
         {
             bytes = null;

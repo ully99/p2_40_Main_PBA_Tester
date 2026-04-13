@@ -42,24 +42,25 @@ namespace p2_40_Main_PBA_Tester.UI
             else action();
         }
 
-        private void Append(string text, Color color, bool isBold = false)
+        private void Append(string text, Color color, bool isBold = false, Color? backColor = null)
         {
-            // 컨트롤 하단으로 포커스 이동
             _box.SelectionStart = _box.TextLength;
             _box.SelectionLength = 0;
 
-            // 스타일 설정
+
             _box.SelectionColor = color;
+            if (backColor.HasValue)
+                _box.SelectionBackColor = backColor.Value;
+            else
+                _box.SelectionBackColor = _box.BackColor;
+
             if (isBold) _box.SelectionFont = new Font(_box.Font, FontStyle.Bold);
             else _box.SelectionFont = new Font(_box.Font, FontStyle.Regular);
 
-            // 텍스트 추가
             _box.AppendText(text);
 
-            // 줄 수 제한 관리
             TrimLines();
 
-            // 자동 스크롤
             SendMessage(_box.Handle, WM_VSCROLL, (IntPtr)SB_BOTTOM, IntPtr.Zero);
         }
 
@@ -79,61 +80,61 @@ namespace p2_40_Main_PBA_Tester.UI
             }
         }
 
-        private string TimeStamp => $" [{DateTime.Now:HH:mm:ss}]";
+        private string TimeStamp => $"[{DateTime.Now:HH:mm:ss:fff}]  ";
 
         public void Info(string msg)
         {
             UI(() => {
-                Append(msg, Color.Black);
-                Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append(TimeStamp, Color.Gray);
+                Append(msg + Environment.NewLine, Color.Black);
             });
         }
 
         public void Pass(string msg)
         {
             UI(() => {
+                Append(TimeStamp, Color.Gray);
                 Append("PASS ", Color.Green, true);
-                Append(msg, Color.Black);
-                Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append(msg + Environment.NewLine, Color.Black);
             });
         }
 
         public void Fail(string msg)
         {
             UI(() => {
+                Append(TimeStamp, Color.Gray);
                 Append("FAIL ", Color.Red, true);
-                Append(msg, Color.Black);
-                Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append(msg + Environment.NewLine, Color.Black);
             });
         }
 
         public void Comm(string msg, bool isTx)
         {
             UI(() => {
+                Append(TimeStamp, Color.Gray);
                 Append(isTx ? "[Tx] " : "[Rx] ", isTx ? Color.Blue : Color.DarkRed, true);
                 string cleanMsg = msg.Replace("\r", "\\r").Replace("\n", "\\n");
-                Append(cleanMsg, Color.Black);
-                Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append(cleanMsg + Environment.NewLine, Color.Black);
             });
         }
 
         public void Tx(string msg)
         {
             UI(() => {
+                Append(TimeStamp, Color.Gray);
                 Append("[Tx] ",Color.Blue, true);
                 string cleanMsg = msg.Replace("\r", "\\r").Replace("\n", "\\n");
-                Append(cleanMsg, Color.Black);
-                Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append(cleanMsg + Environment.NewLine, Color.Black);
             });
         }
 
         public void Rx(string msg)
         {
             UI(() => {
+                Append(TimeStamp, Color.Gray);
                 Append("[Rx] ", Color.DarkRed, true);
                 string cleanMsg = msg.Replace("\r", "\\r").Replace("\n", "\\n");
-                Append(cleanMsg, Color.Black);
-                Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append(cleanMsg + Environment.NewLine, Color.Black);
             });
         }
 
@@ -157,6 +158,21 @@ namespace p2_40_Main_PBA_Tester.UI
                 Append($"Result : {status} ", resColor, true);
                 //Append(TimeStamp + Environment.NewLine, Color.Gray);
                 Append(Environment.NewLine, Color.Black); // 공정 끝났으니 한 줄 더 띄우기
+            });
+        }
+
+        public void TotalResult(bool isPass, string detail = "")
+        {
+            UI(() => {
+                Color bg = isPass ? Color.Green : Color.Red;
+                string status = isPass ? ">> TOTAL RESULT : PASS" : ">> TOTAL RESULT : FAIL";
+
+                Append("\n", Color.Black);
+                Append($" {status} ", Color.White, true, bg);
+                if (!string.IsNullOrEmpty(detail))
+                    Append($"  {detail}", Color.Black);
+                //Append(TimeStamp + Environment.NewLine, Color.Gray);
+                Append("\n", Color.Black);
             });
         }
 

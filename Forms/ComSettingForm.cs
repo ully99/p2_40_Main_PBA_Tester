@@ -118,6 +118,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             checkboxTxRxConsole_board.Checked = Settings.Instance.Use_TxRx_Console_Board;
             checkboxTxRxConsole_pba.Checked = Settings.Instance.Use_TxRx_Console_Pba;
             checkboxDebugMode.Checked = Settings.Instance.Use_Debug_Mode;
+            
 
             //value setting
             tboxBoardConnectTimeOut.Text = Settings.Instance.Board_Connect_Timeout.ToString();
@@ -125,11 +126,14 @@ namespace p2_40_Main_PBA_Tester.Forms
             tboxBoardReadTimeOut.Text = Settings.Instance.Board_Read_Timeout.ToString();
             checkboxBoardRetry.Checked = Settings.Instance.Use_Board_Retry;
             checkboxPbaRetry.Checked = Settings.Instance.Use_Pba_Retry;
-            tboxBoardRetryCount.Text = Settings.Instance.Board_Retry_Count.ToString();
             tboxPbaRetryCount.Text = Settings.Instance.Pba_Retry_Count.ToString();
+            tboxBoardRetryCount.Text = Settings.Instance.Board_Retry_Count.ToString();
             tboxBoardMinInterval.Text = Settings.Instance.Board_Min_Interval.ToString();
             tboxPbaMinInterval.Text = Settings.Instance.Pba_Min_Interval.ToString();
             tboxPbaOnDelay.Text = Settings.Instance.Pba_On_Delay.ToString();
+            tboxPbaConnectTimeout.Text = Settings.Instance.Pba_Connect_Timeout.ToString();
+            tboxPbaConnectInterval.Text = Settings.Instance.Pba_Connect_Interval.ToString();
+
         }
 
 
@@ -190,6 +194,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
                 mainform.UpdateLayoutByChannelConfig();
                 mainform.ResetRecipeInfo();
+                mainform.ToggleJigComm(CommManager.Jig, true, mainform.JigCommLogger);
             }
             finally
             {
@@ -203,6 +208,7 @@ namespace p2_40_Main_PBA_Tester.Forms
         {
             mainform.CheckMesStatus();
             mainform.CheckFtpStatus();
+            mainform.ToggleJigComm(CommManager.Jig, true, mainform.JigCommLogger);
         }
 
         #endregion
@@ -225,7 +231,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             SetStatusLabel(lblQrStatusCh4, CommManager.QrPorts[3].IsOpen);
 
             // JIG
-            //UpdateStatusLabel(lblJigStatus, CommManager.Jig.IsOpened);
+            SetStatusLabel(lblJigStatus, CommManager.Jig.IsOpen);
 
             //Recipe Qr
             SetStatusLabel(lblRecipeQrStatus, CommManager.RecipeQr.IsOpen);
@@ -321,6 +327,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 Settings.Instance.Use_TxRx_Console_Board = checkboxTxRxConsole_board.Checked;
                 Settings.Instance.Use_TxRx_Console_Pba = checkboxTxRxConsole_pba.Checked;
                 Settings.Instance.Use_Debug_Mode = checkboxDebugMode.Checked;
+                
 
                 //value setting
                 Settings.Instance.Board_Connect_Timeout = int.Parse(tboxBoardConnectTimeOut.Text);
@@ -333,6 +340,8 @@ namespace p2_40_Main_PBA_Tester.Forms
                 Settings.Instance.Board_Min_Interval = int.Parse(tboxBoardMinInterval.Text);
                 Settings.Instance.Pba_Min_Interval = int.Parse(tboxPbaMinInterval.Text);
                 Settings.Instance.Pba_On_Delay = int.Parse(tboxPbaOnDelay.Text);
+                Settings.Instance.Pba_Connect_Timeout = int.Parse(tboxPbaConnectTimeout.Text);
+                Settings.Instance.Pba_Connect_Interval = int.Parse(tboxPbaConnectInterval.Text);
 
                 if (checkbox1ChOnly.Checked)
                 {

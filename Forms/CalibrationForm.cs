@@ -45,7 +45,7 @@ namespace p2_40_Main_PBA_Tester.Forms
             ConfigureAllNumericUpDowns(this); //폼안에 모든 numericControl 세팅 초기화
         }
 
-        private void ConfigureAllNumericUpDowns(Control parent, int decimalPlaces = 3, decimal increment = 0.001M, decimal min = -1000, decimal max = 1000)
+        private void ConfigureAllNumericUpDowns(Control parent, int decimalPlaces = 4, decimal increment = 0.0001M, decimal min = -1000, decimal max = 1000)
         {
             foreach (Control c in parent.Controls)
             {
@@ -126,33 +126,22 @@ namespace p2_40_Main_PBA_Tester.Forms
 
        
 
-        private void cboxCalChannel_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cboxCalChannel_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // 1. 선택된 인덱스에 따라 보드 객체 할당 (기존 switch문 로직 유지)
             switch (cboxCalChannel.SelectedIndex)
             {
-                case 0:
-                    {
-                        board = CommManager.Boards[0];
-                        break;
-                    }
-                case 1:
-                    {
-                        board = CommManager.Boards[1];
-                        break;
-                    }
-                case 2:
-                    {
-                        board = CommManager.Boards[2];
-                        break;
-                    }
-                case 3:
-                    {
-                        board = CommManager.Boards[3];
-                        break;
-                    }
+                case 0: board = CommManager.Boards[0]; break;
+                case 1: board = CommManager.Boards[1]; break;
+                case 2: board = CommManager.Boards[2]; break;
+                case 3: board = CommManager.Boards[3]; break;
             }
 
+            // 2. NumericUpDown 초기화
             InitializeNumericControls();
+
+            // 3. 변경된 채널의 데이터를 자동으로 읽어옴
+            await ReadAllCalibrationData();
         }
 
         #region entire cal Data
@@ -178,24 +167,39 @@ namespace p2_40_Main_PBA_Tester.Forms
             // 3. 반복문을 돌며 값 할당 (Gain = 1.000, Offset = 0.000)
             foreach (var tb in gainBoxes)
             {
-                if (tb != null) tb.Text = "1.000";
+                if (tb != null) tb.Text = "1.0000";
             }
 
             foreach (var tb in offsetBoxes)
             {
-                if (tb != null) tb.Text = "0.000";
+                if (tb != null) tb.Text = "0.0000";
             }
 
+            AllWriteGainOffset(); //초기화 된 값 저장
         }
 
         private async void btnGainRead_Click(object sender, EventArgs e)
         {
+            await ReadAllCalibrationData();
+        }
+
+        private async Task ReadAllCalibrationData()
+        {
+            // 1. 초기화할 컨트롤 배열 선언 (매번 생성하지 않도록 상단으로 빼도 좋습니다)
+            TextBox[] gainBoxes = { tboxGainDa1, tboxGainDa2, tboxGainMux1, tboxGainMux2, tboxGainMux3, tboxGainMux4, tboxGainMux5, tboxGainMux7, tboxGainMux8 };
+            TextBox[] offsetBoxes = { tboxOffsetDa1, tboxOffsetDa2, tboxOffsetMux1, tboxOffsetMux2, tboxOffsetMux3, tboxOffsetMux4, tboxOffsetMux5, tboxOffsetMux7, tboxOffsetMux8 };
+
+            // 2. 읽기 시작 전 UI 값을 먼저 비워줌 (연결 여부와 상관없이 수행)
+            foreach (var tb in gainBoxes) if (tb != null) tb.Text = "";
+            foreach (var tb in offsetBoxes) if (tb != null) tb.Text = "";
+
             try
             {
+                // 3. 연결 상태 확인
                 if (cboxCalChannel.SelectedIndex < 0 || board == null || !board.IsConnected())
                 {
-                    MessageBox.Show("This Channel is not connected.");
-                    return;
+                    Console.WriteLine($"[CH{cboxCalChannel.SelectedIndex + 1}] Board not connected. UI Cleared.");
+                    return; // 연결 안 되어 있으면 값을 비운 채로 종료
                 }
 
                 byte[] tx = new TcpProtocol(0x03, 0x00).GetPacket();
@@ -203,60 +207,27 @@ namespace p2_40_Main_PBA_Tester.Forms
 
                 if (!UtilityFunctions.CheckTcpRxData(tx, rx))
                 {
-                    Console.WriteLine($"RX 이상 => rx : {rx}");
+                    Console.WriteLine($"[CH{cboxCalChannel.SelectedIndex + 1}] RX Data Error");
                     return;
                 }
 
-                TextBox[] gainBoxes = new TextBox[]
-                {
-                    tboxGainDa1,  // 0x01
-                    tboxGainDa2,  // 0x02
-                    //tboxGainDa4,
-                    tboxGainMux1, 
-                    tboxGainMux2,
-                    tboxGainMux3,
-                    tboxGainMux4,
-                    tboxGainMux5,
-
-                    tboxGainMux7,
-                    tboxGainMux8,
-                };
-
-                TextBox[] offsetBoxes = new TextBox[]
-                {
-                    tboxOffsetDa1,  // 0x01
-                    tboxOffsetDa2,  // 0x02
-                    //tboxOffsetDa4,
-                    tboxOffsetMux1, 
-                    tboxOffsetMux2,
-                    tboxOffsetMux3,
-                    tboxOffsetMux4,
-                    tboxOffsetMux5,
-                    
-                    tboxOffsetMux7,
-                    tboxOffsetMux8,
-                };
-
+                // 4. 수신 데이터 UI 업데이트
                 for (int i = 0; i < gainBoxes.Length; i++)
                 {
-                    if (gainBoxes[i] == null || offsetBoxes[i] == null) continue;
+                    int baseIndex = 7 + i * 8;
+                    if (rx.Length < baseIndex + 8) break;
 
-                    int baseIndex = 7 + i * 8; // Gain/Offset 각 4byte씩
-                    byte[] gainBytes = rx.Skip(baseIndex).Take(4).ToArray();
-                    byte[] offsetBytes = rx.Skip(baseIndex + 4).Take(4).ToArray();
+                    float gain = BitConverter.ToSingle(rx, baseIndex);
+                    float offset = BitConverter.ToSingle(rx, baseIndex + 4);
 
-                    float gain = BitConverter.ToSingle(gainBytes, 0);
-                    float offset = BitConverter.ToSingle(offsetBytes, 0);
-
-                    gainBoxes[i].Text = gain.ToString("F3");
-                    offsetBoxes[i].Text = offset.ToString("F3");
+                    gainBoxes[i].Text = gain.ToString("F4");
+                    offsetBoxes[i].Text = offset.ToString("F4");
                 }
-
-                Console.WriteLine("Calibration Read 성공");
+                Console.WriteLine($"[CH{cboxCalChannel.SelectedIndex + 1}] Calibration Data Read Success.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"예외 발생: {ex.Message}");
+                Console.WriteLine($"Read Error: {ex.Message}");
             }
         }
 
@@ -538,21 +509,21 @@ namespace p2_40_Main_PBA_Tester.Forms
         #region Mux7
         private async void btnMux7Min_Click(object sender, EventArgs e)
         {
-            float setValue = (float)numMux5SetOutputMin.Value;
+            float setValue = (float)numMux7SetOutputMin.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, false);
             if (!float.IsNaN(measured))
                 numMux7MeassuredValueMin.Value = (decimal)measured;
         }
         private async void btnMux7Max_Click(object sender, EventArgs e)
         {
-            float setValue = (float)numMux5SetOutputMax.Value;
+            float setValue = (float)numMux7SetOutputMax.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, false);
             if (!float.IsNaN(measured))
                 numMux7MeassuredValueMax.Value = (decimal)measured;
         }
         private async void btnMux7Test_Click(object sender, EventArgs e)
         {
-            float setValue = (float)numMux5SetTestoutput.Value;
+            float setValue = (float)numMux7SetTestoutput.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x08, setValue, true);
             if (!float.IsNaN(measured))
                 numMux7MeassuredValueTest.Value = (decimal)measured;
@@ -577,21 +548,21 @@ namespace p2_40_Main_PBA_Tester.Forms
         #region Mux8
         private async void btnMux8Min_Click(object sender, EventArgs e)
         {
-            float setValue = (float)numMux5SetOutputMin.Value;
+            float setValue = (float)numMux8SetOutputMin.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, false);
             if (!float.IsNaN(measured))
                 numMux8MeassuredValueMin.Value = (decimal)measured;
         }
         private async void btnMux8Max_Click(object sender, EventArgs e)
         {
-            float setValue = (float)numMux5SetOutputMax.Value;
+            float setValue = (float)numMux8SetOutputMax.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, false);
             if (!float.IsNaN(measured))
                 numMux8MeassuredValueMax.Value = (decimal)measured;
         }
         private async void btnMux8Test_Click(object sender, EventArgs e)
         {
-            float setValue = (float)numMux5SetTestoutput.Value;
+            float setValue = (float)numMux8SetTestoutput.Value;
             float measured = await SendCalSetOutputAsync_ADC(0x09, setValue, true);
             if (!float.IsNaN(measured))
                 numMux8MeassuredValueTest.Value = (decimal)measured;
@@ -728,10 +699,10 @@ namespace p2_40_Main_PBA_Tester.Forms
                 float gain = (y2 - y1) / (x2 - x1);
                 float offset = y1 - gain * x1;
 
-                lblGain.Text = gain.ToString("F3");
-                lblOffset.Text = offset.ToString("F3");
-                tboxGain.Text = gain.ToString("F3");
-                tboxOffset.Text = offset.ToString("F3");
+                lblGain.Text = gain.ToString("F4");
+                lblOffset.Text = offset.ToString("F4");
+                tboxGain.Text = gain.ToString("F4");
+                tboxOffset.Text = offset.ToString("F4");
 
                 Console.WriteLine($"[Cal] → Gain: {gain}, Offset: {offset}");
 
@@ -812,6 +783,7 @@ namespace p2_40_Main_PBA_Tester.Forms
                 Console.WriteLine($"예외 발생: {ex.Message}");
             }
         }
+
 
 
 

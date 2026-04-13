@@ -30,6 +30,20 @@ namespace p2_40_Main_PBA_Tester
         private bool _isTestRunning = false;
         private CancellationTokenSource _cts; // 중간에 STOP 누르면 취소하기 위해 사용
 
+        public RichTextLogger JigLogger;
+        public RichTextLogger JigCommLogger;
+
+        private const int JIG_READ_DELAY = 3000; //ms
+
+        private const byte CMD_JIG_SIGNAL = 0x01;
+        private const byte ITEM_JIG_TEST_START = 0x01;
+        private const byte ITEM_JIG_TEST_STOP = 0x02;
+        private const byte ITEM_JIG_START = 0x11;
+        private const byte ITEM_JIG_STOP = 0x12;
+
+        private const byte CMD_JIG_CONTROL = 0x11;
+        private const byte ITEM_JIG_PRODUCT_DETECT = 0x01;
+        private const int WAIT_PRODUCT_DETECT = 5000; //ms
         #endregion
 
 
@@ -38,6 +52,8 @@ namespace p2_40_Main_PBA_Tester
         {
             InitializeComponent();
             ConnectEvent();
+            JigLogger = new RichTextLogger(tboxJigLog);
+            JigCommLogger = new RichTextLogger(tboxJigComm);
         }
 
 
@@ -60,6 +76,9 @@ namespace p2_40_Main_PBA_Tester
             Init_McuLotModel_Value();
             UpdateLayoutByChannelConfig();
 
+            if (CommManager.Jig != null)
+                CommManager.Jig.OnPacketReceived += Jig_OnPacketReceived;
+
             var loadingForm = new LoadingForm("Connecting...") { Owner = this, StartPosition = FormStartPosition.CenterScreen };
             loadingForm.Show();
             Application.DoEvents();
@@ -68,11 +87,116 @@ namespace p2_40_Main_PBA_Tester
                 await CommManager.ConnectAllComponent(Settings.Instance.Board_Connect_Timeout);
                 SettingMesImage();
                 SettingFtpImage();
+
             }
             finally
             {
                 loadingForm.Close();
                 loadingForm.Dispose();
+            }
+        }
+
+        private void Jig_OnPacketReceived(byte[] frame)
+        {
+            try
+            {
+                // 1. 기본 검증 (ITM 헤더: 0x49, 0x54, 0x4D)
+                if (frame == null || frame.Length < 8) return;
+                if (frame[0] != 0x49 || frame[1] != 0x54 || frame[2] != 0x4D) return;
+
+                byte cmd = frame[5];
+                byte item = frame[6];
+                // byte swNo = frame[7]; // 필요 시 사용
+
+                // 2. START 신호 처리
+                if (cmd == CMD_JIG_SIGNAL && item == ITEM_JIG_START)
+                {
+                    if (_isTestRunning) return;
+
+                    // UI 스레드 여부에 상관없이 비동기로 루틴 시작
+                    if (InvokeRequired)
+                    {
+                        // Action을 async로 감싸서 넘김 (비동기 흐름 유지)
+                        BeginInvoke(new Action(async () => await StartJigRoutine()));
+                    }
+                    else
+                    {
+                        // 이미 UI 스레드라면 Task.Run 등을 쓰지 않고 바로 비동기 호출 시작
+                        // (async void의 효과를 내기 위해 _ 변수에 담아 경고 억제)
+                        _ = StartJigRoutine();
+                    }
+                }
+
+                // 3. STOP 신호 처리
+                if (cmd == CMD_JIG_SIGNAL && item == ITEM_JIG_STOP)
+                {
+                    if (!_isTestRunning) return;
+
+                    // 취소 토큰 실행
+                    _cts?.Cancel();
+
+                    if (InvokeRequired)
+                    {
+                        BeginInvoke(new Action(async () => await StopJigRoutine()));
+                    }
+                    else
+                    {
+                        _ = StopJigRoutine();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = $"Jig_OnPacketReceived Error: {ex.Message}";
+                Console.WriteLine(errorMsg);
+                JigLogger.Info(errorMsg);
+            }
+        }
+
+        private async Task StartJigRoutine()
+        {
+            if (_cts == null) _cts = new CancellationTokenSource();
+            var jig = CommManager.Jig;
+
+            try
+            {
+                // 1. 제품 안착 감지
+                byte[] tx1 = new JigProtocol(CMD_JIG_CONTROL, ITEM_JIG_PRODUCT_DETECT).GetPacket();
+                byte[] rx1 = await jig.SendAndReceivePacketAsync(tx1, WAIT_PRODUCT_DETECT, _cts.Token);
+                if (!UtilityFunctions.CheckJigRxData(tx1, rx1))
+                {
+                    JigLogger.Fail("JIG product detect fail");
+                    await StopJigRoutine();
+                    return;
+                }
+
+                // 채널별 안착 상태 (0: 없음, 1: 있음 이라고 가정)
+                byte[] detect_ch = new byte[] { rx1[7], rx1[8], rx1[9], rx1[10] };
+                Console.WriteLine($"CH1 : {rx1[7]} CH2 : {rx1[8]} CH3 : {rx1[9]} CH4 : {rx1[10]}");
+            }
+            catch (Exception ex)
+            {
+                JigLogger.Fail("START JIG ROUTINE FAIL" + ex.Message);
+            }
+            
+        }
+
+
+
+        private async Task StopJigRoutine()
+        {
+            var jig = CommManager.Jig;
+
+            try
+            {
+                byte[] tx = new JigProtocol(CMD_JIG_SIGNAL, ITEM_JIG_STOP).GetPacket();
+                byte[] rx = await jig.SendAndReceivePacketAsync(tx, JIG_READ_DELAY);
+
+                _cts.Cancel();
+            }
+            catch (Exception ex)
+            {
+                JigLogger.Fail("JIG STOP COMMAND FAIL" + ex.Message);
             }
         }
 
@@ -86,7 +210,7 @@ namespace p2_40_Main_PBA_Tester
 
         private void Init_McuLotModel_Value()
         {
-            lblValueMcuNo.Text = Settings.Instance.Mcu_No;
+            lblValueMcuNo.Text = Settings.Instance.Mc_No;
             lblValueLotNo.Text = Settings.Instance.Lot_No;
             lblValueModel.Text = Settings.Instance.Model_No;
         }
@@ -147,6 +271,32 @@ namespace p2_40_Main_PBA_Tester
             {
                 board.LogCommToUI = null;
                 board.LogTarget = null;
+            }
+        }
+
+        public void ToggleJigComm(JigPort jig, bool enable, RichTextLogger logger)
+        {
+            if (jig == null || !jig.IsOpen) // 연결안되면 자동 끊기
+            {
+                jig.LogCommToUI = null;
+                jig.LogTarget = null;
+            }
+            
+
+            if (enable)
+            {
+                jig.LogCommToUI = (tbox, msg, isTx) =>
+                {
+                    if (isTx) logger.Tx(msg);
+                    else logger.Rx(msg);
+                };
+
+                logger.Initialize();
+            }
+            else // 일부로 끊기
+            {
+                jig.LogCommToUI = null;
+                jig.LogTarget = null;
             }
         }
 
@@ -224,11 +374,11 @@ namespace p2_40_Main_PBA_Tester
 
         private void btnManualOpen_Click(object sender, EventArgs e)
         {
-            var form = new ManualForm(this)
+            var form = new ManualForm()
             {
                 StartPosition = FormStartPosition.CenterScreen
             };
-            form.ShowDialog(this);
+            form.ShowDialog();
         }
 
         private void btnCalibrationOpen_Click(object sender, EventArgs e)
@@ -242,12 +392,31 @@ namespace p2_40_Main_PBA_Tester
 
         private void btnRecipeSettingsOpen_Click(object sender, EventArgs e)
         {
+            if (Settings.Instance.USE_FTP)
+            {
+                MessageBox.Show("FTP 사용 모드에서는 레시피 세팅을 변경할 수 없습니다.\nFTP 설정을 해제해주세요.",
+                                "열기 제한", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (!RequireLogin(this)) return;
 
             var form = new RecipeSettingForm(this)
             {
                 StartPosition = FormStartPosition.CenterScreen
             };
+
+            if (tboxRecipeFilePath != null && !string.IsNullOrWhiteSpace(tboxRecipeFilePath.Text))
+            {
+                string path = tboxRecipeFilePath.Text;
+
+                // 경로가 실제 존재하는 파일일 경우에만 전달 (FTP 경로 등은 필터링됨)
+                if (File.Exists(path))
+                {
+                    form.InitialRecipePath = path;
+                }
+            }
+
             form.ShowDialog(this);
         }
 
@@ -271,7 +440,7 @@ namespace p2_40_Main_PBA_Tester
 
         private void lblValueModel_DoubleClick(object sender, EventArgs e)
         {
-            var form = new McuLotModelSettingForm(this)
+            var form = new McLotModelSettingForm(this)
             {
                 StartPosition = FormStartPosition.CenterScreen
             };
@@ -280,7 +449,7 @@ namespace p2_40_Main_PBA_Tester
 
         private void lblValueLotNo_DoubleClick(object sender, EventArgs e)
         {
-            var form = new McuLotModelSettingForm(this)
+            var form = new McLotModelSettingForm(this)
             {
                 StartPosition = FormStartPosition.CenterScreen
             };
@@ -289,7 +458,7 @@ namespace p2_40_Main_PBA_Tester
 
         private void lblValueMcuNo_DoubleClick(object sender, EventArgs e)
         {
-            var form = new McuLotModelSettingForm(this)
+            var form = new McLotModelSettingForm(this)
             {
                 StartPosition = FormStartPosition.CenterScreen
             };
@@ -564,27 +733,35 @@ namespace p2_40_Main_PBA_Tester
                     return;
                 }
 
-                // 2. Settings.Instance에 값 자동 반영 (Reflection 사용)
-                // JSON의 키 이름(예: "QR_READ_Len")과 Settings 속성 이름이 같으면 자동으로 값이 들어갑니다.
+                // 2. Settings.Instance에 레시피 값 반영
+                // 누락된 항목은 레시피 기본값을 사용하고, 알 수 없는 예전 필드는 무시한다.
                 var instance = Settings.Instance;
-                Type type = typeof(Settings);
+                Type settingsType = typeof(Settings);
+                Type recipeType = typeof(RecipeLocalBuffer);
+                var defaultRecipe = new RecipeLocalBuffer();
 
-                foreach (JProperty prop in settingsJson.Properties())
+                foreach (PropertyInfo recipeProp in recipeType.GetProperties())
                 {
-                    PropertyInfo pi = type.GetProperty(prop.Name);
-                    if (pi != null && pi.CanWrite)
+                    PropertyInfo settingsProp = settingsType.GetProperty(recipeProp.Name);
+                    if (settingsProp == null || !settingsProp.CanWrite)
+                        continue;
+
+                    object value = recipeProp.GetValue(defaultRecipe);
+                    JToken token = settingsJson[recipeProp.Name];
+
+                    if (token != null)
                     {
                         try
                         {
-                            // JSON 값을 해당 속성의 타입(int, float, bool 등)으로 변환하여 설정
-                            object value = prop.Value.ToObject(pi.PropertyType);
-                            pi.SetValue(instance, value);
+                            value = token.ToObject(settingsProp.PropertyType);
                         }
                         catch
                         {
-                            Console.WriteLine($"값 적용 실패: {prop.Name}");
+                            Console.WriteLine($"값 적용 실패: {recipeProp.Name}");
                         }
                     }
+
+                    settingsProp.SetValue(instance, value);
                 }
 
                 // 3. 실행할 Task 목록 생성 (Enable 체크 된 것만 순서대로 담기)
@@ -598,7 +775,7 @@ namespace p2_40_Main_PBA_Tester
                     // 공백을 언더바(_)로 바꾸고 뒤에 _Enable을 붙이는 규칙 사용
                     string enablePropName = taskName.Replace(" ", "_") + "_Enable";
 
-                    PropertyInfo piEnable = type.GetProperty(enablePropName);
+                    PropertyInfo piEnable = settingsType.GetProperty(enablePropName);
 
                     if (piEnable != null)
                     {
@@ -614,6 +791,7 @@ namespace p2_40_Main_PBA_Tester
 
                 instance.RunTaskList = newTaskList;
                 instance.CurrentRecipeFile = fileName;
+                instance.CurrentRecipeFilePath = displayPath;
                 instance.Save(); // config.json에도 저장
 
                 if (tboxRecipeFile != null) tboxRecipeFile.Text = instance.CurrentRecipeFile;
@@ -691,7 +869,7 @@ namespace p2_40_Main_PBA_Tester
 
             // 1) 상태 플래그 설정
             _isTestRunning = true;
-            _cts = new CancellationTokenSource(); // 취소 토큰 생성
+            if (_cts == null) _cts = new CancellationTokenSource(); // 취소 토큰 생성
 
             // 2) UI 변경 (버튼을 STOP으로, 로딩바 마퀴 시작)
             btnStartStop.Text = "STOP";
@@ -764,7 +942,16 @@ namespace p2_40_Main_PBA_Tester
             var pba = CommManager.Pbas[chIdx];       // Serial
             var qr = CommManager.QrPorts[chIdx];     // QR
 
+            // ★ MesData 인스턴스 생성 + 공통값 세팅
+            var mesData = new MesData();
+            mesData.EQUIPMENT_ID = Settings.Instance.Mc_No;           // 장비 고유 ID
+            mesData.TESTER_VER = Settings.Instance.Tester_Ver;             // 테스터 S/W 버전
+            mesData.MODEL = Settings.Instance.Model_No;
+            mesData.WORK_TIME = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            mesData.CHANNEL = $"{chIdx + 1}";
+            mesData.SPEC_FILE = Settings.Instance.CurrentRecipeFilePath;
 
+            List<string> ngItems = new List<string>();    // NG 항목 수집용
             try
             {
                 //로그 연결
@@ -784,27 +971,30 @@ namespace p2_40_Main_PBA_Tester
                     return;
                 }
 
+
                 bool totalResult = true; // 전체 결과 (하나라도 실패하면 false)
 
                 // 2) 공정 리스트 순회
                 for (int step = 0; step < taskList.Count; step++)
                 {
-                    await Task.Delay(100); //공정 사이 딜레이
+                    await Task.Delay(100, token); //공정 사이 딜레이
 
                     // 스탑 버튼 눌렸는지 체크
                     if (token.IsCancellationRequested)
                     {
                         ch.StopInspection();
+                        ch.Logger.Fail($"[CH{chIdx + 1}] Test is stopped.");
                         return;
                     }
 
                     string taskName = taskList[step];
 
-                    // 2-1) 현재 단계 노란색(RUNNING) 표시
-                    ch.UpdateItemStatus(step, ChControl.TaskStatus.RUNNING);
+                    // 2-1) 현재 단계 노란색(TESTING) 표시
+                    ch.UpdateItemStatus(step, ChControl.TaskStatus.TESTING);
 
                     // 2-2) 실제 검사 함수 호출 (Data/TaskFunctions.cs)
-                    bool isPass = await TaskFunctions.RunTestItem(taskName, chIdx, ch, token, totalResult);
+                    bool isPass = await TaskFunctions.RunTestItem(taskName, chIdx, ch, token, totalResult, mesData);
+
 
                     // 2-3) 결과 처리
                     if (isPass)
@@ -813,33 +1003,95 @@ namespace p2_40_Main_PBA_Tester
                     }
                     else
                     {
-                        ch.UpdateItemStatus(step, ChControl.TaskStatus.FAIL); // 빨간색
-                        totalResult = false; // 전체 실패
+                        ch.UpdateItemStatus(step, ChControl.TaskStatus.FAIL);
+                        totalResult = false;
+                        ngItems.Add(taskName);
 
-                        // ★ 디버그 모드가 아니면 여기서 즉시 중단
+                        //await Init_Board(chIdx, ch, token);
+
                         if (!Settings.Instance.Use_Debug_Mode)
                         {
-                            // 남은 공정들 일괄 FAIL 처리 (빨간색 칠하기)
                             for (int remainStep = step + 1; remainStep < taskList.Count; remainStep++)
                             {
-                                // FAIL로 찍거나, 구분하고 싶으면 SKIP 등의 상태를 만들어서 찍어도 됨
                                 ch.UpdateItemStatus(remainStep, ChControl.TaskStatus.FAIL);
                             }
 
                             break;
                         }
-                        // 디버그 모드(true)면 다음 루프로 계속 진행
                     }
 
                 }
 
-                await Init_Board(chIdx, ch, token); //모든 작업 완료 후 테스터 보드를 초기화 한다.
+                
 
+
+                // ★★★ 검사 끝 → DB 전송 ★★★
+                if (Settings.Instance.USE_MES)
+                {
+                    ch.Logger.Section("MES");
+                    mesData.TOTAL_JUDGMENT = totalResult ? "PASS" : "FAIL";
+                    mesData.NG_ITEM = string.Join(",", ngItems);
+                    mesData.TACT_TIME = ch.GetElapsedTime();
+
+                    bool mesResult = true;
+                    try
+                    {
+                        await mesData.InsertAsync(ct: CancellationToken.None);
+                        ch.Logger.Pass($"Complete data transfer to database");
+                    }
+                    catch (Exception ex)
+                    {
+                        ch.Logger.Fail($"Data transfer to database failed : {ex.Message}");
+                        mesResult = false;
+                        totalResult = false;
+                    }
+                    ch.Logger.ResultSection("MES", mesResult);
+                    mesData.MES_RESULT = mesResult ? "PASS" : "FAIL";
+                }
+                else
+                {
+                    mesData.TOTAL_JUDGMENT = totalResult ? "PASS" : "FAIL";
+                    mesData.NG_ITEM = string.Join(",", ngItems);
+                    mesData.TACT_TIME = ch.GetElapsedTime();
+                    mesData.MES_RESULT = "SKIP";
+                }
+
+
+                bool csvOk = mesData.SaveResultToCsv();
+                if (csvOk)
+                {
+                    ch.Logger.NewLine();
+                    ch.Logger.Info($"Log file save complete");
+                }
+                else
+                {
+                    ch.Logger.NewLine();
+                    ch.Logger.Info($"Log file save fail");
+                }
+
+
+
+
+                //string ngDetail = ngItems.Count > 0 ? $"NG: {string.Join(", ", ngItems)}" : "";
+                ch.Logger.TotalResult(totalResult);
 
                 ch.EndInspection(totalResult);
             }
+            catch (OperationCanceledException)
+            {
+                ch.StopInspection();
+                ch.Logger.Info($"[CH{chIdx + 1}] Test stopped.");
+            }
             finally
             {
+                try
+                {
+                    await Init_Board(chIdx, ch, CancellationToken.None);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"TESTER INIT 실패 : {ex.Message}[{chIdx + 1}]");
+                }
                 ToggleLogComm(board, false, null);
                 ToggleLogComm(pba, false, null);
                 ToggleLogComm(qr, false, null);
